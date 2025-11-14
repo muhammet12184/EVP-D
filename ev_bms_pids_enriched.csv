@@ -1,0 +1,94 @@
+Category,Parameter,Mode,PID,ECU,Description,Formula,Byte_Positions,Min,Max,Units
+Nissan Leaf / Renault Zoe,Battery SOH,22,015B,BMS (CAN ID 0x7E4),High-voltage battery state-of-health percentage derived from pack diagnostics.,A,Byte A,0,100,%
+Nissan Leaf / Renault Zoe,Battery SOC,22,015C,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+Nissan Leaf / Renault Zoe,Battery Voltage,22,015D,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+Nissan Leaf / Renault Zoe,Battery Current,22,015E,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+Nissan Leaf / Renault Zoe,Battery Temp,22,015F,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+Nissan Leaf / Renault Zoe,Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+Nissan Leaf / Renault Zoe,Battery Capacity (kWh),22,0161,BMS (CAN ID 0x7E4),Estimated available battery energy capacity.,(A*256+B)/100,Bytes A and B,0,100,kWh
+Nissan Leaf / Renault Zoe,Cell Min Voltage,22,0162,BMS (CAN ID 0x7E4),Lowest monitored cell voltage.,A/50,Byte A,2.5,4.2,V
+Nissan Leaf / Renault Zoe,Cell Max Voltage,22,0163,BMS (CAN ID 0x7E4),Highest monitored cell voltage.,A/50,Byte A,2.5,4.2,V
+"Hyundai / Kia (Kona, Ioniq, Niro, EV6)",Battery SOH,22,0170,BMS (CAN ID 0x7E4),High-voltage battery state-of-health percentage derived from pack diagnostics.,A,Byte A,0,100,%
+"Hyundai / Kia (Kona, Ioniq, Niro, EV6)",Battery SOC,22,015C,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+"Hyundai / Kia (Kona, Ioniq, Niro, EV6)",Battery Voltage,22,015D,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+"Hyundai / Kia (Kona, Ioniq, Niro, EV6)",Battery Current,22,015E,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+"Hyundai / Kia (Kona, Ioniq, Niro, EV6)",Battery Temp,22,015F,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+"Hyundai / Kia (Kona, Ioniq, Niro, EV6)",Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+"Hyundai / Kia (Kona, Ioniq, Niro, EV6)",DC Charge Power,22,0171,BMS (CAN ID 0x7E4),Instantaneous DC fast-charging power.,(A*256+B)/10,Bytes A and B,0,300,kW
+"Hyundai / Kia (Kona, Ioniq, Niro, EV6)",AC Charge Power,22,0172,BMS (CAN ID 0x7E4),Instantaneous AC charging power.,(A*256+B)/10,Bytes A and B,0,22,kW
+"Hyundai / Kia (Kona, Ioniq, Niro, EV6)",Battery Inlet Temp,22,0173,BMS (CAN ID 0x7E4),Coolant inlet temperature at the battery.,A-40,Byte A,-40,100,°C
+PSA (Peugeot / Opel / Citroën),Battery SOH,22,F40D,BMS (CAN ID 0x7E4),High-voltage battery state-of-health percentage derived from pack diagnostics.,A,Byte A,0,100,%
+PSA (Peugeot / Opel / Citroën),Battery SOC,22,015C,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+PSA (Peugeot / Opel / Citroën),Battery Voltage,22,015D,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+PSA (Peugeot / Opel / Citroën),Battery Current,22,015E,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+PSA (Peugeot / Opel / Citroën),Battery Temp,22,015F,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+PSA (Peugeot / Opel / Citroën),Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+PSA (Peugeot / Opel / Citroën),Battery Energy (kWh),22,F40E,BMS (CAN ID 0x7E4),Computed stored energy in HV battery.,(A*256+B)/10,Bytes A and B,0,60,kWh
+BMW i3,Battery SOH,22,2A38,BMS (CAN ID 0x7E4),High-voltage battery state-of-health percentage derived from pack diagnostics.,A,Byte A,0,100,%
+BMW i3,Battery SOC,22,015C,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+BMW i3,Battery Voltage,22,015D,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+BMW i3,Battery Current,22,015E,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+BMW i3,Battery Temp,22,015F,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+BMW i3,Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+BMW i3,Usable Capacity (kWh),22,2A39,BMS (CAN ID 0x7E4),Portion of HV battery capacity accessible for driving.,(A*256+B)/100,Bytes A and B,0,42,kWh
+BMW i3,DC Fast Charge Count,22,2A3A,BMS (CAN ID 0x7E4),Cumulative DC fast-charge session count.,A,Byte A,0,5000,Count
+BMW i4 / iX,Battery SOC,22,015C,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+BMW i4 / iX,Battery Voltage,22,015D,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+BMW i4 / iX,Battery Current,22,015E,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+BMW i4 / iX,Battery Temp,22,015F,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+BMW i4 / iX,Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+"Mercedes EQ (EQA, EQB, EQE, EQS)",Battery SOC,22,015C,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+"Mercedes EQ (EQA, EQB, EQE, EQS)",Battery Voltage,22,015D,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+"Mercedes EQ (EQA, EQB, EQE, EQS)",Battery Current,22,015E,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+"Mercedes EQ (EQA, EQB, EQE, EQS)",Battery Temp,22,015F,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+"Mercedes EQ (EQA, EQB, EQE, EQS)",Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+"Audi e-tron (Q4, Q8, GT)",Battery SOC,22,015C,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+"Audi e-tron (Q4, Q8, GT)",Battery Voltage,22,015D,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+"Audi e-tron (Q4, Q8, GT)",Battery Current,22,015E,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+"Audi e-tron (Q4, Q8, GT)",Battery Temp,22,015F,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+"Audi e-tron (Q4, Q8, GT)",Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+"Volvo Recharge (EX30, C40, XC40)",Battery SOC,22,015C,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+"Volvo Recharge (EX30, C40, XC40)",Battery Voltage,22,015D,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+"Volvo Recharge (EX30, C40, XC40)",Battery Current,22,015E,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+"Volvo Recharge (EX30, C40, XC40)",Battery Temp,22,015F,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+"Volvo Recharge (EX30, C40, XC40)",Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+Porsche Taycan,Battery SOC,22,015C,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+Porsche Taycan,Battery Voltage,22,015D,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+Porsche Taycan,Battery Current,22,015E,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+Porsche Taycan,Battery Temp,22,015F,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+Porsche Taycan,Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+"BYD (Atto 3, Dolphin, Seal)",Battery SOC,22,015C,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+"BYD (Atto 3, Dolphin, Seal)",Battery Voltage,22,015D,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+"BYD (Atto 3, Dolphin, Seal)",Battery Current,22,015E,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+"BYD (Atto 3, Dolphin, Seal)",Battery Temp,22,015F,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+"BYD (Atto 3, Dolphin, Seal)",Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+"MG (ZS EV, MG4)",Battery SOC,22,3101,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+"MG (ZS EV, MG4)",Battery Voltage,22,3102,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+"MG (ZS EV, MG4)",Battery Current,22,3103,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+"MG (ZS EV, MG4)",Battery Temp,22,3104,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+"MG (ZS EV, MG4)",Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+Tesla Model S / 3 / X / Y,Battery SOC,22,1187,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+Tesla Model S / 3 / X / Y,Battery Voltage,22,1188,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+Tesla Model S / 3 / X / Y,Battery Current,22,1189,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+Tesla Model S / 3 / X / Y,Battery Temp,22,118A,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+Tesla Model S / 3 / X / Y,Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+TOGG T10X,Battery SOC,22,2101,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+TOGG T10X,Battery Voltage,22,2102,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+TOGG T10X,Battery Current,22,2103,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+TOGG T10X,Battery Temp,22,2104,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+TOGG T10X,Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+Honda e,Battery SOC,22,2101,BMS (CAN ID 0x7E2),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+Honda e,Battery Voltage,22,2102,BMS (CAN ID 0x7E2),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+Honda e,Battery Current,22,2103,BMS (CAN ID 0x7E2),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+Honda e,Battery Temp,22,2104,BMS (CAN ID 0x7E2),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+Honda e,Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E2),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+Toyota bZ4X,Battery SOC,22,2201,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+Toyota bZ4X,Battery Voltage,22,2202,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+Toyota bZ4X,Battery Current,22,2203,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+Toyota bZ4X,Battery Temp,22,2204,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+Toyota bZ4X,Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V
+Mini Cooper SE,Battery SOC,22,015C,BMS (CAN ID 0x7E4),Instantaneous state-of-charge of the HV battery.,A,Byte A,0,100,%
+Mini Cooper SE,Battery Voltage,22,015D,BMS (CAN ID 0x7E4),Pack voltage measured across the HV terminals.,(A*256+B)/100,Bytes A and B,0,500,V
+Mini Cooper SE,Battery Current,22,015E,BMS (CAN ID 0x7E4),HV battery current (positive = discharge).,(A*256+B)/10,Bytes A and B,-1000,1000,A
+Mini Cooper SE,Battery Temp,22,015F,BMS (CAN ID 0x7E4),Average HV battery temperature.,A-40,Byte A,-40,100,°C
+Mini Cooper SE,Cell Voltage Delta,22,0160,BMS (CAN ID 0x7E4),Difference between highest and lowest monitored cell voltage.,A/100,Byte A,0,1,V

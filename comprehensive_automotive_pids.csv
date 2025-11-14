@@ -1,0 +1,893 @@
+Name;Mode/PID;Equation;Min;Max;Units;Header;ECU;Description;BytePositions
+=== OBD-II MODE 01 - STANDARD PID CODES (ECM - Engine Control Module) ===
+Monitor Status;01 01;Bit encoded;0;255;Bit;7DF;ECM;DTC monitoring status for supported systems;A
+Freeze DTC;01 02;A;B;0;255;DTC;7DF;ECM;DTC that caused freeze frame;A-B
+Fuel System Status;01 03;A;B;0;255;Status;7DF;ECM;Fuel system 1 and 2 status;A-B
+Calculated Engine Load;01 04;A*100/255;0;100;%;7DF;ECM;Calculated engine load value;A
+Engine Coolant Temperature;01 05;A-40;-40;215;°C;7DF;ECM;Engine coolant temperature sensor;A
+Short Term Fuel Trim Bank 1;01 06;(A-128)*100/128;-100;99.2;%;7DF;ECM;Short term fuel trim percentage;A
+Long Term Fuel Trim Bank 1;01 07;(A-128)*100/128;-100;99.2;%;7DF;ECM;Long term fuel trim percentage;A
+Short Term Fuel Trim Bank 2;01 08;(A-128)*100/128;-100;99.2;%;7DF;ECM;Short term fuel trim bank 2;A
+Long Term Fuel Trim Bank 2;01 09;(A-128)*100/128;-100;99.2;%;7DF;ECM;Long term fuel trim bank 2;A
+Fuel Pressure;01 0A;A*3;0;765;kPa;7DF;ECM;Fuel rail pressure (gauge);A
+Intake Manifold Absolute Pressure;01 0B;A;0;255;kPa;7DF;ECM;Intake manifold absolute pressure;A
+Engine RPM;01 0C;(A*256+B)/4;0;16383.75;rpm;7DF;ECM;Engine revolutions per minute;A-B
+Vehicle Speed;01 0D;A;0;255;km/h;7DF;ECM;Vehicle speed sensor;A
+Timing Advance;01 0E;(A-128)/2;-64;63.5;°;7DF;ECM;Timing advance before TDC;A
+Intake Air Temperature;01 0F;A-40;-40;215;°C;7DF;ECM;Intake air temperature sensor;A
+MAF Air Flow Rate;01 10;(A*256+B)/100;0;655.35;g/s;7DF;ECM;Mass air flow sensor;A-B
+Throttle Position;01 11;A*100/255;0;100;%;7DF;ECM;Throttle position sensor;A
+Commanded Secondary Air Status;01 12;A;0;255;Status;7DF;ECM;Secondary air injection status;A
+O2 Sensors Present;01 13;A;0;255;Bit;7DF;ECM;Oxygen sensors present in banks;A
+O2 Sensor 1 Bank 1 Voltage;01 14;A/200;B/200;0;1.275;V;7DF;ECM;O2 sensor voltage and trim;A-B
+O2 Sensor 2 Bank 1 Voltage;01 15;A/200;B/200;0;1.275;V;7DF;ECM;O2 sensor voltage and trim;A-B
+O2 Sensor 3 Bank 1 Voltage;01 16;A/200;B/200;0;1.275;V;7DF;ECM;O2 sensor voltage and trim;A-B
+O2 Sensor 4 Bank 1 Voltage;01 17;A/200;B/200;0;1.275;V;7DF;ECM;O2 sensor voltage and trim;A-B
+O2 Sensor 1 Bank 2 Voltage;01 18;A/200;B/200;0;1.275;V;7DF;ECM;O2 sensor voltage and trim;A-B
+O2 Sensor 2 Bank 2 Voltage;01 19;A/200;B/200;0;1.275;V;7DF;ECM;O2 sensor voltage and trim;A-B
+O2 Sensor 3 Bank 2 Voltage;01 1A;A/200;B/200;0;1.275;V;7DF;ECM;O2 sensor voltage and trim;A-B
+O2 Sensor 4 Bank 2 Voltage;01 1B;A/200;B/200;0;1.275;V;7DF;ECM;O2 sensor voltage and trim;A-B
+OBD Standards Compliance;01 1C;A;0;255;Standard;7DF;ECM;OBD standard this vehicle conforms to;A
+O2 Sensors Present Alt;01 1D;A;B;0;255;Bit;7DF;ECM;Oxygen sensors present (alternate);A-B
+Auxiliary Input Status;01 1E;A;0;255;Bit;7DF;ECM;Power take-off status;A
+Engine Run Time;01 1F;(A*256+B);0;65535;s;7DF;ECM;Time since engine start;A-B
+PIDs Supported 21-40;01 20;Bit encoded;0;255;Bit;7DF;ECM;Supported PIDs 21-40;A-B-C-D
+Distance Traveled with MIL;01 21;(A*256+B);0;65535;km;7DF;ECM;Distance traveled with MIL on;A-B
+Fuel Rail Pressure (Diesel);01 22;(A*256+B)*0.079;0;5177.5;kPa;7DF;ECM;Fuel rail pressure (relative to manifold vacuum);A-B
+Fuel Rail Pressure (Gasoline);01 23;(A*256+B)*10;0;655350;kPa;7DF;ECM;Fuel rail pressure (absolute);A-B
+O2 Sensor 1 Bank 1 Lambda;01 24;((A*256+B)/32768)-1;0;2;Lambda;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 2 Bank 1 Lambda;01 25;((A*256+B)/32768)-1;0;2;Lambda;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 3 Bank 1 Lambda;01 26;((A*256+B)/32768)-1;0;2;Lambda;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 4 Bank 1 Lambda;01 27;((A*256+B)/32768)-1;0;2;Lambda;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 5 Bank 1 Lambda;01 28;((A*256+B)/32768)-1;0;2;Lambda;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 6 Bank 1 Lambda;01 29;((A*256+B)/32768)-1;0;2;Lambda;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 7 Bank 1 Lambda;01 2A;((A*256+B)/32768)-1;0;2;Lambda;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 8 Bank 1 Lambda;01 2B;((A*256+B)/32768)-1;0;2;Lambda;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+Commanded EGR;01 2C;A*100/255;0;100;%;7DF;ECM;EGR valve position;A
+EGR Error;01 2D;((A-128)*100/128);-100;99.2;%;7DF;ECM;EGR error percentage;A
+Commanded Evaporative Purge;01 2E;A*100/255;0;100;%;7DF;ECM;Evaporative purge valve position;A
+Fuel Tank Level Input;01 2F;A*100/255;0;100;%;7DF;ECM;Fuel tank level from sensor;A
+Warm-ups Since DTC Cleared;01 30;A;0;255;Count;7DF;ECM;Number of warm-ups since codes cleared;A
+Distance Since DTC Cleared;01 31;(A*256+B);0;65535;km;7DF;ECM;Distance traveled since codes cleared;A-B
+Evap System Vapor Pressure;01 32;((A*256+B)/4)-8192;-8192;8191.75;Pa;7DF;ECM;Evaporative system vapor pressure;A-B
+Barometric Pressure;01 33;A;0;255;kPa;7DF;ECM;Barometric pressure sensor;A
+O2 Sensor 1 Bank 1 Lambda Alt;01 34;((A*256+B)/32768)-1;C/200;0;2;Lambda/V;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 2 Bank 1 Lambda Alt;01 35;((A*256+B)/32768)-1;C/200;0;2;Lambda/V;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 3 Bank 1 Lambda Alt;01 36;((A*256+B)/32768)-1;C/200;0;2;Lambda/V;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 4 Bank 1 Lambda Alt;01 37;((A*256+B)/32768)-1;C/200;0;2;Lambda/V;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 5 Bank 1 Lambda Alt;01 38;((A*256+B)/32768)-1;C/200;0;2;Lambda/V;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 6 Bank 1 Lambda Alt;01 39;((A*256+B)/32768)-1;C/200;0;2;Lambda/V;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 7 Bank 1 Lambda Alt;01 3A;((A*256+B)/32768)-1;C/200;0;2;Lambda/V;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+O2 Sensor 8 Bank 1 Lambda Alt;01 3B;((A*256+B)/32768)-1;C/200;0;2;Lambda/V;7DF;ECM;O2 sensor lambda and voltage;A-B-C-D
+Catalyst Temperature Bank 1 Sensor 1;01 3C;((A*256+B)/10)-40;-40;6513.5;°C;7DF;ECM;Catalyst temperature before converter;A-B
+Catalyst Temperature Bank 2 Sensor 1;01 3D;((A*256+B)/10)-40;-40;6513.5;°C;7DF;ECM;Catalyst temperature before converter;A-B
+Catalyst Temperature Bank 1 Sensor 2;01 3E;((A*256+B)/10)-40;-40;6513.5;°C;7DF;ECM;Catalyst temperature after converter;A-B
+Catalyst Temperature Bank 2 Sensor 2;01 3F;((A*256+B)/10)-40;-40;6513.5;°C;7DF;ECM;Catalyst temperature after converter;A-B
+PIDs Supported 41-60;01 40;Bit encoded;0;255;Bit;7DF;ECM;Supported PIDs 41-60;A-B-C-D
+Monitor Status This Drive Cycle;01 41;Bit encoded;0;255;Bit;7DF;ECM;Monitor status this drive cycle;A-B-C-D
+Control Module Voltage;01 42;((A*256+B)/1000);0;65.535;V;7DF;ECM;Control module voltage supply;A-B
+Absolute Load Value;01 43;((A*256+B)*100/255);0;100;%;7DF;ECM;Absolute load value;A-B
+Commanded Equivalence Ratio;01 44;((A*256+B)/32768);0;2;Ratio;7DF;ECM;Commanded air-fuel equivalence ratio;A-B
+Relative Throttle Position;01 45;A*100/255;0;100;%;7DF;ECM;Relative throttle position;A
+Ambient Air Temperature;01 46;A-40;-40;215;°C;7DF;ECM;Ambient air temperature sensor;A
+Absolute Throttle Position B;01 47;A*100/255;0;100;%;7DF;ECM;Absolute throttle position B;A
+Absolute Throttle Position C;01 48;A*100/255;0;100;%;7DF;ECM;Absolute throttle position C;A
+Accelerator Pedal Position D;01 49;A*100/255;0;100;%;7DF;ECM;Accelerator pedal position D;A
+Accelerator Pedal Position E;01 4A;A*100/255;0;100;%;7DF;ECM;Accelerator pedal position E;A
+Accelerator Pedal Position F;01 4B;A*100/255;0;100;%;7DF;ECM;Accelerator pedal position F;A
+Commanded Throttle Actuator;01 4C;A*100/255;0;100;%;7DF;ECM;Commanded throttle actuator control;A
+Time Run with MIL On;01 4D;(A*256+B);0;65535;min;7DF;ECM;Time run with MIL on;A-B
+Time Since DTCs Cleared;01 4E;(A*256+B);0;65535;min;7DF;ECM;Time since trouble codes cleared;A-B
+Maximum Value Equivalence Ratio;01 4F;((A*256+B)/32768);0;2;Ratio;7DF;ECM;Maximum value for equivalence ratio;A-B-C-D
+Maximum Value Air Flow Rate;01 50;A;B;C;D;g/s;7DF;ECM;Maximum value for air flow rate;A-B-C-D
+Fuel Type;01 51;A;0;255;Type;7DF;ECM;Fuel type;A
+Ethanol Fuel Percent;01 52;A*100/255;0;100;%;7DF;ECM;Ethanol fuel percentage;A
+Absolute Evap System Vapor Pressure;01 53;((A*256+B)/200);0;327.675;kPa;7DF;ECM;Absolute evap system vapor pressure;A-B
+Evap System Vapor Pressure Alt;01 54;((A*256+B)/4)-8192;-8192;8191.75;Pa;7DF;ECM;Evap system vapor pressure (alternate);A-B
+Short Term Secondary O2 Trim Bank 1;01 55;((A-128)*100/128);-100;99.2;%;7DF;ECM;Short term secondary O2 trim;A-B
+Long Term Secondary O2 Trim Bank 1;01 56;((A-128)*100/128);-100;99.2;%;7DF;ECM;Long term secondary O2 trim;A-B
+Short Term Secondary O2 Trim Bank 2;01 57;((A-128)*100/128);-100;99.2;%;7DF;ECM;Short term secondary O2 trim;A-B
+Long Term Secondary O2 Trim Bank 2;01 58;((A-128)*100/128);-100;99.2;%;7DF;ECM;Long term secondary O2 trim;A-B
+Fuel Rail Pressure Absolute;01 59;((A*256+B)*10);0;655350;kPa;7DF;ECM;Fuel rail pressure absolute;A-B
+Relative Accelerator Pedal Position;01 5A;A*100/255;0;100;%;7DF;ECM;Relative accelerator pedal position;A
+Hybrid Battery Pack Remaining Life;01 5B;A;0;100;%;7DF;BMS;Hybrid battery pack remaining life;A
+Engine Oil Temperature;01 5C;A-40;-40;215;°C;7DF;ECM;Engine oil temperature sensor;A
+Fuel Injection Timing;01 5D;((A*256+B)/128)-210;0;302;°;7DF;ECM;Fuel injection timing;A-B
+Engine Fuel Rate;01 5E;((A*256+B)/20);0;3212.75;L/h;7DF;ECM;Engine fuel rate;A-B
+Emission Requirements;01 5F;A;0;255;Standard;7DF;ECM;Emission requirements to which vehicle is designed;A
+PIDs Supported 61-80;01 60;Bit encoded;0;255;Bit;7DF;ECM;Supported PIDs 61-80;A-B-C-D
+Driver's Demand Engine Percent Torque;01 61;A-125;-125;130;%;7DF;ECM;Driver's demand engine percent torque;A
+Actual Engine Percent Torque;01 62;A-125;-125;130;%;7DF;ECM;Actual engine percent torque;A
+Engine Reference Torque;01 63;(A*256+B);0;65535;Nm;7DF;ECM;Engine reference torque;A-B
+Engine Percent Torque Data Idle;01 64;A-125;-125;130;%;7DF;ECM;Engine percent torque at idle;A
+Engine Percent Torque Data Point 1;01 65;A-125;-125;130;%;7DF;ECM;Engine percent torque at point 1;A
+Engine Percent Torque Data Point 2;01 66;A-125;-125;130;%;7DF;ECM;Engine percent torque at point 2;A
+Engine Percent Torque Data Point 3;01 67;A-125;-125;130;%;7DF;ECM;Engine percent torque at point 3;A
+Engine Percent Torque Data Point 4;01 68;A-125;-125;130;%;7DF;ECM;Engine percent torque at point 4;A
+Mass Air Flow Sensor;01 69;(A*256+B)/100;0;655.35;g/s;7DF;ECM;Mass air flow sensor A;A-B
+Engine Coolant Temperature;01 6A;A-40;-40;215;°C;7DF;ECM;Engine coolant temperature;A
+Intake Air Temperature Sensor;01 6B;A-40;-40;215;°C;7DF;ECM;Intake air temperature sensor;A
+Commanded EGR and EGR Error;01 6C;A*100/255;((B-128)*100/128);0;100;%/%;7DF;ECM;Commanded EGR and EGR error;A-B
+Commanded Diesel Intake Air Flow;01 6D;((A*256+B)/100);0;655.35;g/s;7DF;ECM;Commanded diesel intake air flow;A-B
+Exhaust Gas Recirculation Temperature;01 6E;((A*256+B)/10)-40;-40;6513.5;°C;7DF;ECM;EGR temperature sensor;A-B
+Commanded Throttle Actuator Control;01 6F;A*100/255;0;100;%;7DF;ECM;Commanded throttle actuator control;A
+Fuel Pressure Control System;01 70;A;B;C;D;Status;7DF;ECM;Fuel pressure control system;A-B-C-D
+Injection Pressure Control;01 71;((A*256+B)*10);0;655350;kPa;7DF;ECM;Injection pressure control;A-B
+Turbocharger Compressor Inlet Pressure;01 72;((A*256+B)/100);0;655.35;kPa;7DF;ECM;Turbocharger compressor inlet pressure;A-B
+Boost Pressure Control;01 73;((A*256+B)/100);0;655.35;kPa;7DF;ECM;Boost pressure control;A-B
+Variable Geometry Turbo Control;01 74;A*100/255;0;100;%;7DF;ECM;Variable geometry turbo control;A
+Wastegate Control;01 75;A*100/255;0;100;%;7DF;ECM;Wastegate control;A
+Exhaust Pressure;01 76;((A*256+B)/100);0;655.35;kPa;7DF;ECM;Exhaust pressure sensor;A-B
+Turbocharger RPM;01 77;((A*256+B)/4);0;16383.75;rpm;7DF;ECM;Turbocharger RPM sensor;A-B
+Turbocharger Temperature 1;01 78;((A*256+B)/10)-40;-40;6513.5;°C;7DF;ECM;Turbocharger temperature sensor 1;A-B
+Turbocharger Temperature 2;01 79;((A*256+B)/10)-40;-40;6513.5;°C;7DF;ECM;Turbocharger temperature sensor 2;A-B
+Charge Air Cooler Temperature;01 7A;((A*256+B)/10)-40;-40;6513.5;°C;7DF;ECM;Charge air cooler temperature;A-B
+Exhaust Gas Temperature Bank 1;01 7B;((A*256+B)/10)-40;-40;6513.5;°C;7DF;ECM;Exhaust gas temperature bank 1;A-B
+Exhaust Gas Temperature Bank 2;01 7C;((A*256+B)/10)-40;-40;6513.5;°C;7DF;ECM;Exhaust gas temperature bank 2;A-B
+PIDs Supported 81-A0;01 80;Bit encoded;0;255;Bit;7DF;ECM;Supported PIDs 81-A0;A-B-C-D
+Engine Run Time for Auxiliary Emissions;01 81;(A*256+B);0;65535;s;7DF;ECM;Engine run time for auxiliary emissions;A-B
+Engine Run Time for Auxiliary Emissions Control;01 82;(A*256+B);0;65535;s;7DF;ECM;Engine run time for auxiliary emissions control;A-B
+NOx Sensor;01 83;((A*256+B)/1000);0;65.535;ppm;7DF;ECM;NOx sensor concentration;A-B
+Manifold Surface Temperature;01 84;((A*256+B)/10)-40;-40;6513.5;°C;7DF;ECM;Manifold surface temperature;A-B
+NOx Reagent System;01 85;A;B;C;D;Status;7DF;ECM;NOx reagent system;A-B-C-D
+Particulate Matter Sensor;01 86;((A*256+B)/100);0;655.35;mg/m³;7DF;ECM;Particulate matter sensor;A-B
+Intake Manifold Absolute Pressure 2;01 87;((A*256+B)/100);0;655.35;kPa;7DF;ECM;Intake manifold absolute pressure sensor 2;A-B
+=== OBD-II MODE 09 - VEHICLE INFORMATION ===
+VIN Message Count;09 01;A;0;255;Count;7DF;ECM;Number of VIN messages;A
+VIN;09 02;ASCII;0;255;String;7DF;ECM;Vehicle Identification Number;A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R-S-T-U-V-W
+Calibration ID Message Count;09 03;A;0;255;Count;7DF;ECM;Number of calibration ID messages;A
+Calibration ID;09 04;ASCII;0;255;String;7DF;ECM;Calibration identification;A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R-S-T-U-V-W
+Calibration Verification Numbers;09 05;ASCII;0;255;String;7DF;ECM;Calibration verification numbers;A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R-S-T-U-V-W
+ECU Name;09 0A;ASCII;0;255;String;7DF;ECM;ECU name;A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R-S-T-U-V-W
+=== UDS MODE 22 - READ DATA BY IDENTIFIER (STANDARD) ===
+Battery State of Health;22 015B;A;0;100;%;7E4;BMS;Battery state of health percentage;A
+Battery State of Charge;22 015C;A;0;100;%;7E4;BMS;Battery state of charge percentage;A
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;Battery pack total voltage;A-B
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery pack current (positive=charge);A-B
+Battery Temperature;22 015F;A-40;-40;100;°C;7E4;BMS;Battery pack average temperature;A
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;Maximum cell voltage difference;A
+Battery Capacity;22 0161;(A*256+B)/100;0;100;kWh;7E4;BMS;Battery pack capacity;A-B
+Cell Minimum Voltage;22 0162;A/50;2.5;4.2;V;7E4;BMS;Minimum cell voltage;A
+Cell Maximum Voltage;22 0163;A/50;2.5;4.2;V;7E4;BMS;Maximum cell voltage;A
+Battery Charging Power Limit;22 0164;(A*256+B)/10;0;300;kW;7E4;BMS;Maximum charging power limit;A-B
+Battery Discharging Power Limit;22 0165;(A*256+B)/10;0;300;kW;7E4;BMS;Maximum discharging power limit;A-B
+Battery Inlet Temperature;22 0166;A-40;-40;100;°C;7E4;BMS;Battery cooling inlet temperature;A
+Battery Outlet Temperature;22 0167;A-40;-40;100;°C;7E4;BMS;Battery cooling outlet temperature;A
+Battery Heater Status;22 0168;A;0;255;Status;7E4;BMS;Battery heater on/off status;A
+Battery Cooler Status;22 0169;A;0;255;Status;7E4;BMS;Battery cooler on/off status;A
+=== UDS MODE 22 - ECM (ENGINE CONTROL MODULE) ===
+Engine Oil Pressure;22 1001;(A*256+B)/100;0;1000;kPa;7E0;ECM;Engine oil pressure sensor;A-B
+Engine Oil Level;22 1002;A;0;100;%;7E0;ECM;Engine oil level percentage;A
+Engine Oil Temperature;22 1003;A-40;-40;215;°C;7E0;ECM;Engine oil temperature sensor;A
+Fuel Pressure Sensor;22 1004;(A*256+B)*10;0;655350;kPa;7E0;ECM;Fuel rail pressure sensor;A-B
+Fuel Temperature;22 1005;A-40;-40;215;°C;7E0;ECM;Fuel temperature sensor;A
+Fuel Flow Rate;22 1006;(A*256+B)/100;0;655.35;L/h;7E0;ECM;Instantaneous fuel flow rate;A-B
+Fuel Consumption Total;22 1007;(A*256+B*256+C*256*256+D*256*256*256)/100;0;42949672.95;L;7E0;ECM;Total fuel consumption;A-B-C-D
+Injector Pulse Width Bank 1;22 1008;(A*256+B)/1000;0;65.535;ms;7E0;ECM;Injector pulse width bank 1;A-B
+Injector Pulse Width Bank 2;22 1009;(A*256+B)/1000;0;65.535;ms;7E0;ECM;Injector pulse width bank 2;A-B
+Ignition Timing Advance;22 100A;(A-128)/2;-64;63.5;°;7E0;ECM;Ignition timing advance;A
+Camshaft Position Bank 1 Intake;22 100B;A*360/255;0;360;°;7E0;ECM;Camshaft position intake bank 1;A
+Camshaft Position Bank 1 Exhaust;22 100C;A*360/255;0;360;°;7E0;ECM;Camshaft position exhaust bank 1;A
+Camshaft Position Bank 2 Intake;22 100D;A*360/255;0;360;°;7E0;ECM;Camshaft position intake bank 2;A
+Camshaft Position Bank 2 Exhaust;22 100E;A*360/255;0;360;°;7E0;ECM;Camshaft position exhaust bank 2;A
+Variable Valve Timing Intake;22 100F;A*100/255;0;100;%;7E0;ECM;Variable valve timing intake position;A
+Variable Valve Timing Exhaust;22 1010;A*100/255;0;100;%;7E0;ECM;Variable valve timing exhaust position;A
+Knock Sensor Bank 1;22 1011;A;0;255;Count;7E0;ECM;Knock sensor count bank 1;A
+Knock Sensor Bank 2;22 1012;A;0;255;Count;7E0;ECM;Knock sensor count bank 2;A
+Misfire Count Cylinder 1;22 1013;A;0;255;Count;7E0;ECM;Misfire count cylinder 1;A
+Misfire Count Cylinder 2;22 1014;A;0;255;Count;7E0;ECM;Misfire count cylinder 2;A
+Misfire Count Cylinder 3;22 1015;A;0;255;Count;7E0;ECM;Misfire count cylinder 3;A
+Misfire Count Cylinder 4;22 1016;A;0;255;Count;7E0;ECM;Misfire count cylinder 4;A
+Misfire Count Cylinder 5;22 1017;A;0;255;Count;7E0;ECM;Misfire count cylinder 5;A
+Misfire Count Cylinder 6;22 1018;A;0;255;Count;7E0;ECM;Misfire count cylinder 6;A
+Misfire Count Cylinder 7;22 1019;A;0;255;Count;7E0;ECM;Misfire count cylinder 7;A
+Misfire Count Cylinder 8;22 101A;A;0;255;Count;7E0;ECM;Misfire count cylinder 8;A
+=== UDS MODE 22 - TCM (TRANSMISSION CONTROL MODULE) ===
+Transmission Fluid Temperature;22 2001;A-40;-40;215;°C;7E1;TCM;Transmission fluid temperature;A
+Transmission Gear Position;22 2002;A;0;255;Gear;7E1;TCM;Current gear position;A
+Transmission Selected Gear;22 2003;A;0;255;Gear;7E1;TCM;Selected gear position;A
+Transmission Torque Converter Lockup;22 2004;A*100/255;0;100;%;7E1;TCM;Torque converter lockup percentage;A
+Transmission Shift Solenoid A;22 2005;A;0;255;Status;7E1;TCM;Shift solenoid A status;A
+Transmission Shift Solenoid B;22 2006;A;0;255;Status;7E1;TCM;Shift solenoid B status;A
+Transmission Pressure Control Solenoid;22 2007;A*100/255;0;100;%;7E1;TCM;Pressure control solenoid position;A
+Transmission Input Shaft Speed;22 2008;(A*256+B)/4;0;16383.75;rpm;7E1;TCM;Transmission input shaft RPM;A-B
+Transmission Output Shaft Speed;22 2009;(A*256+B)/4;0;16383.75;rpm;7E1;TCM;Transmission output shaft RPM;A-B
+Transmission Turbine Speed;22 200A;(A*256+B)/4;0;16383.75;rpm;7E1;TCM;Transmission turbine speed;A-B
+Transmission Slip Ratio;22 200B;A*100/255;0;100;%;7E1;TCM;Torque converter slip ratio;A
+Transmission Fluid Pressure;22 200C;(A*256+B)/100;0;655.35;kPa;7E1;TCM;Transmission fluid pressure;A-B
+Transmission Clutch Pressure;22 200D;(A*256+B)/100;0;655.35;kPa;7E1;TCM;Transmission clutch pressure;A-B
+Transmission Shift Time;22 200E;(A*256+B)/100;0;655.35;ms;7E1;TCM;Transmission shift time;A-B
+Transmission Torque Request;22 200F;(A*256+B);0;65535;Nm;7E1;TCM;Transmission torque request;A-B
+Transmission Learning Status;22 2010;A;0;255;Status;7E1;TCM;Transmission adaptation learning status;A
+=== UDS MODE 22 - ABS/ESP (ANTI-LOCK BRAKING SYSTEM) ===
+Wheel Speed Front Left;22 3001;(A*256+B)/100;0;655.35;km/h;7B0;ABS;Front left wheel speed;A-B
+Wheel Speed Front Right;22 3002;(A*256+B)/100;0;655.35;km/h;7B0;ABS;Front right wheel speed;A-B
+Wheel Speed Rear Left;22 3003;(A*256+B)/100;0;655.35;km/h;7B0;ABS;Rear left wheel speed;A-B
+Wheel Speed Rear Right;22 3004;(A*256+B)/100;0;655.35;km/h;7B0;ABS;Rear right wheel speed;A-B
+Lateral Acceleration;22 3005;((A*256+B)-32768)/100;-327.68;327.67;m/s²;7B0;ABS;Lateral acceleration sensor;A-B
+Longitudinal Acceleration;22 3006;((A*256+B)-32768)/100;-327.68;327.67;m/s²;7B0;ABS;Longitudinal acceleration sensor;A-B
+Yaw Rate;22 3007;((A*256+B)-32768)/100;-327.68;327.67;°/s;7B0;ABS;Yaw rate sensor;A-B
+Steering Angle;22 3008;((A*256+B)-32768)/10;-3276.8;3276.7;°;7B0;ABS;Steering wheel angle sensor;A-B
+Brake Pressure Front;22 3009;(A*256+B)/100;0;655.35;bar;7B0;ABS;Front brake pressure;A-B
+Brake Pressure Rear;22 300A;(A*256+B)/100;0;655.35;bar;7B0;ABS;Rear brake pressure;A-B
+ABS Status;22 300B;A;0;255;Status;7B0;ABS;ABS system active status;A
+ESP Status;22 300C;A;0;255;Status;7B0;ABS;ESP system active status;A
+TCS Status;22 300D;A;0;255;Status;7B0;ABS;Traction control system status;A
+Brake Pedal Position;22 300E;A*100/255;0;100;%;7B0;ABS;Brake pedal position sensor;A
+=== UDS MODE 22 - EPS (ELECTRIC POWER STEERING) ===
+Steering Angle Sensor;22 4001;((A*256+B)-32768)/10;-3276.8;3276.7;°;7C4;EPS;Steering wheel angle;A-B
+Steering Torque;22 4002;((A*256+B)-32768)/100;-327.68;327.67;Nm;7C4;EPS;Steering torque sensor;A-B
+Steering Motor Current;22 4003;((A*256+B)-32768)/100;-327.68;327.67;A;7C4;EPS;EPS motor current;A-B
+Steering Motor Temperature;22 4004;A-40;-40;215;°C;7C4;EPS;EPS motor temperature;A
+Steering Assist Level;22 4005;A*100/255;0;100;%;7C4;EPS;Steering assist level;A
+EPS Status;22 4006;A;0;255;Status;7C4;EPS;EPS system status;A
+Steering Column Lock Status;22 4007;A;0;255;Status;7C4;EPS;Steering column lock status;A
+=== UDS MODE 22 - HVAC (HEATING VENTILATION AIR CONDITIONING) ===
+HVAC Blower Speed;22 5001;A*100/255;0;100;%;7C0;HVAC;HVAC blower fan speed;A
+HVAC Temperature Setpoint;22 5002;A-40;-40;215;°C;7C0;HVAC;HVAC temperature setpoint;A
+HVAC Temperature Driver;22 5003;A-40;-40;215;°C;7C0;HVAC;Driver side temperature;A
+HVAC Temperature Passenger;22 5004;A-40;-40;215;°C;7C0;HVAC;Passenger side temperature;A
+HVAC Ambient Temperature;22 5005;A-40;-40;215;°C;7C0;HVAC;Ambient air temperature;A
+HVAC Evaporator Temperature;22 5006;A-40;-40;215;°C;7C0;HVAC;Evaporator temperature;A
+HVAC Condenser Temperature;22 5007;A-40;-40;215;°C;7C0;HVAC;Condenser temperature;A
+HVAC Compressor Speed;22 5008;(A*256+B)/4;0;16383.75;rpm;7C0;HVAC;AC compressor speed;A-B
+HVAC Refrigerant Pressure;22 5009;(A*256+B)/100;0;655.35;kPa;7C0;HVAC;AC refrigerant pressure;A-B
+HVAC Recirculation Status;22 500A;A;0;255;Status;7C0;HVAC;Air recirculation flap status;A
+HVAC Mode Position;22 500B;A;0;255;Position;7C0;HVAC;HVAC mode position (face/feet/windshield);A
+=== UDS MODE 22 - AIRBAG/SRS (SUPPLEMENTAL RESTRAINT SYSTEM) ===
+Airbag Status Driver;22 6001;A;0;255;Status;7D0;SRS;Driver airbag deployment status;A
+Airbag Status Passenger;22 6002;A;0;255;Status;7D0;SRS;Passenger airbag deployment status;A
+Airbag Status Side Left;22 6003;A;0;255;Status;7D0;SRS;Left side airbag status;A
+Airbag Status Side Right;22 6004;A;0;255;Status;7D0;SRS;Right side airbag status;A
+Airbag Status Curtain;22 6005;A;0;255;Status;7D0;SRS;Curtain airbag status;A
+Crash Sensor Acceleration X;22 6006;((A*256+B)-32768)/100;-327.68;327.67;g;7D0;SRS;Crash sensor X acceleration;A-B
+Crash Sensor Acceleration Y;22 6007;((A*256+B)-32768)/100;-327.68;327.67;g;7D0;SRS;Crash sensor Y acceleration;A-B
+Crash Sensor Acceleration Z;22 6008;((A*256+B)-32768)/100;-327.68;327.67;g;7D0;SRS;Crash sensor Z acceleration;A-B
+Seatbelt Status Driver;22 6009;A;0;255;Status;7D0;SRS;Driver seatbelt status;A
+Seatbelt Status Passenger;22 600A;A;0;255;Status;7D0;SRS;Passenger seatbelt status;A
+SRS System Status;22 600B;A;0;255;Status;7D0;SRS;SRS system overall status;A
+=== UDS MODE 22 - DIESEL SPECIFIC (DPF EGR ADBLUE) ===
+DPF Differential Pressure;22 7001;(A*256+B)/100;0;655.35;kPa;7E0;ECM;DPF differential pressure sensor;A-B
+DPF Soot Load;22 7002;A*100/255;0;100;%;7E0;ECM;DPF soot load percentage;A
+DPF Ash Load;22 7003;A*100/255;0;100;%;7E0;ECM;DPF ash load percentage;A
+DPF Temperature Inlet;22 7004;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;DPF inlet temperature;A-B
+DPF Temperature Outlet;22 7005;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;DPF outlet temperature;A-B
+DPF Regeneration Status;22 7006;A;0;255;Status;7E0;ECM;DPF regeneration active status;A
+DPF Regeneration Count;22 7007;A*256+B;0;65535;Count;7E0;ECM;DPF regeneration count;A-B
+EGR Valve Position;22 7008;A*100/255;0;100;%;7E0;ECM;EGR valve position percentage;A
+EGR Flow Rate;22 7009;(A*256+B)/100;0;655.35;g/s;7E0;ECM;EGR mass flow rate;A-B
+EGR Temperature;22 700A;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;EGR temperature sensor;A-B
+EGR Cooler Efficiency;22 700B;A*100/255;0;100;%;7E0;ECM;EGR cooler efficiency;A
+AdBlue Level;22 700C;A*100/255;0;100;%;7E0;ECM;AdBlue/DEF fluid level;A
+AdBlue Temperature;22 700D;A-40;-40;215;°C;7E0;ECM;AdBlue temperature sensor;A
+AdBlue Consumption;22 700E;(A*256+B)/100;0;655.35;L;7E0;ECM;AdBlue consumption;A-B
+SCR NOx Conversion Efficiency;22 700F;A*100/255;0;100;%;7E0;ECM;SCR NOx conversion efficiency;A
+NOx Sensor Upstream;22 7010;(A*256+B)/100;0;655.35;ppm;7E0;ECM;NOx sensor upstream SCR;A-B
+NOx Sensor Downstream;22 7011;(A*256+B)/100;0;655.35;ppm;7E0;ECM;NOx sensor downstream SCR;A-B
+SCR Temperature;22 7012;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;SCR catalyst temperature;A-B
+=== UDS MODE 22 - TURBOCHARGER ===
+Turbo Boost Pressure;22 8001;(A*256+B)/100;0;655.35;kPa;7E0;ECM;Turbo boost pressure sensor;A-B
+Turbo Wastegate Position;22 8002;A*100/255;0;100;%;7E0;ECM;Turbo wastegate position;A
+Turbo VGT Position;22 8003;A*100/255;0;100;%;7E0;ECM;Variable geometry turbo position;A
+Turbo Compressor Inlet Pressure;22 8004;(A*256+B)/100;0;655.35;kPa;7E0;ECM;Compressor inlet pressure;A-B
+Turbo Compressor Outlet Pressure;22 8005;(A*256+B)/100;0;655.35;kPa;7E0;ECM;Compressor outlet pressure;A-B
+Turbo Compressor Inlet Temperature;22 8006;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;Compressor inlet temperature;A-B
+Turbo Compressor Outlet Temperature;22 8007;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;Compressor outlet temperature;A-B
+Turbo Turbine Inlet Temperature;22 8008;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;Turbine inlet temperature;A-B
+Turbo Turbine Outlet Temperature;22 8009;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;Turbine outlet temperature;A-B
+Turbo RPM;22 800A;(A*256+B)/4;0;16383.75;rpm;7E0;ECM;Turbocharger RPM;A-B
+Turbo Bearing Temperature;22 800B;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;Turbo bearing temperature;A-B
+=== UDS MODE 22 - FUEL SYSTEM ===
+Fuel Pump Pressure;22 9001;(A*256+B)/100;0;655.35;kPa;7E0;ECM;Low pressure fuel pump pressure;A-B
+Fuel Filter Differential Pressure;22 9002;(A*256+B)/100;0;655.35;kPa;7E0;ECM;Fuel filter differential pressure;A-B
+Fuel Injector Correction Bank 1;22 9003;((A-128)*100/128);-100;99.2;%;7E0;ECM;Injector correction factor bank 1;A
+Fuel Injector Correction Bank 2;22 9004;((A-128)*100/128);-100;99.2;%;7E0;ECM;Injector correction factor bank 2;A
+Fuel Rail Pressure Setpoint;22 9005;(A*256+B)*10;0;655350;kPa;7E0;ECM;Fuel rail pressure setpoint;A-B
+Fuel Rail Pressure Actual;22 9006;(A*256+B)*10;0;655350;kPa;7E0;ECM;Fuel rail pressure actual;A-B
+Fuel Quantity Correction;22 9007;((A-128)*100/128);-100;99.2;%;7E0;ECM;Fuel quantity correction factor;A
+High Pressure Fuel Pump Speed;22 9008;(A*256+B)/4;0;16383.75;rpm;7E0;ECM;High pressure fuel pump RPM;A-B
+=== UDS MODE 22 - HYBRID/EV CHARGING SYSTEM ===
+Charging Status;22 A001;A;0;255;Status;7E4;BMS;Charging system status;A
+Charging Power;22 A002;(A*256+B)/10;0;300;kW;7E4;BMS;Current charging power;A-B
+Charging Voltage;22 A003;(A*256+B)/100;0;1000;V;7E4;BMS;Charging voltage;A-B
+Charging Current;22 A004;(A*256+B)/10;0;500;A;7E4;BMS;Charging current;A-B
+Charging Time Remaining;22 A005;(A*256+B);0;65535;min;7E4;BMS;Estimated charging time remaining;A-B
+Charging Connector Type;22 A006;A;0;255;Type;7E4;BMS;Charging connector type;A
+Charging Cable Lock Status;22 A007;A;0;255;Status;7E4;BMS;Charging cable lock status;A
+AC Charging Power;22 A008;(A*256+B)/10;0;22;kW;7E4;BMS;AC charging power;A-B
+DC Charging Power;22 A009;(A*256+B)/10;0;300;kW;7E4;BMS;DC fast charging power;A-B
+Charging Efficiency;22 A00A;A*100/255;0;100;%;7E4;BMS;Charging efficiency percentage;A
+=== UDS MODE 22 - BATTERY CELL MONITORING ===
+Cell Voltage 1;22 B001;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 1;A
+Cell Voltage 2;22 B002;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 2;A
+Cell Voltage 3;22 B003;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 3;A
+Cell Voltage 4;22 B004;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 4;A
+Cell Voltage 5;22 B005;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 5;A
+Cell Voltage 6;22 B006;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 6;A
+Cell Voltage 7;22 B007;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 7;A
+Cell Voltage 8;22 B008;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 8;A
+Cell Temperature 1;22 B101;A-40;-40;100;°C;7E4;BMS;Cell temperature 1;A
+Cell Temperature 2;22 B102;A-40;-40;100;°C;7E4;BMS;Cell temperature 2;A
+Cell Temperature 3;22 B103;A-40;-40;100;°C;7E4;BMS;Cell temperature 3;A
+Cell Temperature 4;22 B104;A-40;-40;100;°C;7E4;BMS;Cell temperature 4;A
+Cell Temperature 5;22 B105;A-40;-40;100;°C;7E4;BMS;Cell temperature 5;A
+Cell Temperature 6;22 B106;A-40;-40;100;°C;7E4;BMS;Cell temperature 6;A
+Cell Temperature 7;22 B107;A-40;-40;100;°C;7E4;BMS;Cell temperature 7;A
+Cell Temperature 8;22 B108;A-40;-40;100;°C;7E4;BMS;Cell temperature 8;A
+=== MANUFACTURER SPECIFIC - VW/AUDI GROUP ===
+VW Engine Oil Quality;22 1001;A;0;255;Status;7E0;ECM;Engine oil quality index;A
+VW Particulate Filter Load;22 1002;A*100/255;0;100;%;7E0;ECM;Particulate filter soot load;A
+VW Lambda Sensor Bank 1;22 1003;((A*256+B)/32768)-1;0;2;Lambda;7E0;ECM;Lambda sensor bank 1;A-B
+VW Lambda Sensor Bank 2;22 1004;((A*256+B)/32768)-1;0;2;Lambda;7E0;ECM;Lambda sensor bank 2;A-B
+VW Camshaft Adjustment Intake;22 1005;A*360/255;0;360;°;7E0;ECM;Camshaft adjustment intake;A
+VW Camshaft Adjustment Exhaust;22 1006;A*360/255;0;360;°;7E0;ECM;Camshaft adjustment exhaust;A
+VW Boost Pressure Control;22 1007;(A*256+B)/100;0;655.35;kPa;7E0;ECM;Boost pressure control valve;A-B
+=== MANUFACTURER SPECIFIC - BMW ===
+BMW Valvetronic Position;22 2001;A*100/255;0;100;%;7E0;ECM;Valvetronic lift position;A
+BMW VANOS Intake;22 2002;A*360/255;0;360;°;7E0;ECM;VANOS intake camshaft position;A
+BMW VANOS Exhaust;22 2003;A*360/255;0;360;°;7E0;ECM;VANOS exhaust camshaft position;A
+BMW High Pressure Pump;22 2004;(A*256+B)/100;0;655.35;bar;7E0;ECM;High pressure fuel pump pressure;A-B
+BMW Oil Condition;22 2005;A;0;255;Status;7E0;ECM;Engine oil condition index;A
+=== MANUFACTURER SPECIFIC - MERCEDES-BENZ ===
+MB Active Body Control;22 3001;A*100/255;0;100;%;7C6;ABC;Active body control level;A
+MB Air Suspension Front;22 3002;(A*256+B)/100;0;655.35;mm;7C6;ABC;Front air suspension height;A-B
+MB Air Suspension Rear;22 3003;(A*256+B)/100;0;655.35;mm;7C6;ABC;Rear air suspension height;A-B
+MB PreSafe Status;22 3004;A;0;255;Status;7D0;SRS;PreSafe system status;A
+=== MANUFACTURER SPECIFIC - TOYOTA/LEXUS ===
+Toyota Hybrid Battery SOC;22 4001;A;0;100;%;7E2;HEV;Hybrid battery state of charge;A
+Toyota Hybrid Battery Voltage;22 4002;(A*256+B)/100;0;500;V;7E2;HEV;Hybrid battery voltage;A-B
+Toyota Hybrid Battery Current;22 4003;(A*256+B)/10;-1000;1000;A;7E2;HEV;Hybrid battery current;A-B
+Toyota MG1 Speed;22 4004;(A*256+B)/4;0;16383.75;rpm;7E2;HEV;Motor generator 1 speed;A-B
+Toyota MG2 Speed;22 4005;(A*256+B)/4;0;16383.75;rpm;7E2;HEV;Motor generator 2 speed;A-B
+Toyota MG1 Torque;22 4006;((A*256+B)-32768);-32768;32767;Nm;7E2;HEV;Motor generator 1 torque;A-B
+Toyota MG2 Torque;22 4007;((A*256+B)-32768);-32768;32767;Nm;7E2;HEV;Motor generator 2 torque;A-B
+Toyota Power Split Device;22 4008;A*100/255;0;100;%;7E2;HEV;Power split device ratio;A
+=== MANUFACTURER SPECIFIC - FORD ===
+Ford Turbo Boost Pressure;22 5001;(A*256+B)/100;0;655.35;psi;7E0;ECM;Turbo boost pressure;A-B
+Ford Ecoboost Status;22 5002;A;0;255;Status;7E0;ECM;Ecoboost system status;A
+Ford Active Grille Shutter;22 5003;A*100/255;0;100;%;7E0;ECM;Active grille shutter position;A
+=== MANUFACTURER SPECIFIC - GM/OPEL ===
+GM Active Fuel Management;22 6001;A;0;255;Status;7E0;ECM;Active fuel management status;A
+GM Displacement on Demand;22 6002;A;0;255;Status;7E0;ECM;Displacement on demand status;A
+GM Magnetic Ride Control;22 6003;A*100/255;0;100;%;7C4;SUSP;Magnetic ride control damping;A
+=== MANUFACTURER SPECIFIC - NISSAN ===
+Nissan CVT Ratio;22 7001;(A*256+B)/100;0;655.35;Ratio;7E1;TCM;CVT transmission ratio;A-B
+Nissan CVT Temperature;22 7002;A-40;-40;215;°C;7E1;TCM;CVT fluid temperature;A
+Nissan CVT Pressure;22 7003;(A*256+B)/100;0;655.35;kPa;7E1;TCM;CVT belt pressure;A-B
+=== MANUFACTURER SPECIFIC - HYUNDAI/KIA ===
+Hyundai Smartstream Status;22 8001;A;0;255;Status;7E0;ECM;Smartstream engine status;A
+Hyundai CVVD Position;22 8002;A*100/255;0;100;%;7E0;ECM;Continuously variable valve duration;A
+Kia EV Battery SOH;22 0170;A;0;100;%;7E4;BMS;Battery state of health;A
+Kia EV DC Charge Power;22 0171;(A*256+B)/10;0;300;kW;7E4;BMS;DC charging power;A-B
+Kia EV AC Charge Power;22 0172;(A*256+B)/10;0;22;kW;7E4;BMS;AC charging power;A-B
+=== MANUFACTURER SPECIFIC - TESLA ===
+Tesla Battery SOC;22 1187;A;0;100;%;7E4;BMS;Battery state of charge;A
+Tesla Battery Voltage;22 1188;(A*256+B)/100;0;500;V;7E4;BMS;Battery pack voltage;A-B
+Tesla Battery Current;22 1189;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery pack current;A-B
+Tesla Battery Temp;22 118A;A-40;-40;100;°C;7E4;BMS;Battery pack temperature;A
+Tesla Supercharger Power;22 118B;(A*256+B)/10;0;250;kW;7E4;BMS;Supercharger power;A-B
+Tesla Regenerative Braking;22 118C;A*100/255;0;100;%;7B0;ABS;Regenerative braking level;A
+=== MANUFACTURER SPECIFIC - PSA (PEUGEOT/CITROEN/OPEL) ===
+PSA Battery SOH;22 F40D;A;0;100;%;7E4;BMS;Battery state of health;A
+PSA Battery Energy;22 F40E;(A*256+B)/10;0;60;kWh;7E4;BMS;Battery energy capacity;A-B
+PSA Stop Start Status;22 F40F;A;0;255;Status;7E0;ECM;Stop-start system status;A
+=== MANUFACTURER SPECIFIC - BMW i-SERIES ===
+BMW i3 Battery SOH;22 2A38;A;0;100;%;7E4;BMS;Battery state of health;A
+BMW i3 Usable Capacity;22 2A39;(A*256+B)/100;0;42;kWh;7E4;BMS;Usable battery capacity;A-B
+BMW i3 DC Charge Count;22 2A3A;A;0;5000;Count;7E4;BMS;DC fast charge count;A
+=== MANUFACTURER SPECIFIC - MG ===
+MG Battery SOC;22 3101;A;0;100;%;7E4;BMS;Battery state of charge;A
+MG Battery Voltage;22 3102;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+MG Battery Current;22 3103;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery current;A-B
+MG Battery Temp;22 3104;A-40;-40;100;°C;7E4;BMS;Battery temperature;A
+=== MANUFACTURER SPECIFIC - TOGG ===
+TOGG Battery SOC;22 2101;A;0;100;%;7E4;BMS;Battery state of charge;A
+TOGG Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+TOGG Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery current;A-B
+TOGG Battery Temp;22 2104;A-40;-40;100;°C;7E4;BMS;Battery temperature;A
+=== MANUFACTURER SPECIFIC - HONDA ===
+Honda Battery SOC;22 2101;A;0;100;%;7E2;BMS;Battery state of charge;A
+Honda Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E2;BMS;Battery voltage;A-B
+Honda Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E2;BMS;Battery current;A-B
+Honda Battery Temp;22 2104;A-40;-40;100;°C;7E2;BMS;Battery temperature;A
+Honda i-MMD Status;22 2105;A;0;255;Status;7E2;HEV;i-MMD hybrid system status;A
+=== MANUFACTURER SPECIFIC - TOYOTA bZ4X ===
+Toyota bZ4X Battery SOC;22 2201;A;0;100;%;7E4;BMS;Battery state of charge;A
+Toyota bZ4X Battery Voltage;22 2202;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+Toyota bZ4X Battery Current;22 2203;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery current;A-B
+Toyota bZ4X Battery Temp;22 2204;A-40;-40;100;°C;7E4;BMS;Battery temperature;A
+=== ADDITIONAL ECM PARAMETERS ===
+Crankshaft Position;22 C001;A*360/255;0;360;°;7E0;ECM;Crankshaft position angle;A
+Camshaft Position Intake;22 C002;A*360/255;0;360;°;7E0;ECM;Intake camshaft position;A
+Camshaft Position Exhaust;22 C003;A*360/255;0;360;°;7E0;ECM;Exhaust camshaft position;A
+Idle Air Control Position;22 C004;A*100/255;0;100;%;7E0;ECM;Idle air control valve position;A
+Throttle Body Temperature;22 C005;A-40;-40;215;°C;7E0;ECM;Throttle body temperature;A
+Intake Air Pressure Sensor;22 C006;(A*256+B)/100;0;655.35;kPa;7E0;ECM;Intake air pressure sensor;A-B
+Barometric Pressure Sensor;22 C007;A;0;255;kPa;7E0;ECM;Barometric pressure sensor;A
+Manifold Absolute Pressure;22 C008;(A*256+B)/100;0;655.35;kPa;7E0;ECM;Manifold absolute pressure;A-B
+=== ADDITIONAL TCM PARAMETERS ===
+Torque Converter Status;22 D001;A;0;255;Status;7E1;TCM;Torque converter lockup status;A
+Transmission Range Switch;22 D002;A;0;255;Position;7E1;TCM;Transmission range switch position;A
+Transmission Fluid Level;22 D003;A*100/255;0;100;%;7E1;TCM;Transmission fluid level;A
+Transmission Solenoid Status;22 D004;A;0;255;Status;7E1;TCM;Transmission solenoid status;A
+Transmission Adaptation Values;22 D005;A;B;C;D;Values;7E1;TCM;Transmission adaptation values;A-B-C-D
+=== ADDITIONAL ABS/ESP PARAMETERS ===
+Wheel Slip Front Left;22 E001;A*100/255;0;100;%;7B0;ABS;Front left wheel slip percentage;A
+Wheel Slip Front Right;22 E002;A*100/255;0;100;%;7B0;ABS;Front right wheel slip percentage;A
+Wheel Slip Rear Left;22 E003;A*100/255;0;100;%;7B0;ABS;Rear left wheel slip percentage;A
+Wheel Slip Rear Right;22 E004;A*100/255;0;100;%;7B0;ABS;Rear right wheel slip percentage;A
+Brake Force Distribution;22 E005;A*100/255;0;100;%;7B0;ABS;Brake force distribution percentage;A
+Hill Descent Control;22 E006;A;0;255;Status;7B0;ABS;Hill descent control status;A
+=== ADDITIONAL HVAC PARAMETERS ===
+HVAC Compressor Clutch;22 F001;A;0;255;Status;7C0;HVAC;AC compressor clutch status;A
+HVAC Heater Core Temperature;22 F002;A-40;-40;215;°C;7C0;HVAC;Heater core temperature;A
+HVAC Cabin Temperature;22 F003;A-40;-40;215;°C;7C0;HVAC;Cabin interior temperature;A
+HVAC Solar Sensor;22 F004;A*100/255;0;100;%;7C0;HVAC;Solar radiation sensor;A
+=== DIFFERENTIAL/AWD SYSTEM ===
+AWD Torque Distribution Front;22 1101;A*100/255;0;100;%;7C6;AWD;Front torque distribution;A
+AWD Torque Distribution Rear;22 1102;A*100/255;0;100;%;7C6;AWD;Rear torque distribution;A
+AWD Center Differential Lock;22 1103;A;0;255;Status;7C6;AWD;Center differential lock status;A
+AWD Rear Differential Lock;22 1104;A;0;255;Status;7C6;AWD;Rear differential lock status;A
+AWD Transfer Case Position;22 1105;A;0;255;Position;7C6;AWD;Transfer case position;A
+AWD Front Differential Temperature;22 1106;A-40;-40;215;°C;7C6;AWD;Front differential temperature;A
+AWD Rear Differential Temperature;22 1107;A-40;-40;215;°C;7C6;AWD;Rear differential temperature;A
+AWD Center Differential Temperature;22 1108;A-40;-40;215;°C;7C6;AWD;Center differential temperature;A
+=== ADDITIONAL SENSOR PARAMETERS ===
+Knock Sensor Voltage Bank 1;22 1201;A/10;0;25.5;V;7E0;ECM;Knock sensor voltage bank 1;A
+Knock Sensor Voltage Bank 2;22 1202;A/10;0;25.5;V;7E0;ECM;Knock sensor voltage bank 2;A
+Crankshaft Position Sensor;22 1203;A*360/255;0;360;°;7E0;ECM;Crankshaft position sensor angle;A
+Camshaft Position Sensor Intake;22 1204;A*360/255;0;360;°;7E0;ECM;Intake camshaft position sensor;A
+Camshaft Position Sensor Exhaust;22 1205;A*360/255;0;360;°;7E0;ECM;Exhaust camshaft position sensor;A
+Throttle Position Sensor 1;22 1206;A*100/255;0;100;%;7E0;ECM;Throttle position sensor 1;A
+Throttle Position Sensor 2;22 1207;A*100/255;0;100;%;7E0;ECM;Throttle position sensor 2;A
+Accelerator Pedal Position Sensor 1;22 1208;A*100/255;0;100;%;7E0;ECM;Accelerator pedal position sensor 1;A
+Accelerator Pedal Position Sensor 2;22 1209;A*100/255;0;100;%;7E0;ECM;Accelerator pedal position sensor 2;A
+Brake Pedal Position Sensor;22 120A;A*100/255;0;100;%;7B0;ABS;Brake pedal position sensor;A
+Clutch Pedal Position Sensor;22 120B;A*100/255;0;100;%;7E1;TCM;Clutch pedal position sensor;A
+=== COOLING SYSTEM ===
+Coolant Pump Speed;22 1301;(A*256+B)/4;0;16383.75;rpm;7E0;ECM;Coolant pump speed;A-B
+Coolant Flow Rate;22 1302;(A*256+B)/100;0;655.35;L/min;7E0;ECM;Coolant flow rate;A-B
+Radiator Fan Speed;22 1303;(A*256+B)/4;0;16383.75;rpm;7E0;ECM;Radiator fan speed;A-B
+Thermostat Position;22 1304;A*100/255;0;100;%;7E0;ECM;Thermostat valve position;A
+Coolant Temperature Outlet;22 1305;A-40;-40;215;°C;7E0;ECM;Coolant outlet temperature;A
+Coolant Temperature Inlet;22 1306;A-40;-40;215;°C;7E0;ECM;Coolant inlet temperature;A
+Intercooler Temperature Inlet;22 1307;A-40;-40;215;°C;7E0;ECM;Intercooler inlet temperature;A
+Intercooler Temperature Outlet;22 1308;A-40;-40;215;°C;7E0;ECM;Intercooler outlet temperature;A
+=== EMISSION CONTROL SYSTEMS ===
+Secondary Air Injection Pump;22 1401;A;0;255;Status;7E0;ECM;Secondary air injection pump status;A
+Secondary Air Injection Valve;22 1402;A*100/255;0;100;%;7E0;ECM;Secondary air injection valve position;A
+Evaporative Purge Valve;22 1403;A*100/255;0;100;%;7E0;ECM;Evaporative purge valve position;A
+Evaporative System Pressure;22 1404;((A*256+B)/4)-8192;-8192;8191.75;Pa;7E0;ECM;Evaporative system pressure;A-B
+Catalyst Efficiency Bank 1;22 1405;A*100/255;0;100;%;7E0;ECM;Catalyst efficiency bank 1;A
+Catalyst Efficiency Bank 2;22 1406;A*100/255;0;100;%;7E0;ECM;Catalyst efficiency bank 2;A
+O2 Sensor Heater Bank 1 Sensor 1;22 1407;A;0;255;Status;7E0;ECM;O2 sensor heater status bank 1 sensor 1;A
+O2 Sensor Heater Bank 1 Sensor 2;22 1408;A;0;255;Status;7E0;ECM;O2 sensor heater status bank 1 sensor 2;A
+O2 Sensor Heater Bank 2 Sensor 1;22 1409;A;0;255;Status;7E0;ECM;O2 sensor heater status bank 2 sensor 1;A
+O2 Sensor Heater Bank 2 Sensor 2;22 140A;A;0;255;Status;7E0;ECM;O2 sensor heater status bank 2 sensor 2;A
+=== ELECTRICAL SYSTEM ===
+Alternator Voltage;22 1501;(A*256+B)/100;0;655.35;V;7E0;ECM;Alternator output voltage;A-B
+Alternator Current;22 1502;((A*256+B)-32768)/10;-3276.8;3276.7;A;7E0;ECM;Alternator output current;A-B
+Alternator Load;22 1503;A*100/255;0;100;%;7E0;ECM;Alternator load percentage;A
+Battery Voltage;22 1504;(A*256+B)/100;0;655.35;V;7E0;ECM;12V battery voltage;A-B
+Battery Current;22 1505;((A*256+B)-32768)/10;-3276.8;3276.7;A;7E0;ECM;12V battery current;A-B
+Battery Temperature;22 1506;A-40;-40;215;°C;7E0;ECM;12V battery temperature;A
+Battery State of Charge;22 1507;A*100/255;0;100;%;7E0;ECM;12V battery state of charge;A
+Starter Motor Current;22 1508;(A*256+B)/10;0;6553.5;A;7E0;ECM;Starter motor current draw;A-B
+=== IGNITION SYSTEM ===
+Ignition Coil Energy;22 1601;(A*256+B)/100;0;655.35;mJ;7E0;ECM;Ignition coil energy;A-B
+Ignition Dwell Time;22 1602;(A*256+B)/1000;0;65.535;ms;7E0;ECM;Ignition coil dwell time;A-B
+Spark Advance;22 1603;((A*256+B)-32768)/10;-3276.8;3276.7;°;7E0;ECM;Spark advance angle;A-B
+Ignition Timing Cylinder 1;22 1604;((A-128)/2);-64;63.5;°;7E0;ECM;Ignition timing cylinder 1;A
+Ignition Timing Cylinder 2;22 1605;((A-128)/2);-64;63.5;°;7E0;ECM;Ignition timing cylinder 2;A
+Ignition Timing Cylinder 3;22 1606;((A-128)/2);-64;63.5;°;7E0;ECM;Ignition timing cylinder 3;A
+Ignition Timing Cylinder 4;22 1607;((A-128)/2);-64;63.5;°;7E0;ECM;Ignition timing cylinder 4;A
+Ignition Timing Cylinder 5;22 1608;((A-128)/2);-64;63.5;°;7E0;ECM;Ignition timing cylinder 5;A
+Ignition Timing Cylinder 6;22 1609;((A-128)/2);-64;63.5;°;7E0;ECM;Ignition timing cylinder 6;A
+Ignition Timing Cylinder 7;22 160A;((A-128)/2);-64;63.5;°;7E0;ECM;Ignition timing cylinder 7;A
+Ignition Timing Cylinder 8;22 160B;((A-128)/2);-64;63.5;°;7E0;ECM;Ignition timing cylinder 8;A
+=== VALVE TRAIN ===
+Intake Valve Lift;22 1701;A/10;0;25.5;mm;7E0;ECM;Intake valve lift;A
+Exhaust Valve Lift;22 1702;A/10;0;25.5;mm;7E0;ECM;Exhaust valve lift;A
+Intake Valve Timing;22 1703;A*360/255;0;360;°;7E0;ECM;Intake valve timing;A
+Exhaust Valve Timing;22 1704;A*360/255;0;360;°;7E0;ECM;Exhaust valve timing;A
+Variable Valve Lift Position;22 1705;A*100/255;0;100;%;7E0;ECM;Variable valve lift position;A
+Valve Overlap;22 1706;A*360/255;0;360;°;7E0;ECM;Valve overlap angle;A
+=== ADDITIONAL DIESEL PARAMETERS ===
+Diesel Injector Quantity;22 1801;(A*256+B)/1000;0;65.535;mg;7E0;ECM;Diesel injector fuel quantity;A-B
+Diesel Pilot Injection;22 1802;(A*256+B)/1000;0;65.535;ms;7E0;ECM;Pilot injection timing;A-B
+Diesel Main Injection;22 1803;(A*256+B)/1000;0;65.535;ms;7E0;ECM;Main injection timing;A-B
+Diesel Post Injection;22 1804;(A*256+B)/1000;0;65.535;ms;7E0;ECM;Post injection timing;A-B
+Diesel Rail Pressure Setpoint;22 1805;(A*256+B)*10;0;655350;kPa;7E0;ECM;Common rail pressure setpoint;A-B
+Diesel Rail Pressure Actual;22 1806;(A*256+B)*10;0;655350;kPa;7E0;ECM;Common rail pressure actual;A-B
+Diesel High Pressure Pump;22 1807;A*100/255;0;100;%;7E0;ECM;High pressure pump control;A
+Diesel Fuel Temperature;22 1808;A-40;-40;215;°C;7E0;ECM;Diesel fuel temperature;A
+Diesel Glow Plug Status;22 1809;A;0;255;Status;7E0;ECM;Glow plug status;A
+Diesel Glow Plug Voltage;22 180A;(A*256+B)/100;0;655.35;V;7E0;ECM;Glow plug voltage;A-B
+=== ADDITIONAL HYBRID PARAMETERS ===
+Hybrid Motor Speed;22 1901;(A*256+B)/4;0;16383.75;rpm;7E2;HEV;Electric motor speed;A-B
+Hybrid Motor Torque;22 1902;((A*256+B)-32768);-32768;32767;Nm;7E2;HEV;Electric motor torque;A-B
+Hybrid Motor Temperature;22 1903;A-40;-40;215;°C;7E2;HEV;Electric motor temperature;A
+Hybrid Motor Current;22 1904;((A*256+B)-32768)/10;-3276.8;3276.7;A;7E2;HEV;Electric motor current;A-B
+Hybrid Motor Voltage;22 1905;(A*256+B)/100;0;655.35;V;7E2;HEV;Electric motor voltage;A-B
+Hybrid Power Split Ratio;22 1906;A*100/255;0;100;%;7E2;HEV;Power split device ratio;A
+Hybrid Regeneration Level;22 1907;A*100/255;0;100;%;7E2;HEV;Regenerative braking level;A
+Hybrid Engine Start Stop;22 1908;A;0;255;Status;7E2;HEV;Engine start-stop status;A
+Hybrid Mode;22 1909;A;0;255;Mode;7E2;HEV;Hybrid operating mode;A
+=== ADDITIONAL EV PARAMETERS ===
+EV Motor Speed Front;22 1A01;(A*256+B)/4;0;16383.75;rpm;7E4;EV;Front motor speed;A-B
+EV Motor Speed Rear;22 1A02;(A*256+B)/4;0;16383.75;rpm;7E4;EV;Rear motor speed;A-B
+EV Motor Torque Front;22 1A03;((A*256+B)-32768);-32768;32767;Nm;7E4;EV;Front motor torque;A-B
+EV Motor Torque Rear;22 1A04;((A*256+B)-32768);-32768;32767;Nm;7E4;EV;Rear motor torque;A-B
+EV Motor Temperature Front;22 1A05;A-40;-40;215;°C;7E4;EV;Front motor temperature;A
+EV Motor Temperature Rear;22 1A06;A-40;-40;215;°C;7E4;EV;Rear motor temperature;A
+EV Inverter Temperature Front;22 1A07;A-40;-40;215;°C;7E4;EV;Front inverter temperature;A
+EV Inverter Temperature Rear;22 1A08;A-40;-40;215;°C;7E4;EV;Rear inverter temperature;A
+EV DC-DC Converter Voltage;22 1A09;(A*256+B)/100;0;655.35;V;7E4;EV;DC-DC converter output voltage;A-B
+EV DC-DC Converter Current;22 1A0A;((A*256+B)-32768)/10;-3276.8;3276.7;A;7E4;EV;DC-DC converter current;A-B
+EV Onboard Charger Power;22 1A0B;(A*256+B)/10;0;22;kW;7E4;EV;Onboard charger power;A-B
+EV Charging Port Temperature;22 1A0C;A-40;-40;215;°C;7E4;EV;Charging port temperature;A
+EV Charging Cable Lock;22 1A0D;A;0;255;Status;7E4;EV;Charging cable lock status;A
+EV Preconditioning Status;22 1A0E;A;0;255;Status;7E4;EV;Battery preconditioning status;A
+=== SUSPENSION SYSTEM ===
+Air Suspension Front Left;22 1B01;(A*256+B)/100;0;655.35;mm;7C6;SUSP;Front left air suspension height;A-B
+Air Suspension Front Right;22 1B02;(A*256+B)/100;0;655.35;mm;7C6;SUSP;Front right air suspension height;A-B
+Air Suspension Rear Left;22 1B03;(A*256+B)/100;0;655.35;mm;7C6;SUSP;Rear left air suspension height;A-B
+Air Suspension Rear Right;22 1B04;(A*256+B)/100;0;655.35;mm;7C6;SUSP;Rear right air suspension height;A-B
+Damping Control Front Left;22 1B05;A*100/255;0;100;%;7C6;SUSP;Front left damping control;A
+Damping Control Front Right;22 1B06;A*100/255;0;100;%;7C6;SUSP;Front right damping control;A
+Damping Control Rear Left;22 1B07;A*100/255;0;100;%;7C6;SUSP;Rear left damping control;A
+Damping Control Rear Right;22 1B08;A*100/255;0;100;%;7C6;SUSP;Rear right damping control;A
+Ride Height Sensor Front;22 1B09;(A*256+B)/100;0;655.35;mm;7C6;SUSP;Front ride height sensor;A-B
+Ride Height Sensor Rear;22 1B0A;(A*256+B)/100;0;655.35;mm;7C6;SUSP;Rear ride height sensor;A-B
+=== LIGHTING SYSTEM ===
+Headlight Level Sensor;22 1C01;A*100/255;0;100;%;7C8;BCM;Headlight level sensor;A
+Headlight Washer Status;22 1C02;A;0;255;Status;7C8;BCM;Headlight washer status;A
+Daytime Running Light Status;22 1C03;A;0;255;Status;7C8;BCM;Daytime running light status;A
+Adaptive Headlight Position;22 1C04;A*360/255;0;360;°;7C8;BCM;Adaptive headlight position;A
+=== BODY CONTROL MODULE ===
+Door Lock Status Driver;22 1D01;A;0;255;Status;7C8;BCM;Driver door lock status;A
+Door Lock Status Passenger;22 1D02;A;0;255;Status;7C8;BCM;Passenger door lock status;A
+Door Lock Status Rear Left;22 1D03;A;0;255;Status;7C8;BCM;Rear left door lock status;A
+Door Lock Status Rear Right;22 1D04;A;0;255;Status;7C8;BCM;Rear right door lock status;A
+Window Position Driver;22 1D05;A*100/255;0;100;%;7C8;BCM;Driver window position;A
+Window Position Passenger;22 1D06;A*100/255;0;100;%;7C8;BCM;Passenger window position;A
+Window Position Rear Left;22 1D07;A*100/255;0;100;%;7C8;BCM;Rear left window position;A
+Window Position Rear Right;22 1D08;A*100/255;0;100;%;7C8;BCM;Rear right window position;A
+Sunroof Position;22 1D09;A*100/255;0;100;%;7C8;BCM;Sunroof position;A
+Mirror Position Driver;22 1D0A;A*100/255;0;100;%;7C8;BCM;Driver mirror position;A
+=== SECURITY SYSTEM ===
+Immobilizer Status;22 1E01;A;0;255;Status;7D0;IMMO;Immobilizer system status;A
+Alarm Status;22 1E02;A;0;255;Status;7C8;BCM;Vehicle alarm status;A
+Key Fob Battery Level;22 1E03;A*100/255;0;100;%;7D0;IMMO;Key fob battery level;A
+=== CLIMATE CONTROL ADVANCED ===
+HVAC Seat Heater Driver;22 1F01;A*100/255;0;100;%;7C0;HVAC;Driver seat heater level;A
+HVAC Seat Heater Passenger;22 1F02;A*100/255;0;100;%;7C0;HVAC;Passenger seat heater level;A
+HVAC Seat Cooler Driver;22 1F03;A*100/255;0;100;%;7C0;HVAC;Driver seat cooler level;A
+HVAC Seat Cooler Passenger;22 1F04;A*100/255;0;100;%;7C0;HVAC;Passenger seat cooler level;A
+HVAC Steering Wheel Heater;22 1F05;A*100/255;0;100;%;7C0;HVAC;Steering wheel heater level;A
+HVAC Rear Defroster;22 1F06;A;0;255;Status;7C0;HVAC;Rear window defroster status;A
+HVAC Front Defroster;22 1F07;A;0;255;Status;7C0;HVAC;Front windshield defroster status;A
+=== ADDITIONAL MANUFACTURER SPECIFIC - VOLVO ===
+Volvo Battery SOC;22 015C;A;0;100;%;7E4;BMS;Battery state of charge;A
+Volvo Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+Volvo Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery current;A-B
+Volvo Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;Battery temperature;A
+Volvo City Safety Status;22 2001;A;0;255;Status;7B0;ABS;City Safety system status;A
+=== ADDITIONAL MANUFACTURER SPECIFIC - PORSCHE ===
+Porsche Battery SOC;22 015C;A;0;100;%;7E4;BMS;Battery state of charge;A
+Porsche Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+Porsche Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery current;A-B
+Porsche Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;Battery temperature;A
+Porsche Sport Chrono;22 3001;A;0;255;Status;7E0;ECM;Sport Chrono system status;A
+Porsche PDK Status;22 3002;A;0;255;Status;7E1;TCM;PDK transmission status;A
+=== ADDITIONAL MANUFACTURER SPECIFIC - JAGUAR/LAND ROVER ===
+JLR Battery SOC;22 015C;A;0;100;%;7E4;BMS;Battery state of charge;A
+JLR Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+JLR Terrain Response;22 4001;A;0;255;Mode;7C6;AWD;Terrain Response mode;A
+JLR Air Suspension;22 4002;(A*256+B)/100;0;655.35;mm;7C6;SUSP;Air suspension height;A-B
+=== ADDITIONAL MANUFACTURER SPECIFIC - MAZDA ===
+Mazda Skyactiv Status;22 5001;A;0;255;Status;7E0;ECM;Skyactiv engine status;A
+Mazda i-ELOOP Status;22 5002;A;0;255;Status;7E0;ECM;i-ELOOP capacitor status;A
+=== ADDITIONAL MANUFACTURER SPECIFIC - SUBARU ===
+Subaru Symmetrical AWD;22 6001;A*100/255;0;100;%;7C6;AWD;Front-rear torque distribution;A
+Subaru X-Mode;22 6002;A;0;255;Status;7C6;AWD;X-Mode status;A
+Subaru SI-Drive;22 6003;A;0;255;Mode;7E0;ECM;SI-Drive mode;A
+=== ADDITIONAL MANUFACTURER SPECIFIC - MITSUBISHI ===
+Mitsubishi S-AWC;22 7001;A;0;255;Status;7C6;AWD;Super All Wheel Control status;A
+Mitsubishi EV Battery SOC;22 015C;A;0;100;%;7E4;BMS;Battery state of charge;A
+Mitsubishi EV Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+=== ADDITIONAL MANUFACTURER SPECIFIC - RENAULT ===
+Renault Battery SOC;22 015C;A;0;100;%;7E4;BMS;Battery state of charge;A
+Renault Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+Renault Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery current;A-B
+Renault Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;Battery temperature;A
+Renault Battery SOH;22 015B;A;0;100;%;7E4;BMS;Battery state of health;A
+=== ADDITIONAL MANUFACTURER SPECIFIC - BYD ===
+BYD Battery SOC;22 015C;A;0;100;%;7E4;BMS;Battery state of charge;A
+BYD Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+BYD Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery current;A-B
+BYD Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;Battery temperature;A
+BYD Blade Battery Status;22 8001;A;0;255;Status;7E4;BMS;Blade battery status;A
+=== ADDITIONAL MANUFACTURER SPECIFIC - GEELY ===
+Geely Battery SOC;22 015C;A;0;100;%;7E4;BMS;Battery state of charge;A
+Geely Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+Geely Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery current;A-B
+Geely Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;Battery temperature;A
+=== ADDITIONAL MANUFACTURER SPECIFIC - CHERY ===
+Chery Battery SOC;22 015C;A;0;100;%;7E4;BMS;Battery state of charge;A
+Chery Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+Chery Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery current;A-B
+Chery Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;Battery temperature;A
+=== ADDITIONAL MANUFACTURER SPECIFIC - GREAT WALL ===
+Great Wall Battery SOC;22 015C;A;0;100;%;7E4;BMS;Battery state of charge;A
+Great Wall Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+Great Wall Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery current;A-B
+Great Wall Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;Battery temperature;A
+=== ADDITIONAL MANUFACTURER SPECIFIC - SAIC ===
+SAIC Battery SOC;22 015C;A;0;100;%;7E4;BMS;Battery state of charge;A
+SAIC Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;Battery voltage;A-B
+SAIC Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;Battery current;A-B
+SAIC Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;Battery temperature;A
+=== UDS MODE 23 - READ MEMORY BY ADDRESS ===
+Memory Address Read;23 AAAA BBBB;Raw data;0;255;Hex;7E0;ECM;Read memory by address;A-B-C-D-E-F-G-H
+=== UDS MODE 27 - SECURITY ACCESS ===
+Security Access Seed;27 01;Random;0;65535;Hex;7E0;ECM;Security access seed;A-B
+Security Access Key;27 02;Calculated;0;65535;Hex;7E0;ECM;Security access key;A-B
+=== UDS MODE 2E - WRITE DATA BY IDENTIFIER ===
+Write Data Identifier;2E XXXX;Data;0;255;Hex;7E0;ECM;Write data by identifier;A-B-C-D-E-F-G-H
+=== UDS MODE 31 - ROUTINE CONTROL ===
+Routine Control Start;31 01 XX;Status;0;255;Status;7E0;ECM;Start routine control;A-B
+Routine Control Stop;31 02 XX;Status;0;255;Status;7E0;ECM;Stop routine control;A-B
+Routine Control Request Results;31 03 XX;Results;0;255;Results;7E0;ECM;Request routine results;A-B
+=== UDS MODE 3E - TESTER PRESENT ===
+Tester Present;3E 00;Keep alive;0;255;Status;7E0;ECM;Tester present keep alive;A
+=== UDS MODE 10 - DIAGNOSTIC SESSION CONTROL ===
+Default Session;10 01;Session;0;255;Session;7E0;ECM;Default diagnostic session;A
+Programming Session;10 02;Session;0;255;Session;7E0;ECM;Programming session;A
+Extended Diagnostic Session;10 03;Session;0;255;Session;7E0;ECM;Extended diagnostic session;A
+Safety System Diagnostic Session;10 04;Session;0;255;Session;7E0;ECM;Safety system diagnostic session;A
+=== UDS MODE 11 - ECU RESET ===
+Hard Reset;11 01;Reset;0;255;Status;7E0;ECM;Hard reset ECU;A
+Key Off On Reset;11 02;Reset;0;255;Status;7E0;ECM;Key off on reset;A
+Soft Reset;11 03;Reset;0;255;Status;7E0;ECM;Soft reset ECU;A
+=== UDS MODE 19 - READ DTC INFORMATION ===
+Read DTC By Status Mask;19 01 XX;DTC list;0;255;DTC;7E0;ECM;Read DTCs by status mask;A-B-C-D-E-F-G-H
+Read DTC By Number;19 02 XX;DTC;0;255;DTC;7E0;ECM;Read specific DTC;A-B-C-D-E-F-G-H
+Read DTC Snapshot;19 04 XX;Snapshot;0;255;Data;7E0;ECM;Read DTC snapshot data;A-B-C-D-E-F-G-H
+Read DTC Extended Data;19 06 XX;Extended;0;255;Data;7E0;ECM;Read DTC extended data;A-B-C-D-E-F-G-H
+Clear DTC;19 03 XX;Clear;0;255;Status;7E0;ECM;Clear DTCs;A-B-C-D-E-F-G-H
+=== UDS MODE 14 - CLEAR DIAGNOSTIC INFORMATION ===
+Clear All DTCs;14 FF FF FF;Clear;0;255;Status;7E0;ECM;Clear all diagnostic trouble codes;A-B-C-D
+Clear DTC Group;14 XX XX XX;Clear;0;255;Status;7E0;ECM;Clear DTC group;A-B-C-D
+=== UDS MODE 2C - DYNAMICALLY DEFINE DATA IDENTIFIER ===
+Define Data Identifier;2C 01 XX XX;Define;0;255;Status;7E0;ECM;Define data identifier;A-B-C-D-E-F-G-H
+=== UDS MODE 2F - INPUT OUTPUT CONTROL BY IDENTIFIER ===
+Input Output Control;2F XX XX;Control;0;255;Status;7E0;ECM;Input output control;A-B-C-D-E-F-G-H
+=== UDS MODE 34 - REQUEST DOWNLOAD ===
+Request Download;34 XX XX XX XX;Address;0;4294967295;Address;7E0;ECM;Request download;A-B-C-D-E-F-G-H
+=== UDS MODE 36 - TRANSFER DATA ===
+Transfer Data;36 XX;Data;0;255;Data;7E0;ECM;Transfer data block;A-B-C-D-E-F-G-H
+=== UDS MODE 37 - REQUEST TRANSFER EXIT ===
+Request Transfer Exit;37 XX;Exit;0;255;Status;7E0;ECM;Request transfer exit;A-B-C-D-E-F-G-H
+=== UDS MODE 3D - WRITE MEMORY BY ADDRESS ===
+Write Memory By Address;3D XX XX XX XX;Data;0;4294967295;Data;7E0;ECM;Write memory by address;A-B-C-D-E-F-G-H
+=== ADDITIONAL ADVANCED PARAMETERS ===
+Adaptive Learning Values Bank 1;22 2101;A;B;C;D;Values;7E0;ECM;Adaptive learning values bank 1;A-B-C-D
+Adaptive Learning Values Bank 2;22 2102;A;B;C;D;Values;7E0;ECM;Adaptive learning values bank 2;A-B-C-D
+Fuel Trim Learning Bank 1;22 2103;A;B;C;D;Values;7E0;ECM;Fuel trim learning bank 1;A-B-C-D
+Fuel Trim Learning Bank 2;22 2104;A;B;C;D;Values;7E0;ECM;Fuel trim learning bank 2;A-B-C-D
+Idle Speed Learning;22 2105;A;B;C;D;Values;7E0;ECM;Idle speed learning values;A-B-C-D
+Throttle Learning Values;22 2106;A;B;C;D;Values;7E0;ECM;Throttle learning values;A-B-C-D
+=== ADDITIONAL CELL MONITORING (EXTENDED) ===
+Cell Voltage 9;22 B009;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 9;A
+Cell Voltage 10;22 B00A;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 10;A
+Cell Voltage 11;22 B00B;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 11;A
+Cell Voltage 12;22 B00C;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 12;A
+Cell Voltage 13;22 B00D;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 13;A
+Cell Voltage 14;22 B00E;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 14;A
+Cell Voltage 15;22 B00F;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 15;A
+Cell Voltage 16;22 B010;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 16;A
+Cell Temperature 9;22 B109;A-40;-40;100;°C;7E4;BMS;Cell temperature 9;A
+Cell Temperature 10;22 B10A;A-40;-40;100;°C;7E4;BMS;Cell temperature 10;A
+Cell Temperature 11;22 B10B;A-40;-40;100;°C;7E4;BMS;Cell temperature 11;A
+Cell Temperature 12;22 B10C;A-40;-40;100;°C;7E4;BMS;Cell temperature 12;A
+Cell Temperature 13;22 B10D;A-40;-40;100;°C;7E4;BMS;Cell temperature 13;A
+Cell Temperature 14;22 B10E;A-40;-40;100;°C;7E4;BMS;Cell temperature 14;A
+Cell Temperature 15;22 B10F;A-40;-40;100;°C;7E4;BMS;Cell temperature 15;A
+Cell Temperature 16;22 B110;A-40;-40;100;°C;7E4;BMS;Cell temperature 16;A
+=== ADDITIONAL ADVANCED ECM PARAMETERS ===
+Cylinder Pressure Sensor 1;22 2201;(A*256+B)/100;0;655.35;bar;7E0;ECM;Cylinder pressure sensor 1;A-B
+Cylinder Pressure Sensor 2;22 2202;(A*256+B)/100;0;655.35;bar;7E0;ECM;Cylinder pressure sensor 2;A-B
+Cylinder Pressure Sensor 3;22 2203;(A*256+B)/100;0;655.35;bar;7E0;ECM;Cylinder pressure sensor 3;A-B
+Cylinder Pressure Sensor 4;22 2204;(A*256+B)/100;0;655.35;bar;7E0;ECM;Cylinder pressure sensor 4;A-B
+Cylinder Pressure Sensor 5;22 2205;(A*256+B)/100;0;655.35;bar;7E0;ECM;Cylinder pressure sensor 5;A-B
+Cylinder Pressure Sensor 6;22 2206;(A*256+B)/100;0;655.35;bar;7E0;ECM;Cylinder pressure sensor 6;A-B
+Cylinder Pressure Sensor 7;22 2207;(A*256+B)/100;0;655.35;bar;7E0;ECM;Cylinder pressure sensor 7;A-B
+Cylinder Pressure Sensor 8;22 2208;(A*256+B)/100;0;655.35;bar;7E0;ECM;Cylinder pressure sensor 8;A-B
+Combustion Quality Index;22 2209;A*100/255;0;100;%;7E0;ECM;Combustion quality index;A
+Indicated Mean Effective Pressure;22 220A;(A*256+B)/100;0;655.35;bar;7E0;ECM;Indicated mean effective pressure;A-B
+Brake Mean Effective Pressure;22 220B;(A*256+B)/100;0;655.35;bar;7E0;ECM;Brake mean effective pressure;A-B
+=== ADDITIONAL TURBOCHARGER PARAMETERS ===
+Turbo Actuator Position;22 2301;A*100/255;0;100;%;7E0;ECM;Turbo actuator position;A
+Turbo Boost Solenoid;22 2302;A*100/255;0;100;%;7E0;ECM;Turbo boost control solenoid;A
+Turbo Bypass Valve Position;22 2303;A*100/255;0;100;%;7E0;ECM;Turbo bypass valve position;A
+Turbo Compressor Map;22 2304;A;B;C;D;Map;7E0;ECM;Turbo compressor map data;A-B-C-D
+Turbo Efficiency;22 2305;A*100/255;0;100;%;7E0;ECM;Turbocharger efficiency;A
+Turbo Speed Sensor;22 2306;(A*256+B)/4;0;16383.75;rpm;7E0;ECM;Turbo speed sensor;A-B
+Turbo Oil Pressure;22 2307;(A*256+B)/100;0;655.35;kPa;7E0;ECM;Turbo oil pressure;A-B
+Turbo Oil Temperature;22 2308;A-40;-40;215;°C;7E0;ECM;Turbo oil temperature;A
+=== ADDITIONAL FUEL SYSTEM PARAMETERS ===
+Fuel Pump Speed;22 2401;(A*256+B)/4;0;16383.75;rpm;7E0;ECM;Low pressure fuel pump speed;A-B
+Fuel Pump Duty Cycle;22 2402;A*100/255;0;100;%;7E0;ECM;Fuel pump duty cycle;A
+Fuel Filter Clogging;22 2403;A*100/255;0;100;%;7E0;ECM;Fuel filter clogging percentage;A
+Fuel Injector Leakage;22 2404;A*100/255;0;100;%;7E0;ECM;Fuel injector leakage;A
+Fuel Rail Pressure Regulator;22 2405;A*100/255;0;100;%;7E0;ECM;Fuel rail pressure regulator;A
+High Pressure Pump Pressure;22 2406;(A*256+B)*10;0;655350;kPa;7E0;ECM;High pressure pump pressure;A-B
+Fuel Return Flow Rate;22 2407;(A*256+B)/100;0;655.35;L/h;7E0;ECM;Fuel return flow rate;A-B
+=== ADDITIONAL EGR SYSTEM PARAMETERS ===
+EGR Cooler Bypass Valve;22 2501;A*100/255;0;100;%;7E0;ECM;EGR cooler bypass valve;A
+EGR Cooler Efficiency;22 2502;A*100/255;0;100;%;7E0;ECM;EGR cooler efficiency;A
+EGR Mass Flow Sensor;22 2503;(A*256+B)/100;0;655.35;g/s;7E0;ECM;EGR mass flow sensor;A-B
+EGR Valve Position Sensor;22 2504;A*100/255;0;100;%;7E0;ECM;EGR valve position sensor;A
+EGR Differential Pressure;22 2505;(A*256+B)/100;0;655.35;kPa;7E0;ECM;EGR differential pressure;A-B
+=== ADDITIONAL DPF SYSTEM PARAMETERS ===
+DPF Pressure Sensor Upstream;22 2601;(A*256+B)/100;0;655.35;kPa;7E0;ECM;DPF pressure upstream;A-B
+DPF Pressure Sensor Downstream;22 2602;(A*256+B)/100;0;655.35;kPa;7E0;ECM;DPF pressure downstream;A-B
+DPF Regeneration Fuel Quantity;22 2603;(A*256+B)/1000;0;65.535;mg;7E0;ECM;DPF regeneration fuel quantity;A-B
+DPF Regeneration Duration;22 2604;(A*256+B);0;65535;s;7E0;ECM;DPF regeneration duration;A-B
+DPF Ash Mass;22 2605;(A*256+B)/100;0;655.35;g;7E0;ECM;DPF ash mass;A-B
+DPF Soot Mass;22 2606;(A*256+B)/100;0;655.35;g;7E0;ECM;DPF soot mass;A-B
+DPF Regeneration Request;22 2607;A;0;255;Status;7E0;ECM;DPF regeneration request;A
+DPF Regeneration Inhibit;22 2608;A;0;255;Status;7E0;ECM;DPF regeneration inhibit;A
+=== ADDITIONAL SCR/ADBLUE PARAMETERS ===
+SCR NOx Sensor Upstream;22 2701;(A*256+B)/100;0;655.35;ppm;7E0;ECM;SCR NOx sensor upstream;A-B
+SCR NOx Sensor Downstream;22 2702;(A*256+B)/100;0;655.35;ppm;7E0;ECM;SCR NOx sensor downstream;A-B
+SCR NH3 Sensor;22 2703;(A*256+B)/100;0;655.35;ppm;7E0;ECM;SCR ammonia sensor;A-B
+SCR Injector Flow Rate;22 2704;(A*256+B)/100;0;655.35;mL/h;7E0;ECM;SCR injector flow rate;A-B
+SCR Injector Pressure;22 2705;(A*256+B)/100;0;655.35;kPa;7E0;ECM;SCR injector pressure;A-B
+AdBlue Tank Level Sensor;22 2706;A*100/255;0;100;%;7E0;ECM;AdBlue tank level sensor;A
+AdBlue Quality Sensor;22 2707;A*100/255;0;100;%;7E0;ECM;AdBlue quality sensor;A
+AdBlue Heater Status;22 2708;A;0;255;Status;7E0;ECM;AdBlue heater status;A
+SCR Catalyst Temperature;22 2709;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;SCR catalyst temperature;A-B
+SCR Conversion Efficiency;22 270A;A*100/255;0;100;%;7E0;ECM;SCR conversion efficiency;A
+=== ADDITIONAL TRANSMISSION PARAMETERS ===
+Transmission Clutch Slip;22 2801;A*100/255;0;100;%;7E1;TCM;Transmission clutch slip;A
+Transmission Line Pressure;22 2802;(A*256+B)/100;0;655.35;kPa;7E1;TCM;Transmission line pressure;A-B
+Transmission Governor Pressure;22 2803;(A*256+B)/100;0;655.35;kPa;7E1;TCM;Transmission governor pressure;A-B
+Transmission Modulator Pressure;22 2804;(A*256+B)/100;0;655.35;kPa;7E1;TCM;Transmission modulator pressure;A-B
+Transmission Torque Converter Temp;22 2805;A-40;-40;215;°C;7E1;TCM;Torque converter temperature;A
+Transmission Valve Body Temp;22 2806;A-40;-40;215;°C;7E1;TCM;Transmission valve body temperature;A
+CVT Belt Ratio;22 2807;(A*256+B)/100;0;655.35;Ratio;7E1;TCM;CVT belt ratio;A-B
+CVT Primary Pulley Pressure;22 2808;(A*256+B)/100;0;655.35;kPa;7E1;TCM;CVT primary pulley pressure;A-B
+CVT Secondary Pulley Pressure;22 2809;(A*256+B)/100;0;655.35;kPa;7E1;TCM;CVT secondary pulley pressure;A-B
+CVT Belt Tension;22 280A;(A*256+B)/100;0;655.35;N;7E1;TCM;CVT belt tension;A-B
+=== ADDITIONAL ABS/ESP PARAMETERS ===
+Wheel Speed Sensor Status;22 2901;A;0;255;Status;7B0;ABS;Wheel speed sensor status;A
+ABS Pump Motor Speed;22 2902;(A*256+B)/4;0;16383.75;rpm;7B0;ABS;ABS pump motor speed;A-B
+ABS Pump Motor Current;22 2903;(A*256+B)/10;0;6553.5;A;7B0;ABS;ABS pump motor current;A-B
+ESP Hydraulic Pressure;22 2904;(A*256+B)/100;0;655.35;bar;7B0;ABS;ESP hydraulic pressure;A-B
+ESP Yaw Rate Sensor;22 2905;((A*256+B)-32768)/100;-327.68;327.67;°/s;7B0;ABS;ESP yaw rate sensor;A-B
+ESP Lateral Acceleration Sensor;22 2906;((A*256+B)-32768)/100;-327.68;327.67;m/s²;7B0;ABS;ESP lateral acceleration;A-B
+ESP Longitudinal Acceleration Sensor;22 2907;((A*256+B)-32768)/100;-327.68;327.67;m/s²;7B0;ABS;ESP longitudinal acceleration;A-B
+ESP Steering Angle Rate;22 2908;((A*256+B)-32768)/10;-3276.8;3276.7;°/s;7B0;ABS;ESP steering angle rate;A-B
+ESP Brake Pressure Front Left;22 2909;(A*256+B)/100;0;655.35;bar;7B0;ABS;ESP brake pressure front left;A-B
+ESP Brake Pressure Front Right;22 290A;(A*256+B)/100;0;655.35;bar;7B0;ABS;ESP brake pressure front right;A-B
+ESP Brake Pressure Rear Left;22 290B;(A*256+B)/100;0;655.35;bar;7B0;ABS;ESP brake pressure rear left;A-B
+ESP Brake Pressure Rear Right;22 290C;(A*256+B)/100;0;655.35;bar;7B0;ABS;ESP brake pressure rear right;A-B
+=== ADDITIONAL EPS PARAMETERS ===
+EPS Motor Voltage;22 2A01;(A*256+B)/100;0;655.35;V;7C4;EPS;EPS motor voltage;A-B
+EPS Motor Power;22 2A02;(A*256+B)/10;0;6553.5;W;7C4;EPS;EPS motor power;A-B
+EPS Assist Current;22 2A03;((A*256+B)-32768)/100;-327.68;327.67;A;7C4;EPS;EPS assist current;A-B
+EPS Torque Sensor 1;22 2A04;((A*256+B)-32768)/100;-327.68;327.67;Nm;7C4;EPS;EPS torque sensor 1;A-B
+EPS Torque Sensor 2;22 2A05;((A*256+B)-32768)/100;-327.68;327.67;Nm;7C4;EPS;EPS torque sensor 2;A-B
+EPS Angle Sensor;22 2A06;((A*256+B)-32768)/10;-3276.8;3276.7;°;7C4;EPS;EPS angle sensor;A-B
+EPS Speed Sensor;22 2A07;(A*256+B)/4;0;16383.75;rpm;7C4;EPS;EPS speed sensor;A-B
+EPS Overheat Protection;22 2A08;A;0;255;Status;7C4;EPS;EPS overheat protection status;A
+=== ADDITIONAL HVAC PARAMETERS ===
+HVAC Blower Motor Current;22 2B01;(A*256+B)/10;0;6553.5;A;7C0;HVAC;HVAC blower motor current;A-B
+HVAC Blower Motor Speed;22 2B02;(A*256+B)/4;0;16383.75;rpm;7C0;HVAC;HVAC blower motor speed;A-B
+HVAC Compressor Clutch Current;22 2B03;(A*256+B)/10;0;6553.5;A;7C0;HVAC;AC compressor clutch current;A-B
+HVAC Expansion Valve Position;22 2B04;A*100/255;0;100;%;7C0;HVAC;AC expansion valve position;A
+HVAC High Pressure Switch;22 2B05;A;0;255;Status;7C0;HVAC;AC high pressure switch;A
+HVAC Low Pressure Switch;22 2B06;A;0;255;Status;7C0;HVAC;AC low pressure switch;A
+HVAC Humidity Sensor;22 2B07;A*100/255;0;100;%;7C0;HVAC;Cabin humidity sensor;A
+HVAC Air Quality Sensor;22 2B08;A*100/255;0;100;%;7C0;HVAC;Air quality sensor;A
+HVAC PM2.5 Sensor;22 2B09;(A*256+B)/100;0;655.35;µg/m³;7C0;HVAC;PM2.5 sensor;A-B
+HVAC PM10 Sensor;22 2B0A;(A*256+B)/100;0;655.35;µg/m³;7C0;HVAC;PM10 sensor;A-B
+=== ADDITIONAL BATTERY CELL MONITORING ===
+Cell Voltage 17;22 B011;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 17;A
+Cell Voltage 18;22 B012;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 18;A
+Cell Voltage 19;22 B013;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 19;A
+Cell Voltage 20;22 B014;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 20;A
+Cell Voltage 21;22 B015;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 21;A
+Cell Voltage 22;22 B016;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 22;A
+Cell Voltage 23;22 B017;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 23;A
+Cell Voltage 24;22 B018;A/50;2.5;4.2;V;7E4;BMS;Cell voltage 24;A
+Cell Temperature 17;22 B111;A-40;-40;100;°C;7E4;BMS;Cell temperature 17;A
+Cell Temperature 18;22 B112;A-40;-40;100;°C;7E4;BMS;Cell temperature 18;A
+Cell Temperature 19;22 B113;A-40;-40;100;°C;7E4;BMS;Cell temperature 19;A
+Cell Temperature 20;22 B114;A-40;-40;100;°C;7E4;BMS;Cell temperature 20;A
+Cell Temperature 21;22 B115;A-40;-40;100;°C;7E4;BMS;Cell temperature 21;A
+Cell Temperature 22;22 B116;A-40;-40;100;°C;7E4;BMS;Cell temperature 22;A
+Cell Temperature 23;22 B117;A-40;-40;100;°C;7E4;BMS;Cell temperature 23;A
+Cell Temperature 24;22 B118;A-40;-40;100;°C;7E4;BMS;Cell temperature 24;A
+=== ADDITIONAL CHARGING SYSTEM PARAMETERS ===
+Charging Station Power;22 2C01;(A*256+B)/10;0;300;kW;7E4;BMS;Charging station power;A-B
+Charging Station Voltage;22 2C02;(A*256+B)/100;0;1000;V;7E4;BMS;Charging station voltage;A-B
+Charging Station Current;22 2C03;(A*256+B)/10;0;500;A;7E4;BMS;Charging station current;A-B
+Charging Station Temperature;22 2C04;A-40;-40;215;°C;7E4;BMS;Charging station temperature;A
+Charging Efficiency Real Time;22 2C05;A*100/255;0;100;%;7E4;BMS;Real-time charging efficiency;A
+Charging Energy Delivered;22 2C06;(A*256+B*256+C*256*256+D*256*256*256)/100;0;42949672.95;kWh;7E4;BMS;Total energy delivered;A-B-C-D
+Charging Cost Estimate;22 2C07;(A*256+B*256+C*256*256+D*256*256*256)/100;0;42949672.95;Currency;7E4;BMS;Charging cost estimate;A-B-C-D
+=== ADDITIONAL MOTOR/INVERTER PARAMETERS ===
+Motor Phase Current U;22 2D01;((A*256+B)-32768)/10;-3276.8;3276.7;A;7E4;EV;Motor phase U current;A-B
+Motor Phase Current V;22 2D02;((A*256+B)-32768)/10;-3276.8;3276.7;A;7E4;EV;Motor phase V current;A-B
+Motor Phase Current W;22 2D03;((A*256+B)-32768)/10;-3276.8;3276.7;A;7E4;EV;Motor phase W current;A-B
+Motor Phase Voltage U;22 2D04;(A*256+B)/100;0;655.35;V;7E4;EV;Motor phase U voltage;A-B
+Motor Phase Voltage V;22 2D05;(A*256+B)/100;0;655.35;V;7E4;EV;Motor phase V voltage;A-B
+Motor Phase Voltage W;22 2D06;(A*256+B)/100;0;655.35;V;7E4;EV;Motor phase W voltage;A-B
+Inverter DC Link Voltage;22 2D07;(A*256+B)/100;0;655.35;V;7E4;EV;Inverter DC link voltage;A-B
+Inverter DC Link Current;22 2D08;((A*256+B)-32768)/10;-3276.8;3276.7;A;7E4;EV;Inverter DC link current;A-B
+Inverter Switching Frequency;22 2D09;(A*256+B)/100;0;655.35;Hz;7E4;EV;Inverter switching frequency;A-B
+Inverter Gate Driver Temperature;22 2D0A;A-40;-40;215;°C;7E4;EV;Inverter gate driver temperature;A
+Motor Winding Temperature U;22 2D0B;A-40;-40;215;°C;7E4;EV;Motor winding U temperature;A
+Motor Winding Temperature V;22 2D0C;A-40;-40;215;°C;7E4;EV;Motor winding V temperature;A
+Motor Winding Temperature W;22 2D0D;A-40;-40;215;°C;7E4;EV;Motor winding W temperature;A
+=== ADDITIONAL AWD/DIFFERENTIAL PARAMETERS ===
+AWD Front Axle Torque;22 2E01;(A*256+B);0;65535;Nm;7C6;AWD;Front axle torque;A-B
+AWD Rear Axle Torque;22 2E02;(A*256+B);0;65535;Nm;7C6;AWD;Rear axle torque;A-B
+AWD Left Right Torque Split;22 2E03;A*100/255;0;100;%;7C6;AWD;Left-right torque split;A
+AWD Torque Vectoring Front;22 2E04;((A*256+B)-32768);-32768;32767;Nm;7C6;AWD;Front torque vectoring;A-B
+AWD Torque Vectoring Rear;22 2E05;((A*256+B)-32768);-32768;32767;Nm;7C6;AWD;Rear torque vectoring;A-B
+AWD Clutch Pack Temperature;22 2E06;A-40;-40;215;°C;7C6;AWD;AWD clutch pack temperature;A
+AWD Transfer Case Oil Temp;22 2E07;A-40;-40;215;°C;7C6;AWD;Transfer case oil temperature;A
+AWD Actuator Position;22 2E08;A*100/255;0;100;%;7C6;AWD;AWD actuator position;A
+=== ADDITIONAL SUSPENSION PARAMETERS ===
+Suspension Damping Front Left;22 2F01;A*100/255;0;100;%;7C6;SUSP;Front left damping;A
+Suspension Damping Front Right;22 2F02;A*100/255;0;100;%;7C6;SUSP;Front right damping;A
+Suspension Damping Rear Left;22 2F03;A*100/255;0;100;%;7C6;SUSP;Rear left damping;A
+Suspension Damping Rear Right;22 2F04;A*100/255;0;100;%;7C6;SUSP;Rear right damping;A
+Suspension Spring Rate;22 2F05;A*100/255;0;100;%;7C6;SUSP;Suspension spring rate;A
+Suspension Compression Damping;22 2F06;A*100/255;0;100;%;7C6;SUSP;Compression damping;A
+Suspension Rebound Damping;22 2F07;A*100/255;0;100;%;7C6;SUSP;Rebound damping;A
+Suspension Active Roll Control;22 2F08;A*100/255;0;100;%;7C6;SUSP;Active roll control;A
+=== ADDITIONAL BODY CONTROL PARAMETERS ===
+BCM Interior Light Status;22 3001;A;0;255;Status;7C8;BCM;Interior light status;A
+BCM Exterior Light Status;22 3002;A;0;255;Status;7C8;BCM;Exterior light status;A
+BCM Wiper Status;22 3003;A;0;255;Status;7C8;BCM;Wiper system status;A
+BCM Wiper Speed;22 3004;A*100/255;0;100;%;7C8;BCM;Wiper speed;A
+BCM Rain Sensor;22 3005;A*100/255;0;100;%;7C8;BCM;Rain sensor level;A
+BCM Light Sensor;22 3006;A*100/255;0;100;%;7C8;BCM;Ambient light sensor;A
+BCM Parking Sensor Front;22 3007;A*100/255;0;100;%;7C8;BCM;Front parking sensor;A
+BCM Parking Sensor Rear;22 3008;A*100/255;0;100;%;7C8;BCM;Rear parking sensor;A
+BCM Blind Spot Monitor;22 3009;A;0;255;Status;7C8;BCM;Blind spot monitor status;A
+BCM Lane Departure Warning;22 300A;A;0;255;Status;7C8;BCM;Lane departure warning status;A
+=== ADDITIONAL SAFETY SYSTEMS ===
+Pre-Collision System Status;22 3101;A;0;255;Status;7B0;ABS;Pre-collision system status;A
+Forward Collision Warning;22 3102;A;0;255;Status;7B0;ABS;Forward collision warning;A
+Automatic Emergency Braking;22 3103;A;0;255;Status;7B0;ABS;Automatic emergency braking;A
+Pedestrian Detection;22 3104;A;0;255;Status;7B0;ABS;Pedestrian detection status;A
+Lane Keep Assist;22 3105;A;0;255;Status;7B0;ABS;Lane keep assist status;A
+Adaptive Cruise Control;22 3106;A;0;255;Status;7E0;ECM;Adaptive cruise control status;A
+Traffic Sign Recognition;22 3107;A;0;255;Status;7C8;BCM;Traffic sign recognition;A
+Driver Attention Monitor;22 3108;A*100/255;0;100;%;7C8;BCM;Driver attention level;A
+Fatigue Detection;22 3109;A;0;255;Status;7C8;BCM;Fatigue detection status;A
+=== ADDITIONAL INFOTAINMENT PARAMETERS ===
+Infotainment System Status;22 3201;A;0;255;Status;7C8;BCM;Infotainment system status;A
+Navigation System Status;22 3202;A;0;255;Status;7C8;BCM;Navigation system status;A
+Bluetooth Connection Status;22 3203;A;0;255;Status;7C8;BCM;Bluetooth connection status;A
+USB Connection Status;22 3204;A;0;255;Status;7C8;BCM;USB connection status;A
+Audio System Volume;22 3205;A*100/255;0;100;%;7C8;BCM;Audio system volume;A
+Radio Frequency;22 3206;(A*256+B)/100;0;655.35;MHz;7C8;BCM;Radio frequency;A-B
+=== ADDITIONAL DIAGNOSTIC PARAMETERS ===
+ECU Software Version;22 3301;ASCII;0;255;String;7E0;ECM;ECU software version;A-B-C-D-E-F-G-H
+ECU Hardware Version;22 3302;ASCII;0;255;String;7E0;ECM;ECU hardware version;A-B-C-D-E-F-G-H
+ECU Serial Number;22 3303;ASCII;0;255;String;7E0;ECM;ECU serial number;A-B-C-D-E-F-G-H
+ECU Manufacturing Date;22 3304;Date;0;255;Date;7E0;ECM;ECU manufacturing date;A-B-C-D
+ECU Calibration Date;22 3305;Date;0;255;Date;7E0;ECM;ECU calibration date;A-B-C-D
+ECU Operating Hours;22 3306;(A*256+B*256+C*256*256+D*256*256*256);0;4294967295;Hours;7E0;ECM;ECU operating hours;A-B-C-D
+ECU Power Cycles;22 3307;(A*256+B);0;65535;Count;7E0;ECM;ECU power cycles;A-B
+ECU Temperature Max;22 3308;A-40;-40;215;°C;7E0;ECM;ECU maximum temperature;A
+ECU Temperature Min;22 3309;A-40;-40;215;°C;7E0;ECM;ECU minimum temperature;A
+ECU Voltage Max;22 330A;(A*256+B)/100;0;655.35;V;7E0;ECM;ECU maximum voltage;A-B
+ECU Voltage Min;22 330B;(A*256+B)/100;0;655.35;V;7E0;ECM;ECU minimum voltage;A-B

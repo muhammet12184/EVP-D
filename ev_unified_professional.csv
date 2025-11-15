@@ -1,122 +1,511 @@
-Name;Mode/PID;Equation;Min;Max;Units;Header
-=== Nissan Leaf / Renault Zoe ===;;;;;;
-Battery SOH;22 015B;A;0;100;%;7E4
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-Battery Capacity (kWh);22 0161;(A*256+B)/100;0;100;kWh;7E4
-Cell Min Voltage;22 0162;A/50;2.5;4.2;V;7E4
-Cell Max Voltage;22 0163;A/50;2.5;4.2;V;7E4
-=== Hyundai / Kia (Kona, Ioniq, Niro, EV6) ===;;;;;;
-Battery SOH;22 0170;A;0;100;%;7E4
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-DC Charge Power;22 0171;(A*256+B)/10;0;300;kW;7E4
-AC Charge Power;22 0172;(A*256+B)/10;0;22;kW;7E4
-Battery Inlet Temp;22 0173;A-40;-40;100;°C;7E4
-=== PSA (Peugeot / Opel / Citroën) ===;;;;;;
-Battery SOH;22 F40D;A;0;100;%;7E4
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-Battery Energy (kWh);22 F40E;(A*256+B)/10;0;60;kWh;7E4
-=== BMW i3 ===;;;;;;
-Battery SOH;22 2A38;A;0;100;%;7E4
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-Usable Capacity (kWh);22 2A39;(A*256+B)/100;0;42;kWh;7E4
-DC Fast Charge Count;22 2A3A;A;0;5000;Count;7E4
-=== BMW i4 / iX ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Mercedes EQ (EQA, EQB, EQE, EQS) ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Audi e-tron (Q4, Q8, GT) ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Volvo Recharge (EX30, C40, XC40) ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Porsche Taycan ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== BYD (Atto 3, Dolphin, Seal) ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== MG (ZS EV, MG4) ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 3101;A;0;100;%;7E4
-Battery Voltage;22 3102;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 3103;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 3104;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Tesla Model S / 3 / X / Y ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 1187;A;0;100;%;7E4
-Battery Voltage;22 1188;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 1189;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 118A;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== TOGG T10X ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 2101;A;0;100;%;7E4
-Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 2104;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Honda e ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 2101;A;0;100;%;7E2
-Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E2
-Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E2
-Battery Temp;22 2104;A-40;-40;100;°C;7E2
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E2
-=== Toyota bZ4X ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 2201;A;0;100;%;7E4
-Battery Voltage;22 2202;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 2203;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 2204;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Mini Cooper SE ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+Name;Mode/PID;Equation;Min;Max;Units;Header;ECU;Byte Position;Description
+=== OBD-II MODE 01 - STANDARD PIDs (SAE J1979) ===;;;;;;;;
+Supported PIDs [01-20];01 00;Bit encoded;0;255;Bit;7E0;ECM;A;B;Supported PID list
+Monitor Status;01 01;Bit encoded;0;255;Bit;7E0;ECM;A;B;DTC availability and test status
+Freeze DTC;01 02;A;0;255;Code;7E0;ECM;A;B;Freeze frame DTC number
+Fuel System Status;01 03;Bit encoded;0;255;Bit;7E0;ECM;A;B;Fuel system 1 and 2 status
+Calculated Engine Load;01 04;A*100/255;0;100;%;7E0;ECM;A;B;Engine load percentage
+Engine Coolant Temperature;01 05;A-40;-40;215;°C;7E0;ECM;A;B;Coolant temperature sensor
+Short Term Fuel Trim Bank 1;01 06;(A-128)*100/128;-100;99.2;%;7E0;ECM;A;B;STFT bank 1
+Long Term Fuel Trim Bank 1;01 07;(A-128)*100/128;-100;99.2;%;7E0;ECM;A;B;LTFT bank 1
+Short Term Fuel Trim Bank 2;01 08;(A-128)*100/128;-100;99.2;%;7E0;ECM;A;B;STFT bank 2
+Long Term Fuel Trim Bank 2;01 09;(A-128)*100/128;-100;99.2;%;7E0;ECM;A;B;LTFT bank 2
+Fuel Pressure;01 0A;A*3;0;765;kPa;7E0;ECM;A;B;Fuel rail pressure (gauge)
+Intake Manifold Absolute Pressure;01 0B;A;0;255;kPa;7E0;ECM;A;B;MAP sensor reading
+Engine RPM;01 0C;(A*256+B)/4;0;16383.75;rpm;7E0;ECM;A;B;Engine speed
+Vehicle Speed;01 0D;A;0;255;km/h;7E0;ECM;A;B;Vehicle speed sensor
+Timing Advance;01 0E;(A-64)/2;-64;63.5;°;7E0;ECM;A;B;Ignition timing advance
+Intake Air Temperature;01 0F;A-40;-40;215;°C;7E0;ECM;A;B;IAT sensor
+MAF Air Flow Rate;01 10;(A*256+B)/100;0;655.35;g/s;7E0;ECM;A;B;Mass air flow sensor
+Throttle Position;01 11;A*100/255;0;100;%;7E0;ECM;A;B;TP sensor percentage
+Commanded Secondary Air Status;01 12;Bit encoded;0;255;Bit;7E0;ECM;A;B;Secondary air injection status
+O2 Sensors Present;01 13;Bit encoded;0;255;Bit;7E0;ECM;A;B;O2 sensors availability
+O2 Sensor 1 Voltage;01 14;A/200;0;1.275;V;7E0;ECM;A;B;Bank 1 Sensor 1 voltage
+O2 Sensor 1 Short Term Trim;01 14;(B-128)*100/128;-100;99.2;%;7E0;ECM;B;C;Bank 1 Sensor 1 STFT
+O2 Sensor 2 Voltage;01 15;A/200;0;1.275;V;7E0;ECM;A;B;Bank 1 Sensor 2 voltage
+O2 Sensor 2 Short Term Trim;01 15;(B-128)*100/128;-100;99.2;%;7E0;ECM;B;C;Bank 1 Sensor 2 STFT
+O2 Sensor 3 Voltage;01 16;A/200;0;1.275;V;7E0;ECM;A;B;Bank 2 Sensor 1 voltage
+O2 Sensor 3 Short Term Trim;01 16;(B-128)*100/128;-100;99.2;%;7E0;ECM;B;C;Bank 2 Sensor 1 STFT
+O2 Sensor 4 Voltage;01 17;A/200;0;1.275;V;7E0;ECM;A;B;Bank 2 Sensor 2 voltage
+O2 Sensor 4 Short Term Trim;01 17;(B-128)*100/128;-100;99.2;%;7E0;ECM;B;C;Bank 2 Sensor 2 STFT
+OBD Standards Compliance;01 1C;A;0;255;Code;7E0;ECM;A;B;OBD standard version
+Run Time Since Engine Start;01 1F;(A*256+B);0;65535;s;7E0;ECM;A;B;Engine run time
+Distance Traveled with MIL On;01 21;(A*256+B);0;65535;km;7E0;ECM;A;B;Distance with check engine light
+Fuel Rail Pressure (Absolute);01 22;(A*256+B)*10;0;655350;kPa;7E0;ECM;A;B;Absolute fuel rail pressure
+Fuel Rail Pressure (Diesel);01 23;(A*256+B)*0.079;0;5177.265;kPa;7E0;ECM;A;B;Diesel fuel rail pressure
+Commanded EGR;01 2C;A*100/255;0;100;%;7E0;ECM;A;B;EGR valve position
+EGR Error;01 2D;(A-128)*100/128;-100;99.2;%;7E0;ECM;A;B;EGR system error
+Commanded Evaporative Purge;01 2E;A*100/255;0;100;%;7E0;ECM;A;B;EVAP purge valve position
+Fuel Tank Level Input;01 2F;A*100/255;0;100;%;7E0;ECM;A;B;Fuel level sensor
+Warm-ups Since Codes Cleared;01 30;A;0;255;Count;7E0;ECM;A;B;Warm-up cycles count
+Distance Since Codes Cleared;01 31;(A*256+B);0;65535;km;7E0;ECM;A;B;Distance since DTC clear
+Evap System Vapor Pressure;01 32;((A*256+B)-32767)/4;-8191.75;8191.75;Pa;7E0;ECM;A;B;EVAP system pressure
+Barometric Pressure;01 33;A;0;255;kPa;7E0;ECM;A;B;Barometric pressure sensor
+O2 Sensor 1 Lambda;01 34;((A*256+B)/32768)-1;0;2;Lambda;7E0;ECM;A;B;Bank 1 Sensor 1 lambda
+O2 Sensor 1 Current;01 34;((C*256+D)/256)-128;-128;128;mA;7E0;ECM;C;D;Bank 1 Sensor 1 current
+O2 Sensor 2 Lambda;01 35;((A*256+B)/32768)-1;0;2;Lambda;7E0;ECM;A;B;Bank 1 Sensor 2 lambda
+O2 Sensor 2 Current;01 35;((C*256+D)/256)-128;-128;128;mA;7E0;ECM;C;D;Bank 1 Sensor 2 current
+O2 Sensor 3 Lambda;01 36;((A*256+B)/32768)-1;0;2;Lambda;7E0;ECM;A;B;Bank 2 Sensor 1 lambda
+O2 Sensor 3 Current;01 36;((C*256+D)/256)-128;-128;128;mA;7E0;ECM;C;D;Bank 2 Sensor 1 current
+O2 Sensor 4 Lambda;01 37;((A*256+B)/32768)-1;0;2;Lambda;7E0;ECM;A;B;Bank 2 Sensor 2 lambda
+O2 Sensor 4 Current;01 37;((C*256+D)/256)-128;-128;128;mA;7E0;ECM;C;D;Bank 2 Sensor 2 current
+Catalyst Temperature Bank 1 Sensor 1;01 3C;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;A;B;Catalyst temp B1S1
+Catalyst Temperature Bank 2 Sensor 1;01 3D;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;A;B;Catalyst temp B2S1
+Catalyst Temperature Bank 1 Sensor 2;01 3E;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;A;B;Catalyst temp B1S2
+Catalyst Temperature Bank 2 Sensor 2;01 3F;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;A;B;Catalyst temp B2S2
+Control Module Voltage;01 42;(A*256+B)/1000;0;65.535;V;7E0;ECM;A;B;ECM supply voltage
+Absolute Load Value;01 43;(A*256+B)*100/255;0;100;%;7E0;ECM;A;B;Absolute engine load
+Commanded Equivalence Ratio;01 44;((A*256+B)/32768);0;2;Ratio;7E0;ECM;A;B;Fuel/air commanded ratio
+Relative Throttle Position;01 45;A*100/255;0;100;%;7E0;ECM;A;B;Relative TP percentage
+Ambient Air Temperature;01 46;A-40;-40;215;°C;7E0;ECM;A;B;Ambient temperature sensor
+Absolute Throttle Position B;01 47;A*100/255;0;100;%;7E0;ECM;A;B;Absolute TP B
+Accelerator Pedal Position D;01 49;A*100/255;0;100;%;7E0;ECM;A;B;Accelerator pedal D
+Accelerator Pedal Position E;01 4A;A*100/255;0;100;%;7E0;ECM;A;B;Accelerator pedal E
+Commanded Throttle Actuator;01 4C;A*100/255;0;100;%;7E0;ECM;A;B;Throttle actuator position
+Time Run with MIL On;01 4D;(A*256+B);0;65535;min;7E0;ECM;A;B;Time with check engine light
+Time Since Trouble Codes Cleared;01 4E;(A*256+B);0;65535;min;7E0;ECM;A;B;Time since DTC clear
+Maximum Value for Equiv Ratio;01 4F;((A*256+B)/32768);0;2;Ratio;7E0;ECM;A;B;Max fuel/air ratio
+Maximum Value for O2;01 4F;((C*256+D)/32768);0;2;Ratio;7E0;ECM;C;D;Max O2 sensor voltage
+Maximum Value for MAF;01 50;(A*256+B)/10;0;6553.5;g/s;7E0;ECM;A;B;Max MAF rate
+Fuel Type;01 51;A;0;255;Code;7E0;ECM;A;B;Fuel type identifier
+Ethanol Fuel Percentage;01 52;A*100/255;0;100;%;7E0;ECM;A;B;Ethanol content percentage
+Absolute Evap System Vapor Pressure;01 53;((A*256+B)/200);0;327.675;kPa;7E0;ECM;A;B;Absolute EVAP pressure
+Evap System Vapor Pressure;01 54;((A*256+B)-32767)/4;-8191.75;8191.75;Pa;7E0;ECM;A;B;EVAP system pressure
+Short Term Secondary O2 Trim Bank 1;01 55;(A-128)*100/128;-100;99.2;%;7E0;ECM;A;B;ST O2 trim B1
+Long Term Secondary O2 Trim Bank 1;01 55;(B-128)*100/128;-100;99.2;%;7E0;ECM;B;C;LT O2 trim B1
+Short Term Secondary O2 Trim Bank 2;01 56;(A-128)*100/128;-100;99.2;%;7E0;ECM;A;B;ST O2 trim B2
+Long Term Secondary O2 Trim Bank 2;01 56;(B-128)*100/128;-100;99.2;%;7E0;ECM;B;C;LT O2 trim B2
+Fuel Rail Pressure (Absolute);01 59;((A*256+B)*10);0;655350;kPa;7E0;ECM;A;B;Absolute fuel pressure
+Relative Accelerator Pedal Position;01 5A;A*100/255;0;100;%;7E0;ECM;A;B;Relative pedal position
+Hybrid Battery Pack Remaining Life;01 5B;A;0;100;%;7E0;ECM;A;B;Battery remaining life
+Engine Oil Temperature;01 5C;A-40;-40;215;°C;7E0;ECM;A;B;Engine oil temp sensor
+Fuel Injection Timing;01 5D;((A*256+B)/128)-210;-210;301.992;°;7E0;ECM;A;B;Fuel injection timing
+Engine Fuel Rate;01 5E;((A*256+B)/20);0;3212.75;L/h;7E0;ECM;A;B;Engine fuel consumption rate
+Desired EGR;01 5F;A*100/255;0;100;%;7E0;ECM;A;B;Desired EGR percentage
+EGR Error;01 5F;(B-128)*100/128;-100;99.2;%;7E0;ECM;B;C;EGR system error
+Desired Evaporative Purge;01 60;A*100/255;0;100;%;7E0;ECM;A;B;Desired EVAP purge
+Fuel Tank Level;01 60;(B*100/255);0;100;%;7E0;ECM;B;C;Fuel level percentage
+Warm-ups Since Codes Cleared;01 61;A;0;255;Count;7E0;ECM;A;B;Warm-up cycles
+Distance Since Codes Cleared;01 61;((B*256+C));0;65535;km;7E0;ECM;B;C;Distance since clear
+Driver's Demand Engine Torque;01 61;((D-125)*100/125);-100;100;%;7E0;ECM;D;E;Driver torque demand
+Actual Engine Torque;01 62;((A-125)*100/125);-100;100;%;7E0;ECM;A;B;Actual engine torque
+Engine Reference Torque;01 63;((A*256+B));0;65535;N·m;7E0;ECM;A;B;Engine reference torque
+Engine Percent Torque Data Idle;01 64;((A-125)*100/125);-100;100;%;7E0;ECM;A;B;Torque at idle
+Engine Percent Torque Data Point 1;01 64;((B-125)*100/125);-100;100;%;7E0;ECM;B;C;Torque at point 1
+Engine Percent Torque Data Point 2;01 64;((C-125)*100/125);-100;100;%;7E0;ECM;C;D;Torque at point 2
+Engine Percent Torque Data Point 3;01 64;((D-125)*100/125);-100;100;%;7E0;ECM;D;E;Torque at point 3
+=== OBD-II MODE 09 - VIN & CALIBRATION ID ===;;;;;;;;
+VIN Message Count;09 01;A;0;255;Count;7E0;ECM;A;B;Number of VIN messages
+VIN;09 02;ASCII;0;255;Text;7E0;ECM;A;B;Vehicle Identification Number
+Calibration ID Count;09 03;A;0;255;Count;7E0;ECM;A;B;Number of CAL ID messages
+Calibration ID;09 04;ASCII;0;255;Text;7E0;ECM;A;B;ECM calibration identifier
+Calibration Verification Numbers Count;09 05;A;0;255;Count;7E0;ECM;A;B;CVN message count
+Calibration Verification Numbers;09 06;Hex;0;255;Hex;7E0;ECM;A;B;CVN values
+=== UDS MODE 22 - READ DATA BY IDENTIFIER (STANDARD) ===;;;;;;;;
+VIN;22 F190;ASCII;0;255;Text;7E0;ECM;A;B;Vehicle Identification Number
+ECU Serial Number;22 F18C;ASCII;0;255;Text;7E0;ECM;A;B;ECU serial number
+ECU Part Number;22 F191;ASCII;0;255;Text;7E0;ECM;A;B;ECU part number
+ECU Hardware Number;22 F192;ASCII;0;255;Text;7E0;ECM;A;B;ECU hardware version
+ECU Software Number;22 F193;ASCII;0;255;Text;7E0;ECM;A;B;ECU software version
+ECU Calibration ID;22 F194;ASCII;0;255;Text;7E0;ECM;A;B;Calibration identifier
+ECU Calibration Verification;22 F195;Hex;0;255;Hex;7E0;ECM;A;B;Calibration verification
+=== TRANSMISSION CONTROL UNIT (TCU) ===;;;;;;;;
+Transmission Temperature;01 5C;A-40;-40;215;°C;7E1;TCM;A;B;Transmission fluid temp
+Transmission Gear Position;22 0120;A;0;255;Gear;7E1;TCM;A;B;Current gear position
+Transmission Torque Converter Status;22 0121;Bit encoded;0;255;Bit;7E1;TCM;A;B;Torque converter lockup
+Transmission Shift Solenoid Status;22 0122;Bit encoded;0;255;Bit;7E1;TCM;A;B;Shift solenoid states
+Transmission Pressure Control Solenoid;22 0123;A*100/255;0;100;%;7E1;TCM;A;B;Pressure control duty
+Transmission Input Shaft Speed;22 0124;(A*256+B)/4;0;16383.75;rpm;7E1;TCM;A;B;Input shaft RPM
+Transmission Output Shaft Speed;22 0125;(A*256+B)/4;0;16383.75;rpm;7E1;TCM;A;B;Output shaft RPM
+Transmission Turbine Speed;22 0126;(A*256+B)/4;0;16383.75;rpm;7E1;TCM;A;B;Turbine speed
+Transmission Fluid Pressure;22 0127;(A*256+B)/10;0;6553.5;kPa;7E1;TCM;A;B;Fluid pressure
+Transmission Clutch Pressure;22 0128;(A*256+B)/10;0;6553.5;kPa;7E1;TCM;A;B;Clutch pressure
+Transmission Torque Request;22 0129;((A*256+B)-32767);-32767;32767;N·m;7E1;TCM;A;B;Torque request
+Transmission Shift Mode;22 012A;A;0;255;Mode;7E1;TCM;A;B;Shift mode (D/S/M)
+Transmission Learning Status;22 012B;Bit encoded;0;255;Bit;7E1;TCM;A;B;Adaptation status
+Transmission Oil Life;22 012C;A;0;100;%;7E1;TCM;A;B;Transmission oil life
+=== ABS / ESP / BRAKE CONTROL ===;;;;;;;;
+Wheel Speed Front Left;22 0130;(A*256+B)/100;0;655.35;km/h;7B0;ABS;A;B;Front left wheel speed
+Wheel Speed Front Right;22 0131;(A*256+B)/100;0;655.35;km/h;7B0;ABS;A;B;Front right wheel speed
+Wheel Speed Rear Left;22 0132;(A*256+B)/100;0;655.35;km/h;7B0;ABS;A;B;Rear left wheel speed
+Wheel Speed Rear Right;22 0133;(A*256+B)/100;0;655.35;km/h;7B0;ABS;A;B;Rear right wheel speed
+Brake Pedal Position;22 0134;A*100/255;0;100;%;7B0;ABS;A;B;Brake pedal sensor
+Brake Pressure Front;22 0135;(A*256+B)/10;0;6553.5;bar;7B0;ABS;A;B;Front brake pressure
+Brake Pressure Rear;22 0136;(A*256+B)/10;0;6553.5;bar;7B0;ABS;A;B;Rear brake pressure
+ABS Status;22 0137;Bit encoded;0;255;Bit;7B0;ABS;A;B;ABS active status
+ESP Status;22 0138;Bit encoded;0;255;Bit;7B0;ABS;A;B;ESP/TCS status
+Yaw Rate;22 0139;((A*256+B)-32767)/100;-327.67;327.67;°/s;7B0;ABS;A;B;Yaw rate sensor
+Lateral Acceleration;22 013A;((A*256+B)-32767)/100;-327.67;327.67;m/s²;7B0;ABS;A;B;Lateral G sensor
+Steering Angle;22 013B;((A*256+B)-32767)/10;-3276.7;3276.7;°;7B0;ABS;A;B;Steering angle sensor
+Longitudinal Acceleration;22 013C;((A*256+B)-32767)/100;-327.67;327.67;m/s²;7B0;ABS;A;B;Longitudinal G
+Brake Fluid Level;22 013D;A;0;255;Level;7B0;ABS;A;B;Brake fluid sensor
+=== AIRBAG / SRS SYSTEM ===;;;;;;;;
+Airbag Status;22 0140;Bit encoded;0;255;Bit;7D0;SRS;A;B;Airbag system status
+Driver Airbag Status;22 0141;Bit encoded;0;255;Bit;7D0;SRS;A;B;Driver airbag ready
+Passenger Airbag Status;22 0142;Bit encoded;0;255;Bit;7D0;SRS;A;B;Passenger airbag ready
+Side Airbag Status;22 0143;Bit encoded;0;255;Bit;7D0;SRS;A;B;Side airbag status
+Crash Sensor Status;22 0144;Bit encoded;0;255;Bit;7D0;SRS;A;B;Crash sensor state
+Seat Belt Status;22 0145;Bit encoded;0;255;Bit;7D0;SRS;A;B;Seat belt sensors
+Airbag Deployment Count;22 0146;A;0;255;Count;7D0;SRS;A;B;Deployment history
+=== ELECTRIC POWER STEERING (EPS) ===;;;;;;;;
+Steering Angle;22 0150;((A*256+B)-32767)/10;-3276.7;3276.7;°;7C0;EPS;A;B;Steering wheel angle
+Steering Torque;22 0151;((A*256+B)-32767)/100;-327.67;327.67;N·m;7C0;EPS;A;B;Steering torque
+EPS Motor Current;22 0152;((A*256+B)-32767)/100;-327.67;327.67;A;7C0;EPS;A;B;EPS motor current
+EPS Motor Temperature;22 0153;A-40;-40;215;°C;7C0;EPS;A;B;EPS motor temp
+EPS Assist Level;22 0154;A*100/255;0;100;%;7C0;EPS;A;B;Power assist level
+EPS Status;22 0155;Bit encoded;0;255;Bit;7C0;EPS;A;B;EPS system status
+=== HVAC (CLIMATE CONTROL) ===;;;;;;;;
+Cabin Temperature;22 0160;A-40;-40;215;°C;7D1;HVAC;A;B;Interior temperature
+Ambient Temperature;22 0161;A-40;-40;215;°C;7D1;HVAC;A;B;Outside temperature
+AC Compressor Status;22 0162;Bit encoded;0;255;Bit;7D1;HVAC;A;B;AC compressor on/off
+AC Pressure;22 0163;(A*256+B)/10;0;6553.5;bar;7D1;HVAC;A;B;Refrigerant pressure
+Blower Speed;22 0164;A*100/255;0;100;%;7D1;HVAC;A;B;Fan speed percentage
+Heater Core Temperature;22 0165;A-40;-40;215;°C;7D1;HVAC;A;B;Heater temperature
+AC Evaporator Temperature;22 0166;A-40;-40;215;°C;7D1;HVAC;A;B;Evaporator temp
+HVAC Mode;22 0167;A;0;255;Mode;7D1;HVAC;A;B;Air distribution mode
+=== DIESEL PARTICULATE FILTER (DPF) ===;;;;;;;;
+DPF Pressure Differential;22 0170;((A*256+B)-32767)/10;-3276.7;3276.7;mbar;7E0;ECM;A;B;DPF pressure drop
+DPF Temperature Inlet;22 0171;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;A;B;DPF inlet temperature
+DPF Temperature Outlet;22 0172;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;A;B;DPF outlet temperature
+DPF Soot Load;22 0173;A;0;100;%;7E0;ECM;A;B;DPF soot accumulation
+DPF Ash Load;22 0174;A;0;100;%;7E0;ECM;A;B;DPF ash accumulation
+DPF Regeneration Status;22 0175;Bit encoded;0;255;Bit;7E0;ECM;A;B;Regen active status
+DPF Regeneration Count;22 0176;A;0;255;Count;7E0;ECM;A;B;Regen cycle count
+DPF Distance Since Regen;22 0177;(A*256+B);0;65535;km;7E0;ECM;A;B;Distance since last regen
+=== EGR SYSTEM ===;;;;;;;;
+EGR Valve Position;01 2C;A*100/255;0;100;%;7E0;ECM;A;B;EGR valve position
+EGR Error;01 2D;(A-128)*100/128;-100;99.2;%;7E0;ECM;A;B;EGR system error
+EGR Temperature;22 0180;A-40;-40;215;°C;7E0;ECM;A;B;EGR cooler temperature
+EGR Flow Rate;22 0181;(A*256+B)/100;0;655.35;g/s;7E0;ECM;A;B;EGR mass flow
+EGR Valve Duty Cycle;22 0182;A*100/255;0;100;%;7E0;ECM;A;B;EGR valve PWM
+EGR Cooler Efficiency;22 0183;A;0;100;%;7E0;ECM;A;B;EGR cooler efficiency
+=== TURBOCHARGER SYSTEM ===;;;;;;;;
+Turbo Boost Pressure;22 0190;(A*256+B)/100;0;655.35;bar;7E0;ECM;A;B;Boost pressure absolute
+Turbo Wastegate Position;22 0191;A*100/255;0;100;%;7E0;ECM;A;B;Wastegate position
+Turbo Compressor Speed;22 0192;(A*256+B);0;65535;rpm;7E0;ECM;A;B;Turbo RPM
+Turbo Temperature;22 0193;A-40;-40;215;°C;7E0;ECM;A;B;Turbo temperature
+Turbo Actuator Position;22 0194;A*100/255;0;100;%;7E0;ECM;A;B;VGT actuator position
+Turbo Pressure Ratio;22 0195;(A*256+B)/100;0;655.35;Ratio;7E0;ECM;A;B;Pressure ratio
+=== FUEL INJECTION SYSTEM ===;;;;;;;;
+Fuel Rail Pressure;01 23;(A*256+B)*0.079;0;5177.265;kPa;7E0;ECM;A;B;Diesel fuel pressure
+Fuel Injection Quantity;22 01A0;(A*256+B)/100;0;655.35;mg;7E0;ECM;A;B;Injection quantity
+Fuel Injection Timing;01 5D;((A*256+B)/128)-210;-210;301.992;°;7E0;ECM;A;B;Injection timing
+Fuel Injection Duration;22 01A1;(A*256+B)/100;0;655.35;ms;7E0;ECM;A;B;Injection pulse width
+Fuel Pressure Regulator;22 01A2;A*100/255;0;100;%;7E0;ECM;A;B;Pressure regulator duty
+Fuel Temperature;22 01A3;A-40;-40;215;°C;7E0;ECM;A;B;Fuel temperature sensor
+=== MAP / MAF SENSORS ===;;;;;;;;
+Intake Manifold Pressure;01 0B;A;0;255;kPa;7E0;ECM;A;B;MAP sensor reading
+Mass Air Flow;01 10;(A*256+B)/100;0;655.35;g/s;7E0;ECM;A;B;MAF sensor reading
+Barometric Pressure;01 33;A;0;255;kPa;7E0;ECM;A;B;Barometric pressure
+MAP Sensor Voltage;22 01B0;A/200;0;1.275;V;7E0;ECM;A;B;MAP sensor voltage
+MAF Sensor Voltage;22 01B1;A/200;0;1.275;V;7E0;ECM;A;B;MAF sensor voltage
+Intake Air Temperature;01 0F;A-40;-40;215;°C;7E0;ECM;A;B;IAT sensor
+=== HYBRID / HEV SYSTEMS ===;;;;;;;;
+Hybrid Battery SOC;22 01C0;A;0;100;%;7E2;HEV;A;B;High voltage battery SOC
+Hybrid Battery Voltage;22 01C1;(A*256+B)/10;0;6553.5;V;7E2;HEV;A;B;HV battery voltage
+Hybrid Battery Current;22 01C2;((A*256+B)-32767)/10;-3276.7;3276.7;A;7E2;HEV;A;B;HV battery current
+Hybrid Battery Temperature;22 01C3;A-40;-40;215;°C;7E2;HEV;A;B;Battery pack temperature
+Motor Generator 1 Speed;22 01C4;((A*256+B)-32767);-32767;32767;rpm;7E2;HEV;A;B;MG1 RPM
+Motor Generator 2 Speed;22 01C5;((A*256+B)-32767);-32767;32767;rpm;7E2;HEV;A;B;MG2 RPM
+Motor Generator 1 Torque;22 01C6;((A*256+B)-32767)/10;-3276.7;3276.7;N·m;7E2;HEV;A;B;MG1 torque
+Motor Generator 2 Torque;22 01C7;((A*256+B)-32767)/10;-3276.7;3276.7;N·m;7E2;HEV;A;B;MG2 torque
+Hybrid Mode;22 01C8;A;0;255;Mode;7E2;HEV;A;B;Drive mode (EV/HV/Charge)
+Regenerative Braking Power;22 01C9;(A*256+B)/10;0;6553.5;kW;7E2;HEV;A;B;Regen power
+=== ELECTRIC VEHICLE (EV) SYSTEMS ===;;;;;;;;
+Battery SOH;22 015B;A;0;100;%;7E4;BMS;A;B;Battery state of health
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+Battery Capacity (kWh);22 0161;(A*256+B)/100;0;100;kWh;7E4;BMS;A;B;Battery capacity
+Cell Min Voltage;22 0162;A/50;2.5;4.2;V;7E4;BMS;A;B;Minimum cell voltage
+Cell Max Voltage;22 0163;A/50;2.5;4.2;V;7E4;BMS;A;B;Maximum cell voltage
+DC Charge Power;22 0171;(A*256+B)/10;0;300;kW;7E4;BMS;A;B;DC fast charge power
+AC Charge Power;22 0172;(A*256+B)/10;0;22;kW;7E4;BMS;A;B;AC charge power
+Battery Inlet Temp;22 0173;A-40;-40;100;°C;7E4;BMS;A;B;Battery cooling inlet temp
+Charging Status;22 01D0;Bit encoded;0;255;Bit;7E4;BMS;A;B;Charging active status
+Charging Current Limit;22 01D1;(A*256+B)/10;0;6553.5;A;7E4;BMS;A;B;Max charge current
+Charging Voltage Limit;22 01D2;(A*256+B)/10;0;6553.5;V;7E4;BMS;A;B;Max charge voltage
+Cell Temperature Min;22 01D3;A-40;-40;100;°C;7E4;BMS;A;B;Minimum cell temperature
+Cell Temperature Max;22 01D4;A-40;-40;100;°C;7E4;BMS;A;B;Maximum cell temperature
+Battery Pack Energy;22 01D5;(A*256+B)/10;0;6553.5;kWh;7E4;BMS;A;B;Total pack energy
+Battery Cycle Count;22 01D6;(A*256+B);0;65535;Count;7E4;BMS;A;B;Charge/discharge cycles
+=== DIFFERENTIAL / DRIVETRAIN ===;;;;;;;;
+Differential Lock Status;22 01E0;Bit encoded;0;255;Bit;7C1;DIFF;A;B;Diff lock engaged
+Differential Temperature;22 01E1;A-40;-40;215;°C;7C1;DIFF;A;B;Diff oil temperature
+Transfer Case Mode;22 01E2;A;0;255;Mode;7C1;DIFF;A;B;4WD mode (2H/4H/4L)
+Front Axle Torque;22 01E3;((A*256+B)-32767);-32767;32767;N·m;7C1;DIFF;A;B;Front axle torque
+Rear Axle Torque;22 01E4;((A*256+B)-32767);-32767;32767;N·m;7C1;DIFF;A;B;Rear axle torque
+Center Differential Lock;22 01E5;Bit encoded;0;255;Bit;7C1;DIFF;A;B;Center diff lock
+=== ADDITIONAL ENGINE PARAMETERS ===;;;;;;;;
+Camshaft Position Intake;22 01F0;((A*256+B)-32767)/10;-3276.7;3276.7;°;7E0;ECM;A;B;Intake cam position
+Camshaft Position Exhaust;22 01F1;((A*256+B)-32767)/10;-3276.7;3276.7;°;7E0;ECM;A;B;Exhaust cam position
+Variable Valve Timing Intake;22 01F2;((A*256+B)-32767)/10;-3276.7;3276.7;°;7E0;ECM;A;B;VVT intake advance
+Variable Valve Timing Exhaust;22 01F3;((A*256+B)-32767)/10;-3276.7;3276.7;°;7E0;ECM;A;B;VVT exhaust advance
+Knock Sensor Voltage;22 01F4;A/200;0;1.275;V;7E0;ECM;A;B;Knock sensor reading
+Crankshaft Position;22 01F5;((A*256+B)/4);0;16383.75;°;7E0;ECM;A;B;Crank angle position
+Cylinder Head Temperature;22 01F6;A-40;-40;215;°C;7E0;ECM;A;B;Cylinder head temp
+Exhaust Gas Temperature;22 01F7;((A*256+B)/10)-40;-40;6513.5;°C;7E0;ECM;A;B;EGT sensor
+Lambda Sensor Voltage;22 01F8;A/200;0;1.275;V;7E0;ECM;A;B;Wideband O2 voltage
+Lambda Sensor Current;22 01F8;((B*256+C)/256)-128;-128;128;mA;7E0;ECM;B;C;Wideband O2 current
+=== MANUFACTURER SPECIFIC - VW/AUDI GROUP ===;;;;;;;;
+VW Engine Code;22 F187;ASCII;0;255;Text;7E0;ECM;A;B;Engine code identifier
+VW Software Version;22 F18A;ASCII;0;255;Text;7E0;ECM;A;B;Software version string
+VW Hardware Version;22 F18B;ASCII;0;255;Text;7E0;ECM;A;B;Hardware version string
+VW Production Date;22 F18D;Date;0;255;Date;7E0;ECM;A;B;Production date code
+=== MANUFACTURER SPECIFIC - BMW ===;;;;;;;;
+BMW Engine Type;22 2A01;ASCII;0;255;Text;7E0;ECM;A;B;Engine type code
+BMW Software Index;22 2A02;A;0;255;Index;7E0;ECM;A;B;Software index number
+BMW Calibration Date;22 2A03;Date;0;255;Date;7E0;ECM;A;B;Calibration date
+=== MANUFACTURER SPECIFIC - MERCEDES ===;;;;;;;;
+MB Engine Number;22 D101;ASCII;0;255;Text;7E0;ECM;A;B;Engine serial number
+MB Software Part Number;22 D102;ASCII;0;255;Text;7E0;ECM;A;B;Software part number
+MB Hardware Part Number;22 D103;ASCII;0;255;Text;7E0;ECM;A;B;Hardware part number
+=== MANUFACTURER SPECIFIC - TOYOTA ===;;;;;;;;
+Toyota Engine Code;22 0101;ASCII;0;255;Text;7E0;ECM;A;B;Engine code
+Toyota Calibration Date;22 0102;Date;0;255;Date;7E0;ECM;A;B;Calibration date
+=== MANUFACTURER SPECIFIC - FORD ===;;;;;;;;
+Ford Engine Family;22 0201;ASCII;0;255;Text;7E0;ECM;A;B;Engine family code
+Ford Calibration Level;22 0202;ASCII;0;255;Text;7E0;ECM;A;B;Calibration level
+=== MANUFACTURER SPECIFIC - GM ===;;;;;;;;
+GM Engine RPO Code;22 0301;ASCII;0;255;Text;7E0;ECM;A;B;RPO code
+GM Calibration ID;22 0302;ASCII;0;255;Text;7E0;ECM;A;B;Calibration identifier
+=== MANUFACTURER SPECIFIC - HYUNDAI/KIA ===;;;;;;;;
+Hyundai Engine Code;22 0401;ASCII;0;255;Text;7E0;ECM;A;B;Engine code
+Kia Calibration Version;22 0402;ASCII;0;255;Text;7E0;ECM;A;B;Calibration version
+=== MANUFACTURER SPECIFIC - NISSAN ===;;;;;;;;
+Nissan Engine Code;22 0501;ASCII;0;255;Text;7E0;ECM;A;B;Engine code
+Nissan Calibration Date;22 0502;Date;0;255;Date;7E0;ECM;A;B;Calibration date
+=== MANUFACTURER SPECIFIC - HONDA ===;;;;;;;;
+Honda Engine Type;22 0601;ASCII;0;255;Text;7E0;ECM;A;B;Engine type
+Honda Calibration Number;22 0602;ASCII;0;255;Text;7E0;ECM;A;B;Calibration number
+=== MANUFACTURER SPECIFIC - MAZDA ===;;;;;;;;
+Mazda Engine Code;22 0701;ASCII;0;255;Text;7E0;ECM;A;B;Engine code
+Mazda Software Version;22 0702;ASCII;0;255;Text;7E0;ECM;A;B;Software version
+=== MANUFACTURER SPECIFIC - SUBARU ===;;;;;;;;
+Subaru Engine Type;22 0801;ASCII;0;255;Text;7E0;ECM;A;B;Engine type
+Subaru Calibration ID;22 0802;ASCII;0;255;Text;7E0;ECM;A;B;Calibration ID
+=== MANUFACTURER SPECIFIC - VOLVO ===;;;;;;;;
+Volvo Engine Code;22 0901;ASCII;0;255;Text;7E0;ECM;A;B;Engine code
+Volvo Software Index;22 0902;A;0;255;Index;7E0;ECM;A;B;Software index
+=== MANUFACTURER SPECIFIC - PSA (PEUGEOT/CITROEN) ===;;;;;;;;
+PSA Engine Code;22 0A01;ASCII;0;255;Text;7E0;ECM;A;B;Engine code
+PSA Calibration Version;22 0A02;ASCII;0;255;Text;7E0;ECM;A;B;Calibration version
+=== MANUFACTURER SPECIFIC - RENAULT ===;;;;;;;;
+Renault Engine Code;22 0B01;ASCII;0;255;Text;7E0;ECM;A;B;Engine code
+Renault Software Version;22 0B02;ASCII;0;255;Text;7E0;ECM;A;B;Software version
+=== MANUFACTURER SPECIFIC - FIAT ===;;;;;;;;
+Fiat Engine Code;22 0C01;ASCII;0;255;Text;7E0;ECM;A;B;Engine code
+Fiat Calibration Date;22 0C02;Date;0;255;Date;7E0;ECM;A;B;Calibration date
+=== MANUFACTURER SPECIFIC - TESLA ===;;;;;;;;
+Tesla Battery Pack Serial;22 1180;ASCII;0;255;Text;7E4;BMS;A;B;Battery pack serial
+Tesla Drive Unit Serial;22 1181;ASCII;0;255;Text;7E5;MCU;A;B;Drive unit serial
+Tesla Firmware Version;22 1182;ASCII;0;255;Text;7E4;BMS;A;B;Firmware version
+Tesla Supercharger Sessions;22 1183;(A*256+B);0;65535;Count;7E4;BMS;A;B;Supercharger count
+Tesla Battery Health;22 1184;A;0;100;%;7E4;BMS;A;B;Battery health percentage
+Tesla Cell Imbalance;22 1185;A/100;0;1;V;7E4;BMS;A;B;Cell voltage imbalance
+Tesla Charging Power;22 1186;(A*256+B)/10;0;6553.5;kW;7E4;BMS;A;B;Current charge power
+=== MANUFACTURER SPECIFIC - TOGG ===;;;;;;;;
+TOGG Battery Pack ID;22 2100;ASCII;0;255;Text;7E4;BMS;A;B;Battery pack identifier
+TOGG Software Version;22 2105;ASCII;0;255;Text;7E4;BMS;A;B;Software version
+TOGG Hardware Version;22 2106;ASCII;0;255;Text;7E4;BMS;A;B;Hardware version
+TOGG Production Date;22 2107;Date;0;255;Date;7E4;BMS;A;B;Production date
+=== ADDITIONAL EV BATTERY PARAMETERS ===;;;;;;;;
+Battery Cell Count;22 01E6;A;0;255;Count;7E4;BMS;A;B;Number of cells
+Battery Module Count;22 01E7;A;0;255;Count;7E4;BMS;A;B;Number of modules
+Battery Cooling Status;22 01E8;Bit encoded;0;255;Bit;7E4;BMS;A;B;Cooling system status
+Battery Heating Status;22 01E9;Bit encoded;0;255;Bit;7E4;BMS;A;B;Heating system status
+Battery Isolation Resistance;22 01EA;(A*256+B);0;65535;kΩ;7E4;BMS;A;B;Isolation resistance
+Battery Precharge Status;22 01EB;Bit encoded;0;255;Bit;7E4;BMS;A;B;Precharge contactor
+Battery Main Contactor;22 01EC;Bit encoded;0;255;Bit;7E4;BMS;A;B;Main contactor status
+Battery Charging Contactor;22 01ED;Bit encoded;0;255;Bit;7E4;BMS;A;B;Charge contactor
+Battery Discharge Contactor;22 01EE;Bit encoded;0;255;Bit;7E4;BMS;A;B;Discharge contactor
+Battery Cell Voltage Min;22 01EF;A/50;2.5;4.2;V;7E4;BMS;A;B;Min cell voltage
+Battery Cell Voltage Max;22 01F0;A/50;2.5;4.2;V;7E4;BMS;A;B;Max cell voltage
+Battery Cell Temp Min;22 01F1;A-40;-40;100;°C;7E4;BMS;A;B;Min cell temperature
+Battery Cell Temp Max;22 01F2;A-40;-40;100;°C;7E4;BMS;A;B;Max cell temperature
+Battery Pack Power;22 01F3;((A*256+B)-32767)/10;-3276.7;3276.7;kW;7E4;BMS;A;B;Pack power
+Battery Remaining Energy;22 01F4;(A*256+B)/10;0;6553.5;kWh;7E4;BMS;A;B;Remaining energy
+Battery Full Charge Capacity;22 01F5;(A*256+B)/10;0;6553.5;kWh;7E4;BMS;A;B;Full charge capacity
+Battery Design Capacity;22 01F6;(A*256+B)/10;0;6553.5;kWh;7E4;BMS;A;B;Design capacity
+Battery Charge Cycles;22 01F7;(A*256+B);0;65535;Count;7E4;BMS;A;B;Total charge cycles
+Battery Fast Charge Cycles;22 01F8;(A*256+B);0;65535;Count;7E4;BMS;A;B;Fast charge cycles
+Battery Last Charge Date;22 01F9;Date;0;255;Date;7E4;BMS;A;B;Last charge timestamp
+Battery Last Discharge Date;22 01FA;Date;0;255;Date;7E4;BMS;A;B;Last discharge timestamp
+=== ADDITIONAL TRANSMISSION PARAMETERS ===;;;;;;;;
+Transmission Oil Pressure;22 012D;(A*256+B)/10;0;6553.5;kPa;7E1;TCM;A;B;Transmission oil pressure
+Transmission Oil Temperature Sensor;22 012E;A-40;-40;215;°C;7E1;TCM;A;B;Oil temp sensor
+Transmission Input Torque;22 012F;((A*256+B)-32767);-32767;32767;N·m;7E1;TCM;A;B;Input torque
+Transmission Output Torque;22 0130;((A*256+B)-32767);-32767;32767;N·m;7E1;TCM;A;B;Output torque
+Transmission Slip Speed;22 0131;((A*256+B)-32767)/4;-8191.75;8191.75;rpm;7E1;TCM;A;B;Torque converter slip
+Transmission Line Pressure;22 0132;(A*256+B)/10;0;6553.5;bar;7E1;TCM;A;B;Line pressure
+Transmission Shift Time;22 0133;(A*256+B)/10;0;6553.5;ms;7E1;TCM;A;B;Shift duration
+Transmission Lockup Clutch;22 0134;A*100/255;0;100;%;7E1;TCM;A;B;Lockup clutch engagement
+=== ADDITIONAL ABS/ESP PARAMETERS ===;;;;;;;;
+ABS Pump Status;22 013E;Bit encoded;0;255;Bit;7B0;ABS;A;B;ABS pump active
+ABS Valve Status;22 013F;Bit encoded;0;255;Bit;7B0;ABS;A;B;ABS valve states
+ESP Intervention;22 0140;Bit encoded;0;255;Bit;7B0;ABS;A;B;ESP active intervention
+TCS Status;22 0141;Bit encoded;0;255;Bit;7B0;ABS;A;B;Traction control status
+Hill Descent Control;22 0142;Bit encoded;0;255;Bit;7B0;ABS;A;B;HDC active status
+Brake Assist Status;22 0143;Bit encoded;0;255;Bit;7B0;ABS;A;B;Brake assist active
+Electronic Parking Brake;22 0144;Bit encoded;0;255;Bit;7B0;ABS;A;B;EPB status
+Wheel Slip Front Left;22 0145;((A*256+B)-32767)/100;-327.67;327.67;%;7B0;ABS;A;B;Front left slip
+Wheel Slip Front Right;22 0146;((A*256+B)-32767)/100;-327.67;327.67;%;7B0;ABS;A;B;Front right slip
+Wheel Slip Rear Left;22 0147;((A*256+B)-32767)/100;-327.67;327.67;%;7B0;ABS;A;B;Rear left slip
+Wheel Slip Rear Right;22 0148;((A*256+B)-32767)/100;-327.67;327.67;%;7B0;ABS;A;B;Rear right slip
+=== ADDITIONAL HVAC PARAMETERS ===;;;;;;;;
+HVAC Recirculation Status;22 0168;Bit encoded;0;255;Bit;7D1;HVAC;A;B;Recirculation mode
+HVAC Defrost Status;22 0169;Bit encoded;0;255;Bit;7D1;HVAC;A;B;Defrost active
+HVAC Seat Heater Driver;22 016A;A*100/255;0;100;%;7D1;HVAC;A;B;Driver seat heater
+HVAC Seat Heater Passenger;22 016B;A*100/255;0;100;%;7D1;HVAC;A;B;Passenger seat heater
+HVAC Steering Wheel Heater;22 016C;A*100/255;0;100;%;7D1;HVAC;A;B;Steering wheel heater
+HVAC Solar Sensor;22 016D;A*100/255;0;100;%;7D1;HVAC;A;B;Solar radiation sensor
+=== ADDITIONAL DPF PARAMETERS ===;;;;;;;;
+DPF Regeneration Time;22 0178;(A*256+B);0;65535;s;7E0;ECM;A;B;Regen duration
+DPF Regeneration Distance;22 0179;(A*256+B);0;65535;km;7E0;ECM;A;B;Distance since regen
+DPF Service Interval;22 017A;(A*256+B);0;65535;km;7E0;ECM;A;B;Service interval
+DPF Ash Service Limit;22 017B;A;0;100;%;7E0;ECM;A;B;Ash service threshold
+DPF Soot Service Limit;22 017C;A;0;100;%;7E0;ECM;A;B;Soot service threshold
+=== ADDITIONAL EGR PARAMETERS ===;;;;;;;;
+EGR Valve Desired Position;22 0184;A*100/255;0;100;%;7E0;ECM;A;B;Desired EGR position
+EGR Valve Actual Position;22 0185;A*100/255;0;100;%;7E0;ECM;A;B;Actual EGR position
+EGR Mass Flow Desired;22 0186;(A*256+B)/100;0;655.35;g/s;7E0;ECM;A;B;Desired EGR flow
+EGR Mass Flow Actual;22 0187;(A*256+B)/100;0;655.35;g/s;7E0;ECM;A;B;Actual EGR flow
+EGR Cooler Bypass;22 0188;Bit encoded;0;255;Bit;7E0;ECM;A;B;EGR cooler bypass valve
+=== ADDITIONAL TURBO PARAMETERS ===;;;;;;;;
+Turbo Boost Pressure Desired;22 0196;(A*256+B)/100;0;655.35;bar;7E0;ECM;A;B;Desired boost
+Turbo Boost Pressure Actual;22 0197;(A*256+B)/100;0;655.35;bar;7E0;ECM;A;B;Actual boost
+Turbo Wastegate Duty Cycle;22 0198;A*100/255;0;100;%;7E0;ECM;A;B;Wastegate PWM
+Turbo VGT Position;22 0199;A*100/255;0;100;%;7E0;ECM;A;B;Variable geometry position
+Turbo Compressor Bypass;22 019A;Bit encoded;0;255;Bit;7E0;ECM;A;B;Compressor bypass valve
+=== ADDITIONAL FUEL SYSTEM PARAMETERS ===;;;;;;;;
+Fuel Pump Duty Cycle;22 01A4;A*100/255;0;100;%;7E0;ECM;A;B;Fuel pump PWM
+Fuel Filter Pressure;22 01A5;(A*256+B)/10;0;6553.5;kPa;7E0;ECM;A;B;Filter pressure drop
+Fuel Rail Pressure Desired;22 01A6;(A*256+B)*10;0;655350;kPa;7E0;ECM;A;B;Desired rail pressure
+Fuel Rail Pressure Actual;22 01A7;(A*256+B)*10;0;655350;kPa;7E0;ECM;A;B;Actual rail pressure
+Fuel Injector Correction Bank 1;22 01A8;((A*256+B)-32767)/100;-327.67;327.67;%;7E0;ECM;A;B;Injector trim B1
+Fuel Injector Correction Bank 2;22 01A9;((A*256+B)-32767)/100;-327.67;327.67;%;7E0;ECM;A;B;Injector trim B2
+=== ADDITIONAL SENSOR PARAMETERS ===;;;;;;;;
+MAP Sensor Raw;22 01B2;A;0;255;Raw;7E0;ECM;A;B;MAP raw value
+MAF Sensor Raw;22 01B3;(A*256+B);0;65535;Raw;7E0;ECM;A;B;MAF raw value
+Throttle Position Sensor 1;22 01B4;A*100/255;0;100;%;7E0;ECM;A;B;TP sensor 1
+Throttle Position Sensor 2;22 01B5;A*100/255;0;100;%;7E0;ECM;A;B;TP sensor 2
+Accelerator Pedal Sensor 1;22 01B6;A*100/255;0;100;%;7E0;ECM;A;B;Pedal sensor 1
+Accelerator Pedal Sensor 2;22 01B7;A*100/255;0;100;%;7E0;ECM;A;B;Pedal sensor 2
+=== ADDITIONAL HYBRID PARAMETERS ===;;;;;;;;
+Hybrid Battery Power;22 01CA;((A*256+B)-32767)/10;-3276.7;3276.7;kW;7E2;HEV;A;B;HV battery power
+Hybrid Inverter Temperature;22 01CB;A-40;-40;215;°C;7E2;HEV;A;B;Inverter temperature
+Hybrid DC-DC Converter Status;22 01CC;Bit encoded;0;255;Bit;7E2;HEV;A;B;DC-DC converter
+Hybrid 12V Battery Voltage;22 01CD;(A*256+B)/100;0;655.35;V;7E2;HEV;A;B;12V battery voltage
+Hybrid Engine Start Request;22 01CE;Bit encoded;0;255;Bit;7E2;HEV;A;B;Engine start request
+Hybrid Engine Stop Request;22 01CF;Bit encoded;0;255;Bit;7E2;HEV;A;B;Engine stop request
+=== NISSAN LEAF / RENAULT ZOE ===;;;;;;;;
+Battery SOH;22 015B;A;0;100;%;7E4;BMS;A;B;Battery state of health
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+Battery Capacity (kWh);22 0161;(A*256+B)/100;0;100;kWh;7E4;BMS;A;B;Battery capacity
+Cell Min Voltage;22 0162;A/50;2.5;4.2;V;7E4;BMS;A;B;Minimum cell voltage
+Cell Max Voltage;22 0163;A/50;2.5;4.2;V;7E4;BMS;A;B;Maximum cell voltage
+=== HYUNDAI / KIA (KONA, IONIQ, NIRO, EV6) ===;;;;;;;;
+Battery SOH;22 0170;A;0;100;%;7E4;BMS;A;B;Battery state of health
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+DC Charge Power;22 0171;(A*256+B)/10;0;300;kW;7E4;BMS;A;B;DC fast charge power
+AC Charge Power;22 0172;(A*256+B)/10;0;22;kW;7E4;BMS;A;B;AC charge power
+Battery Inlet Temp;22 0173;A-40;-40;100;°C;7E4;BMS;A;B;Battery cooling inlet temp
+=== PSA (PEUGEOT / OPEL / CITROEN) ===;;;;;;;;
+Battery SOH;22 F40D;A;0;100;%;7E4;BMS;A;B;Battery state of health
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+Battery Energy (kWh);22 F40E;(A*256+B)/10;0;60;kWh;7E4;BMS;A;B;Battery energy
+=== BMW i3 ===;;;;;;;;
+Battery SOH;22 2A38;A;0;100;%;7E4;BMS;A;B;Battery state of health
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+Usable Capacity (kWh);22 2A39;(A*256+B)/100;0;42;kWh;7E4;BMS;A;B;Usable capacity
+DC Fast Charge Count;22 2A3A;A;0;5000;Count;7E4;BMS;A;B;DC fast charge cycles
+=== BMW i4 / iX ===;;;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+=== MERCEDES EQ (EQA, EQB, EQE, EQS) ===;;;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+=== AUDI E-TRON (Q4, Q8, GT) ===;;;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+=== VOLVO RECHARGE (EX30, C40, XC40) ===;;;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+=== PORSCHE TAYCAN ===;;;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+=== BYD (ATTO 3, DOLPHIN, SEAL) ===;;;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+=== MG (ZS EV, MG4) ===;;;;;;;;
+Battery SOC;22 3101;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 3102;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 3103;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 3104;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+=== TESLA MODEL S / 3 / X / Y ===;;;;;;;;
+Battery SOC;22 1187;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 1188;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 1189;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 118A;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+=== TOGG T10X ===;;;;;;;;
+Battery SOC;22 2101;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 2104;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+=== HONDA E ===;;;;;;;;
+Battery SOC;22 2101;A;0;100;%;7E2;BMS;A;B;Battery state of charge
+Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E2;BMS;A;B;Battery pack voltage
+Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E2;BMS;A;B;Battery pack current
+Battery Temp;22 2104;A-40;-40;100;°C;7E2;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E2;BMS;A;B;Cell voltage difference
+=== TOYOTA BZ4X ===;;;;;;;;
+Battery SOC;22 2201;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 2202;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 2203;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 2204;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference
+=== MINI COOPER SE ===;;;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4;BMS;A;B;Battery state of charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;BMS;A;B;Battery pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;BMS;A;B;Battery pack current
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;BMS;A;B;Battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;BMS;A;B;Cell voltage difference

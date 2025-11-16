@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  ev-api:
+    build: .
+    container_name: ev-battery-api
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - LOG_LEVEL=INFO
+    volumes:
+      # Log dosyaları için volume
+      - ./logs:/app/logs
+      # Şifreli yedekler için volume
+      - ./backups:/app/backups
+    restart: unless-stopped
+    
+    # Güvenlik ayarları
+    security_opt:
+      - no-new-privileges:true
+    
+    # Resource limits (DoS önleme)
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    
+    # Read-only root filesystem (Security)
+    read_only: true
+    tmpfs:
+      - /tmp
+    
+    # Healthcheck
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    
+    networks:
+      - ev-network
+
+  # Nginx reverse proxy (HTTPS için)
+  nginx:
+    image: nginx:alpine
+    container_name: ev-nginx
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./cert.pem:/etc/nginx/ssl/cert.pem:ro
+      - ./key.pem:/etc/nginx/ssl/key.pem:ro
+    depends_on:
+      - ev-api
+    restart: unless-stopped
+    networks:
+      - ev-network
+
+networks:
+  ev-network:
+    driver: bridge
+
+volumes:
+  logs:
+  backups:

@@ -1,0 +1,24 @@
+# Güvenlik dosyaları - asla commit edilmemeli
+.encryption_key
+.users.json
+*.encrypted
+*.backup
+*.temp
+security.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

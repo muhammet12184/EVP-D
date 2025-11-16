@@ -228,11 +228,38 @@ class _RaceGaugeState extends State<_RaceGauge>
     super.dispose();
   }
 
+  Color _getDynamicColor() {
+    final percentage = ((_animatedValue - widget.min) / (widget.max - widget.min)).clamp(0.0, 1.0);
+    
+    if (widget.color == Colors.red.shade400) {
+      if (percentage < 0.5) return Colors.green.shade400;
+      if (percentage < 0.7) return Colors.yellow.shade400;
+      if (percentage < 0.9) return Colors.orange.shade400;
+      return Colors.red.shade400;
+    } else if (widget.color == Colors.green.shade400) {
+      if (percentage < 0.3) return Colors.green.shade300;
+      if (percentage < 0.6) return Colors.green.shade400;
+      if (percentage < 0.8) return Colors.cyan.shade400;
+      return Colors.blue.shade400;
+    } else if (widget.color == Colors.blue.shade400) {
+      if (percentage < 0.3) return Colors.blue.shade300;
+      if (percentage < 0.5) return Colors.blue.shade400;
+      if (percentage < 0.7) return Colors.purple.shade400;
+      return Colors.red.shade400;
+    } else {
+      if (percentage < 0.3) return Colors.red.shade400;
+      if (percentage < 0.5) return Colors.orange.shade400;
+      if (percentage < 0.7) return Colors.yellow.shade400;
+      return Colors.green.shade400;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final percentage = ((_animatedValue - widget.min) / (widget.max - widget.min)).clamp(0.0, 1.0);
     final isHighValue = percentage > 0.7;
     final pulseGlow = 0.4 + (math.sin(_pulseController.value * 2 * math.pi) * 0.3);
+    final dynamicColor = _getDynamicColor();
     
     return AnimatedBuilder(
       animation: Listenable.merge([_pulseController, _rotationController]),
@@ -250,20 +277,25 @@ class _RaceGaugeState extends State<_RaceGauge>
             ),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: widget.color.withOpacity(isHighValue ? pulseGlow : 0.5),
-              width: isHighValue ? 2.5 : 2,
+              color: dynamicColor.withOpacity(isHighValue ? pulseGlow : 0.6),
+              width: isHighValue ? 3 : 2.5,
             ),
             boxShadow: [
               BoxShadow(
-                color: widget.color.withOpacity(pulseGlow * (isHighValue ? 1.2 : 0.8)),
-                blurRadius: isHighValue ? 25 : 15,
-                spreadRadius: isHighValue ? 5 : 3,
+                color: dynamicColor.withOpacity(pulseGlow * (isHighValue ? 1.5 : 1.0)),
+                blurRadius: isHighValue ? 30 : 20,
+                spreadRadius: isHighValue ? 6 : 4,
+              ),
+              BoxShadow(
+                color: dynamicColor.withOpacity(0.5),
+                blurRadius: isHighValue ? 50 : 30,
+                spreadRadius: isHighValue ? 10 : 6,
               ),
               if (isHighValue)
                 BoxShadow(
-                  color: widget.color.withOpacity(0.4),
-                  blurRadius: 40,
-                  spreadRadius: 8,
+                  color: dynamicColor.withOpacity(0.3),
+                  blurRadius: 70,
+                  spreadRadius: 15,
                 ),
             ],
           ),
@@ -278,13 +310,25 @@ class _RaceGaugeState extends State<_RaceGauge>
                   Container(
                     padding: const EdgeInsets.all(4),
                     decoration: BoxDecoration(
-                      color: widget.color.withOpacity(0.2),
+                      gradient: RadialGradient(
+                        colors: [
+                          dynamicColor.withOpacity(0.4),
+                          dynamicColor.withOpacity(0.2),
+                        ],
+                      ),
                       borderRadius: BorderRadius.circular(4),
+                      boxShadow: [
+                        BoxShadow(
+                          color: dynamicColor.withOpacity(0.6),
+                          blurRadius: 8,
+                          spreadRadius: 2,
+                        ),
+                      ],
                     ),
                     child: Icon(
                       widget.icon,
                       size: 16,
-                      color: widget.color,
+                      color: dynamicColor,
                     ),
                   ),
                   const SizedBox(width: 6),
@@ -298,8 +342,12 @@ class _RaceGaugeState extends State<_RaceGauge>
                         fontWeight: FontWeight.bold,
                         shadows: [
                           Shadow(
-                            color: widget.color.withOpacity(0.8),
-                            blurRadius: 8,
+                            color: dynamicColor.withOpacity(0.9),
+                            blurRadius: 10,
+                          ),
+                          Shadow(
+                            color: dynamicColor.withOpacity(0.5),
+                            blurRadius: 20,
                           ),
                         ],
                       ),
@@ -318,7 +366,7 @@ class _RaceGaugeState extends State<_RaceGauge>
                     value: _animatedValue,
                     min: widget.min,
                     max: widget.max,
-                    color: widget.color,
+                    color: dynamicColor,
                     pulseValue: _pulseController.value,
                     isHighValue: isHighValue,
                   ),
@@ -331,16 +379,21 @@ class _RaceGaugeState extends State<_RaceGauge>
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
-                            color: widget.color,
+                            color: dynamicColor,
                             fontFeatures: [FontFeature.tabularFigures()],
                             shadows: [
                               Shadow(
-                                color: widget.color.withOpacity(0.9),
-                                blurRadius: 20,
+                                color: dynamicColor.withOpacity(0.9),
+                                blurRadius: 25,
                               ),
                               Shadow(
-                                color: widget.color.withOpacity(0.5),
-                                blurRadius: 35,
+                                color: dynamicColor.withOpacity(0.6),
+                                blurRadius: 40,
+                              ),
+                              Shadow(
+                                color: Colors.black,
+                                blurRadius: 10,
+                                offset: Offset(1, 1),
                               ),
                             ],
                           ),
@@ -382,17 +435,22 @@ class _RaceGaugeState extends State<_RaceGauge>
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
-                                widget.color,
-                                widget.color.withOpacity(0.6),
-                                widget.color,
+                                dynamicColor,
+                                dynamicColor.withOpacity(0.8),
+                                dynamicColor,
                               ],
                             ),
                             borderRadius: BorderRadius.circular(3),
                             boxShadow: [
                               BoxShadow(
-                                color: widget.color.withOpacity(0.9),
-                                blurRadius: 8,
-                                spreadRadius: 2,
+                                color: dynamicColor.withOpacity(0.9),
+                                blurRadius: 12,
+                                spreadRadius: 3,
+                              ),
+                              BoxShadow(
+                                color: dynamicColor.withOpacity(0.5),
+                                blurRadius: 20,
+                                spreadRadius: 5,
                               ),
                             ],
                           ),
@@ -442,6 +500,37 @@ class _RaceGaugePainter extends CustomPainter {
     required this.isHighValue,
   });
 
+  Color _getDynamicColor() {
+    final percentage = ((value - min) / (max - min)).clamp(0.0, 1.0);
+    
+    // Her gösterge için özel renk geçişleri
+    if (color == Colors.red.shade400) {
+      // Turbo Basıncı - Yeşilden kırmızıya
+      if (percentage < 0.5) return Colors.green.shade400;
+      if (percentage < 0.7) return Colors.yellow.shade400;
+      if (percentage < 0.9) return Colors.orange.shade400;
+      return Colors.red.shade400;
+    } else if (color == Colors.green.shade400) {
+      // O2 Sensör - Yeşilden maviye
+      if (percentage < 0.3) return Colors.green.shade300;
+      if (percentage < 0.6) return Colors.green.shade400;
+      if (percentage < 0.8) return Colors.cyan.shade400;
+      return Colors.blue.shade400;
+    } else if (color == Colors.blue.shade400) {
+      // AFR - Maviden kırmızıya
+      if (percentage < 0.3) return Colors.blue.shade300;
+      if (percentage < 0.5) return Colors.blue.shade400;
+      if (percentage < 0.7) return Colors.purple.shade400;
+      return Colors.red.shade400;
+    } else {
+      // Akü Voltajı - Kırmızıdan yeşile
+      if (percentage < 0.3) return Colors.red.shade400;
+      if (percentage < 0.5) return Colors.orange.shade400;
+      if (percentage < 0.7) return Colors.yellow.shade400;
+      return Colors.green.shade400;
+    }
+  }
+
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
@@ -449,14 +538,30 @@ class _RaceGaugePainter extends CustomPainter {
     
     final percentage = ((value - min) / (max - min)).clamp(0.0, 1.0);
     final sweepAngle = math.pi * 2 * percentage;
+    final dynamicColor = _getDynamicColor();
+    final pulseGlow = 0.5 + (math.sin(pulseValue * 2 * math.pi) * 0.3);
+    
+    // Dış çerçeve - neon efekt
+    final outerPaint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3
+      ..color = dynamicColor.withOpacity(0.4);
+    canvas.drawCircle(center, radius + 15, outerPaint);
+    
+    // İç çerçeve
+    final innerPaint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2
+      ..color = dynamicColor.withOpacity(0.3);
+    canvas.drawCircle(center, radius + 8, innerPaint);
     
     final paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 8
+      ..strokeWidth = 10
       ..strokeCap = StrokeCap.round;
     
-    // Arka plan yayı
-    paint.color = Colors.black.withOpacity(0.8);
+    // Arka plan yayı (siyah)
+    paint.color = Colors.black.withOpacity(0.9);
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
       -math.pi / 2,
@@ -465,19 +570,54 @@ class _RaceGaugePainter extends CustomPainter {
       paint,
     );
     
-    // Değer yayı - canlı gradient
-    final pulseGlow = 0.5 + (math.sin(pulseValue * 2 * math.pi) * 0.3);
+    // Değer yayı - canlı çok renkli gradient
+    List<Color> gradientColors;
+    if (color == Colors.red.shade400) {
+      // Turbo - Yeşil → Sarı → Turuncu → Kırmızı
+      gradientColors = [
+        Colors.green.shade400,
+        Colors.green.shade300,
+        Colors.yellow.shade400,
+        Colors.orange.shade400,
+        Colors.red.shade400,
+        Colors.red.shade600,
+      ];
+    } else if (color == Colors.green.shade400) {
+      // O2 - Koyu yeşil → Açık yeşil → Cyan → Mavi
+      gradientColors = [
+        Colors.green.shade700,
+        Colors.green.shade400,
+        Colors.green.shade300,
+        Colors.cyan.shade400,
+        Colors.blue.shade400,
+      ];
+    } else if (color == Colors.blue.shade400) {
+      // AFR - Mavi → Mor → Pembe → Kırmızı
+      gradientColors = [
+        Colors.blue.shade300,
+        Colors.blue.shade400,
+        Colors.purple.shade400,
+        Colors.pink.shade400,
+        Colors.red.shade400,
+      ];
+    } else {
+      // Akü - Kırmızı → Turuncu → Sarı → Yeşil
+      gradientColors = [
+        Colors.red.shade400,
+        Colors.orange.shade400,
+        Colors.yellow.shade400,
+        Colors.yellow.shade300,
+        Colors.green.shade400,
+      ];
+    }
+    
     paint.shader = LinearGradient(
-      colors: [
-        color,
-        color.withOpacity(0.7),
-        color,
-      ],
-      stops: [0.0, 0.5, 1.0],
+      colors: gradientColors,
+      stops: List.generate(gradientColors.length, (i) => i / (gradientColors.length - 1)),
     ).createShader(Rect.fromCircle(center: center, radius: radius));
     
     if (isHighValue) {
-      paint.maskFilter = MaskFilter.blur(BlurStyle.normal, 6 * pulseGlow);
+      paint.maskFilter = MaskFilter.blur(BlurStyle.normal, 8 * pulseGlow);
     }
     
     canvas.drawArc(
@@ -490,11 +630,22 @@ class _RaceGaugePainter extends CustomPainter {
     
     paint.maskFilter = null;
     
-    // İşaretler
+    // İşaretler ve sayılar
     paint.shader = null;
-    paint.color = Colors.white.withOpacity(0.6);
+    paint.color = Colors.white.withOpacity(0.7);
     paint.strokeWidth = 2;
     
+    final textStyle = TextStyle(
+      color: Colors.white,
+      fontSize: 10,
+      fontWeight: FontWeight.bold,
+    );
+    final textPainter = TextPainter(
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+    );
+    
+    // Ana işaretler
     for (int i = 0; i <= 8; i++) {
       final angle = -math.pi / 2 + (math.pi * 2 * i / 8);
       final start = Offset(
@@ -502,15 +653,67 @@ class _RaceGaugePainter extends CustomPainter {
         center.dy + radius * math.sin(angle),
       );
       final end = Offset(
-        center.dx + (radius + 12) * math.cos(angle),
-        center.dy + (radius + 12) * math.sin(angle),
+        center.dx + (radius + 15) * math.cos(angle),
+        center.dy + (radius + 15) * math.sin(angle),
       );
       canvas.drawLine(start, end, paint);
+      
+      // Sayılar
+      final valueAtMark = min + ((max - min) * i / 8);
+      final textOffset = Offset(
+        center.dx + (radius + 25) * math.cos(angle) - 10,
+        center.dy + (radius + 25) * math.sin(angle) - 6,
+      );
+      textPainter.text = TextSpan(
+        text: valueAtMark.toStringAsFixed(1),
+        style: textStyle.copyWith(fontSize: 9),
+      );
+      textPainter.layout();
+      textPainter.paint(canvas, textOffset);
+      
+      // Kısa işaretler
+      if (i < 8) {
+        final midAngle = angle + (math.pi * 2 / 16);
+        final midStart = Offset(
+          center.dx + radius * math.cos(midAngle),
+          center.dy + radius * math.sin(midAngle),
+        );
+        final midEnd = Offset(
+          center.dx + (radius + 8) * math.cos(midAngle),
+          center.dy + (radius + 8) * math.sin(midAngle),
+        );
+        paint.strokeWidth = 1;
+        paint.color = Colors.white.withOpacity(0.5);
+        canvas.drawLine(midStart, midEnd, paint);
+        paint.strokeWidth = 2;
+        paint.color = Colors.white.withOpacity(0.7);
+      }
     }
     
-    // İğne
+    // Yüksek değer uyarı bölgesi
+    if (isHighValue) {
+      final warningAngle = -math.pi / 2 + (math.pi * 2 * 0.7);
+      final warningPaint = Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 4 + (math.sin(pulseValue * 2 * math.pi) * 2)
+        ..color = Colors.yellow.shade400;
+      warningPaint.maskFilter = MaskFilter.blur(
+        BlurStyle.normal,
+        5 + (math.sin(pulseValue * 2 * math.pi) * 3),
+      );
+      
+      canvas.drawArc(
+        Rect.fromCircle(center: center, radius: radius + 3),
+        warningAngle,
+        math.pi * 2 * 0.3,
+        false,
+        warningPaint,
+      );
+    }
+    
+    // İğne - gerçekçi
     final needleAngle = -math.pi / 2 + sweepAngle;
-    final needleLength = radius * 0.8;
+    final needleLength = radius * 0.85;
     final needleTip = Offset(
       center.dx + needleLength * math.cos(needleAngle),
       center.dy + needleLength * math.sin(needleAngle),
@@ -518,30 +721,43 @@ class _RaceGaugePainter extends CustomPainter {
     
     // İğne gölgesi
     final needleShadowPaint = Paint()
-      ..color = Colors.black.withOpacity(0.5)
-      ..strokeWidth = 5
-      ..maskFilter = MaskFilter.blur(BlurStyle.normal, 4);
+      ..color = Colors.black.withOpacity(0.6)
+      ..strokeWidth = 6
+      ..maskFilter = MaskFilter.blur(BlurStyle.normal, 5);
     canvas.drawLine(center, needleTip, needleShadowPaint);
     
-    // İğne
+    // İğne çizgisi - kalın ve parlak
     final needlePaint = Paint()
       ..color = Colors.white
-      ..strokeWidth = 3
+      ..strokeWidth = 4
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
     canvas.drawLine(center, needleTip, needlePaint);
     
-    // İğne ucu
+    // İğne ucu - parlak ve renkli
+    final tipGlowPaint = Paint()
+      ..color = dynamicColor
+      ..style = PaintingStyle.fill;
+    tipGlowPaint.maskFilter = MaskFilter.blur(BlurStyle.normal, 10);
+    canvas.drawCircle(needleTip, 8, tipGlowPaint);
+    
     final tipPaint = Paint()
-      ..color = color
+      ..color = dynamicColor
       ..style = PaintingStyle.fill;
     tipPaint.maskFilter = MaskFilter.blur(BlurStyle.normal, 6);
-    canvas.drawCircle(needleTip, 5, tipPaint);
-    canvas.drawCircle(needleTip, 3, Paint()..color = Colors.white);
+    canvas.drawCircle(needleTip, 6, tipPaint);
+    canvas.drawCircle(needleTip, 4, Paint()..color = Colors.white);
     
-    // Merkez nokta
-    canvas.drawCircle(center, 6, Paint()..color = Colors.white);
-    canvas.drawCircle(center, 4, Paint()..color = Colors.black);
+    // Merkez nokta - parlak
+    final centerGlowPaint = Paint()
+      ..color = dynamicColor.withOpacity(0.5)
+      ..style = PaintingStyle.fill;
+    centerGlowPaint.maskFilter = MaskFilter.blur(BlurStyle.normal, 8);
+    canvas.drawCircle(center, 10, centerGlowPaint);
+    
+    canvas.drawCircle(center, 8, Paint()..color = Colors.white);
+    canvas.drawCircle(center, 6, Paint()..color = Colors.black);
+    canvas.drawCircle(center, 3, Paint()..color = dynamicColor);
   }
 
   @override

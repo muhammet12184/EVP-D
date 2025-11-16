@@ -45,7 +45,7 @@ class _DashboardScreenState extends State<DashboardScreen>
     Future.delayed(const Duration(milliseconds: 100), () {
       if (mounted) {
         setState(() {
-          rpm = (rpm + (math.Random().nextDouble() * 200 - 100)).clamp(0, 8000);
+          rpm = (rpm + (math.Random().nextDouble() * 200 - 100)).clamp(0, 8500);
           engineTemp = (engineTemp + (math.Random().nextDouble() * 2 - 1)).clamp(60, 120);
           boost = (boost + (math.Random().nextDouble() * 0.1 - 0.05)).clamp(0, 1);
           throttle = (throttle + (math.Random().nextDouble() * 10 - 5)).clamp(0, 100);
@@ -99,9 +99,9 @@ class _DashboardScreenState extends State<DashboardScreen>
                 ),
               ),
               
-              // Orta Ayırıcı
+              // Orta Ayırıcı - Ferrari Kırmızısı ve BMW Mavisi
               Container(
-                width: 2,
+                width: 3,
                 margin: const EdgeInsets.symmetric(vertical: 20),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -109,10 +109,24 @@ class _DashboardScreenState extends State<DashboardScreen>
                     end: Alignment.bottomCenter,
                     colors: [
                       Colors.transparent,
-                      Colors.blue.withOpacity(0.5),
+                      Color(0xFFDC143C).withOpacity(0.6), // Ferrari kırmızısı
+                      Colors.blue.withOpacity(0.6), // BMW mavisi
                       Colors.transparent,
                     ],
+                    stops: [0.0, 0.4, 0.6, 1.0],
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0xFFDC143C).withOpacity(0.3),
+                      blurRadius: 10,
+                      spreadRadius: 1,
+                    ),
+                    BoxShadow(
+                      color: Colors.blue.withOpacity(0.3),
+                      blurRadius: 10,
+                      spreadRadius: 1,
+                    ),
+                  ],
                 ),
               ),
               

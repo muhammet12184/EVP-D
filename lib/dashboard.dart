@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'engine_section.dart';
 import 'electric_section.dart';
+import 'performance_section.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -28,6 +29,12 @@ class _DashboardScreenState extends State<DashboardScreen>
   double batteryHealth = 92;
   double batterySOC = 78;
   double regenPower = 15;
+  
+  // Performans testleri verileri
+  double turboPressure = 1.2;
+  double o2Sensor = 0.45;
+  double afr = 14.7;
+  double batteryVoltage = 12.6;
 
   @override
   void initState() {
@@ -56,6 +63,12 @@ class _DashboardScreenState extends State<DashboardScreen>
           motorSpeed = (motorSpeed + (math.Random().nextDouble() * 100 - 50)).clamp(0, 8000);
           batterySOC = (batterySOC + (math.Random().nextDouble() * 0.2 - 0.1)).clamp(0, 100);
           regenPower = (regenPower + (math.Random().nextDouble() * 2 - 1)).clamp(0, 50);
+          
+          // Performans testleri verileri
+          turboPressure = (turboPressure + (math.Random().nextDouble() * 0.2 - 0.1)).clamp(0, 2.5);
+          o2Sensor = (o2Sensor + (math.Random().nextDouble() * 0.05 - 0.025)).clamp(0, 1);
+          afr = (afr + (math.Random().nextDouble() * 0.5 - 0.25)).clamp(10, 20);
+          batteryVoltage = (batteryVoltage + (math.Random().nextDouble() * 0.2 - 0.1)).clamp(10, 15);
         });
         _simulateDataUpdates();
       }
@@ -84,45 +97,88 @@ class _DashboardScreenState extends State<DashboardScreen>
           ),
         ),
         child: SafeArea(
-          child: Row(
+          child: Column(
             children: [
-              // Motor Bölümü
+              // Üst bölüm - Motor ve Elektrik
               Expanded(
-                child: EngineSection(
-                  rpm: rpm,
-                  engineTemp: engineTemp,
-                  boost: boost,
-                  throttle: throttle,
-                  engineLoad: engineLoad,
-                  fuelAirRatio: fuelAirRatio,
-                  transmissionTemp: transmissionTemp,
+                flex: 3,
+                child: Row(
+                  children: [
+                    // Motor Bölümü
+                    Expanded(
+                      child: EngineSection(
+                        rpm: rpm,
+                        engineTemp: engineTemp,
+                        boost: boost,
+                        throttle: throttle,
+                        engineLoad: engineLoad,
+                        fuelAirRatio: fuelAirRatio,
+                        transmissionTemp: transmissionTemp,
+                      ),
+                    ),
+                    
+                    // Orta Ayırıcı - Ferrari Kırmızısı ve BMW Mavisi
+                    Container(
+                      width: 3,
+                      margin: const EdgeInsets.symmetric(vertical: 20),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            Color(0xFFDC143C).withOpacity(0.6), // Ferrari kırmızısı
+                            Colors.blue.withOpacity(0.6), // BMW mavisi
+                            Colors.transparent,
+                          ],
+                          stops: [0.0, 0.4, 0.6, 1.0],
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0xFFDC143C).withOpacity(0.3),
+                            blurRadius: 10,
+                            spreadRadius: 1,
+                          ),
+                          BoxShadow(
+                            color: Colors.blue.withOpacity(0.3),
+                            blurRadius: 10,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
+                    ),
+                    
+                    // Elektrik Bölümü
+                    Expanded(
+                      child: ElectricSection(
+                        batteryTemp: batteryTemp,
+                        motorSpeed: motorSpeed,
+                        batteryHealth: batteryHealth,
+                        batterySOC: batterySOC,
+                        regenPower: regenPower,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               
-              // Orta Ayırıcı - Ferrari Kırmızısı ve BMW Mavisi
+              // Alt ayırıcı
               Container(
-                width: 3,
-                margin: const EdgeInsets.symmetric(vertical: 20),
+                height: 3,
+                margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
                     colors: [
                       Colors.transparent,
-                      Color(0xFFDC143C).withOpacity(0.6), // Ferrari kırmızısı
-                      Colors.blue.withOpacity(0.6), // BMW mavisi
+                      Colors.orange.withOpacity(0.6),
                       Colors.transparent,
                     ],
-                    stops: [0.0, 0.4, 0.6, 1.0],
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Color(0xFFDC143C).withOpacity(0.3),
-                      blurRadius: 10,
-                      spreadRadius: 1,
-                    ),
-                    BoxShadow(
-                      color: Colors.blue.withOpacity(0.3),
+                      color: Colors.orange.withOpacity(0.3),
                       blurRadius: 10,
                       spreadRadius: 1,
                     ),
@@ -130,14 +186,14 @@ class _DashboardScreenState extends State<DashboardScreen>
                 ),
               ),
               
-              // Elektrik Bölümü
+              // Alt bölüm - Performans Testleri
               Expanded(
-                child: ElectricSection(
-                  batteryTemp: batteryTemp,
-                  motorSpeed: motorSpeed,
-                  batteryHealth: batteryHealth,
-                  batterySOC: batterySOC,
-                  regenPower: regenPower,
+                flex: 2,
+                child: PerformanceSection(
+                  turboPressure: turboPressure,
+                  o2Sensor: o2Sensor,
+                  afr: afr,
+                  batteryVoltage: batteryVoltage,
                 ),
               ),
             ],

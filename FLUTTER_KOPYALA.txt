@@ -1,0 +1,54 @@
+═══════════════════════════════════════════════════════════════
+   🎯 FLUTTER DOSYALARI - KOPYALA YAPIŞTIR KOMUTU
+═══════════════════════════════════════════════════════════════
+
+# 1. Flutter projenizde lib/ klasörüne gidin
+cd /path/to/your_flutter_project/lib/
+
+# 2. Tüm .dart dosyalarını kopyalayın
+cp /workspace/flutter/motor_analyzer.dart .
+cp /workspace/flutter/data_analyzer.dart .
+cp /workspace/flutter/pid_router.dart .
+cp /workspace/flutter/pid_type.dart .
+cp /workspace/flutter/pid_reader.dart .
+cp /workspace/flutter/vehicle_debug_ui.dart .
+cp /workspace/flutter/main.dart .
+
+# 3. pubspec.yaml'ı güncelleyin (proje kök dizininde)
+cd ..
+cp /workspace/flutter/pubspec.yaml .
+
+# 4. Dependencies yükleyin
+flutter pub get
+
+# 5. Çalıştırın
+flutter run
+
+═══════════════════════════════════════════════════════════════
+   VEYA TEK KOMUTLA:
+═══════════════════════════════════════════════════════════════
+
+# Tüm dosyaları tek seferde kopyala
+cp /workspace/flutter/*.dart /path/to/your_flutter_project/lib/
+cp /workspace/flutter/pubspec.yaml /path/to/your_flutter_project/
+cd /path/to/your_flutter_project && flutter pub get && flutter run
+
+═══════════════════════════════════════════════════════════════
+   DOSYA LİSTESİ:
+═══════════════════════════════════════════════════════════════
+
+✅ motor_analyzer.dart          (2.9 KB) - Yakıt tüketimi
+✅ data_analyzer.dart           (6.6 KB) - Regen desteği
+✅ pid_router.dart              (11 KB)  - Marka tespiti
+✅ vehicle_debug_ui.dart        (11 KB)  - UI widgets
+✅ pid_type.dart                (2.1 KB) - PID tanımları
+✅ pid_reader.dart              (2.4 KB) - Interface
+✅ main.dart                    (12 KB)  - Demo app
+✅ pubspec.yaml                 (506 B)  - Config
+✅ README_FLUTTER.md            (11 KB)  - Rehber
+
+Toplam: 9 dosya, 2,115 satır kod
+
+═══════════════════════════════════════════════════════════════
+   HAZIR! 🎉
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,365 @@
+Name;Mode/PID;Equation;Min;Max;Units;Header
+=== STANDARD OBD-II PIDs (Mode 01) - Universal for Gasoline/Diesel/LPG ===;;;;;;
+Engine RPM;01 0C;(A*256+B)/4;0;16383;rpm;7E0
+Vehicle Speed;01 0D;A;0;255;km/h;7E0
+Throttle Position;01 11;A*100/255;0;100;%;7E0
+Engine Coolant Temp;01 05;A-40;-40;215;°C;7E0
+Intake Air Temp;01 0F;A-40;-40;215;°C;7E0
+Mass Air Flow;01 10;(A*256+B)/100;0;655;g/s;7E0
+Manifold Absolute Pressure;01 0B;A;0;255;kPa;7E0
+Fuel Pressure;01 0A;A*3;0;765;kPa;7E0
+Intake Manifold Pressure;01 0B;A;0;255;kPa;7E0
+Timing Advance;01 0E;(A-128)/2;-64;63.5;°;7E0
+Fuel Tank Level;01 2F;A*100/255;0;100;%;7E0
+Engine Oil Temp;01 5C;A-40;-40;215;°C;7E0
+Fuel Type;01 51;A;0;255;Code;7E0
+Fuel Consumption Rate;01 5E;(A*256+B)/20;0;3212.75;L/h;7E0
+Distance Traveled MIL;01 21;(A*256+B);0;65535;km;7E0
+Distance Since DTC Clear;01 31;(A*256+B);0;65535;km;7E0
+Control Module Voltage;01 42;(A*256+B)/1000;0;65.535;V;7E0
+Absolute Load Value;01 43;(A*256+B)*100/255;0;100;%;7E0
+Commanded EGR;01 2C;A*100/255;0;100;%;7E0
+EGR Error;01 2D;(A*256+B-32768)/128;-128;127;%;7E0
+Commanded Evap Purge;01 2E;A*100/255;0;100;%;7E0
+Warm-ups Since DTC Clear;01 30;A;0;255;Count;7E0
+=== MODE 03 - DTC Count ===;;;;;;
+DTC Count;03;;0;255;Count;7E0
+=== MODE 04 - Clear DTCs ===;;;;;;
+Clear DTCs;04;;;;
+=== MODE 05 - Oxygen Sensor Data ===;;;;;;
+O2 Sensor 1 Voltage;01 14;A/200;0;1.275;V;7E0
+O2 Sensor 1 Short Term Fuel Trim;01 15;(A-128)*100/128;-100;99.2;%;7E0
+O2 Sensor 2 Voltage;01 16;A/200;0;1.275;V;7E0
+O2 Sensor 2 Short Term Fuel Trim;01 17;(A-128)*100/128;-100;99.2;%;7E0
+O2 Sensor 3 Voltage;01 18;A/200;0;1.275;V;7E0
+O2 Sensor 3 Short Term Fuel Trim;01 19;(A-128)*100/128;-100;99.2;%;7E0
+O2 Sensor 4 Voltage;01 1A;A/200;0;1.275;V;7E0
+O2 Sensor 4 Short Term Fuel Trim;01 1B;(A-128)*100/128;-100;99.2;%;7E0
+=== MODE 09 - Vehicle Information ===;;;;;;
+VIN;09 02;;;;
+Calibration ID;09 04;;;;
+Calibration Verification Numbers;09 06;;;;
+ECU Name;09 0A;;;;
+=== EXTENDED OBD-II PIDs (Mode 01) ===;;;;;;
+Turbo Boost Pressure;01 6F;(A*256+B)/100;0;655.35;kPa;7E0
+Turbo RPM;01 70;(A*256+B);0;65535;rpm;7E0
+Exhaust Gas Temp Bank 1 Sensor 1;01 78;(A*256+B)/10-40;-40;6513.5;°C;7E0
+Exhaust Gas Temp Bank 2 Sensor 1;01 79;(A*256+B)/10-40;-40;6513.5;°C;7E0
+DPF Pressure;01 7A;(A*256+B)/10;0;6553.5;kPa;7E0
+DPF Temperature;01 7B;(A*256+B)/10-40;-40;6513.5;°C;7E0
+DPF Soot Load;01 7C;A*100/255;0;100;%;7E0
+DPF Regeneration Status;01 7D;A;0;255;Status;7E0
+AdBlue Level;01 7E;A*100/255;0;100;%;7E0
+AdBlue Consumption;01 7F;(A*256+B)/100;0;655.35;L/100km;7E0
+=== VOLKSWAGEN GROUP (VW/Audi/SEAT/Skoda) - Gasoline/Diesel ===;;;;;;
+Boost Pressure Actual;01 6F;(A*256+B)/100;0;400;kPa;7E0
+Boost Pressure Specified;01 70;(A*256+B)/100;0;400;kPa;7E0
+Injection Quantity;01 71;(A*256+B)/10;0;6553.5;mg/stroke;7E0
+EGR Position;01 72;A*100/255;0;100;%;7E0
+DPF Differential Pressure;01 7A;(A*256+B)/10;0;6553.5;mbar;7E0
+DPF Soot Mass Calculated;01 7C;A*100/255;0;100;%;7E0
+AdBlue Tank Level;01 7E;A*100/255;0;100;%;7E0
+NOx Sensor Value;01 80;(A*256+B);0;65535;ppm;7E0
+=== BMW - Gasoline/Diesel ===;;;;;;
+Boost Pressure;01 6F;(A*256+B)/100;0;400;kPa;7E0
+Turbo Wastegate Position;01 70;A*100/255;0;100;%;7E0
+Fuel Rail Pressure;01 0A;A*10;0;2550;kPa;7E0
+DPF Soot Load;01 7C;A*100/255;0;100;%;7E0
+DPF Regeneration Active;01 7D;A;0;1;Bool;7E0
+AdBlue Level;01 7E;A*100/255;0;100;%;7E0
+=== MERCEDES-BENZ - Gasoline/Diesel ===;;;;;;
+Boost Pressure;01 6F;(A*256+B)/100;0;400;kPa;7E0
+Turbo RPM;01 70;(A*256+B);0;65535;rpm;7E0
+Fuel Rail Pressure;01 0A;A*10;0;2550;kPa;7E0
+DPF Pressure;01 7A;(A*256+B)/10;0;6553.5;mbar;7E0
+DPF Temperature;01 7B;(A*256+B)/10-40;-40;6513.5;°C;7E0
+AdBlue Level;01 7E;A*100/255;0;100;%;7E0
+=== FORD - Gasoline/Diesel ===;;;;;;
+Boost Pressure;01 6F;(A*256+B)/100;0;400;kPa;7E0
+Turbo Wastegate Position;01 70;A*100/255;0;100;%;7E0
+Fuel Rail Pressure;01 0A;A*10;0;2550;kPa;7E0
+DPF Soot Load;01 7C;A*100/255;0;100;%;7E0
+DPF Regeneration Status;01 7D;A;0;255;Status;7E0
+=== GENERAL MOTORS (Chevrolet/Opel) - Gasoline/Diesel ===;;;;;;
+Boost Pressure;01 6F;(A*256+B)/100;0;400;kPa;7E0
+Turbo RPM;01 70;(A*256+B);0;65535;rpm;7E0
+Fuel Rail Pressure;01 0A;A*10;0;2550;kPa;7E0
+DPF Pressure;01 7A;(A*256+B)/10;0;6553.5;kPa;7E0
+DPF Temperature;01 7B;(A*256+B)/10-40;-40;6513.5;°C;7E0
+DPF Soot Load;01 7C;A*100/255;0;100;%;7E0
+=== TOYOTA - Gasoline/Diesel ===;;;;;;
+Boost Pressure;01 6F;(A*256+B)/100;0;400;kPa;7E0
+Turbo Wastegate Position;01 70;A*100/255;0;100;%;7E0
+Fuel Rail Pressure;01 0A;A*10;0;2550;kPa;7E0
+DPF Soot Load;01 7C;A*100/255;0;100;%;7E0
+DPF Regeneration Status;01 7D;A;0;255;Status;7E0
+=== HONDA - Gasoline ===;;;;;;
+VTEC Status;01 80;A;0;1;Bool;7E0
+Boost Pressure;01 6F;(A*256+B)/100;0;400;kPa;7E0
+Fuel Rail Pressure;01 0A;A*10;0;2550;kPa;7E0
+=== HYUNDAI/KIA - Gasoline/Diesel ===;;;;;;
+Boost Pressure;01 6F;(A*256+B)/100;0;400;kPa;7E0
+Turbo Wastegate Position;01 70;A*100/255;0;100;%;7E0
+Fuel Rail Pressure;01 0A;A*10;0;2550;kPa;7E0
+DPF Pressure;01 7A;(A*256+B)/10;0;6553.5;kPa;7E0
+DPF Temperature;01 7B;(A*256+B)/10-40;-40;6513.5;°C;7E0
+DPF Soot Load;01 7C;A*100/255;0;100;%;7E0
+AdBlue Level;01 7E;A*100/255;0;100;%;7E0
+=== NISSAN/RENAULT - Gasoline/Diesel ===;;;;;;
+Boost Pressure;01 6F;(A*256+B)/100;0;400;kPa;7E0
+Turbo RPM;01 70;(A*256+B);0;65535;rpm;7E0
+Fuel Rail Pressure;01 0A;A*10;0;2550;kPa;7E0
+DPF Pressure;01 7A;(A*256+B)/10;0;6553.5;kPa;7E0
+DPF Temperature;01 7B;(A*256+B)/10-40;-40;6513.5;°C;7E0
+DPF Soot Load;01 7C;A*100/255;0;100;%;7E0
+=== PSA (Peugeot/Citroën/Opel) - Gasoline/Diesel ===;;;;;;
+Boost Pressure;01 6F;(A*256+B)/100;0;400;kPa;7E0
+Turbo Wastegate Position;01 70;A*100/255;0;100;%;7E0
+Fuel Rail Pressure;01 0A;A*10;0;2550;kPa;7E0
+DPF Pressure;01 7A;(A*256+B)/10;0;6553.5;kPa;7E0
+DPF Temperature;01 7B;(A*256+B)/10-40;-40;6513.5;°C;7E0
+DPF Soot Load;01 7C;A*100/255;0;100;%;7E0
+AdBlue Level;01 7E;A*100/255;0;100;%;7E0
+=== LPG SPECIFIC PIDs ===;;;;;;
+LPG Tank Level;01 2F;A*100/255;0;100;%;7E0
+LPG Pressure;01 0A;A*10;0;2550;kPa;7E0
+LPG Temperature;01 0F;A-40;-40;215;°C;7E0
+LPG Injector Pulse Width;01 5D;(A*256+B)/1000;0;65.535;ms;7E0
+LPG Switch Status;01 80;A;0;1;Bool;7E0
+Gasoline Tank Level;01 2F;A*100/255;0;100;%;7E0
+=== UDS SERVICES (ISO 14229) ===;;;;;;
+Tester Present;3E 00;;;;
+Read Data By Identifier;22 [DID];;;;
+Write Data By Identifier;2E [DID];;;;
+Read Memory By Address;23 [Address] [Length];;;;
+Write Memory By Address;3D [Address] [Data];;;;
+Read DTC Information;19 [SubFunction];;;;
+Clear DTC Information;14 [Group];;;;
+Read Freeze Frame Data;19 02 [DTC];;;;
+Read Status Of DTC;19 01 [StatusMask];;;;
+Control DTC Setting;85 [SettingType];;;;
+Read Vehicle Information;09 [InfoType];;;;
+Security Access;27 [Level] [Seed];;;;
+Communication Control;28 [ControlType];;;;
+Routine Control;31 [RoutineID] [Action];;;;
+Request Download;34 [Address] [Length];;;;
+Request Upload;35 [Address] [Length];;;;
+Transfer Data;36 [BlockSequence];;;;
+Request Transfer Exit;37;;;;
+=== UDS DATA IDENTIFIERS (DIDs) - Common ===;;;;;;
+VIN;22 F190;;;;
+ECU Serial Number;22 F18C;;;;
+ECU Part Number;22 F18D;;;;
+ECU Software Version;22 F191;;;;
+ECU Calibration ID;22 F18E;;;;
+ECU Calibration Verification;22 F18F;;;;
+Manufacturing Date;22 F1A0;;;;
+ECU Hardware Number;22 F1A1;;;;
+Boot Software Version;22 F1A2;;;;
+Application Software Version;22 F1A3;;;;
+=== UDS DTC FORMAT ===;;;;;;
+DTC Read Format;19 02;;;;
+DTC Status Byte;19 01;;;;
+DTC Snapshot;19 04;;;;
+DTC Extended Data;19 06;;;;
+=== UDS ROUTINE CONTROL ===;;;;;;
+Reset ECU;31 01 01;;;;
+Clear Adaptations;31 01 02;;;;
+DPF Regeneration;31 01 03;;;;
+AdBlue Reset;31 01 04;;;;
+Throttle Body Adaptation;31 01 05;;;;
+=== EV PIDs - Standard ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Nissan Leaf / Renault Zoe ===;;;;;;
+Battery SOH;22 015B;A;0;100;%;7E4
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+Battery Capacity (kWh);22 0161;(A*256+B)/100;0;100;kWh;7E4
+Cell Min Voltage;22 0162;A/50;2.5;4.2;V;7E4
+Cell Max Voltage;22 0163;A/50;2.5;4.2;V;7E4
+=== Hyundai / Kia (Kona, Ioniq, Niro, EV6) ===;;;;;;
+Battery SOH;22 0170;A;0;100;%;7E4
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+DC Charge Power;22 0171;(A*256+B)/10;0;300;kW;7E4
+AC Charge Power;22 0172;(A*256+B)/10;0;22;kW;7E4
+Battery Inlet Temp;22 0173;A-40;-40;100;°C;7E4
+=== PSA (Peugeot / Opel / Citroën) ===;;;;;;
+Battery SOH;22 F40D;A;0;100;%;7E4
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+Battery Energy (kWh);22 F40E;(A*256+B)/10;0;60;kWh;7E4
+=== BMW i3 ===;;;;;;
+Battery SOH;22 2A38;A;0;100;%;7E4
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+Usable Capacity (kWh);22 2A39;(A*256+B)/100;0;42;kWh;7E4
+DC Fast Charge Count;22 2A3A;A;0;5000;Count;7E4
+=== BMW i4 / iX ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Mercedes EQ (EQA, EQB, EQE, EQS) ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Audi e-tron (Q4, Q8, GT) ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Volvo Recharge (EX30, C40, XC40) ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Porsche Taycan ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== BYD (Atto 3, Dolphin, Seal) ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== MG (ZS EV, MG4) ===;;;;;;
+Battery SOC;22 3101;A;0;100;%;7E4
+Battery Voltage;22 3102;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 3103;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 3104;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Tesla Model S / 3 / X / Y ===;;;;;;
+Battery SOC;22 1187;A;0;100;%;7E4
+Battery Voltage;22 1188;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 1189;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 118A;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== TOGG T10X ===;;;;;;
+Battery SOC;22 2101;A;0;100;%;7E4
+Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 2104;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Honda e ===;;;;;;
+Battery SOC;22 2101;A;0;100;%;7E2
+Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E2
+Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E2
+Battery Temp;22 2104;A-40;-40;100;°C;7E2
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E2
+=== Toyota bZ4X ===;;;;;;
+Battery SOC;22 2201;A;0;100;%;7E4
+Battery Voltage;22 2202;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 2203;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 2204;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Mini Cooper SE ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== VW ID.3 / ID.4 / ID.Buzz ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+Battery SOH;22 F40D;A;0;100;%;7E4
+DC Charge Power;22 0171;(A*256+B)/10;0;300;kW;7E4
+AC Charge Power;22 0172;(A*256+B)/10;0;22;kW;7E4
+=== Polestar 2 ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Jaguar I-PACE ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Rivian R1T / R1S ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+=== Lucid Air ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+=== Fiat 500e ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+=== Smart EQ ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+=== Mazda MX-30 ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+=== Subaru Solterra ===;;;;;;
+Battery SOC;22 2201;A;0;100;%;7E4
+Battery Voltage;22 2202;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 2203;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 2204;A-40;-40;100;°C;7E4
+=== Genesis GV60 / GV70 Electric ===;;;;;;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+DC Charge Power;22 0171;(A*256+B)/10;0;300;kW;7E4
+AC Charge Power;22 0172;(A*256+B)/10;0;22;kW;7E4
+=== UDS EV SPECIFIC DIDs ===;;;;;;
+Battery Pack Serial Number;22 F200;;;;
+Battery Pack Part Number;22 F201;;;;
+Battery Pack Manufacturing Date;22 F202;;;;
+Battery Pack Capacity Nominal;22 F203;;;;
+Battery Pack Capacity Usable;22 F204;;;;
+Battery Pack SOH;22 F205;;;;
+Charging Port Status;22 F206;;;;
+Charging Current Limit;22 F207;;;;
+Charging Voltage Limit;22 F208;;;;
+DC Fast Charge Count;22 F209;;;;
+AC Charge Count;22 F20A;;;;
+Battery Cell Count;22 F20B;;;;
+Battery Module Count;22 F20C;;;;
+Battery Cooling System Status;22 F20D;;;;
+Battery Heating System Status;22 F20E;;;;
+=== UDS EV ROUTINE CONTROL ===;;;;;;
+Battery Balance;31 02 01;;;;
+Battery Reset;31 02 02;;;;
+Charging System Test;31 02 03;;;;
+Battery Health Check;31 02 04;;;;
+Thermal Management Test;31 02 05;;;;

@@ -1,0 +1,146 @@
+Name;Mode/PID;Equation;Min;Max;Units;Header
+=== Nissan Leaf / Renault Zoe ===;;;;;;
+Battery SOH;22 015B;A;0;100;%;7E4
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+Battery Capacity (kWh);22 0161;(A*256+B)/100;0;100;kWh;7E4
+Cell Min Voltage;22 0162;A/50;2.5;4.2;V;7E4
+Cell Max Voltage;22 0163;A/50;2.5;4.2;V;7E4
+=== Hyundai / Kia (Kona, Ioniq, Niro, EV6) ===;;;;;;
+Battery SOH;22 0170;A;0;100;%;7E4
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+DC Charge Power;22 0171;(A*256+B)/10;0;300;kW;7E4
+AC Charge Power;22 0172;(A*256+B)/10;0;22;kW;7E4
+Battery Inlet Temp;22 0173;A-40;-40;100;°C;7E4
+=== PSA (Peugeot / Opel / Citroën) ===;;;;;;
+Battery SOH;22 F40D;A;0;100;%;7E4
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+Battery Energy (kWh);22 F40E;(A*256+B)/10;0;60;kWh;7E4
+=== BMW i3 ===;;;;;;
+Battery SOH;22 2A38;A;0;100;%;7E4
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+Usable Capacity (kWh);22 2A39;(A*256+B)/100;0;42;kWh;7E4
+DC Fast Charge Count;22 2A3A;A;0;5000;Count;7E4
+=== BMW i4 / iX ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Mercedes EQ (EQA, EQB, EQE, EQS) ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Audi e-tron (Q4, Q8, GT) ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Volvo Recharge (EX30, C40, XC40) ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Porsche Taycan ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== BYD (Atto 3, Dolphin, Seal) ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== MG (ZS EV, MG4) ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 3101;A;0;100;%;7E4
+Battery Voltage;22 3102;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 3103;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 3104;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Tesla Model S / 3 / X / Y ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 1187;A;0;100;%;7E4
+Battery Voltage;22 1188;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 1189;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 118A;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== TOGG T10X ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 2101;A;0;100;%;7E4
+Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 2104;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Honda e ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 2101;A;0;100;%;7E2
+Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E2
+Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E2
+Battery Temp;22 2104;A-40;-40;100;°C;7E2
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E2
+=== Toyota bZ4X ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 2201;A;0;100;%;7E4
+Battery Voltage;22 2202;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 2203;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 2204;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Mini Cooper SE ===;;;;;;
+Battery SOH;;;;;%;
+Battery SOC;22 015C;A;0;100;%;7E4
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 015F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+=== Standard OBD2 (Benzin/Dizel/LPG) ===;;;;;;
+Engine RPM;010C;((A*256)+B)/4;0;8000;rpm;7E0
+Vehicle Speed;010D;A;0;255;km/h;7E0
+Engine Coolant Temp;0105;A-40;-40;215;°C;7E0
+Intake Air Temp;010F;A-40;-40;215;°C;7E0
+Manifold Absolute Pressure;010B;A;0;255;kPa;7E0
+Mass Air Flow;0110;((A*256)+B)/100;0;655;g/s;7E0
+Throttle Position;0111;A*100/255;0;100;%;7E0
+Engine Load;0104;A*100/255;0;100;%;7E0
+Fuel Level;012F;A*100/255;0;100;%;7E0
+Barometric Pressure;0133;A;0;255;kPa;7E0
+Control Module Voltage;0142;((A*256)+B)/1000;0;20;V;7E0
+Engine Oil Temp;015C;A-40;-40;210;°C;7E0
+Fuel Rate;015E;((A*256)+B)/20;0;3200;L/h;7E0
+Fuel Rail Pressure;0159;((A*256)+B)*10;0;655350;kPa;7E0
+EGR Commanded;012C;A*100/255;0;100;%;7E0
+EGR Error;012D;(A-128)*100/128;-100;100;%;7E0
+Evap Purge;012E;A*100/255;0;100;%;7E0
+Fuel Trim Short Term Bank 1;0106;(A-128)*100/128;-100;100;%;7E0
+Fuel Trim Long Term Bank 1;0107;(A-128)*100/128;-100;100;%;7E0
+O2 Sensor 1 Wide Range Voltage;0134;((A*256)+B)/32768;0;2;V;7E0
+O2 Sensor 1 Wide Range Equivalence Ratio;0134;((C*256)+D)/32768;0;2;lambda;7E0
+Catalyst Temp Bank 1 Sensor 1;013C;((A*256)+B)/10 - 40;-40;1000;°C;7E0
+Ambient Air Temp;0146;A-40;-40;215;°C;7E0

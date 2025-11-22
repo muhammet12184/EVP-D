@@ -1,0 +1,169 @@
+Manufacturer;Model;Name;Mode/PID;Equation;Min;Max;Units;Header;Fuel Type;Description
+=== VOLKSWAGEN / AUDI / SKODA / SEAT (VAG GROUP) ===;;;;;;;;;;;;
+VAG;All;Oil Level;22 0508;A;0;100;%;7E0;All;Engine oil level
+VAG;All;Oil Pressure;22 0509;(A*256+B)/100;0;1000;kPa;7E0;All;Engine oil pressure
+VAG;All;Oil Quality;22 050A;A;0;100;%;7E0;All;Oil quality/degradation
+VAG;All;Coolant Level;22 050B;A;0;100;%;7E0;All;Coolant level
+VAG;All;Brake Fluid Level;22 050C;A;0;100;%;7E2;All;Brake fluid level
+VAG;All;AdBlue Level;22 050D;A;0;100;%;7E0;Diesel;AdBlue/DEF level
+VAG;All;AdBlue Quality;22 050E;A;0;255;;7E0;Diesel;AdBlue quality
+VAG;All;DPF Soot Mass;22 2001;(A*256+B)/10;0;100;g;7E0;Diesel;DPF soot mass
+VAG;All;DPF Ash Mass;22 2002;(A*256+B)/10;0;100;g;7E0;Diesel;DPF ash mass
+VAG;All;DPF Regeneration Count;22 2003;(A*256+B);0;5000;count;7E0;Diesel;Number of DPF regenerations
+VAG;All;DPF Distance Since Regen;22 2004;(A*256+B);0;65535;km;7E0;Diesel;Distance since last DPF regen
+VAG;All;Turbo RPM;22 2010;(A*256+B)*10;0;300000;rpm;7E0;Diesel/Gasoline;Turbocharger speed
+VAG;All;Boost Pressure Desired;22 2011;(A*256+B);0;400;kPa;7E0;Diesel/Gasoline;Desired boost pressure
+VAG;All;Boost Pressure Actual;22 2012;(A*256+B);0;400;kPa;7E0;Diesel/Gasoline;Actual boost pressure
+VAG;All;Fuel Consumption Instant;22 2020;(A*256+B)/100;0;100;L/h;7E0;All;Instantaneous fuel consumption
+VAG;All;Fuel Consumption Average;22 2021;(A*256+B)/100;0;30;L/100km;7E0;All;Average fuel consumption
+VAG;All;Range;22 2022;(A*256+B);0;2000;km;7E0;All;Estimated range
+VAG;All;DSG Clutch 1 Temp;22 3100;A-40;-40;200;°C;7E1;All;DSG clutch 1 temperature
+VAG;All;DSG Clutch 2 Temp;22 3101;A-40;-40;200;°C;7E1;All;DSG clutch 2 temperature
+VAG;All;DSG Oil Temp;22 3102;A-40;-40;200;°C;7E1;All;DSG transmission oil temp
+VAG;All;DSG Oil Pressure;22 3103;(A*256+B)/100;0;2000;kPa;7E1;All;DSG oil pressure
+VAG;All;Gearbox Mode;22 3104;A;0;10;;7E1;All;Transmission mode
+=== BMW GROUP (BMW / MINI / ROLLS-ROYCE) ===;;;;;;;;;;;;
+BMW;All;Oil Level;22 180A;A;0;100;%;7E0;All;Engine oil level
+BMW;All;Oil Temp;22 180B;A-40;-40;200;°C;7E0;All;Engine oil temperature
+BMW;All;Oil Condition;22 180C;A;0;100;%;7E0;All;Oil condition/quality
+BMW;All;Brake Fluid Level;22 180D;A;0;100;%;7E2;All;Brake fluid level
+BMW;All;Coolant Level;22 180E;A;0;100;%;7E0;All;Coolant level
+BMW;All;AdBlue Level;22 180F;A;0;100;%;7E0;Diesel;AdBlue level
+BMW;All;DPF Soot Load;22 4001;A;0;100;%;7E0;Diesel;DPF soot loading
+BMW;All;DPF Distance Since Regen;22 4002;(A*256+B);0;65535;km;7E0;Diesel;Distance since DPF regen
+BMW;All;DPF Regen Count;22 4003;(A*256+B);0;5000;count;7E0;Diesel;DPF regeneration counter
+BMW;All;Turbo Boost Actual;22 4010;(A*256+B)/10;0;400;kPa;7E0;Diesel/Gasoline;Actual turbo boost
+BMW;All;Turbo Boost Target;22 4011;(A*256+B)/10;0;400;kPa;7E0;Diesel/Gasoline;Target turbo boost
+BMW;All;Fuel Rail Pressure Actual;22 4020;(A*256+B)*10;0;200000;kPa;7E0;Diesel/Gasoline;Fuel rail pressure
+BMW;All;Fuel Rail Pressure Target;22 4021;(A*256+B)*10;0;200000;kPa;7E0;Diesel/Gasoline;Target fuel pressure
+BMW;All;Transmission Oil Temp;22 5001;A-40;-40;200;°C;7E1;All;Transmission oil temperature
+BMW;All;Transmission Torque;22 5002;(A*256+B)-32768;-1000;1000;Nm;7E1;All;Transmission torque
+BMW;All;Clutch Status;22 5003;A;0;255;;7E1;All;Clutch status
+=== MERCEDES-BENZ ===;;;;;;;;;;;;
+Mercedes;All;Oil Level;22 0C01;A;0;100;%;7E0;All;Engine oil level
+Mercedes;All;Oil Quality;22 0C02;A;0;100;%;7E0;All;Oil quality indicator
+Mercedes;All;Oil Temp;22 0C03;A-40;-40;200;°C;7E0;All;Engine oil temperature
+Mercedes;All;AdBlue Level;22 0C10;A;0;100;%;7E0;Diesel;AdBlue tank level
+Mercedes;All;AdBlue Quality;22 0C11;A;0;255;;7E0;Diesel;AdBlue quality status
+Mercedes;All;DPF Load;22 4501;A;0;100;%;7E0;Diesel;DPF soot load percentage
+Mercedes;All;DPF Temp;22 4502;(A*256+B);0;1000;°C;7E0;Diesel;DPF temperature
+Mercedes;All;DPF Regen Status;22 4503;A;0;10;;7E0;Diesel;DPF regeneration status
+Mercedes;All;DPF Regen Counter;22 4504;(A*256+B);0;5000;count;7E0;Diesel;Total DPF regenerations
+Mercedes;All;Turbo Pressure;22 4601;(A*256+B)/10;0;400;kPa;7E0;Diesel/Gasoline;Turbocharger pressure
+Mercedes;All;Turbo RPM;22 4602;(A*256+B)*10;0;300000;rpm;7E0;Diesel/Gasoline;Turbo speed
+Mercedes;All;Fuel Rail Pressure;22 4701;(A*256+B)*10;0;200000;kPa;7E0;Diesel/Gasoline;Common rail pressure
+Mercedes;All;7G-Tronic Oil Temp;22 5101;A-40;-40;200;°C;7E1;All;Transmission oil temperature
+Mercedes;All;Transmission Range;22 5102;A;0;10;;7E1;All;Selected gear/range
+=== FORD / LINCOLN ===;;;;;;;;;;;;
+Ford;All;Oil Life Remaining;22 DD01;A;0;100;%;7E0;All;Oil life remaining percentage
+Ford;All;Oil Pressure;22 DD02;(A*256+B)/10;0;1000;kPa;7E0;All;Engine oil pressure
+Ford;All;Transmission Temp;22 DD10;A-40;-40;200;°C;7E1;All;Transmission fluid temperature
+Ford;All;Turbo Boost;22 DD20;(A*256+B)/10;-100;300;kPa;7E0;Diesel/Gasoline;Turbocharger boost pressure
+Ford;All;EGR Flow;22 DD30;A;0;100;%;7E0;Diesel;EGR flow percentage
+Ford;All;DPF Soot Level;22 DD40;A;0;100;%;7E0;Diesel;DPF soot accumulation
+Ford;All;DPF Regen Status;22 DD41;A;0;5;;7E0;Diesel;DPF regeneration status
+Ford;All;AdBlue Level;22 DD50;A;0;100;%;7E0;Diesel;AdBlue/DEF level
+Ford;All;Fuel Level;22 DD60;A;0;100;%;7E0;All;Fuel tank level
+=== GENERAL MOTORS (GM / CHEVROLET / CADILLAC / OPEL) ===;;;;;;;;;;;;
+GM;All;Oil Life;22 11E0;A;0;100;%;7E0;All;Oil life remaining
+GM;All;Oil Pressure;22 11E1;(A*256+B)/10;0;1000;kPa;7E0;All;Engine oil pressure
+GM;All;Transmission Temp;22 11F0;A-40;-40;200;°C;7E1;All;Transmission fluid temp
+GM;All;Turbo Boost;22 1200;(A*256+B)/10;0;300;kPa;7E0;Diesel/Gasoline;Turbo boost pressure
+GM;All;DPF Soot Load;22 1210;A;0;100;%;7E0;Diesel;DPF soot level
+GM;All;DPF Regen Count;22 1211;(A*256+B);0;5000;count;7E0;Diesel;DPF regeneration counter
+GM;All;Fuel Trim Long Term Avg;22 1220;(A-128)*100/128;-100;99.2;%;7E0;Gasoline/LPG;Average long term fuel trim
+GM;All;Battery Voltage;22 1230;(A*256+B)/100;0;20;V;7E0;All;Vehicle battery voltage
+=== TOYOTA / LEXUS ===;;;;;;;;;;;;
+Toyota;All;Oil Maintenance;22 0100;A;0;100;%;7E0;All;Oil maintenance indicator
+Toyota;All;Coolant Temp Real;22 0101;A-40;-40;215;°C;7E0;All;Precise coolant temperature
+Toyota;All;Hybrid Battery SOC;22 0200;A;0;100;%;7E4;Hybrid;Hybrid battery state of charge
+Toyota;All;Hybrid Battery Voltage;22 0201;(A*256+B)/10;0;500;V;7E4;Hybrid;Hybrid battery voltage
+Toyota;All;Hybrid Battery Current;22 0202;(A*256+B)/10-1000;-1000;1000;A;7E4;Hybrid;Hybrid battery current
+Toyota;All;Hybrid Battery Temp;22 0203;A-40;-40;100;°C;7E4;Hybrid;Hybrid battery temperature
+Toyota;All;EV Mode Available;22 0204;A;0;1;;7E4;Hybrid;EV mode availability
+Toyota;All;Regenerative Brake Power;22 0205;(A*256+B)/10;0;100;kW;7E4;Hybrid;Regen braking power
+Toyota;All;CVT Oil Temp;22 0300;A-40;-40;200;°C;7E1;All;CVT transmission oil temp
+Toyota;All;DPF Soot Load;22 0400;A;0;100;%;7E0;Diesel;DPF soot accumulation
+=== HONDA / ACURA ===;;;;;;;;;;;;
+Honda;All;Oil Life;22 6100;A;0;100;%;7E0;All;Oil life remaining
+Honda;All;CVT Fluid Temp;22 6200;A-40;-40;200;°C;7E1;All;CVT fluid temperature
+Honda;All;Hybrid Battery SOC;22 6300;A;0;100;%;7E4;Hybrid;Hybrid battery charge
+Honda;All;Hybrid Battery Voltage;22 6301;(A*256+B)/10;0;500;V;7E4;Hybrid;Hybrid battery voltage
+Honda;All;Hybrid Battery Temp;22 6302;A-40;-40;100;°C;7E4;Hybrid;Hybrid battery temperature
+Honda;All;IMA Motor Torque;22 6303;(A*256+B)-32768;-500;500;Nm;7E4;Hybrid;IMA motor torque
+Honda;All;Fuel Injector Pulse Width;22 6400;(A*256+B)/100;0;25;ms;7E0;All;Fuel injection pulse width
+=== NISSAN / INFINITI ===;;;;;;;;;;;;
+Nissan;All;Oil Temp;22 1100;A-40;-40;200;°C;7E0;All;Engine oil temperature
+Nissan;All;CVT Fluid Temp;22 1200;A-40;-40;200;°C;7E1;All;CVT fluid temperature
+Nissan;All;Turbo Boost;22 1300;(A*256+B)/10;0;300;kPa;7E0;Gasoline;Turbo boost pressure
+Nissan;All;Fuel Consumption Rate;22 1400;(A*256+B)/100;0;50;L/h;7E0;All;Fuel consumption rate
+=== PSA GROUP (PEUGEOT / CITROËN / DS) ===;;;;;;;;;;;;
+PSA;All;Oil Level;22 F190;A;0;100;%;7E0;All;Engine oil level
+PSA;All;Oil Temp;22 F191;A-40;-40;200;°C;7E0;All;Engine oil temperature
+PSA;All;DPF Soot Load;22 F440;A;0;100;%;7E0;Diesel;DPF soot load
+PSA;All;DPF Regen Status;22 F441;A;0;5;;7E0;Diesel;DPF regeneration status
+PSA;All;DPF Distance to Service;22 F442;(A*256+B);0;30000;km;7E0;Diesel;Distance to DPF service
+PSA;All;AdBlue Level;22 F450;A;0;100;%;7E0;Diesel;AdBlue level
+PSA;All;Turbo Pressure;22 F460;(A*256+B)/10;0;300;kPa;7E0;Diesel/Gasoline;Turbo pressure
+PSA;All;Fuel Pressure;22 F470;(A*256+B)*10;0;200000;kPa;7E0;Diesel;High pressure fuel
+=== RENAULT / DACIA ===;;;;;;;;;;;;
+Renault;All;Oil Temp;22 1000;A-40;-40;200;°C;7E0;All;Engine oil temperature
+Renault;All;DPF Load;22 2000;A;0;100;%;7E0;Diesel;DPF soot load
+Renault;All;DPF Temp;22 2001;(A*256+B);0;1000;°C;7E0;Diesel;DPF temperature
+Renault;All;Turbo Pressure;22 2100;(A*256+B)/10;0;300;kPa;7E0;Diesel/Gasoline;Turbo boost pressure
+Renault;All;Injection Pressure;22 2200;(A*256+B)*10;0;200000;kPa;7E0;Diesel;Common rail pressure
+Renault;All;AdBlue Level;22 3000;A;0;100;%;7E0;Diesel;AdBlue level
+=== FIAT / ALFA ROMEO / LANCIA (STELLANTIS) ===;;;;;;;;;;;;
+Fiat;All;Oil Pressure;22 F100;(A*256+B)/10;0;1000;kPa;7E0;All;Engine oil pressure
+Fiat;All;DPF Load;22 F200;A;0;100;%;7E0;Diesel;DPF soot load
+Fiat;All;DPF Regen Status;22 F201;A;0;5;;7E0;Diesel;DPF regeneration status
+Fiat;All;AdBlue Level;22 F210;A;0;100;%;7E0;Diesel;AdBlue level
+Fiat;All;Turbo Boost;22 F220;(A*256+B)/10;0;300;kPa;7E0;Diesel/Gasoline;Turbo boost pressure
+Fiat;All;Fuel Rail Pressure;22 F230;(A*256+B)*10;0;200000;kPa;7E0;Diesel;Common rail pressure
+=== MAZDA ===;;;;;;;;;;;;
+Mazda;All;Oil Temp;22 9000;A-40;-40;200;°C;7E0;All;Engine oil temperature
+Mazda;All;Transmission Temp;22 9100;A-40;-40;200;°C;7E1;All;Transmission fluid temperature
+Mazda;All;Turbo Boost;22 9200;(A*256+B)/10;0;300;kPa;7E0;Gasoline;Turbo boost pressure (Skyactiv-G Turbo)
+Mazda;All;Fuel Trim Total;22 9300;(A-128)*100/128;-100;99.2;%;7E0;Gasoline;Total fuel trim
+=== SUBARU ===;;;;;;;;;;;;
+Subaru;All;Oil Temp;22 1001;A-40;-40;200;°C;7E0;All;Engine oil temperature
+Subaru;All;CVT Temp;22 1002;A-40;-40;200;°C;7E1;All;CVT transmission temperature
+Subaru;All;Turbo Boost Actual;22 1003;(A*256+B)/10;-100;300;kPa;7E0;Gasoline;Actual turbo boost
+Subaru;All;Turbo Boost Target;22 1004;(A*256+B)/10;-100;300;kPa;7E0;Gasoline;Target turbo boost
+Subaru;All;Knock Correction;22 1005;A-128;-128;127;°;7E0;Gasoline;Knock timing correction
+=== VOLVO ===;;;;;;;;;;;;
+Volvo;All;Oil Level;22 DD00;A;0;100;%;7E0;All;Engine oil level
+Volvo;All;Oil Quality;22 DD01;A;0;100;%;7E0;All;Oil quality indicator
+Volvo;All;DPF Soot Level;22 DD10;A;0;100;%;7E0;Diesel;DPF soot accumulation
+Volvo;All;DPF Regen Count;22 DD11;(A*256+B);0;5000;count;7E0;Diesel;DPF regeneration counter
+Volvo;All;AdBlue Level;22 DD20;A;0;100;%;7E0;Diesel;AdBlue level
+Volvo;All;Turbo Boost;22 DD30;(A*256+B)/10;0;300;kPa;7E0;Diesel/Gasoline;Turbo boost pressure
+=== HYUNDAI / KIA (Non-EV) ===;;;;;;;;;;;;
+Hyundai;All;Oil Temp;22 0101;A-40;-40;200;°C;7E0;All;Engine oil temperature
+Hyundai;All;Transmission Temp;22 0201;A-40;-40;200;°C;7E1;All;Transmission oil temperature
+Hyundai;All;Turbo Boost;22 0301;(A*256+B)/10;0;300;kPa;7E0;Gasoline;Turbo boost pressure
+Hyundai;All;DPF Soot Load;22 0401;A;0;100;%;7E0;Diesel;DPF soot load
+Hyundai;All;DPF Regen Status;22 0402;A;0;5;;7E0;Diesel;DPF regeneration status
+Hyundai;All;AdBlue Level;22 0501;A;0;100;%;7E0;Diesel;AdBlue level
+=== JAGUAR / LAND ROVER ===;;;;;;;;;;;;
+JLR;All;Oil Level;22 DD80;A;0;100;%;7E0;All;Engine oil level
+JLR;All;Oil Pressure;22 DD81;(A*256+B)/10;0;1000;kPa;7E0;All;Engine oil pressure
+JLR;All;DPF Load;22 DD90;A;0;100;%;7E0;Diesel;DPF soot load
+JLR;All;DPF Regen Status;22 DD91;A;0;5;;7E0;Diesel;DPF regeneration status
+JLR;All;AdBlue Level;22 DDA0;A;0;100;%;7E0;Diesel;AdBlue level
+JLR;All;Turbo Boost;22 DDB0;(A*256+B)/10;0;400;kPa;7E0;Diesel/Gasoline;Turbo boost pressure
+JLR;All;Transfer Case Temp;22 DDC0;A-40;-40;150;°C;7E1;All;Transfer case temperature (4WD)
+=== PORSCHE ===;;;;;;;;;;;;
+Porsche;All;Oil Temp;22 0A00;A-40;-40;200;°C;7E0;All;Engine oil temperature
+Porsche;All;Oil Level;22 0A01;A;0;100;%;7E0;All;Engine oil level
+Porsche;All;Oil Pressure;22 0A02;(A*256+B)/10;0;1000;kPa;7E0;All;Engine oil pressure
+Porsche;All;Turbo Boost Bank 1;22 0A10;(A*256+B)/10;0;400;kPa;7E0;Gasoline;Turbo boost bank 1
+Porsche;All;Turbo Boost Bank 2;22 0A11;(A*256+B)/10;0;400;kPa;7E0;Gasoline;Turbo boost bank 2
+Porsche;All;PDK Clutch Temp;22 0A20;A-40;-40;300;°C;7E1;All;PDK clutch temperature
+Porsche;All;PDK Oil Temp;22 0A21;A-40;-40;200;°C;7E1;All;PDK transmission oil temp
+=== TESLA (Limited OBD-II Access) ===;;;;;;;;;;;;
+Tesla;All;Battery Pack Voltage;22 0332;(A*256+B)/10;0;500;V;7E0;Electric;Pack voltage
+Tesla;All;Battery Pack Current;22 0333;(A*256+B)/10-1000;-1000;1000;A;7E0;Electric;Pack current
+Tesla;All;Battery SOC;22 0334;A;0;100;%;7E0;Electric;State of charge
+Tesla;All;Battery Temp Max;22 0335;A-40;-40;100;°C;7E0;Electric;Maximum cell temperature
+Tesla;All;Battery Temp Min;22 0336;A-40;-40;100;°C;7E0;Electric;Minimum cell temperature

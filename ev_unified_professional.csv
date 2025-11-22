@@ -1,14 +1,24 @@
-Name;Mode/PID;Equation;Min;Max;Units;Header
-=== Nissan Leaf / Renault Zoe ===;;;;;;
-Battery SOH;22 015B;A;0;100;%;7E4
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-Battery Capacity (kWh);22 0161;(A*256+B)/100;0;100;kWh;7E4
-Cell Min Voltage;22 0162;A/50;2.5;4.2;V;7E4
-Cell Max Voltage;22 0163;A/50;2.5;4.2;V;7E4
+Name;Mode/PID;Equation;Min;Max;Units;Header;Description
+=== Nissan Leaf / Renault Zoe ===;;;;;;;
+Battery SOH;22 015B;A;0;100;%;7E4;Battery State of Health
+Battery SOC;22 015C;A;0;100;%;7E4;Battery State of Charge
+Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;Pack voltage
+Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4;Pack current (+ charge, - discharge)
+Battery Temp;22 015F;A-40;-40;100;°C;7E4;Average battery temperature
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;Voltage difference between cells
+Battery Capacity (kWh);22 0161;(A*256+B)/100;0;100;kWh;7E4;Current battery capacity
+Cell Min Voltage;22 0162;A/50;2.5;4.2;V;7E4;Minimum cell voltage
+Cell Max Voltage;22 0163;A/50;2.5;4.2;V;7E4;Maximum cell voltage
+Battery Power;22 0164;(A*256+B)/10-1000;-1000;1000;kW;7E4;Battery power (+ charge, - discharge)
+Motor RPM;22 0165;(A*256+B)-10000;-10000;15000;rpm;7E4;Electric motor speed
+Motor Torque;22 0166;(A*256+B)/10-1000;-500;500;Nm;7E4;Electric motor torque
+Inverter Temp;22 0167;A-40;-40;150;°C;7E4;Inverter/power electronics temp
+Charging Status;22 0168;A;0;3;;7E4;0=Not charging 1=AC 2=DC 3=Complete
+Charge Time Remaining;22 0169;(A*256+B);0;1440;min;7E4;Estimated time to full charge
+Battery Inlet Temp;22 016A;A-40;-40;100;°C;7E4;Battery cooling inlet temperature
+Battery Outlet Temp;22 016B;A-40;-40;100;°C;7E4;Battery cooling outlet temperature
+Onboard Charger Temp;22 016C;A-40;-40;150;°C;7E4;Onboard charger temperature
+12V Battery Voltage;22 016D;(A*256+B)/100;0;20;V;7E4;Auxiliary 12V battery voltage
 === Hyundai / Kia (Kona, Ioniq, Niro, EV6) ===;;;;;;
 Battery SOH;22 0170;A;0;100;%;7E4
 Battery SOC;22 015C;A;0;100;%;7E4

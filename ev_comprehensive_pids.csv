@@ -1,0 +1,279 @@
+Manufacturer;Model;Name;Mode/PID;Equation;Min;Max;Units;Header;Description
+=== NISSAN LEAF / RENAULT ZOE ===;;;;;;;;;
+Nissan/Renault;Leaf/Zoe;Battery SOH;22 015B;A;0;100;%;7E4;Battery State of Health
+Nissan/Renault;Leaf/Zoe;Battery SOC;22 015C;A;0;100;%;7E4;Battery State of Charge
+Nissan/Renault;Leaf/Zoe;Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;High voltage pack voltage
+Nissan/Renault;Leaf/Zoe;Battery Current;22 015E;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current (+ charge - discharge)
+Nissan/Renault;Leaf/Zoe;Battery Temp;22 015F;A-40;-40;100;°C;7E4;Average battery temperature
+Nissan/Renault;Leaf/Zoe;Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;Voltage difference between cells
+Nissan/Renault;Leaf/Zoe;Battery Capacity;22 0161;(A*256+B)/100;0;100;kWh;7E4;Current battery capacity
+Nissan/Renault;Leaf/Zoe;Cell Min Voltage;22 0162;A/50;2.5;4.2;V;7E4;Minimum cell voltage
+Nissan/Renault;Leaf/Zoe;Cell Max Voltage;22 0163;A/50;2.5;4.2;V;7E4;Maximum cell voltage
+Nissan/Renault;Leaf/Zoe;Battery Power;22 0164;(A*256+B)/10-1000;-1000;1000;kW;7E4;Battery power
+Nissan/Renault;Leaf/Zoe;Motor RPM;22 0165;(A*256+B)-10000;-10000;15000;rpm;7E4;Electric motor speed
+Nissan/Renault;Leaf/Zoe;Motor Torque;22 0166;(A*256+B)/10-1000;-500;500;Nm;7E4;Motor torque
+Nissan/Renault;Leaf/Zoe;Inverter Temp;22 0167;A-40;-40;150;°C;7E4;Inverter temperature
+Nissan/Renault;Leaf/Zoe;Charging Status;22 0168;A;0;3;;7E4;0=Not charging 1=AC 2=DC 3=Complete
+Nissan/Renault;Leaf/Zoe;Charge Time Remaining;22 0169;(A*256+B);0;1440;min;7E4;Time to full charge
+Nissan/Renault;Leaf/Zoe;Onboard Charger Temp;22 016C;A-40;-40;150;°C;7E4;OBC temperature
+Nissan/Renault;Leaf/Zoe;12V Battery Voltage;22 016D;(A*256+B)/100;0;20;V;7E4;Auxiliary 12V battery
+Nissan/Renault;Leaf/Zoe;Quick Charge Count;22 1204;(A*256+B);0;5000;count;7E4;CHAdeMO fast charge count
+Nissan/Renault;Leaf/Zoe;Slow Charge Count;22 1205;(A*256+B);0;10000;count;7E4;AC charge count
+=== HYUNDAI / KIA (KONA, IONIQ, NIRO, EV6, IONIQ 5) ===;;;;;;;;;
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery SOH;22 0170;A;0;100;%;7E4;Battery State of Health
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery SOC;22 015C;A;0;100;%;7E4;State of Charge (displayed)
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery SOC Real;22 0171;A;0;100;%;7E4;Real SOC including buffer
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery Voltage;22 015D;(A*256+B)/100;0;900;V;7E4;Pack voltage (up to 800V)
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery Current;22 015E;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery Temp;22 015F;A-40;-40;100;°C;7E4;Average temperature
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery Temp Max;22 0172;A-40;-40;100;°C;7E4;Maximum cell temperature
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery Temp Min;22 0173;A-40;-40;100;°C;7E4;Minimum cell temperature
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;Cell voltage spread
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;DC Charge Power;22 0174;(A*256+B)/10;0;350;kW;7E4;DC fast charging power
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;AC Charge Power;22 0175;(A*256+B)/10;0;22;kW;7E4;AC charging power
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery Inlet Temp;22 0176;A-40;-40;100;°C;7E4;Cooling inlet temp
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery Outlet Temp;22 0177;A-40;-40;100;°C;7E4;Cooling outlet temp
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Motor RPM Front;22 0178;(A*256+B)-10000;-10000;15000;rpm;7E4;Front motor speed
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Motor RPM Rear;22 0179;(A*256+B)-10000;-10000;15000;rpm;7E4;Rear motor (AWD)
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Motor Torque Front;22 017A;(A*256+B)/10-1000;-500;500;Nm;7E4;Front motor torque
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Motor Torque Rear;22 017B;(A*256+B)/10-1000;-500;500;Nm;7E4;Rear motor torque
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Inverter Temp;22 017C;A-40;-40;150;°C;7E4;Power electronics temp
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Motor Temp;22 017D;A-40;-40;150;°C;7E4;Motor stator temperature
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery Max Charge Power;22 017E;(A*256+B)/10;0;350;kW;7E4;Max charge power available
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Battery Max Discharge Power;22 017F;(A*256+B)/10;0;300;kW;7E4;Max discharge power
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Energy Consumption;22 0180;(A*256+B)/10;0;500;Wh/km;7E4;Instantaneous consumption
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Cumulative Energy Charged;22 0181;(A*256+B*256+C*256+D)/100;0;999999;kWh;7E4;Lifetime energy charged
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Cumulative Energy Discharged;22 0182;(A*256+B*256+C*256+D)/100;0;999999;kWh;7E4;Lifetime energy used
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Regen Brake Power;22 0183;(A*256+B)/10;0;200;kW;7E4;Regenerative braking power
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Auxiliary Battery Voltage;22 0184;(A*256+B)/100;0;20;V;7E4;12V battery voltage
+Hyundai/Kia;Kona/Ioniq/Niro/EV6;Heat Pump Power;22 0185;(A*256+B)/10;0;10;kW;7E4;HVAC heat pump power
+=== TESLA (MODEL S / 3 / X / Y) ===;;;;;;;;;
+Tesla;All Models;Battery SOH;22 1180;A;0;100;%;7E4;Battery health percentage
+Tesla;All Models;Battery SOC;22 1187;A;0;100;%;7E4;State of charge (displayed)
+Tesla;All Models;Battery SOC Raw;22 1188;A;0;100;%;7E4;Raw SOC including buffer
+Tesla;All Models;Battery Voltage;22 1189;(A*256+B)/10;0;500;V;7E4;Pack voltage
+Tesla;All Models;Battery Current;22 118A;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Tesla;All Models;Battery Power;22 118B;(A*256+B)/10-1000;-1000;1000;kW;7E4;Pack power
+Tesla;All Models;Battery Temp Avg;22 118C;A-40;-40;100;°C;7E4;Average battery temp
+Tesla;All Models;Battery Temp Max;22 118D;A-40;-40;100;°C;7E4;Hottest cell temperature
+Tesla;All Models;Battery Temp Min;22 118E;A-40;-40;100;°C;7E4;Coldest cell temperature
+Tesla;All Models;Cell Voltage Delta;22 118F;A/100;0;1;V;7E4;Cell voltage spread
+Tesla;All Models;Cell Min Voltage;22 1190;(A*256+B)/1000;2.5;4.5;V;7E4;Minimum cell voltage
+Tesla;All Models;Cell Max Voltage;22 1191;(A*256+B)/1000;2.5;4.5;V;7E4;Maximum cell voltage
+Tesla;All Models;Motor RPM Front;22 1192;(A*256+B)-20000;-20000;20000;rpm;7E4;Front motor speed
+Tesla;All Models;Motor RPM Rear;22 1193;(A*256+B)-20000;-20000;20000;rpm;7E4;Rear motor speed
+Tesla;All Models;Motor Torque Front;22 1194;(A*256+B)/10-1000;-600;600;Nm;7E4;Front motor torque
+Tesla;All Models;Motor Torque Rear;22 1195;(A*256+B)/10-1000;-600;600;Nm;7E4;Rear motor torque
+Tesla;All Models;Inverter Temp Front;22 1196;A-40;-40;150;°C;7E4;Front inverter temp
+Tesla;All Models;Inverter Temp Rear;22 1197;A-40;-40;150;°C;7E4;Rear inverter temp
+Tesla;All Models;Motor Temp Front;22 1198;A-40;-40;150;°C;7E4;Front motor temp
+Tesla;All Models;Motor Temp Rear;22 1199;A-40;-40;150;°C;7E4;Rear motor temp
+Tesla;All Models;Supercharger Power;22 119A;(A*256+B)/10;0;250;kW;7E4;DC charging power
+Tesla;All Models;Charge Rate;22 119B;(A*256+B)/100;-50;50;kW;7E4;Charging/discharging rate
+Tesla;All Models;Range Rated;22 119C;(A*256+B);0;1000;km;7E4;Rated range remaining
+Tesla;All Models;Range Ideal;22 119D;(A*256+B);0;1000;km;7E4;Ideal range
+Tesla;All Models;Energy Buffer;22 119E;A;0;100;kWh;7E4;Usable energy available
+Tesla;All Models;Brick Voltage Min;22 119F;(A*256+B)/1000;2.5;4.5;V;7E4;Minimum brick voltage
+Tesla;All Models;Brick Voltage Max;22 11A0;(A*256+B)/1000;2.5;4.5;V;7E4;Maximum brick voltage
+=== BMW (i3, i4, iX, i7) ===;;;;;;;;;
+BMW;i3;Battery SOH;22 2A38;A;0;100;%;7E4;Battery health
+BMW;i3;Battery SOC Displayed;22 015C;A;0;100;%;7E4;SOC shown to driver
+BMW;i3;Battery SOC Real;22 2A3B;A;0;100;%;7E4;Real SOC with buffers
+BMW;i3;Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;Pack voltage
+BMW;i3;Battery Current;22 015E;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+BMW;i3;Battery Temp Avg;22 015F;A-40;-40;100;°C;7E4;Average temperature
+BMW;i3;Battery Temp Max;22 2A3C;A-40;-40;100;°C;7E4;Maximum temperature
+BMW;i3;Battery Temp Min;22 2A3D;A-40;-40;100;°C;7E4;Minimum temperature
+BMW;i3;Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;Cell voltage difference
+BMW;i3;Usable Capacity;22 2A39;(A*256+B)/100;0;42;kWh;7E4;Available capacity
+BMW;i3;DC Fast Charge Count;22 2A3A;(A*256+B);0;5000;count;7E4;Number of DC charges
+BMW;i3;Motor RPM;22 2A3E;(A*256+B)-10000;-10000;15000;rpm;7E4;Motor speed
+BMW;i3;Motor Torque Actual;22 2A3F;(A*256+B)/10-1000;-500;500;Nm;7E4;Actual torque
+BMW;i3;Motor Torque Max;22 2A40;(A*256+B)/10;0;500;Nm;7E4;Max available torque
+BMW;i3;Inverter Temp;22 2A41;A-40;-40;150;°C;7E4;Power electronics temp
+BMW;i3;Motor Temp;22 2A42;A-40;-40;150;°C;7E4;Motor temperature
+BMW;i3;Range Extender Status;22 2A43;A;0;2;;7E4;REX status (if equipped)
+BMW;i3;Range Extender Fuel;22 2A44;A;0;100;%;7E4;REX fuel level
+BMW;i4/iX;Battery SOH;22 2B01;A;0;100;%;7E4;Battery health
+BMW;i4/iX;Battery SOC;22 015C;A;0;100;%;7E4;State of charge
+BMW;i4/iX;Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;Pack voltage
+BMW;i4/iX;Battery Current;22 015E;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+BMW;i4/iX;Battery Temp;22 015F;A-40;-40;100;°C;7E4;Battery temperature
+BMW;i4/iX;Motor RPM Front;22 2B02;(A*256+B)-10000;-10000;15000;rpm;7E4;Front motor RPM
+BMW;i4/iX;Motor RPM Rear;22 2B03;(A*256+B)-10000;-10000;15000;rpm;7E4;Rear motor RPM (AWD)
+BMW;i4/iX;Inverter Temp;22 2B04;A-40;-40;150;°C;7E4;Inverter temperature
+BMW;i4/iX;DC Charge Power;22 2B05;(A*256+B)/10;0;300;kW;7E4;Fast charging power
+=== MERCEDES-BENZ EQ (EQA, EQB, EQC, EQE, EQS) ===;;;;;;;;;
+Mercedes;EQ Series;Battery SOH;22 0D01;A;0;100;%;7E4;Battery health
+Mercedes;EQ Series;Battery SOC;22 015C;A;0;100;%;7E4;State of charge
+Mercedes;EQ Series;Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;Pack voltage
+Mercedes;EQ Series;Battery Current;22 015E;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Mercedes;EQ Series;Battery Temp;22 0D02;A-40;-40;100;°C;7E4;Battery temperature
+Mercedes;EQ Series;Cell Voltage Delta;22 0D03;A/100;0;1;V;7E4;Cell voltage spread
+Mercedes;EQ Series;Motor RPM Front;22 0D04;(A*256+B)-10000;-10000;15000;rpm;7E4;Front motor speed
+Mercedes;EQ Series;Motor RPM Rear;22 0D05;(A*256+B)-10000;-10000;15000;rpm;7E4;Rear motor (AWD)
+Mercedes;EQ Series;Inverter Temp;22 0D06;A-40;-40;150;°C;7E4;Power electronics
+Mercedes;EQ Series;DC Charge Power;22 0D07;(A*256+B)/10;0;300;kW;7E4;Fast charging power
+=== AUDI E-TRON (Q4, Q8, GT) ===;;;;;;;;;
+Audi;e-tron;Battery SOH;22 1E01;A;0;100;%;7E4;Battery health
+Audi;e-tron;Battery SOC;22 015C;A;0;100;%;7E4;State of charge
+Audi;e-tron;Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;Pack voltage
+Audi;e-tron;Battery Current;22 015E;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Audi;e-tron;Battery Temp;22 1E02;A-40;-40;100;°C;7E4;Battery temperature
+Audi;e-tron;Cell Voltage Delta;22 1E03;A/100;0;1;V;7E4;Cell voltage spread
+Audi;e-tron;Motor RPM Front;22 1E04;(A*256+B)-10000;-10000;15000;rpm;7E4;Front motor
+Audi;e-tron;Motor RPM Rear;22 1E05;(A*256+B)-10000;-10000;15000;rpm;7E4;Rear motor (AWD)
+Audi;e-tron;Inverter Temp;22 1E06;A-40;-40;150;°C;7E4;Inverter temperature
+Audi;e-tron;DC Charge Power;22 1E07;(A*256+B)/10;0;300;kW;7E4;Fast charging power
+=== PORSCHE TAYCAN ===;;;;;;;;;
+Porsche;Taycan;Battery SOH;22 0B01;A;0;100;%;7E4;Battery health
+Porsche;Taycan;Battery SOC;22 015C;A;0;100;%;7E4;State of charge
+Porsche;Taycan;Battery Voltage;22 0B02;(A*256+B)/10;0;900;V;7E4;800V pack voltage
+Porsche;Taycan;Battery Current;22 0B03;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Porsche;Taycan;Battery Temp;22 0B04;A-40;-40;100;°C;7E4;Battery temperature
+Porsche;Taycan;Cell Voltage Delta;22 0B05;A/100;0;1;V;7E4;Cell voltage spread
+Porsche;Taycan;Motor RPM Front;22 0B06;(A*256+B)-10000;-10000;20000;rpm;7E4;Front motor
+Porsche;Taycan;Motor RPM Rear;22 0B07;(A*256+B)-10000;-10000;20000;rpm;7E4;Rear motor
+Porsche;Taycan;Battery Power;22 0B08;(A*256+B)/10-1000;-1000;1000;kW;7E4;Battery power
+Porsche;Taycan;DC Charge Power;22 0B09;(A*256+B)/10;0;350;kW;7E4;Fast charging (up to 270kW)
+Porsche;Taycan;Charge Time Remaining;22 0B0A;(A*256+B);0;1440;min;7E4;Time to full
+=== BYD (ATTO 3, DOLPHIN, SEAL) - BLADE BATTERY ===;;;;;;;;;
+BYD;All Models;Battery SOH;22 4101;A;0;100;%;7E4;Blade battery health
+BYD;All Models;Battery SOC;22 015C;A;0;100;%;7E4;State of charge
+BYD;All Models;Battery Voltage;22 015D;(A*256+B)/100;0;700;V;7E4;Pack voltage
+BYD;All Models;Battery Current;22 015E;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+BYD;All Models;Battery Temp;22 4102;A-40;-40;100;°C;7E4;LFP battery temperature
+BYD;All Models;Cell Voltage Delta;22 4103;A/100;0;0.5;V;7E4;Cell spread (LFP)
+BYD;All Models;Motor RPM;22 4104;(A*256+B)-10000;-10000;15000;rpm;7E4;Motor speed
+BYD;All Models;Motor Torque;22 4105;(A*256+B)/10-1000;-500;500;Nm;7E4;Motor torque
+BYD;All Models;Inverter Temp;22 4106;A-40;-40;150;°C;7E4;Inverter temperature
+BYD;All Models;DC Charge Power;22 4107;(A*256+B)/10;0;150;kW;7E4;DC charging power
+=== VOLKSWAGEN ID SERIES (ID.3, ID.4, ID.5, ID.7, ID.Buzz) ===;;;;;;;;;
+Volkswagen;ID Series;Battery SOH;22 1301;A;0;100;%;7E4;Battery health
+Volkswagen;ID Series;Battery SOC;22 015C;A;0;100;%;7E4;State of charge
+Volkswagen;ID Series;Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;Pack voltage
+Volkswagen;ID Series;Battery Current;22 015E;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Volkswagen;ID Series;Battery Temp;22 1302;A-40;-40;100;°C;7E4;Battery temperature
+Volkswagen;ID Series;Cell Voltage Delta;22 1303;A/100;0;1;V;7E4;Cell voltage spread
+Volkswagen;ID Series;Motor RPM Rear;22 1304;(A*256+B)-10000;-10000;15000;rpm;7E4;Rear motor (RWD)
+Volkswagen;ID Series;Motor RPM Front;22 1305;(A*256+B)-10000;-10000;15000;rpm;7E4;Front motor (AWD models)
+Volkswagen;ID Series;Inverter Temp;22 1306;A-40;-40;150;°C;7E4;Inverter temperature
+Volkswagen;ID Series;DC Charge Power;22 1307;(A*256+B)/10;0;200;kW;7E4;Fast charging power
+=== VOLVO/POLESTAR (EX30, C40, XC40, POLESTAR 2) ===;;;;;;;;;
+Volvo;EX30/C40/XC40;Battery SOH;22 3F01;A;0;100;%;7E4;Battery health
+Volvo;EX30/C40/XC40;Battery SOC;22 015C;A;0;100;%;7E4;State of charge
+Volvo;EX30/C40/XC40;Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;Pack voltage
+Volvo;EX30/C40/XC40;Battery Current;22 015E;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Volvo;EX30/C40/XC40;Battery Temp;22 3F02;A-40;-40;100;°C;7E4;Battery temperature
+Volvo;EX30/C40/XC40;Cell Voltage Delta;22 3F03;A/100;0;1;V;7E4;Cell voltage spread
+Volvo;EX30/C40/XC40;Motor RPM Front;22 3F04;(A*256+B)-10000;-10000;15000;rpm;7E4;Front motor
+Volvo;EX30/C40/XC40;Motor RPM Rear;22 3F05;(A*256+B)-10000;-10000;15000;rpm;7E4;Rear motor
+Volvo;EX30/C40/XC40;Inverter Temp;22 3F06;A-40;-40;150;°C;7E4;Inverter temperature
+Volvo;EX30/C40/XC40;DC Charge Power;22 3F07;(A*256+B)/10;0;200;kW;7E4;Fast charging power
+=== MG (ZS EV, MG4, MG5) ===;;;;;;;;;
+MG;ZS EV/MG4/MG5;Battery SOH;22 3201;A;0;100;%;7E4;Battery health
+MG;ZS EV/MG4/MG5;Battery SOC;22 3101;A;0;100;%;7E4;State of charge
+MG;ZS EV/MG4/MG5;Battery Voltage;22 3102;(A*256+B)/100;0;500;V;7E4;Pack voltage
+MG;ZS EV/MG4/MG5;Battery Current;22 3103;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+MG;ZS EV/MG4/MG5;Battery Temp;22 3104;A-40;-40;100;°C;7E4;Battery temperature
+MG;ZS EV/MG4/MG5;Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;Cell voltage spread
+MG;ZS EV/MG4/MG5;Motor RPM;22 3105;(A*256+B)-10000;-10000;15000;rpm;7E4;Motor speed
+MG;ZS EV/MG4/MG5;Motor Torque;22 3106;(A*256+B)/10-1000;-500;500;Nm;7E4;Motor torque
+MG;ZS EV/MG4/MG5;Inverter Temp;22 3107;A-40;-40;150;°C;7E4;Inverter temperature
+MG;ZS EV/MG4/MG5;DC Charge Power;22 3108;(A*256+B)/10;0;150;kW;7E4;Fast charging power
+=== PEUGEOT / CITROEN / OPEL (e-208, e-2008, CORSA-E, MOKKA-E) ===;;;;;;;;;
+PSA;e-208/e-2008/Corsa-e;Battery SOH;22 F40D;A;0;100;%;7E4;Battery health
+PSA;e-208/e-2008/Corsa-e;Battery SOC;22 015C;A;0;100;%;7E4;State of charge
+PSA;e-208/e-2008/Corsa-e;Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;Pack voltage
+PSA;e-208/e-2008/Corsa-e;Battery Current;22 015E;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+PSA;e-208/e-2008/Corsa-e;Battery Temp;22 015F;A-40;-40;100;°C;7E4;Battery temperature
+PSA;e-208/e-2008/Corsa-e;Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;Cell voltage spread
+PSA;e-208/e-2008/Corsa-e;Battery Energy;22 F40E;(A*256+B)/10;0;60;kWh;7E4;Energy content
+PSA;e-208/e-2008/Corsa-e;Motor RPM;22 F40F;(A*256+B)-10000;-10000;15000;rpm;7E4;Motor speed
+PSA;e-208/e-2008/Corsa-e;Motor Torque;22 F410;(A*256+B)/10-1000;-500;500;Nm;7E4;Motor torque
+PSA;e-208/e-2008/Corsa-e;Charging Status;22 F411;A;0;3;;7E4;Charging status
+PSA;e-208/e-2008/Corsa-e;Inverter Temp;22 F412;A-40;-40;150;°C;7E4;Inverter temperature
+PSA;e-208/e-2008/Corsa-e;12V Battery;22 F413;(A*256+B)/100;0;20;V;7E4;12V auxiliary battery
+=== TOYOTA BZ4X / SUBARU SOLTERRA ===;;;;;;;;;
+Toyota;bZ4X;Battery SOH;22 2205;A;0;100;%;7E4;Battery health
+Toyota;bZ4X;Battery SOC;22 2201;A;0;100;%;7E4;State of charge
+Toyota;bZ4X;Battery Voltage;22 2202;(A*256+B)/100;0;500;V;7E4;Pack voltage
+Toyota;bZ4X;Battery Current;22 2203;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Toyota;bZ4X;Battery Temp;22 2204;A-40;-40;100;°C;7E4;Battery temperature
+Toyota;bZ4X;Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;Cell voltage spread
+Toyota;bZ4X;Motor RPM Front;22 2206;(A*256+B)-10000;-10000;15000;rpm;7E4;Front motor
+Toyota;bZ4X;Motor RPM Rear;22 2207;(A*256+B)-10000;-10000;15000;rpm;7E4;Rear motor (AWD)
+Toyota;bZ4X;Inverter Temp;22 2208;A-40;-40;150;°C;7E4;Inverter temperature
+Toyota;bZ4X;DC Charge Power;22 2209;(A*256+B)/10;0;150;kW;7E4;Fast charging power
+=== HONDA E / HONDA PROLOGUE ===;;;;;;;;;
+Honda;Honda e;Battery SOH;22 2105;A;0;100;%;7E2;Battery health
+Honda;Honda e;Battery SOC;22 2101;A;0;100;%;7E2;State of charge
+Honda;Honda e;Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E2;Pack voltage
+Honda;Honda e;Battery Current;22 2103;(A*256+B)/10-1000;-1000;1000;A;7E2;Pack current
+Honda;Honda e;Battery Temp;22 2104;A-40;-40;100;°C;7E2;Battery temperature
+Honda;Honda e;Cell Voltage Delta;22 0160;A/100;0;1;V;7E2;Cell voltage spread
+Honda;Honda e;Motor RPM;22 2106;(A*256+B)-10000;-10000;15000;rpm;7E2;Motor speed
+Honda;Honda e;Motor Torque;22 2107;(A*256+B)/10-1000;-500;500;Nm;7E2;Motor torque
+Honda;Honda e;Inverter Temp;22 2108;A-40;-40;150;°C;7E2;PCU temperature
+Honda;Honda e;DC Charge Power;22 2109;(A*256+B)/10;0;100;kW;7E2;Fast charging power
+=== TOGG T10X (TURKISH EV) ===;;;;;;;;;
+TOGG;T10X;Battery SOH;22 2105;A;0;100;%;7E4;Battery health
+TOGG;T10X;Battery SOC;22 2101;A;0;100;%;7E4;State of charge
+TOGG;T10X;Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E4;Pack voltage
+TOGG;T10X;Battery Current;22 2103;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+TOGG;T10X;Battery Temp;22 2104;A-40;-40;100;°C;7E4;Battery temperature
+TOGG;T10X;Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;Cell voltage spread
+TOGG;T10X;Motor RPM Front;22 2106;(A*256+B)-10000;-10000;20000;rpm;7E4;Front motor
+TOGG;T10X;Motor RPM Rear;22 2107;(A*256+B)-10000;-10000;20000;rpm;7E4;Rear motor (AWD)
+TOGG;T10X;Inverter Temp;22 2108;A-40;-40;150;°C;7E4;Inverter temperature
+TOGG;T10X;DC Charge Power;22 2109;(A*256+B)/10;0;250;kW;7E4;Fast charging power
+TOGG;T10X;Range Remaining;22 210A;(A*256+B);0;1000;km;7E4;Estimated range
+=== MINI COOPER SE ===;;;;;;;;;
+Mini;Cooper SE;Battery SOH;22 2C01;A;0;100;%;7E4;Battery health
+Mini;Cooper SE;Battery SOC;22 015C;A;0;100;%;7E4;State of charge
+Mini;Cooper SE;Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4;Pack voltage
+Mini;Cooper SE;Battery Current;22 015E;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Mini;Cooper SE;Battery Temp;22 015F;A-40;-40;100;°C;7E4;Battery temperature
+Mini;Cooper SE;Cell Voltage Delta;22 0160;A/100;0;1;V;7E4;Cell voltage spread
+Mini;Cooper SE;Motor RPM;22 2C02;(A*256+B)-10000;-10000;15000;rpm;7E4;Motor speed
+Mini;Cooper SE;Motor Torque;22 2C03;(A*256+B)/10-1000;-500;500;Nm;7E4;Motor torque
+Mini;Cooper SE;Inverter Temp;22 2C04;A-40;-40;150;°C;7E4;Inverter temperature
+Mini;Cooper SE;DC Charge Power;22 2C05;(A*256+B)/10;0;50;kW;7E4;Fast charging power
+=== LUCID AIR ===;;;;;;;;;
+Lucid;Air;Battery SOH;22 5001;A;0;100;%;7E4;Battery health
+Lucid;Air;Battery SOC;22 5002;A;0;100;%;7E4;State of charge
+Lucid;Air;Battery Voltage;22 5003;(A*256+B)/10;0;1000;V;7E4;900V pack voltage
+Lucid;Air;Battery Current;22 5004;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Lucid;Air;Battery Power;22 5005;(A*256+B)/10-1000;-1000;1000;kW;7E4;Battery power
+Lucid;Air;Battery Temp;22 5006;A-40;-40;100;°C;7E4;Battery temperature
+Lucid;Air;Motor RPM Front;22 5007;(A*256+B)-20000;-20000;20000;rpm;7E4;Front motor
+Lucid;Air;Motor RPM Rear;22 5008;(A*256+B)-20000;-20000;20000;rpm;7E4;Rear motor
+Lucid;Air;DC Charge Power;22 5009;(A*256+B)/10;0;350;kW;7E4;Fast charging (up to 300kW)
+=== RIVIAN (R1T, R1S) ===;;;;;;;;;
+Rivian;R1T/R1S;Battery SOH;22 6001;A;0;100;%;7E4;Battery health
+Rivian;R1T/R1S;Battery SOC;22 6002;A;0;100;%;7E4;State of charge
+Rivian;R1T/R1S;Battery Voltage;22 6003;(A*256+B)/10;0;900;V;7E4;Pack voltage
+Rivian;R1T/R1S;Battery Current;22 6004;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Rivian;R1T/R1S;Battery Temp;22 6005;A-40;-40;100;°C;7E4;Battery temperature
+Rivian;R1T/R1S;Motor RPM FL;22 6006;(A*256+B)-20000;-20000;20000;rpm;7E4;Front left motor
+Rivian;R1T/R1S;Motor RPM FR;22 6007;(A*256+B)-20000;-20000;20000;rpm;7E4;Front right motor
+Rivian;R1T/R1S;Motor RPM RL;22 6008;(A*256+B)-20000;-20000;20000;rpm;7E4;Rear left motor
+Rivian;R1T/R1S;Motor RPM RR;22 6009;(A*256+B)-20000;-20000;20000;rpm;7E4;Rear right motor (quad motor)
+Rivian;R1T/R1S;DC Charge Power;22 600A;(A*256+B)/10;0;300;kW;7E4;Fast charging power
+=== FORD MUSTANG MACH-E / F-150 LIGHTNING ===;;;;;;;;;
+Ford;Mach-E/F-150 Lightning;Battery SOH;22 7001;A;0;100;%;7E4;Battery health
+Ford;Mach-E/F-150 Lightning;Battery SOC;22 7002;A;0;100;%;7E4;State of charge
+Ford;Mach-E/F-150 Lightning;Battery Voltage;22 7003;(A*256+B)/100;0;500;V;7E4;Pack voltage
+Ford;Mach-E/F-150 Lightning;Battery Current;22 7004;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+Ford;Mach-E/F-150 Lightning;Battery Temp;22 7005;A-40;-40;100;°C;7E4;Battery temperature
+Ford;Mach-E/F-150 Lightning;Motor RPM Front;22 7006;(A*256+B)-10000;-10000;15000;rpm;7E4;Front motor
+Ford;Mach-E/F-150 Lightning;Motor RPM Rear;22 7007;(A*256+B)-10000;-10000;15000;rpm;7E4;Rear motor (AWD)
+Ford;Mach-E/F-150 Lightning;DC Charge Power;22 7008;(A*256+B)/10;0;200;kW;7E4;Fast charging power
+=== GENERAL MOTORS (CHEVY BOLT, CADILLAC LYRIQ, HUMMER EV) ===;;;;;;;;;
+GM;Bolt/Lyriq/Hummer;Battery SOH;22 8001;A;0;100;%;7E4;Battery health
+GM;Bolt/Lyriq/Hummer;Battery SOC;22 8002;A;0;100;%;7E4;State of charge
+GM;Bolt/Lyriq/Hummer;Battery Voltage;22 8003;(A*256+B)/100;0;500;V;7E4;Pack voltage
+GM;Bolt/Lyriq/Hummer;Battery Current;22 8004;(A*256+B)/10-1000;-1000;1000;A;7E4;Pack current
+GM;Bolt/Lyriq/Hummer;Battery Temp;22 8005;A-40;-40;100;°C;7E4;Battery temperature
+GM;Bolt/Lyriq/Hummer;Motor RPM;22 8006;(A*256+B)-10000;-10000;15000;rpm;7E4;Motor speed
+GM;Bolt/Lyriq/Hummer;DC Charge Power;22 8007;(A*256+B)/10;0;200;kW;7E4;Fast charging power

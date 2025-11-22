@@ -1,0 +1,330 @@
+Code;System;Description;Severity;Common Causes;Vehicle Type
+=== POWERTRAIN (P CODES) - P0xxx Generic ===;;;;;
+P0001;Fuel/Air;Fuel Volume Regulator Control Circuit/Open;Medium;Wiring, fuel pump, ECU;Diesel/Gasoline
+P0002;Fuel/Air;Fuel Volume Regulator Control Circuit Range/Performance;Medium;Fuel pressure sensor, regulator;Diesel/Gasoline
+P0003;Fuel/Air;Fuel Volume Regulator Control Circuit Low;Medium;Short to ground, regulator fault;Diesel/Gasoline
+P0004;Fuel/Air;Fuel Volume Regulator Control Circuit High;Medium;Short to voltage, wiring;Diesel/Gasoline
+P0005;Fuel/Air;Fuel Shutoff Valve A Control Circuit/Open;Medium;Wiring, solenoid valve;Diesel
+P0010;Engine;Intake Camshaft Position Actuator Circuit (Bank 1);Medium;VVT solenoid, wiring, oil pressure;Gasoline
+P0011;Engine;Intake Camshaft Position Timing Over-Advanced (Bank 1);Medium;VVT solenoid, timing chain, oil;Gasoline
+P0012;Engine;Intake Camshaft Position Timing Over-Retarded (Bank 1);Medium;VVT solenoid, timing chain, oil;Gasoline
+P0013;Engine;Exhaust Camshaft Position Actuator Circuit (Bank 1);Medium;VVT solenoid, wiring;Gasoline
+P0014;Engine;Exhaust Camshaft Position Timing Over-Advanced (Bank 1);Medium;VVT solenoid, timing chain;Gasoline
+P0015;Engine;Exhaust Camshaft Position Timing Over-Retarded (Bank 1);Medium;VVT solenoid, timing issue;Gasoline
+P0016;Engine;Crankshaft Position Camshaft Position Correlation (Bank 1 Sensor A);High;Timing chain, sensors, oil;Gasoline
+P0017;Engine;Crankshaft Position Camshaft Position Correlation (Bank 1 Sensor B);High;Timing chain, sensors;Gasoline
+P0020;Engine;Intake Camshaft Position Actuator Circuit (Bank 2);Medium;VVT solenoid, wiring;Gasoline
+P0021;Engine;Intake Camshaft Position Timing Over-Advanced (Bank 2);Medium;VVT solenoid, timing;Gasoline
+P0030;Emissions;HO2S Heater Control Circuit (Bank 1 Sensor 1);Medium;O2 sensor heater, wiring, fuse;Gasoline/LPG
+P0031;Emissions;HO2S Heater Control Circuit Low (Bank 1 Sensor 1);Medium;O2 sensor, wiring short;Gasoline/LPG
+P0032;Emissions;HO2S Heater Control Circuit High (Bank 1 Sensor 1);Medium;O2 sensor, wiring;Gasoline/LPG
+P0036;Emissions;HO2S Heater Control Circuit (Bank 1 Sensor 2);Medium;O2 sensor heater, wiring;Gasoline/LPG
+P0037;Emissions;HO2S Heater Control Circuit Low (Bank 1 Sensor 2);Medium;O2 sensor, wiring;Gasoline/LPG
+P0038;Emissions;HO2S Heater Control Circuit High (Bank 1 Sensor 2);Medium;O2 sensor, wiring;Gasoline/LPG
+P0068;Fuel/Air;MAP/MAF - Throttle Position Correlation;Medium;MAF sensor, throttle body, vacuum leak;All
+P0087;Fuel/Air;Fuel Rail/System Pressure Too Low;High;Fuel pump, filter, pressure regulator;Diesel/Gasoline
+P0088;Fuel/Air;Fuel Rail/System Pressure Too High;High;Fuel pressure regulator, pump;Diesel/Gasoline
+P0089;Fuel/Air;Fuel Pressure Regulator Performance;Medium;Fuel pressure regulator, wiring;Diesel/Gasoline
+P0100;Fuel/Air;Mass or Volume Air Flow Circuit Malfunction;Medium;MAF sensor, wiring, air leak;All
+P0101;Fuel/Air;Mass or Volume Air Flow Circuit Range/Performance;Medium;MAF sensor, air filter, intake leak;All
+P0102;Fuel/Air;Mass or Volume Air Flow Circuit Low Input;Medium;MAF sensor, wiring;All
+P0103;Fuel/Air;Mass or Volume Air Flow Circuit High Input;Medium;MAF sensor, wiring;All
+P0105;Fuel/Air;Manifold Absolute Pressure/Barometric Pressure Circuit Malfunction;Medium;MAP sensor, wiring, vacuum leak;All
+P0106;Fuel/Air;Manifold Absolute Pressure/Barometric Pressure Circuit Range/Performance;Medium;MAP sensor, vacuum leak;All
+P0107;Fuel/Air;Manifold Absolute Pressure/Barometric Pressure Circuit Low Input;Medium;MAP sensor, wiring;All
+P0108;Fuel/Air;Manifold Absolute Pressure/Barometric Pressure Circuit High Input;Medium;MAP sensor, wiring;All
+P0110;Fuel/Air;Intake Air Temperature Circuit Malfunction;Low;IAT sensor, wiring;All
+P0111;Fuel/Air;Intake Air Temperature Circuit Range/Performance;Low;IAT sensor, connector;All
+P0112;Fuel/Air;Intake Air Temperature Circuit Low Input;Low;IAT sensor, wiring short;All
+P0113;Fuel/Air;Intake Air Temperature Circuit High Input;Low;IAT sensor, wiring open;All
+P0115;Engine;Engine Coolant Temperature Circuit Malfunction;Medium;ECT sensor, wiring;All
+P0116;Engine;Engine Coolant Temperature Circuit Range/Performance;Medium;ECT sensor, thermostat;All
+P0117;Engine;Engine Coolant Temperature Circuit Low Input;Medium;ECT sensor, wiring;All
+P0118;Engine;Engine Coolant Temperature Circuit High Input;Medium;ECT sensor, wiring;All
+P0120;Fuel/Air;Throttle/Pedal Position Sensor/Switch A Circuit Malfunction;High;TPS, wiring, throttle body;All
+P0121;Fuel/Air;Throttle/Pedal Position Sensor/Switch A Circuit Range/Performance;High;TPS, throttle body cleaning needed;All
+P0122;Fuel/Air;Throttle/Pedal Position Sensor/Switch A Circuit Low Input;High;TPS, wiring;All
+P0123;Fuel/Air;Throttle/Pedal Position Sensor/Switch A Circuit High Input;High;TPS, wiring;All
+P0128;Engine;Coolant Thermostat (Coolant Temperature Below Thermostat Regulating Temperature);Low;Thermostat stuck open, ECT sensor;All
+P0130;Emissions;O2 Sensor Circuit Malfunction (Bank 1 Sensor 1);Medium;O2 sensor, wiring;Gasoline/LPG
+P0131;Emissions;O2 Sensor Circuit Low Voltage (Bank 1 Sensor 1);Medium;O2 sensor, exhaust leak, fuel mixture;Gasoline/LPG
+P0132;Emissions;O2 Sensor Circuit High Voltage (Bank 1 Sensor 1);Medium;O2 sensor, fuel mixture too rich;Gasoline/LPG
+P0133;Emissions;O2 Sensor Circuit Slow Response (Bank 1 Sensor 1);Medium;O2 sensor aging, exhaust leak;Gasoline/LPG
+P0134;Emissions;O2 Sensor Circuit No Activity Detected (Bank 1 Sensor 1);Medium;O2 sensor, wiring;Gasoline/LPG
+P0135;Emissions;O2 Sensor Heater Circuit Malfunction (Bank 1 Sensor 1);Medium;O2 sensor heater, relay, fuse;Gasoline/LPG
+P0136;Emissions;O2 Sensor Circuit Malfunction (Bank 1 Sensor 2);Medium;O2 sensor, wiring;Gasoline/LPG
+P0137;Emissions;O2 Sensor Circuit Low Voltage (Bank 1 Sensor 2);Medium;O2 sensor, catalyst;Gasoline/LPG
+P0138;Emissions;O2 Sensor Circuit High Voltage (Bank 1 Sensor 2);Medium;O2 sensor, catalyst efficiency;Gasoline/LPG
+P0139;Emissions;O2 Sensor Circuit Slow Response (Bank 1 Sensor 2);Medium;O2 sensor, catalyst;Gasoline/LPG
+P0140;Emissions;O2 Sensor Circuit No Activity Detected (Bank 1 Sensor 2);Medium;O2 sensor, wiring;Gasoline/LPG
+P0141;Emissions;O2 Sensor Heater Circuit Malfunction (Bank 1 Sensor 2);Medium;O2 sensor heater, wiring;Gasoline/LPG
+P0171;Fuel/Air;System Too Lean (Bank 1);Medium;Vacuum leak, MAF sensor, fuel pump, O2 sensor;Gasoline/LPG
+P0172;Fuel/Air;System Too Rich (Bank 1);Medium;MAF sensor, fuel pressure, O2 sensor, air filter;Gasoline/LPG
+P0174;Fuel/Air;System Too Lean (Bank 2);Medium;Vacuum leak, MAF sensor, fuel pump;Gasoline/LPG
+P0175;Fuel/Air;System Too Rich (Bank 2);Medium;MAF sensor, fuel pressure, O2 sensor;Gasoline/LPG
+P0190;Fuel/Air;Fuel Rail Pressure Sensor Circuit Malfunction;Medium;Fuel pressure sensor, wiring;Diesel/Gasoline
+P0191;Fuel/Air;Fuel Rail Pressure Sensor Circuit Range/Performance;Medium;Fuel pressure sensor, fuel pump;Diesel/Gasoline
+P0192;Fuel/Air;Fuel Rail Pressure Sensor Circuit Low Input;Medium;Fuel pressure sensor, wiring;Diesel/Gasoline
+P0193;Fuel/Air;Fuel Rail Pressure Sensor Circuit High Input;Medium;Fuel pressure sensor, wiring;Diesel/Gasoline
+P0200;Fuel/Air;Injector Circuit Malfunction;High;Injector, wiring, ECU;All
+P0201;Fuel/Air;Injector Circuit Malfunction - Cylinder 1;High;Injector #1, wiring, ECU;All
+P0202;Fuel/Air;Injector Circuit Malfunction - Cylinder 2;High;Injector #2, wiring, ECU;All
+P0203;Fuel/Air;Injector Circuit Malfunction - Cylinder 3;High;Injector #3, wiring, ECU;All
+P0204;Fuel/Air;Injector Circuit Malfunction - Cylinder 4;High;Injector #4, wiring, ECU;All
+P0205;Fuel/Air;Injector Circuit Malfunction - Cylinder 5;High;Injector #5, wiring, ECU;All
+P0206;Fuel/Air;Injector Circuit Malfunction - Cylinder 6;High;Injector #6, wiring, ECU;All
+P0217;Engine;Engine Overtemp Condition;Critical;Coolant level, thermostat, water pump, radiator;All
+P0218;Transmission;Transmission Overtemp Condition;High;Transmission fluid, cooler, solenoid;All
+P0230;Fuel/Air;Fuel Pump Primary Circuit Malfunction;High;Fuel pump relay, wiring, fuse;All
+P0261;Fuel/Air;Cylinder 1 Injector Circuit Low;High;Injector, wiring short to ground;All
+P0264;Fuel/Air;Cylinder 2 Injector Circuit Low;High;Injector, wiring short to ground;All
+P0267;Fuel/Air;Cylinder 3 Injector Circuit Low;High;Injector, wiring short to ground;All
+P0270;Fuel/Air;Cylinder 4 Injector Circuit Low;High;Injector, wiring short to ground;All
+P0300;Engine;Random/Multiple Cylinder Misfire Detected;High;Ignition coils, spark plugs, fuel, compression;Gasoline/LPG
+P0301;Engine;Cylinder 1 Misfire Detected;High;Spark plug, coil, injector, compression;Gasoline/LPG
+P0302;Engine;Cylinder 2 Misfire Detected;High;Spark plug, coil, injector, compression;Gasoline/LPG
+P0303;Engine;Cylinder 3 Misfire Detected;High;Spark plug, coil, injector, compression;Gasoline/LPG
+P0304;Engine;Cylinder 4 Misfire Detected;High;Spark plug, coil, injector, compression;Gasoline/LPG
+P0305;Engine;Cylinder 5 Misfire Detected;High;Spark plug, coil, injector, compression;Gasoline/LPG
+P0306;Engine;Cylinder 6 Misfire Detected;High;Spark plug, coil, injector, compression;Gasoline/LPG
+P0307;Engine;Cylinder 7 Misfire Detected;High;Spark plug, coil, injector, compression;Gasoline/LPG
+P0308;Engine;Cylinder 8 Misfire Detected;High;Spark plug, coil, injector, compression;Gasoline/LPG
+P0325;Engine;Knock Sensor 1 Circuit Malfunction (Bank 1);Medium;Knock sensor, wiring, connector;Gasoline/LPG
+P0326;Engine;Knock Sensor 1 Circuit Range/Performance (Bank 1);Medium;Knock sensor, ECU;Gasoline/LPG
+P0327;Engine;Knock Sensor 1 Circuit Low Input (Bank 1);Medium;Knock sensor, wiring;Gasoline/LPG
+P0328;Engine;Knock Sensor 1 Circuit High Input (Bank 1);Medium;Knock sensor, wiring;Gasoline/LPG
+P0335;Engine;Crankshaft Position Sensor A Circuit Malfunction;Critical;Crank sensor, wiring, reluctor ring;All
+P0336;Engine;Crankshaft Position Sensor A Circuit Range/Performance;Critical;Crank sensor, reluctor ring, air gap;All
+P0337;Engine;Crankshaft Position Sensor A Circuit Low Input;Critical;Crank sensor, wiring;All
+P0338;Engine;Crankshaft Position Sensor A Circuit High Input;Critical;Crank sensor, wiring;All
+P0340;Engine;Camshaft Position Sensor Circuit Malfunction;High;Cam sensor, wiring, timing;All
+P0341;Engine;Camshaft Position Sensor Circuit Range/Performance;High;Cam sensor, timing chain/belt;All
+P0342;Engine;Camshaft Position Sensor Circuit Low Input;High;Cam sensor, wiring;All
+P0343;Engine;Camshaft Position Sensor Circuit High Input;High;Cam sensor, wiring;All
+P0351;Ignition;Ignition Coil A Primary/Secondary Circuit Malfunction;High;Ignition coil, wiring, ECU;Gasoline/LPG
+P0352;Ignition;Ignition Coil B Primary/Secondary Circuit Malfunction;High;Ignition coil, wiring, ECU;Gasoline/LPG
+P0353;Ignition;Ignition Coil C Primary/Secondary Circuit Malfunction;High;Ignition coil, wiring, ECU;Gasoline/LPG
+P0354;Ignition;Ignition Coil D Primary/Secondary Circuit Malfunction;High;Ignition coil, wiring, ECU;Gasoline/LPG
+P0401;Emissions;Exhaust Gas Recirculation Flow Insufficient Detected;Medium;EGR valve, carbon buildup, vacuum;Diesel/Gasoline
+P0402;Emissions;Exhaust Gas Recirculation Flow Excessive Detected;Medium;EGR valve stuck open, sensor;Diesel/Gasoline
+P0403;Emissions;Exhaust Gas Recirculation Circuit Malfunction;Medium;EGR valve, wiring, vacuum solenoid;Diesel/Gasoline
+P0404;Emissions;Exhaust Gas Recirculation Circuit Range/Performance;Medium;EGR valve, position sensor, carbon;Diesel/Gasoline
+P0405;Emissions;Exhaust Gas Recirculation Sensor A Circuit Low;Medium;EGR position sensor, wiring;Diesel/Gasoline
+P0406;Emissions;Exhaust Gas Recirculation Sensor A Circuit High;Medium;EGR position sensor, wiring;Diesel/Gasoline
+P0420;Emissions;Catalyst System Efficiency Below Threshold (Bank 1);Medium;Catalytic converter, O2 sensors;Gasoline/LPG
+P0421;Emissions;Warm Up Catalyst Efficiency Below Threshold (Bank 1);Medium;Catalyst, O2 sensor;Gasoline/LPG
+P0430;Emissions;Catalyst System Efficiency Below Threshold (Bank 2);Medium;Catalytic converter, O2 sensors;Gasoline/LPG
+P0441;Emissions;Evaporative Emission Control System Incorrect Purge Flow;Low;Purge valve, canister, vacuum leak;Gasoline/LPG
+P0442;Emissions;Evaporative Emission Control System Leak Detected (Small Leak);Low;Gas cap, EVAP system leak;Gasoline/LPG
+P0443;Emissions;Evaporative Emission Control System Purge Control Valve Circuit Malfunction;Low;Purge valve, wiring;Gasoline/LPG
+P0444;Emissions;Evaporative Emission Control System Purge Control Valve Circuit Open;Low;Purge valve, wiring;Gasoline/LPG
+P0445;Emissions;Evaporative Emission Control System Purge Control Valve Circuit Shorted;Low;Purge valve, wiring;Gasoline/LPG
+P0446;Emissions;Evaporative Emission Control System Vent Control Circuit Malfunction;Low;EVAP vent valve, wiring;Gasoline/LPG
+P0455;Emissions;Evaporative Emission Control System Leak Detected (Gross Leak);Low;Gas cap, EVAP lines, canister;Gasoline/LPG
+P0456;Emissions;Evaporative Emission Control System Leak Detected (Very Small Leak);Low;Gas cap, EVAP system;Gasoline/LPG
+P0460;Fuel/Air;Fuel Level Sensor Circuit Malfunction;Low;Fuel level sender, wiring, gauge;All
+P0461;Fuel/Air;Fuel Level Sensor Circuit Range/Performance;Low;Fuel level sender, wiring;All
+P0462;Fuel/Air;Fuel Level Sensor Circuit Low Input;Low;Fuel level sender, wiring;All
+P0463;Fuel/Air;Fuel Level Sensor Circuit High Input;Low;Fuel level sender, wiring;All
+P0500;Transmission;Vehicle Speed Sensor Malfunction;Medium;Speed sensor, wiring, ABS;All
+P0501;Transmission;Vehicle Speed Sensor Range/Performance;Medium;Speed sensor, wiring, tire size;All
+P0502;Transmission;Vehicle Speed Sensor Circuit Low Input;Medium;Speed sensor, wiring;All
+P0503;Transmission;Vehicle Speed Sensor Intermittent/Erratic/High;Medium;Speed sensor, wiring, ABS module;All
+P0505;Fuel/Air;Idle Control System Malfunction;Medium;IAC valve, throttle body, vacuum leak;Gasoline/LPG
+P0506;Fuel/Air;Idle Control System RPM Lower Than Expected;Medium;IAC valve, vacuum leak, throttle body;Gasoline/LPG
+P0507;Fuel/Air;Idle Control System RPM Higher Than Expected;Medium;IAC valve, vacuum leak, throttle body;Gasoline/LPG
+P0520;Engine;Engine Oil Pressure Sensor/Switch Circuit Malfunction;Medium;Oil pressure sensor, wiring, oil level;All
+P0521;Engine;Engine Oil Pressure Sensor/Switch Range/Performance;Medium;Oil pressure sensor, oil pump;All
+P0522;Engine;Engine Oil Pressure Sensor/Switch Low Voltage;High;Oil pressure sensor, wiring, low oil;All
+P0523;Engine;Engine Oil Pressure Sensor/Switch High Voltage;Medium;Oil pressure sensor, wiring;All
+P0560;Electrical;System Voltage Malfunction;Medium;Battery, alternator, wiring;All
+P0561;Electrical;System Voltage Unstable;Medium;Battery, alternator, loose connection;All
+P0562;Electrical;System Voltage Low;High;Battery, alternator, belt;All
+P0563;Electrical;System Voltage High;Medium;Alternator regulator, ECU;All
+P0600;ECU;Serial Communication Link Malfunction;High;ECU, wiring, communication bus;All
+P0601;ECU;Internal Control Module Memory Check Sum Error;Critical;ECU failure, reflash needed;All
+P0602;ECU;Control Module Programming Error;Critical;ECU programming, reflash needed;All
+P0603;ECU;Internal Control Module Keep Alive Memory (KAM) Error;Critical;ECU, battery disconnected;All
+P0604;ECU;Internal Control Module Random Access Memory (RAM) Error;Critical;ECU failure;All
+P0605;ECU;Internal Control Module Read Only Memory (ROM) Error;Critical;ECU failure;All
+P0606;ECU;PCM Processor Fault;Critical;ECU failure, replacement needed;All
+P0607;ECU;Control Module Performance;Critical;ECU failure;All
+P0700;Transmission;Transmission Control System Malfunction;High;TCM, wiring, transmission;All
+P0701;Transmission;Transmission Control System Range/Performance;High;TCM, transmission fluid;All
+P0702;Transmission;Transmission Control System Electrical;High;TCM, wiring, solenoids;All
+P0703;Transmission;Torque Converter/Brake Switch B Circuit Malfunction;Medium;Brake light switch, wiring;All
+P0704;Transmission;Clutch Switch Input Circuit Malfunction;Medium;Clutch switch, wiring;All
+P0705;Transmission;Transmission Range Sensor Circuit Malfunction (PRNDL Input);Medium;Shift sensor, wiring, TCM;All
+P0710;Transmission;Transmission Fluid Temperature Sensor Circuit Malfunction;Medium;Transmission temp sensor, wiring;All
+P0711;Transmission;Transmission Fluid Temperature Sensor Circuit Range/Performance;Medium;Transmission temp sensor;All
+P0712;Transmission;Transmission Fluid Temperature Sensor Circuit Low Input;Medium;Transmission temp sensor, wiring;All
+P0713;Transmission;Transmission Fluid Temperature Sensor Circuit High Input;Medium;Transmission temp sensor, wiring;All
+P0715;Transmission;Input/Turbine Speed Sensor Circuit Malfunction;High;Speed sensor, wiring, TCM;All
+P0720;Transmission;Output Speed Sensor Circuit Malfunction;High;Speed sensor, wiring, gear;All
+P0725;Transmission;Engine Speed Input Circuit Malfunction;High;Crank sensor, wiring to TCM;All
+P0730;Transmission;Incorrect Gear Ratio;High;Transmission mechanical, fluid, solenoids;All
+P0731;Transmission;Gear 1 Incorrect Ratio;High;Transmission mechanical, solenoids;All
+P0732;Transmission;Gear 2 Incorrect Ratio;High;Transmission mechanical, solenoids;All
+P0733;Transmission;Gear 3 Incorrect Ratio;High;Transmission mechanical, solenoids;All
+P0734;Transmission;Gear 4 Incorrect Ratio;High;Transmission mechanical, solenoids;All
+P0735;Transmission;Gear 5 Incorrect Ratio;High;Transmission mechanical, solenoids;All
+P0736;Transmission;Reverse Incorrect Ratio;High;Transmission mechanical, solenoids;All
+P0740;Transmission;Torque Converter Clutch Circuit Malfunction;Medium;TCC solenoid, wiring, fluid;All
+P0741;Transmission;Torque Converter Clutch Circuit Performance or Stuck Off;Medium;TCC solenoid, transmission fluid;All
+P0742;Transmission;Torque Converter Clutch Circuit Stuck On;Medium;TCC solenoid, valve body;All
+P0743;Transmission;Torque Converter Clutch Circuit Electrical;Medium;TCC solenoid, wiring;All
+P0744;Transmission;Torque Converter Clutch Circuit Intermittent;Medium;TCC solenoid, wiring, TCM;All
+P0750;Transmission;Shift Solenoid A Malfunction;High;Shift solenoid A, wiring;All
+P0751;Transmission;Shift Solenoid A Performance or Stuck Off;High;Shift solenoid A, fluid;All
+P0752;Transmission;Shift Solenoid A Stuck On;High;Shift solenoid A, valve body;All
+P0753;Transmission;Shift Solenoid A Electrical;High;Shift solenoid A, wiring, TCM;All
+P0755;Transmission;Shift Solenoid B Malfunction;High;Shift solenoid B, wiring;All
+P0756;Transmission;Shift Solenoid B Performance or Stuck Off;High;Shift solenoid B, fluid;All
+P0757;Transmission;Shift Solenoid B Stuck On;High;Shift solenoid B, valve body;All
+P0758;Transmission;Shift Solenoid B Electrical;High;Shift solenoid B, wiring, TCM;All
+P0760;Transmission;Shift Solenoid C Malfunction;High;Shift solenoid C, wiring;All
+P0765;Transmission;Shift Solenoid D Malfunction;High;Shift solenoid D, wiring;All
+P0770;Transmission;Shift Solenoid E Malfunction;High;Shift solenoid E, wiring;All
+=== DIESEL SPECIFIC CODES ===;;;;;
+P0380;Diesel;Glow Plug/Heater Circuit A Malfunction;High;Glow plug relay, wiring, glow plugs;Diesel
+P0381;Diesel;Glow Plug/Heater Indicator Circuit Malfunction;Low;Glow plug indicator, relay, wiring;Diesel
+P0382;Diesel;Glow Plug/Heater Circuit B Malfunction;High;Glow plug relay, wiring;Diesel
+P0470;Diesel;Exhaust Pressure Sensor Malfunction;Medium;EGR pressure sensor, wiring;Diesel
+P0471;Diesel;Exhaust Pressure Sensor Range/Performance;Medium;EGR pressure sensor, DPF;Diesel
+P0472;Diesel;Exhaust Pressure Sensor Low;Medium;EGR pressure sensor, wiring;Diesel
+P0473;Diesel;Exhaust Pressure Sensor High;Medium;EGR pressure sensor, wiring;Diesel
+P2002;Diesel;Diesel Particulate Filter Efficiency Below Threshold (Bank 1);High;DPF blocked, regeneration needed;Diesel
+P2003;Diesel;Diesel Particulate Filter Efficiency Below Threshold (Bank 2);High;DPF blocked, regeneration needed;Diesel
+P2004;Diesel;Intake Manifold Runner Control Stuck Open (Bank 1);Medium;Intake manifold flaps, actuator;Diesel
+P2005;Diesel;Intake Manifold Runner Control Stuck Open (Bank 2);Medium;Intake manifold flaps, actuator;Diesel
+P2006;Diesel;Intake Manifold Runner Control Stuck Closed (Bank 1);Medium;Intake manifold flaps, actuator;Diesel
+P2007;Diesel;Intake Manifold Runner Control Stuck Closed (Bank 2);Medium;Intake manifold flaps, actuator;Diesel
+P2008;Diesel;Intake Manifold Runner Control Circuit/Open (Bank 1);Medium;Manifold actuator, wiring;Diesel
+P2009;Diesel;Intake Manifold Runner Control Circuit Low (Bank 1);Medium;Manifold actuator, wiring;Diesel
+P2010;Diesel;Intake Manifold Runner Control Circuit High (Bank 1);Medium;Manifold actuator, wiring;Diesel
+P2080;Diesel;Exhaust Gas Temperature Sensor Circuit Range/Performance (Bank 1 Sensor 1);Medium;EGT sensor, wiring;Diesel
+P2084;Diesel;Exhaust Gas Temperature Sensor Circuit Range/Performance (Bank 1 Sensor 2);Medium;EGT sensor, wiring;Diesel
+P2088;Diesel;Exhaust Gas Temperature Too Low (Bank 1 Sensor 1);Medium;EGT sensor, DPF regeneration;Diesel
+P2100;Diesel;Throttle Actuator Control Motor Circuit/Open;High;Throttle actuator, wiring;Diesel
+P2101;Diesel;Throttle Actuator Control Motor Circuit Range/Performance;High;Throttle body, calibration;Diesel
+P2119;Diesel;Throttle Actuator Control Throttle Body Range/Performance;High;Throttle body, cleaning;Diesel
+P2135;Diesel;Throttle/Pedal Position Sensor/Switch A/B Voltage Correlation;High;TPS sensors, wiring;Diesel
+P2201;Diesel;NOx Sensor Circuit Range/Performance Bank 1;Medium;NOx sensor, SCR system;Diesel
+P2202;Diesel;NOx Sensor Circuit Low Bank 1;Medium;NOx sensor, wiring;Diesel
+P2203;Diesel;NOx Sensor Heater Control Circuit Bank 1;Medium;NOx sensor heater;Diesel
+P2204;Diesel;NOx Sensor Heater Control Circuit Range/Performance Bank 1;Medium;NOx sensor heater;Diesel
+P2209;Diesel;NOx Sensor Heater Sense Circuit Range/Performance Bank 1;Medium;NOx sensor;Diesel
+P2214;Diesel;NOx Sensor Circuit Range/Performance Bank 2;Medium;NOx sensor;Diesel
+P2227;Diesel;Barometric Pressure Circuit Range/Performance;Low;BARO sensor, ECU;Diesel
+P2228;Diesel;Barometric Pressure Circuit Low;Low;BARO sensor, wiring;Diesel
+P2229;Diesel;Barometric Pressure Circuit High;Low;BARO sensor, wiring;Diesel
+P2261;Diesel;Turbo/Super Charger Bypass Valve Mechanical;High;Wastegate, actuator, turbo;Diesel
+P2262;Diesel;Turbo Boost Pressure Not Detected - Mechanical;High;Turbocharger, wastegate, boost leak;Diesel
+P2263;Diesel;Turbo/Super Charger Boost System Performance;High;Turbo, boost control, intercooler leak;Diesel
+P2280;Diesel;Airflow Restriction/Air Leak Between Air Filter and MAF;Medium;Air filter, intake leak, MAF;Diesel
+P2BAF;Diesel;DEF (AdBlue) System Low Performance;High;AdBlue quality, injector, pump;Diesel
+P20B7;Diesel;Reductant Tank Temperature Sensor Circuit Range/Performance;Medium;AdBlue temp sensor;Diesel
+P20BA;Diesel;Reductant Heater A Control Circuit/Open;Medium;AdBlue heater, wiring;Diesel
+P20E8;Diesel;SCR NOx Catalyst Efficiency Below Threshold Bank 1;High;SCR catalyst, AdBlue injection;Diesel
+P20EE;Diesel;SCR NOx Catalyst Efficiency Below Threshold Bank 2;High;SCR catalyst, AdBlue;Diesel
+P2452;Diesel;Diesel Particulate Filter Pressure Sensor A Circuit;Medium;DPF pressure sensor, wiring;Diesel
+P2453;Diesel;Diesel Particulate Filter Pressure Sensor A Range/Performance;Medium;DPF pressure sensor;Diesel
+P2454;Diesel;Diesel Particulate Filter Pressure Sensor A Circuit Low;Medium;DPF pressure sensor, wiring;Diesel
+P2455;Diesel;Diesel Particulate Filter Pressure Sensor A Circuit High;Medium;DPF pressure sensor, wiring;Diesel
+P2463;Diesel;Diesel Particulate Filter Restriction - Soot Accumulation;Critical;DPF blocked, regeneration failed;Diesel
+P2509;Diesel;ECM/PCM Power Input Signal Intermittent;High;Power supply, wiring, battery;Diesel
+=== ELECTRIC VEHICLE (EV) CODES ===;;;;;
+P0A00;EV Battery;Hybrid/EV Battery Pack Malfunction;Critical;Battery pack, BMS, high voltage;Electric/Hybrid
+P0A01;EV Battery;Motor Electronics Coolant Temperature Sensor Circuit Range/Performance;Medium;Coolant sensor, inverter cooling;Electric/Hybrid
+P0A02;EV Battery;Motor Electronics Coolant Temperature Sensor Circuit Low;Medium;Coolant sensor, wiring;Electric/Hybrid
+P0A03;EV Battery;Motor Electronics Coolant Temperature Sensor Circuit High;Medium;Coolant sensor, wiring;Electric/Hybrid
+P0A04;EV Battery;DC/DC Converter Status Circuit;High;DC-DC converter, 12V system;Electric/Hybrid
+P0A08;EV Battery;DC/DC Converter Status Circuit Low;High;DC-DC converter, wiring;Electric/Hybrid
+P0A09;EV Battery;DC/DC Converter Status Circuit High;High;DC-DC converter, wiring;Electric/Hybrid
+P0A0F;EV Motor;Engine Failed To Start;Critical;Motor, inverter, high voltage system;Electric/Hybrid
+P0A12;EV Motor;Hybrid/EV System Voltage High;Critical;Battery voltage too high, BMS;Electric/Hybrid
+P0A13;EV Motor;Hybrid/EV System Voltage Low;Critical;Battery voltage too low, discharge;Electric/Hybrid
+P0A1A;EV Motor;Generator Performance;Medium;Motor-generator, inverter;Electric/Hybrid
+P0A1F;EV Motor;Hybrid Battery Pack Cooling Fan 1 Control Circuit;Medium;Cooling fan, relay, wiring;Electric/Hybrid
+P0A28;EV Motor;Electric Motor Performance;High;Traction motor, inverter, resolver;Electric/Hybrid
+P0A2D;EV Motor;Hybrid/EV Battery Voltage Sense Circuit Intermittent/Erratic;High;Voltage sensor, wiring, BMS;Electric/Hybrid
+P0A3B;EV Charging;Generator Control Module;High;Generator control, hybrid system;Electric/Hybrid
+P0A3F;EV Battery;Hybrid Battery Pack Air Conditioning Circuit/Open;Medium;Battery cooling, A/C compressor;Electric/Hybrid
+P0A52;EV Motor;Motor Control Module Performance;High;Motor controller, firmware;Electric/Hybrid
+P0A78;EV Motor;Drive Motor A Current Sensor Circuit;High;Current sensor, shunt resistor;Electric/Hybrid
+P0A79;EV Motor;Drive Motor A Current Sensor Circuit Range/Performance;High;Current sensor, calibration;Electric/Hybrid
+P0A7A;EV Motor;Drive Motor A Current Sensor Circuit Low;High;Current sensor, wiring;Electric/Hybrid
+P0A7B;EV Motor;Drive Motor A Current Sensor Circuit High;High;Current sensor, wiring;Electric/Hybrid
+P0A80;EV Battery;Replace Hybrid/EV Battery Pack;Critical;Battery degraded, end of life;Electric/Hybrid
+P0A81;EV Motor;Hybrid/EV Drive Motor Position Sensor Circuit;High;Resolver, encoder, wiring;Electric/Hybrid
+P0A82;EV Motor;Hybrid/EV Drive Motor Position Sensor Circuit Range/Performance;High;Resolver, alignment;Electric/Hybrid
+P0A83;EV Motor;Hybrid/EV Drive Motor Position Sensor Circuit Low;High;Resolver, wiring;Electric/Hybrid
+P0A84;EV Motor;Hybrid/EV Drive Motor Position Sensor Circuit High;High;Resolver, wiring;Electric/Hybrid
+P0A8E;EV Motor;Hybrid/EV Drive Motor Phase V Current Low;High;Phase sensor, inverter;Electric/Hybrid
+P0A90;EV Motor;Hybrid/EV Drive Motor Phase W Current;High;Phase sensor, inverter, motor;Electric/Hybrid
+P0A93;EV Motor;Inverter Cooling System Performance;High;Coolant pump, radiator, hoses;Electric/Hybrid
+P0A94;EV Motor;DC/DC Converter Temperature Sensor Circuit;Medium;DC-DC converter temp sensor;Electric/Hybrid
+P0A9A;EV Motor;Hybrid/EV Drive Motor A Performance;High;Motor, bearings, alignment;Electric/Hybrid
+P0AA6;EV Battery;Hybrid Battery Positive Contactor Circuit Stuck Open;Critical;HV contactor, relay, wiring;Electric/Hybrid
+P0AFA;EV Battery;Hybrid/EV Battery Voltage Sensor B Circuit;High;Voltage sensor, BMS;Electric/Hybrid
+P0AFB;EV Battery;Hybrid/EV Battery Voltage Sensor B Circuit Range/Performance;High;Voltage sensor, calibration;Electric/Hybrid
+P0B16;EV Battery;Hybrid/EV Battery Pack Temperature Sensor A Circuit Low;Medium;Temperature sensor, wiring;Electric/Hybrid
+P0B17;EV Battery;Hybrid/EV Battery Pack Temperature Sensor A Circuit High;Medium;Temperature sensor, wiring;Electric/Hybrid
+P0B2B;EV Battery;Hybrid/EV Battery C Voltage Low;Critical;Cell voltage low, imbalance;Electric/Hybrid
+P0B2C;EV Battery;Hybrid/EV Battery C Voltage High;Critical;Cell voltage high, overcharge;Electric/Hybrid
+P0B34;EV Battery;Hybrid/EV Battery Charger Control Circuit Range/Performance;High;Onboard charger, control;Electric/Hybrid
+P0B7C;EV Battery;Hybrid/EV Battery System Isolation Fault;Critical;Insulation fault, high voltage leak;Electric/Hybrid
+P0BDC;EV Charging;Hybrid/EV Charging System AC Voltage;High;Charging cable, EVSE, power;Electric/Hybrid
+P0BDD;EV Charging;Hybrid/EV Charging System AC Current;High;Charging current, EVSE;Electric/Hybrid
+P0BDE;EV Charging;Hybrid/EV Charging System Input Voltage Correlation;High;Charging voltage mismatch;Electric/Hybrid
+P1A00;EV Motor;Drive Motor A Malfunction;Critical;Traction motor failure;Electric/Hybrid
+P1A15;EV Motor;Drive Motor A Temperature Sensor Circuit;High;Motor temp sensor, wiring;Electric/Hybrid
+P1A16;EV Motor;Drive Motor A Position Sensor Circuit Intermittent;High;Resolver, encoder noise;Electric/Hybrid
+P1AFA;EV Battery;Battery Management System Malfunction;Critical;BMS failure, communication;Electric/Hybrid
+=== BODY (B CODES) ===;;;;;
+B1000;Body;PCM/BCM Communication Link Fault;High;CAN bus, wiring, modules;All
+B1001;Body;Airbag Deployment;Critical;Airbag deployed, reset needed;All
+B1213;Body;Driver Airbag Circuit Malfunction;Critical;Airbag, wiring, clockspring;All
+B1215;Body;Passenger Airbag Circuit Malfunction;Critical;Airbag, wiring, seat sensor;All
+B1317;Body;Battery Voltage Low;Medium;Battery, alternator, wiring;All
+B1318;Body;Battery Voltage High;Medium;Alternator, regulator;All
+B1342;Body;ECU is Defective;Critical;ECU hardware failure;All
+B1565;Body;Anti-Theft Key Code Error;High;Immobilizer, key, ECU;All
+B1600;Body;Ignition Key In Warning Circuit Failure;Low;Key switch, wiring;All
+B1676;Body;Battery Pack Voltage Out of Range;Critical;HV battery, BMS;Electric/Hybrid
+=== CHASSIS (C CODES) ===;;;;;
+C0035;ABS;Left Front Wheel Speed Sensor Circuit Malfunction;High;ABS sensor, wiring, tone ring;All
+C0040;ABS;Right Front Wheel Speed Sensor Circuit Malfunction;High;ABS sensor, wiring, tone ring;All
+C0045;ABS;Left Rear Wheel Speed Sensor Circuit Malfunction;High;ABS sensor, wiring, tone ring;All
+C0050;ABS;Right Rear Wheel Speed Sensor Circuit Malfunction;High;ABS sensor, wiring, tone ring;All
+C0121;ABS;ABS Valve Circuit Malfunction;High;ABS valve, hydraulic unit;All
+C0141;ABS;ABS Motor Circuit Malfunction;High;ABS pump motor, hydraulic unit;All
+C1201;ABS;ABS Control System Malfunction;High;ABS ECU, sensors, wiring;All
+C1223;ABS;Wheel Speed Signal Missing;High;ABS sensor, wiring, hub bearing;All
+C1234;ABS;Yaw Rate Sensor Circuit Malfunction;Medium;Yaw sensor, ESP module;All
+C1288;ABS;Lateral Acceleration Sensor Circuit Malfunction;Medium;G-sensor, ESP module;All
+=== NETWORK (U CODES) ===;;;;;
+U0001;Network;High Speed CAN Communication Bus;High;CAN bus, termination, wiring;All
+U0002;Network;High Speed CAN Communication Bus Performance;High;CAN bus noise, interference;All
+U0100;Network;Lost Communication With ECM/PCM;Critical;ECM, CAN bus, power supply;All
+U0101;Network;Lost Communication With TCM;High;TCM, CAN bus, wiring;All
+U0115;Network;Lost Communication With ECM;Critical;ECM, CAN bus, wiring;All
+U0121;Network;Lost Communication With ABS Module;High;ABS ECU, CAN bus;All
+U0122;Network;Lost Communication With Vehicle Dynamics Control Module;High;ESP module, CAN bus;All
+U0123;Network;Lost Communication With Yaw Rate Sensor Module;Medium;Yaw sensor, CAN bus;All
+U0126;Network;Lost Communication With Steering Angle Sensor Module;High;Steering sensor, CAN bus;All
+U0129;Network;Lost Communication With Brake System Control Module;Critical;Brake ECU, CAN bus;All
+U0140;Network;Lost Communication With Body Control Module;Medium;BCM, CAN bus, wiring;All
+U0141;Network;Lost Communication With Body Control Module B;Medium;BCM, CAN bus;All
+U0146;Network;Lost Communication With Gateway A;High;Gateway module, CAN bus;All
+U0151;Network;Lost Communication With Restraint Control Module;High;Airbag ECU, CAN bus;All
+U0155;Network;Lost Communication With Instrument Panel Cluster;Medium;Cluster, CAN bus, wiring;All
+U0164;Network;Lost Communication With HVAC Control Module;Low;HVAC module, CAN bus;All
+U0168;Network;Lost Communication With Vehicle Security Control Module;Medium;Immobilizer, CAN bus;All
+U0401;Network;Invalid Data Received From ECM/PCM;High;ECM, software, CAN bus;All
+U0402;Network;Invalid Data Received From TCM;High;TCM, software, CAN bus;All
+U1000;Network;CAN Communication Link Fault;High;CAN bus, wiring, termination;All
+U1001;Network;CAN Communication Link Fault - Bus Off;Critical;CAN bus short, multiple faults;All
+U1016;Network;Loss of SDM Serial Data;High;Airbag module communication;All
+U1040;Network;Loss of Body Controller Serial Data;Medium;BCM communication;All
+U1064;Network;Loss of Cruise Control Serial Data;Low;Cruise control module;All

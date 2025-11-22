@@ -1,0 +1,104 @@
+Name;Mode/PID;Equation;Min;Max;Units;Header;Vehicle Type;Description
+=== MODE 01 - Current Data ===;;;;;;;;
+Engine Load;01 04;A*100/255;0;100;%;7E0;All;Calculated engine load
+Coolant Temp;01 05;A-40;-40;215;°C;7E0;All;Engine coolant temperature
+Short Term Fuel Trim Bank 1;01 06;(A-128)*100/128;-100;99.2;%;7E0;Gasoline/LPG;Short term fuel trim
+Long Term Fuel Trim Bank 1;01 07;(A-128)*100/128;-100;99.2;%;7E0;Gasoline/LPG;Long term fuel trim
+Short Term Fuel Trim Bank 2;01 08;(A-128)*100/128;-100;99.2;%;7E0;Gasoline/LPG;Short term fuel trim bank 2
+Long Term Fuel Trim Bank 2;01 09;(A-128)*100/128;-100;99.2;%;7E0;Gasoline/LPG;Long term fuel trim bank 2
+Fuel Pressure;01 0A;A*3;0;765;kPa;7E0;All;Fuel pressure (gauge)
+Intake Manifold Pressure;01 0B;A;0;255;kPa;7E0;All;Intake manifold absolute pressure
+Engine RPM;01 0C;(A*256+B)/4;0;16383.75;rpm;7E0;All;Engine speed
+Vehicle Speed;01 0D;A;0;255;km/h;7E0;All;Vehicle speed
+Timing Advance;01 0E;(A-128)/2;-64;63.5;°;7E0;Gasoline/LPG;Timing advance before TDC
+Intake Air Temp;01 0F;A-40;-40;215;°C;7E0;All;Intake air temperature
+MAF Air Flow Rate;01 10;(A*256+B)/100;0;655.35;g/s;7E0;All;Mass air flow sensor rate
+Throttle Position;01 11;A*100/255;0;100;%;7E0;All;Throttle position
+Oxygen Sensor 1 Voltage;01 14;A/200;0;1.275;V;7E0;Gasoline/LPG;O2 sensor 1 voltage
+Oxygen Sensor 2 Voltage;01 15;A/200;0;1.275;V;7E0;Gasoline/LPG;O2 sensor 2 voltage
+Oxygen Sensor 3 Voltage;01 16;A/200;0;1.275;V;7E0;Gasoline/LPG;O2 sensor 3 voltage
+Oxygen Sensor 4 Voltage;01 17;A/200;0;1.275;V;7E0;Gasoline/LPG;O2 sensor 4 voltage
+OBD Standards;01 1C;A;0;255;;7E0;All;OBD standard compliance
+Run Time Since Engine Start;01 1F;(A*256+B);0;65535;s;7E0;All;Runtime since engine start
+Distance MIL On;01 21;(A*256+B);0;65535;km;7E0;All;Distance traveled with MIL on
+Fuel Rail Pressure;01 22;(A*256+B)*0.079;0;5177.265;kPa;7E0;Diesel;Fuel rail pressure relative
+Fuel Rail Gauge Pressure;01 23;(A*256+B)*10;0;655350;kPa;7E0;Diesel;Fuel rail gauge pressure
+O2S1 WR Lambda Voltage;01 24;(A*256+B)/32768;0;2;ratio;7E0;Gasoline/LPG;O2 sensor 1 air-fuel ratio
+O2S2 WR Lambda Voltage;01 25;(A*256+B)/32768;0;2;ratio;7E0;Gasoline/LPG;O2 sensor 2 air-fuel ratio
+Commanded EGR;01 2C;A*100/255;0;100;%;7E0;Diesel;Commanded EGR
+EGR Error;01 2D;(A-128)*100/128;-100;99.2;%;7E0;Diesel;EGR error
+Commanded Evap Purge;01 2E;A*100/255;0;100;%;7E0;Gasoline/LPG;Commanded evaporative purge
+Fuel Tank Level;01 2F;A*100/255;0;100;%;7E0;All;Fuel tank level input
+Warm-ups Since Codes Cleared;01 30;A;0;255;count;7E0;All;Number of warm-ups
+Distance Since Codes Cleared;01 31;(A*256+B);0;65535;km;7E0;All;Distance traveled since codes cleared
+Barometric Pressure;01 33;A;0;255;kPa;7E0;All;Absolute barometric pressure
+O2S1 WR Lambda Current;01 34;(C*256+D)/256-128;-128;128;mA;7E0;Gasoline/LPG;O2 sensor 1 current
+Catalyst Temp Bank 1 Sensor 1;01 3C;(A*256+B)/10-40;-40;6513.5;°C;7E0;Gasoline/LPG;Catalyst temperature
+Catalyst Temp Bank 2 Sensor 1;01 3D;(A*256+B)/10-40;-40;6513.5;°C;7E0;Gasoline/LPG;Catalyst temperature
+Catalyst Temp Bank 1 Sensor 2;01 3E;(A*256+B)/10-40;-40;6513.5;°C;7E0;Gasoline/LPG;Catalyst temperature
+Catalyst Temp Bank 2 Sensor 2;01 3F;(A*256+B)/10-40;-40;6513.5;°C;7E0;Gasoline/LPG;Catalyst temperature
+Control Module Voltage;01 42;(A*256+B)/1000;0;65.535;V;7E0;All;Control module voltage
+Absolute Load Value;01 43;(A*256+B)*100/255;0;25700;%;7E0;All;Absolute load value
+Fuel-Air Commanded Ratio;01 44;(A*256+B)/32768;0;2;ratio;7E0;Gasoline/LPG;Fuel-air equivalence ratio
+Relative Throttle Position;01 45;A*100/255;0;100;%;7E0;All;Relative throttle position
+Ambient Air Temp;01 46;A-40;-40;215;°C;7E0;All;Ambient air temperature
+Absolute Throttle Position B;01 47;A*100/255;0;100;%;7E0;All;Absolute throttle position B
+Absolute Throttle Position C;01 48;A*100/255;0;100;%;7E0;All;Absolute throttle position C
+Accelerator Pedal Position D;01 49;A*100/255;0;100;%;7E0;All;Accelerator pedal position D
+Accelerator Pedal Position E;01 4A;A*100/255;0;100;%;7E0;All;Accelerator pedal position E
+Accelerator Pedal Position F;01 4B;A*100/255;0;100;%;7E0;All;Accelerator pedal position F
+Commanded Throttle Actuator;01 4C;A*100/255;0;100;%;7E0;All;Commanded throttle actuator
+Time With MIL On;01 4D;(A*256+B);0;65535;min;7E0;All;Time run with MIL on
+Time Since Codes Cleared;01 4E;(A*256+B);0;65535;min;7E0;All;Time since trouble codes cleared
+Fuel Type;01 51;A;0;23;;7E0;All;Fuel type coding
+Ethanol Fuel Percent;01 52;A*100/255;0;100;%;7E0;Gasoline/LPG;Ethanol fuel percentage
+Absolute Evap System Vapor Pressure;01 53;(A*256+B)/200;0;327.675;kPa;7E0;Gasoline/LPG;Absolute evap system vapor pressure
+Evap System Vapor Pressure;01 54;(A*256+B)-32767;-32767;32768;Pa;7E0;Gasoline/LPG;Evap system vapor pressure
+Short Term O2 Trim Bank 1;01 55;(A-128)*100/128;-100;99.2;%;7E0;Gasoline/LPG;Short term secondary O2 trim
+Long Term O2 Trim Bank 1;01 56;(A-128)*100/128;-100;99.2;%;7E0;Gasoline/LPG;Long term secondary O2 trim
+Short Term O2 Trim Bank 2;01 57;(A-128)*100/128;-100;99.2;%;7E0;Gasoline/LPG;Short term secondary O2 trim bank 2
+Long Term O2 Trim Bank 2;01 58;(A-128)*100/128;-100;99.2;%;7E0;Gasoline/LPG;Long term secondary O2 trim bank 2
+Fuel Rail Absolute Pressure;01 59;(A*256+B)*10;0;655350;kPa;7E0;Diesel;Fuel rail absolute pressure
+Relative Accelerator Pedal Position;01 5A;A*100/255;0;100;%;7E0;All;Relative accelerator pedal position
+Hybrid Battery Pack Remaining Life;01 5B;A*100/255;0;100;%;7E0;Hybrid;Hybrid battery pack remaining life
+Engine Oil Temp;01 5C;A-40;-40;210;°C;7E0;All;Engine oil temperature
+Fuel Injection Timing;01 5D;(A*256+B-26880)/128;-210;301.992;°;7E0;Diesel;Fuel injection timing
+Engine Fuel Rate;01 5E;(A*256+B)/20;0;3212.75;L/h;7E0;All;Engine fuel rate
+=== MODE 02 - Freeze Frame Data ===;;;;;;;;
+DTC That Caused Freeze Frame;02 02;;;;;;;Stored DTC information
+Fuel System Status Freeze;02 03;A;0;255;;7E0;All;Fuel system status at freeze
+Engine Load Freeze;02 04;A*100/255;0;100;%;7E0;All;Engine load at freeze
+Coolant Temp Freeze;02 05;A-40;-40;215;°C;7E0;All;Coolant temp at freeze
+=== MODE 03 - Show DTCs ===;;;;;;;;
+Request Emission DTCs;03;;;;;;;Request emission-related DTCs
+=== MODE 04 - Clear DTCs ===;;;;;;;;
+Clear DTCs and Values;04;;;;;;;Clear diagnostic trouble codes
+=== MODE 05 - O2 Sensor Monitoring ===;;;;;;;;
+O2 Sensor Monitor Bank 1 Sensor 1;05 0100;(A*256+B)/32768;0;2;V;7E0;Gasoline/LPG;O2 sensor monitoring
+O2 Sensor Monitor Bank 1 Sensor 2;05 0101;(A*256+B)/32768;0;2;V;7E0;Gasoline/LPG;O2 sensor monitoring
+=== MODE 06 - Test Results ===;;;;;;;;
+Test Results O2 Sensor;06;;;;;;;Non-continuously monitored test results
+=== MODE 07 - Show Pending DTCs ===;;;;;;;;
+Request Pending DTCs;07;;;;;;;Show pending DTCs
+=== MODE 09 - Vehicle Information ===;;;;;;;;
+VIN (Vehicle Identification Number);09 02;;;;;;;Vehicle identification number
+Calibration ID;09 04;;;;;;;ECU calibration identification
+CVN (Calibration Verification Number);09 06;;;;;;;Calibration verification numbers
+ECU Name;09 0A;;;;;;;ECU name
+=== DIESEL SPECIFIC PIDs ===;;;;;;;;
+DPF Pressure;01 61;(A*256+B)-32767;-32767;32768;Pa;7E0;Diesel;Diesel particulate filter differential pressure
+DPF Temperature;01 7C;(A*256+B)-40;-40;6513.5;°C;7E0;Diesel;Diesel particulate filter temperature
+DPF Regeneration Status;22 2006;A;0;255;;7E0;Diesel;DPF regeneration status
+DPF Soot Load;22 2007;A;0;100;%;7E0;Diesel;DPF soot accumulation
+Fuel Injection Pressure;22 2008;(A*256+B)*10;0;200000;kPa;7E0;Diesel;Common rail fuel pressure
+EGR Valve Position;22 2009;A*100/255;0;100;%;7E0;Diesel;EGR valve position actual
+Turbo Boost Pressure;22 200A;(A*256+B);0;400;kPa;7E0;Diesel;Turbocharger boost pressure
+Turbo Wastegate Position;22 200B;A*100/255;0;100;%;7E0;Diesel;Turbo wastegate position
+=== LPG SPECIFIC PIDs ===;;;;;;;;
+LPG Fuel Level;22 3001;A*100/255;0;100;%;7E0;LPG;LPG tank level
+LPG System Pressure;22 3002;(A*256+B)/10;0;2000;kPa;7E0;LPG;LPG system pressure
+LPG Injector Duty Cycle;22 3003;A*100/255;0;100;%;7E0;LPG;LPG injector duty cycle
+LPG Reducer Temp;22 3004;A-40;-40;150;°C;7E0;LPG;LPG reducer/vaporizer temperature
+LPG Fuel Trim;22 3005;(A-128)*100/128;-100;99.2;%;7E0;LPG;LPG fuel trim
+LPG/Gasoline Mode;22 3006;A;0;1;;7E0;LPG;0=Gasoline 1=LPG
+LPG Injector Time;22 3007;(A*256+B)/100;0;25;ms;7E0;LPG;LPG injection time

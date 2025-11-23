@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class BLEService {
   static const String serviceUUID = "0000fff0-0000-1000-8000-00805f9b34fb";
@@ -18,55 +20,146 @@ class BLEService {
   BLEConnectionState _currentState = BLEConnectionState.baglantiYok;
   Timer? _reconnectTimer;
   bool _isConnected = false;
+  BluetoothDevice? _connectedDevice;
+  BluetoothCharacteristic? _rxCharacteristic;
+  BluetoothCharacteristic? _txCharacteristic;
+  StreamSubscription? _connectionSubscription;
+  StreamSubscription? _characteristicSubscription;
+  
+  Future<bool> requestPermissions() async {
+    if (await FlutterBluePlus.isSupported == false) {
+      return false;
+    }
+    
+    await Permission.bluetoothScan.request();
+    await Permission.bluetoothConnect.request();
+    await Permission.location.request();
+    
+    bool bluetoothScan = await Permission.bluetoothScan.isGranted;
+    bool bluetoothConnect = await Permission.bluetoothConnect.isGranted;
+    bool location = await Permission.location.isGranted;
+    
+    return bluetoothScan && bluetoothConnect && location;
+  }
   
   Future<void> startScan() async {
+    bool hasPermission = await requestPermissions();
+    if (!hasPermission) {
+      _updateState(BLEConnectionState.baglantiYok);
+      return;
+    }
+    
     _updateState(BLEConnectionState.baglanıyor);
-    await Future.delayed(Duration(seconds: 2));
-    _isConnected = true;
-    _updateState(BLEConnectionState.baglantıKuruldu);
-    await Future.delayed(Duration(milliseconds: 500));
-    _updateState(BLEConnectionState.veriAlınıyor);
+    
+    try {
+      await FlutterBluePlus.startScan(timeout: Duration(seconds: 15));
+      
+      FlutterBluePlus.scanResults.listen((results) {
+        for (ScanResult result in results) {
+          if (result.device.name.isNotEmpty || result.advertisementData.serviceUuids.isNotEmpty) {
+            _connectToDevice(result.device);
+            FlutterBluePlus.stopScan();
+            break;
+          }
+        }
+      });
+    } catch (e) {
+      _updateState(BLEConnectionState.baglantiYok);
+    }
+  }
+  
+  Future<void> _connectToDevice(BluetoothDevice device) async {
+    try {
+      _connectedDevice = device;
+      await device.connect(timeout: Duration(seconds: 15), autoConnect: false);
+      _isConnected = true;
+      _updateState(BLEConnectionState.baglantıKuruldu);
+      
+      _connectionSubscription = device.connectionState.listen((state) {
+        if (state == BluetoothConnectionState.disconnected) {
+          _isConnected = false;
+          _updateState(BLEConnectionState.baglantiYok);
+          startAutoReconnect();
+        } else if (state == BluetoothConnectionState.connected) {
+          _isConnected = true;
+          _updateState(BLEConnectionState.baglantıKuruldu);
+          _discoverServices(device);
+        }
+      });
+      
+      await _discoverServices(device);
+    } catch (e) {
+      _isConnected = false;
+      _updateState(BLEConnectionState.baglantiYok);
+    }
+  }
+  
+  Future<void> _discoverServices(BluetoothDevice device) async {
+    try {
+      List<BluetoothService> services = await device.discoverServices();
+      
+      for (BluetoothService service in services) {
+        if (service.uuid.toString().toUpperCase().replaceAll('-', '') == serviceUUID.toUpperCase().replaceAll('-', '')) {
+          for (BluetoothCharacteristic characteristic in service.characteristics) {
+            String charUUID = characteristic.uuid.toString().toUpperCase().replaceAll('-', '');
+            
+            if (charUUID == rxCharacteristicUUID.toUpperCase().replaceAll('-', '')) {
+              _rxCharacteristic = characteristic;
+              await characteristic.setNotifyValue(true);
+              _characteristicSubscription = characteristic.onValueReceived.listen((value) {
+                String response = utf8.decode(value);
+                _dataController.add(response);
+              });
+            }
+            
+            if (charUUID == txCharacteristicUUID.toUpperCase().replaceAll('-', '')) {
+              _txCharacteristic = characteristic;
+            }
+          }
+        }
+      }
+      
+      if (_rxCharacteristic != null && _txCharacteristic != null) {
+        await setupMTU();
+        _updateState(BLEConnectionState.veriAlınıyor);
+      }
+    } catch (e) {
+      _updateState(BLEConnectionState.baglantiYok);
+    }
   }
   
   Future<void> connect(String deviceId) async {
     _updateState(BLEConnectionState.baglanıyor);
-    await Future.delayed(Duration(seconds: 1));
-    _isConnected = true;
-    _updateState(BLEConnectionState.baglantıKuruldu);
-    await setupMTU();
-    await Future.delayed(Duration(milliseconds: 500));
-    _updateState(BLEConnectionState.veriAlınıyor);
+    
+    try {
+      BluetoothDevice? device = await FlutterBluePlus.findDevice(deviceId);
+      if (device != null) {
+        await _connectToDevice(device);
+      } else {
+        _updateState(BLEConnectionState.baglantiYok);
+      }
+    } catch (e) {
+      _updateState(BLEConnectionState.baglantiYok);
+    }
   }
   
   Future<void> setupMTU() async {
-    await Future.delayed(Duration(milliseconds: 100));
+    if (_connectedDevice != null) {
+      try {
+        await _connectedDevice!.requestMtu(512);
+      } catch (e) {
+      }
+    }
   }
   
   Future<void> writeData(String data) async {
-    if (!_isConnected) return;
-    await Future.delayed(Duration(milliseconds: 50));
-    _simulateResponse(data);
-  }
-  
-  void _simulateResponse(String command) {
-    Timer(Duration(milliseconds: 100), () {
-      String response = _generateMockResponse(command);
-      _dataController.add(response);
-    });
-  }
-  
-  String _generateMockResponse(String command) {
-    if (command.contains("010C")) return "41 0C 1A F0";
-    if (command.contains("010D")) return "41 0D 3C";
-    if (command.contains("0105")) return "41 05 78";
-    if (command.contains("0110")) return "41 10 01 2C";
-    if (command.contains("0111")) return "41 11 50";
-    if (command.contains("010A")) return "41 0A 64";
-    if (command.contains("0104")) return "41 04 0A";
-    if (command.contains("010E")) return "41 0E 0C";
-    if (command.contains("0103")) return "03 01 00 00 00 00";
-    if (command.contains("04")) return "44";
-    return "OK";
+    if (!_isConnected || _txCharacteristic == null) return;
+    
+    try {
+      List<int> bytes = utf8.encode(data);
+      await _txCharacteristic!.write(bytes, withoutResponse: false);
+    } catch (e) {
+    }
   }
   
   void _updateState(BLEConnectionState state) {
@@ -78,7 +171,11 @@ class BLEService {
     _reconnectTimer?.cancel();
     _reconnectTimer = Timer.periodic(Duration(seconds: 5), (timer) {
       if (!_isConnected && _currentState != BLEConnectionState.baglanıyor) {
-        startScan();
+        if (_connectedDevice != null) {
+          _connectToDevice(_connectedDevice!);
+        } else {
+          startScan();
+        }
       }
     });
   }
@@ -89,11 +186,18 @@ class BLEService {
   
   void disconnect() {
     _isConnected = false;
+    _characteristicSubscription?.cancel();
+    _connectionSubscription?.cancel();
+    _connectedDevice?.disconnect();
+    _connectedDevice = null;
+    _rxCharacteristic = null;
+    _txCharacteristic = null;
     _updateState(BLEConnectionState.baglantiYok);
     stopAutoReconnect();
   }
   
   void dispose() {
+    disconnect();
     _dataController.close();
     _stateController.close();
     _reconnectTimer?.cancel();

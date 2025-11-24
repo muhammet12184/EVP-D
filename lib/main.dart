@@ -52,15 +52,21 @@ class BLEYonetici {
   String? sonCihazId;
 
   void taramayiBaslat(Function(List<ScanResult>) onSonuc) async {
-    durumController.add(BaglantiDurumu.baglantiYok);
-    await FlutterBluePlus.startScan(timeout: Duration(seconds: 10));
-    FlutterBluePlus.scanResults.listen((results) {
-      onSonuc(results);
-    });
+    try {
+      durumController.add(BaglantiDurumu.baglantiYok);
+      await FlutterBluePlus.startScan(timeout: Duration(seconds: 10));
+      FlutterBluePlus.scanResults.listen((results) {
+        onSonuc(results);
+      });
+    } catch (e) {
+      durumController.add(BaglantiDurumu.baglantiYok);
+    }
   }
 
   void taramayiDurdur() async {
-    await FlutterBluePlus.stopScan();
+    try {
+      await FlutterBluePlus.stopScan();
+    } catch (e) {}
   }
 
   Future<bool> cihazaBaglan(BluetoothDevice cihaz) async {
@@ -917,7 +923,6 @@ class _AnaSayfaState extends State<AnaSayfa> {
   @override
   void initState() {
     super.initState();
-    izinleriKontrolEt();
     obdServis = OBDServis(bleYonetici);
     bleYonetici.durumController.stream.listen((durum) {
       if (mounted) {
@@ -929,10 +934,12 @@ class _AnaSayfaState extends State<AnaSayfa> {
         elm327Basla();
       }
     });
+    izinleriKontrolEt();
   }
 
   Future<void> izinleriKontrolEt() async {
     try {
+      await Future.delayed(Duration(milliseconds: 500));
       await Permission.bluetooth.request();
       await Permission.bluetoothScan.request();
       await Permission.bluetoothConnect.request();
@@ -1147,26 +1154,35 @@ class _BLESayfaState extends State<BLESayfa> {
     taramaBaslat();
   }
 
-  void taramaBaslat() {
-    if (mounted) {
-      setState(() {
-        taraniyor = true;
-      });
-    }
-    widget.bleYonetici.taramayiBaslat((sonuclar) {
+  void taramaBaslat() async {
+    try {
       if (mounted) {
         setState(() {
-          cihazlar = sonuclar;
+          taraniyor = true;
         });
       }
-    });
-    Future.delayed(Duration(seconds: 10), () {
+      await Future.delayed(Duration(milliseconds: 500));
+      widget.bleYonetici.taramayiBaslat((sonuclar) {
+        if (mounted) {
+          setState(() {
+            cihazlar = sonuclar;
+          });
+        }
+      });
+      Future.delayed(Duration(seconds: 10), () {
+        if (mounted) {
+          setState(() {
+            taraniyor = false;
+          });
+        }
+      });
+    } catch (e) {
       if (mounted) {
         setState(() {
           taraniyor = false;
         });
       }
-    });
+    }
   }
 
   @override

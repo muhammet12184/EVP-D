@@ -1,0 +1,11 @@
+{
+  "thingTypeName": "Vehicle",
+  "thingTypeProperties": {
+    "description": "Vehicle thing type for EV and ICE vehicles",
+    "searchableAttributes": [
+      "vehicleType",
+      "brand",
+      "model"
+    ]
+  }
+}

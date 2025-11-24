@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: super-app-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: changeme
+      MONGO_INITDB_DATABASE: superapp
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - super-app-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: super-app-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - super-app-network
+
+  # Go Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: super-app-backend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=mongodb://admin:changeme@mongodb:27017/superapp?authSource=admin
+      - REDIS_URL=redis://redis:6379
+      - AWS_IOT_ENDPOINT=${AWS_IOT_ENDPOINT}
+      - AWS_REGION=${AWS_REGION:-eu-central-1}
+      - JWT_SECRET=${JWT_SECRET:-change-me-in-production}
+      - MAPBOX_TOKEN=${MAPBOX_TOKEN}
+      - AI_SERVICE_URL=http://ai-services:8000
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - super-app-network
+
+  # Python AI Services
+  ai-services:
+    build:
+      context: ./ai-services
+      dockerfile: Dockerfile
+    container_name: super-app-ai-services
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - DATABASE_URL=mongodb://admin:changeme@mongodb:27017/superapp?authSource=admin
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - super-app-network
+
+volumes:
+  mongodb_data:
+  redis_data:
+
+networks:
+  super-app-network:
+    driver: bridge

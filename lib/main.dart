@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(OBDUygulamasi());
 }
 
@@ -915,15 +917,27 @@ class _AnaSayfaState extends State<AnaSayfa> {
   @override
   void initState() {
     super.initState();
+    izinleriKontrolEt();
     obdServis = OBDServis(bleYonetici);
     bleYonetici.durumController.stream.listen((durum) {
-      setState(() {
-        baglantiDurumu = durum;
-      });
+      if (mounted) {
+        setState(() {
+          baglantiDurumu = durum;
+        });
+      }
       if (durum == BaglantiDurumu.baglandi) {
         elm327Basla();
       }
     });
+  }
+
+  Future<void> izinleriKontrolEt() async {
+    try {
+      await Permission.bluetooth.request();
+      await Permission.bluetoothScan.request();
+      await Permission.bluetoothConnect.request();
+      await Permission.location.request();
+    } catch (e) {}
   }
 
   void elm327Basla() async {
@@ -943,41 +957,47 @@ class _AnaSayfaState extends State<AnaSayfa> {
         double? yeniBatSic = await obdServis!.pidOku(EVPIDler.bataryaSicakligi.pid, EVPIDler.bataryaSicakligi.formula);
         double? yeniMotSic = await obdServis!.pidOku(EVPIDler.motorSicakligi.pid, EVPIDler.motorSicakligi.formula);
         
-        setState(() {
-          if (yeniHiz != null) hiz = yeniHiz;
-          if (yeniSOC != null) soc = yeniSOC;
-          if (yeniGuc != null) guc = yeniGuc;
-          if (yeniBatSic != null) bataryaSicakligi = yeniBatSic;
-          if (yeniMotSic != null) motorSicakligi = yeniMotSic;
-          rpm = 0;
-          tork = guc * 9549.3 / (rpm > 0 ? rpm : 1);
-        });
+        if (mounted) {
+          setState(() {
+            if (yeniHiz != null) hiz = yeniHiz;
+            if (yeniSOC != null) soc = yeniSOC;
+            if (yeniGuc != null) guc = yeniGuc;
+            if (yeniBatSic != null) bataryaSicakligi = yeniBatSic;
+            if (yeniMotSic != null) motorSicakligi = yeniMotSic;
+            rpm = 0;
+            tork = guc * 9549.3 / (rpm > 0 ? rpm : 1);
+          });
+        }
       } else {
         double? yeniHiz = await obdServis!.pidOku(ICEPIDler.hiz.pid, ICEPIDler.hiz.formula);
         double? yeniRPM = await obdServis!.pidOku(ICEPIDler.rpm.pid, ICEPIDler.rpm.formula);
         double? yeniSic = await obdServis!.pidOku(ICEPIDler.suSicakligi.pid, ICEPIDler.suSicakligi.formula);
         
-        setState(() {
-          if (yeniHiz != null) hiz = yeniHiz;
-          if (yeniRPM != null) rpm = yeniRPM;
-          if (yeniSic != null) motorSicakligi = yeniSic;
-          soc = 0;
-          guc = (rpm * tork) / 9549.3;
-        });
+        if (mounted) {
+          setState(() {
+            if (yeniHiz != null) hiz = yeniHiz;
+            if (yeniRPM != null) rpm = yeniRPM;
+            if (yeniSic != null) motorSicakligi = yeniSic;
+            soc = 0;
+            guc = (rpm * tork) / 9549.3;
+          });
+        }
       }
     });
   }
 
   void dtcOku() async {
     List<String> dtcler = await obdServis!.dtcOku();
-    setState(() {
-      dtcListesi = dtcler;
-    });
+    if (mounted) {
+      setState(() {
+        dtcListesi = dtcler;
+      });
+    }
   }
 
   void dtcTemizle() async {
     bool basarili = await obdServis!.dtcTemizle();
-    if (basarili) {
+    if (basarili && mounted) {
       setState(() {
         dtcListesi.clear();
       });
@@ -1128,18 +1148,24 @@ class _BLESayfaState extends State<BLESayfa> {
   }
 
   void taramaBaslat() {
-    setState(() {
-      taraniyor = true;
-    });
-    widget.bleYonetici.taramayiBaslat((sonuclar) {
+    if (mounted) {
       setState(() {
-        cihazlar = sonuclar;
+        taraniyor = true;
       });
+    }
+    widget.bleYonetici.taramayiBaslat((sonuclar) {
+      if (mounted) {
+        setState(() {
+          cihazlar = sonuclar;
+        });
+      }
     });
     Future.delayed(Duration(seconds: 10), () {
-      setState(() {
-        taraniyor = false;
-      });
+      if (mounted) {
+        setState(() {
+          taraniyor = false;
+        });
+      }
     });
   }
 
@@ -1155,9 +1181,11 @@ class _BLESayfaState extends State<BLESayfa> {
             onPressed: () {
               if (taraniyor) {
                 widget.bleYonetici.taramayiDurdur();
-                setState(() {
-                  taraniyor = false;
-                });
+                if (mounted) {
+                  setState(() {
+                    taraniyor = false;
+                  });
+                }
               } else {
                 taramaBaslat();
               }

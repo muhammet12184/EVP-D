@@ -1,0 +1,80 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Flutter
+mobile-app/.dart_tool/
+mobile-app/.flutter-plugins
+mobile-app/.flutter-plugins-dependencies
+mobile-app/.packages
+mobile-app/.pub-cache/
+mobile-app/.pub/
+mobile-app/build/
+mobile-app/.flutter-plugins-dependencies
+mobile-app/.flutter-plugins-dependencies.lock
+mobile-app/pubspec.lock
+
+# Go
+backend/*.exe
+backend/*.exe~
+backend/*.dll
+backend/*.so
+backend/*.dylib
+backend/*.test
+backend/*.out
+backend/.idea/
+backend/vendor/
+backend/dist/
+
+# Python
+ai-services/__pycache__/
+ai-services/*.py[cod]
+ai-services/*$py.class
+ai-services/*.so
+ai-services/.Python
+ai-services/env/
+ai-services/venv/
+ai-services/ENV/
+ai-services/.venv
+ai-services/pip-log.txt
+ai-services/pip-delete-this-directory.txt
+ai-services/.pytest_cache/
+ai-services/.mypy_cache/
+ai-services/.dmypy.json
+ai-services/dmypy.json
+ai-services/*.egg-info/
+ai-services/dist/
+ai-services/build/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Models & Data
+ai-services/models/*.h5
+ai-services/models/*.pkl
+ai-services/models/*.pt
+*.csv
+!ev_unified_professional.csv
+
+# AWS
+*.pem
+*.key
+*.crt
+
+# Database
+*.db
+*.sqlite
+
+# Logs
+logs/
+*.log

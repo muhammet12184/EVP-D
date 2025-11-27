@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    BU İZİNLERİ MEVCUT AndroidManifest.xml DOSYANIZA EKLEYİN
+    <manifest> tagının içine, <application> tagından ÖNCE ekleyin
+-->
+
+    <!-- ========== BLUETOOTH İZİNLERİ ========== -->
+    
+    <!-- Android 12+ (API 31+) - YENİ İZİNLER -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    
+    <!-- Android 11 ve altı - ESKİ İZİNLER -->
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+    
+    <!-- ========== KONUM İZİNLERİ (BLE İÇİN ZORUNLU) ========== -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    
+    <!-- ========== BLUETOOTH FEATURE ========== -->
+    <uses-feature android:name="android.hardware.bluetooth" android:required="true" />
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />

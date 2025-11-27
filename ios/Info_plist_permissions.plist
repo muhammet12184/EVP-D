@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+    BU ANAHTARLARI MEVCUT Info.plist DOSYANIZA EKLEYİN
+    <dict> tagının içine ekleyin
+-->
+<plist version="1.0">
+<dict>
+
+    <!-- ========== BLUETOOTH İZİNLERİ ========== -->
+    
+    <!-- iOS 13+ için ZORUNLU -->
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Bu uygulama araç teşhis cihazına bağlanmak için Bluetooth kullanır.</string>
+    
+    <!-- iOS 12 ve altı için -->
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>Bu uygulama araç teşhis cihazına bağlanmak için Bluetooth kullanır.</string>
+    
+    <!-- ========== KONUM İZİNLERİ ========== -->
+    
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Bluetooth cihazlarını bulmak için konum izni gereklidir.</string>
+    
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Arka planda Bluetooth bağlantısı için konum izni gereklidir.</string>
+    
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Arka planda Bluetooth bağlantısı için konum izni gereklidir.</string>
+    
+    <!-- ========== ARKA PLAN MODLARI ========== -->
+    
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>bluetooth-central</string>
+        <string>bluetooth-peripheral</string>
+    </array>
+
+</dict>
+</plist>

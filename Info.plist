@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- ==================== BLUETOOTH İZİNLERİ ==================== -->
+    
+    <!-- iOS 13+ için ZORUNLU - Bu olmadan uygulama ÇÖKER -->
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Bu uygulama Bluetooth cihazlarına bağlanmak ve veri alışverişi yapmak için Bluetooth erişimine ihtiyaç duyar.</string>
+    
+    <!-- iOS 12 ve altı için ZORUNLU -->
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>Bu uygulama Bluetooth cihazlarıyla iletişim kurmak için Bluetooth erişimine ihtiyaç duyar.</string>
+    
+    <!-- ==================== KONUM İZİNLERİ (BLUETOOTH İÇİN GEREKLİ) ==================== -->
+    
+    <!-- Uygulama kullanılırken konum erişimi -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Bluetooth cihazlarını taramak için konumunuza erişmemiz gerekiyor.</string>
+    
+    <!-- Her zaman konum erişimi -->
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Bluetooth cihazlarını arka planda da taramak için konumunuza her zaman erişmemiz gerekiyor.</string>
+    
+    <!-- iOS 10 ve altı için -->
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Bluetooth cihazlarını arka planda taramak için konumunuza her zaman erişmemiz gerekiyor.</string>
+    
+    <!-- ==================== ARKA PLAN MODLARI (OPSİYONEL) ==================== -->
+    
+    <!-- Sadece arka planda Bluetooth çalışması gerekiyorsa ekleyin -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>bluetooth-central</string>
+        <string>bluetooth-peripheral</string>
+    </array>
+    
+    <!-- ==================== DİĞER AYARLAR ==================== -->
+    
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
+    
+    <key>CFBundlePackageType</key>
+    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+    
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    
+</dict>
+</plist>

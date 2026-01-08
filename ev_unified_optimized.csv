@@ -1,0 +1,137 @@
+Section;Name;Mode/PID;Equation;Min;Max;Units;Header;Notes
+=== EQUATION REFERENCE TABLE ===;;;;;;;;
+EQUATION_ID;EQUATION;DESCRIPTION;;;;;;
+EQ_DIRECT;A;Direct value from byte A;;;;;;
+EQ_WORD_DIV10;(A*256+B)/10;16-bit word divided by 10;;;;;;
+EQ_WORD_DIV100;(A*256+B)/100;16-bit word divided by 100;;;;;;
+EQ_TEMP_OFFSET;A-40;Temperature with -40 offset;;;;;;
+EQ_BYTE_DIV100;A/100;Byte value divided by 100;;;;;;
+EQ_BYTE_DIV50;A/50;Byte value divided by 50;;;;;;
+=== COMMON PID REFERENCE ===;;;;;;;;
+COMMON_PID;MODE/PID;EQUATION;MIN;MAX;UNITS;HEADER;NOTES
+SOC_STANDARD;22 015C;EQ_DIRECT;0;100;%;7E4;Standard Battery State of Charge
+VOLTAGE_STANDARD;22 015D;EQ_WORD_DIV100;0;500;V;7E4;Standard Battery Voltage
+CURRENT_STANDARD;22 015E;EQ_WORD_DIV10;-1000;1000;A;7E4;Standard Battery Current
+TEMP_STANDARD;22 015F;EQ_TEMP_OFFSET;-40;100;°C;7E4;Standard Battery Temperature
+CELL_DELTA_STANDARD;22 0160;EQ_BYTE_DIV100;0;1;V;7E4;Standard Cell Voltage Delta
+=== Nissan Leaf / Renault Zoe ===;;;;;;;;
+Nissan_Zoe;Battery SOH;22 015B;EQ_DIRECT;0;100;%;7E4;
+Nissan_Zoe;Battery SOC;USE:SOC_STANDARD;;;%;7E4;
+Nissan_Zoe;Battery Voltage;USE:VOLTAGE_STANDARD;;;V;7E4;
+Nissan_Zoe;Battery Current;USE:CURRENT_STANDARD;;;A;7E4;
+Nissan_Zoe;Battery Temp;USE:TEMP_STANDARD;;;°C;7E4;
+Nissan_Zoe;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+Nissan_Zoe;Battery Capacity (kWh);22 0161;EQ_WORD_DIV100;0;100;kWh;7E4;
+Nissan_Zoe;Cell Min Voltage;22 0162;EQ_BYTE_DIV50;2.5;4.2;V;7E4;
+Nissan_Zoe;Cell Max Voltage;22 0163;EQ_BYTE_DIV50;2.5;4.2;V;7E4;
+=== Hyundai / Kia (Kona, Ioniq, Niro, EV6) ===;;;;;;;;
+Hyundai_Kia;Battery SOH;22 0170;EQ_DIRECT;0;100;%;7E4;
+Hyundai_Kia;Battery SOC;USE:SOC_STANDARD;;;%;7E4;
+Hyundai_Kia;Battery Voltage;USE:VOLTAGE_STANDARD;;;V;7E4;
+Hyundai_Kia;Battery Current;USE:CURRENT_STANDARD;;;A;7E4;
+Hyundai_Kia;Battery Temp;USE:TEMP_STANDARD;;;°C;7E4;
+Hyundai_Kia;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+Hyundai_Kia;DC Charge Power;22 0171;EQ_WORD_DIV10;0;300;kW;7E4;
+Hyundai_Kia;AC Charge Power;22 0172;EQ_WORD_DIV10;0;22;kW;7E4;
+Hyundai_Kia;Battery Inlet Temp;22 0173;EQ_TEMP_OFFSET;-40;100;°C;7E4;
+=== PSA (Peugeot / Opel / Citroën) ===;;;;;;;;
+PSA;Battery SOH;22 F40D;EQ_DIRECT;0;100;%;7E4;
+PSA;Battery SOC;USE:SOC_STANDARD;;;%;7E4;
+PSA;Battery Voltage;USE:VOLTAGE_STANDARD;;;V;7E4;
+PSA;Battery Current;USE:CURRENT_STANDARD;;;A;7E4;
+PSA;Battery Temp;USE:TEMP_STANDARD;;;°C;7E4;
+PSA;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+PSA;Battery Energy (kWh);22 F40E;EQ_WORD_DIV10;0;60;kWh;7E4;
+=== BMW i3 ===;;;;;;;;
+BMW_i3;Battery SOH;22 2A38;EQ_DIRECT;0;100;%;7E4;
+BMW_i3;Battery SOC;USE:SOC_STANDARD;;;%;7E4;
+BMW_i3;Battery Voltage;USE:VOLTAGE_STANDARD;;;V;7E4;
+BMW_i3;Battery Current;USE:CURRENT_STANDARD;;;A;7E4;
+BMW_i3;Battery Temp;USE:TEMP_STANDARD;;;°C;7E4;
+BMW_i3;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+BMW_i3;Usable Capacity (kWh);22 2A39;EQ_WORD_DIV100;0;42;kWh;7E4;
+BMW_i3;DC Fast Charge Count;22 2A3A;EQ_DIRECT;0;5000;Count;7E4;
+=== BMW i4 / iX ===;;;;;;;;
+BMW_i4_iX;Battery SOH;MISSING;;0;100;%;7E4;TODO: Research PID for newer BMW models
+BMW_i4_iX;Battery SOC;USE:SOC_STANDARD;;;%;7E4;
+BMW_i4_iX;Battery Voltage;USE:VOLTAGE_STANDARD;;;V;7E4;
+BMW_i4_iX;Battery Current;USE:CURRENT_STANDARD;;;A;7E4;
+BMW_i4_iX;Battery Temp;USE:TEMP_STANDARD;;;°C;7E4;
+BMW_i4_iX;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+=== Mercedes EQ (EQA, EQB, EQE, EQS) ===;;;;;;;;
+Mercedes_EQ;Battery SOH;MISSING;;0;100;%;7E4;TODO: Research PID for Mercedes EQ models
+Mercedes_EQ;Battery SOC;USE:SOC_STANDARD;;;%;7E4;
+Mercedes_EQ;Battery Voltage;USE:VOLTAGE_STANDARD;;;V;7E4;
+Mercedes_EQ;Battery Current;USE:CURRENT_STANDARD;;;A;7E4;
+Mercedes_EQ;Battery Temp;USE:TEMP_STANDARD;;;°C;7E4;
+Mercedes_EQ;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+=== Audi e-tron (Q4, Q8, GT) ===;;;;;;;;
+Audi_eTron;Battery SOH;MISSING;;0;100;%;7E4;TODO: Research PID for Audi e-tron models
+Audi_eTron;Battery SOC;USE:SOC_STANDARD;;;%;7E4;
+Audi_eTron;Battery Voltage;USE:VOLTAGE_STANDARD;;;V;7E4;
+Audi_eTron;Battery Current;USE:CURRENT_STANDARD;;;A;7E4;
+Audi_eTron;Battery Temp;USE:TEMP_STANDARD;;;°C;7E4;
+Audi_eTron;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+=== Volvo Recharge (EX30, C40, XC40) ===;;;;;;;;
+Volvo_Recharge;Battery SOH;MISSING;;0;100;%;7E4;TODO: Research PID for Volvo Recharge models
+Volvo_Recharge;Battery SOC;USE:SOC_STANDARD;;;%;7E4;
+Volvo_Recharge;Battery Voltage;USE:VOLTAGE_STANDARD;;;V;7E4;
+Volvo_Recharge;Battery Current;USE:CURRENT_STANDARD;;;A;7E4;
+Volvo_Recharge;Battery Temp;USE:TEMP_STANDARD;;;°C;7E4;
+Volvo_Recharge;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+=== Porsche Taycan ===;;;;;;;;
+Porsche_Taycan;Battery SOH;MISSING;;0;100;%;7E4;TODO: Research PID for Porsche Taycan
+Porsche_Taycan;Battery SOC;USE:SOC_STANDARD;;;%;7E4;
+Porsche_Taycan;Battery Voltage;USE:VOLTAGE_STANDARD;;;V;7E4;
+Porsche_Taycan;Battery Current;USE:CURRENT_STANDARD;;;A;7E4;
+Porsche_Taycan;Battery Temp;USE:TEMP_STANDARD;;;°C;7E4;
+Porsche_Taycan;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+=== BYD (Atto 3, Dolphin, Seal) ===;;;;;;;;
+BYD;Battery SOH;MISSING;;0;100;%;7E4;TODO: Research PID for BYD models
+BYD;Battery SOC;USE:SOC_STANDARD;;;%;7E4;
+BYD;Battery Voltage;USE:VOLTAGE_STANDARD;;;V;7E4;
+BYD;Battery Current;USE:CURRENT_STANDARD;;;A;7E4;
+BYD;Battery Temp;USE:TEMP_STANDARD;;;°C;7E4;
+BYD;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+=== MG (ZS EV, MG4) ===;;;;;;;;
+MG;Battery SOH;MISSING;;0;100;%;7E4;TODO: Research PID for MG models
+MG;Battery SOC;22 3101;EQ_DIRECT;0;100;%;7E4;MG uses different PIDs than standard
+MG;Battery Voltage;22 3102;EQ_WORD_DIV100;0;500;V;7E4;
+MG;Battery Current;22 3103;EQ_WORD_DIV10;-1000;1000;A;7E4;
+MG;Battery Temp;22 3104;EQ_TEMP_OFFSET;-40;100;°C;7E4;
+MG;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+=== Tesla Model S / 3 / X / Y ===;;;;;;;;
+Tesla;Battery SOH;MISSING;;0;100;%;7E4;TODO: Research PID for Tesla models
+Tesla;Battery SOC;22 1187;EQ_DIRECT;0;100;%;7E4;Tesla uses proprietary PIDs
+Tesla;Battery Voltage;22 1188;EQ_WORD_DIV100;0;500;V;7E4;
+Tesla;Battery Current;22 1189;EQ_WORD_DIV10;-1000;1000;A;7E4;
+Tesla;Battery Temp;22 118A;EQ_TEMP_OFFSET;-40;100;°C;7E4;
+Tesla;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+=== TOGG T10X ===;;;;;;;;
+TOGG;Battery SOH;MISSING;;0;100;%;7E4;TODO: Research PID for TOGG T10X
+TOGG;Battery SOC;22 2101;EQ_DIRECT;0;100;%;7E4;
+TOGG;Battery Voltage;22 2102;EQ_WORD_DIV100;0;500;V;7E4;
+TOGG;Battery Current;22 2103;EQ_WORD_DIV10;-1000;1000;A;7E4;
+TOGG;Battery Temp;22 2104;EQ_TEMP_OFFSET;-40;100;°C;7E4;
+TOGG;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+=== Honda e ===;;;;;;;;
+Honda_e;Battery SOH;MISSING;;0;100;%;7E2;TODO: Research PID for Honda e
+Honda_e;Battery SOC;22 2101;EQ_DIRECT;0;100;%;7E2;Honda e uses 7E2 header
+Honda_e;Battery Voltage;22 2102;EQ_WORD_DIV100;0;500;V;7E2;
+Honda_e;Battery Current;22 2103;EQ_WORD_DIV10;-1000;1000;A;7E2;
+Honda_e;Battery Temp;22 2104;EQ_TEMP_OFFSET;-40;100;°C;7E2;
+Honda_e;Cell Voltage Delta;22 0160;EQ_BYTE_DIV100;0;1;V;7E2;Note different header
+=== Toyota bZ4X ===;;;;;;;;
+Toyota_bZ4X;Battery SOH;MISSING;;0;100;%;7E4;TODO: Research PID for Toyota bZ4X
+Toyota_bZ4X;Battery SOC;22 2201;EQ_DIRECT;0;100;%;7E4;
+Toyota_bZ4X;Battery Voltage;22 2202;EQ_WORD_DIV100;0;500;V;7E4;
+Toyota_bZ4X;Battery Current;22 2203;EQ_WORD_DIV10;-1000;1000;A;7E4;
+Toyota_bZ4X;Battery Temp;22 2204;EQ_TEMP_OFFSET;-40;100;°C;7E4;
+Toyota_bZ4X;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;
+=== Mini Cooper SE ===;;;;;;;;
+Mini_Cooper_SE;Battery SOH;MISSING;;0;100;%;7E4;TODO: Research PID for Mini Cooper SE
+Mini_Cooper_SE;Battery SOC;USE:SOC_STANDARD;;;%;7E4;Mini shares BMW platform
+Mini_Cooper_SE;Battery Voltage;USE:VOLTAGE_STANDARD;;;V;7E4;
+Mini_Cooper_SE;Battery Current;USE:CURRENT_STANDARD;;;A;7E4;
+Mini_Cooper_SE;Battery Temp;USE:TEMP_STANDARD;;;°C;7E4;
+Mini_Cooper_SE;Cell Voltage Delta;USE:CELL_DELTA_STANDARD;;;V;7E4;

@@ -6,6 +6,38 @@ Checks data integrity and consistency between original and optimized formats
 
 import csv
 import sys
+import argparse
+
+
+def resolve_references(mode_pid, equation, equations, common_pids):
+    """
+    Helper function to resolve USE: and EQ_ references
+    
+    Args:
+        mode_pid: Mode/PID value, possibly containing USE: reference
+        equation: Equation value, possibly containing EQ_ reference
+        equations: Dictionary of equation ID -> formula mappings
+        common_pids: Dictionary of common PID reference data
+        
+    Returns:
+        Tuple of (resolved_mode_pid, resolved_equation)
+    """
+    # Resolve USE: references
+    if mode_pid.startswith('USE:'):
+        parts = mode_pid.split(':', 1)
+        if len(parts) == 2 and parts[1]:
+            ref_id = parts[1]
+            if ref_id in common_pids:
+                mode_pid = common_pids[ref_id]['mode_pid']
+                equation = common_pids[ref_id]['equation']
+    
+    # Resolve equation references
+    if equation.startswith('EQ_'):
+        if equation in equations:
+            equation = equations[equation]
+    
+    return mode_pid, equation
+
 
 def validate_original_csv(filename):
     """Validate the original CSV format"""
@@ -25,41 +57,52 @@ def validate_original_csv(filename):
         'vehicles': set()
     }
     
-    with open(filename, 'r', encoding='utf-8') as f:
-        reader = csv.DictReader(f, delimiter=';')
-        line_num = 1  # Account for header
-        
-        for row in reader:
-            line_num += 1
-            stats['total_rows'] += 1
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f, delimiter=';')
+            line_num = 1  # Account for header
             
-            name = row.get('Name', '').strip()
-            mode_pid = row.get('Mode/PID', '').strip()
-            equation = row.get('Equation', '').strip()
-            
-            # Identify section headers
-            if name.startswith('==='):
-                stats['section_headers'] += 1
-                vehicle = name.replace('===', '').strip()
-                stats['vehicles'].add(vehicle)
-                continue
-            
-            stats['data_rows'] += 1
-            
-            # Check for missing critical data
-            if not mode_pid:
-                stats['empty_mode_pid'] += 1
-                if 'Battery SOH' in name:
-                    warnings.append(f"Line {line_num}: Missing PID for {name} (common for newer models)")
-            
-            if not equation:
-                stats['empty_equation'] += 1
-            
-            # Track PID usage
-            if mode_pid:
-                if mode_pid not in stats['duplicate_pids']:
-                    stats['duplicate_pids'][mode_pid] = []
-                stats['duplicate_pids'][mode_pid].append((line_num, name))
+            for row in reader:
+                line_num += 1
+                stats['total_rows'] += 1
+                
+                name = row.get('Name', '').strip()
+                mode_pid = row.get('Mode/PID', '').strip()
+                equation = row.get('Equation', '').strip()
+                
+                # Identify section headers
+                if name.startswith('==='):
+                    stats['section_headers'] += 1
+                    vehicle = name.replace('===', '').strip()
+                    stats['vehicles'].add(vehicle)
+                    continue
+                
+                stats['data_rows'] += 1
+                
+                # Check for missing critical data
+                if not mode_pid:
+                    stats['empty_mode_pid'] += 1
+                    if 'Battery SOH' in name:
+                        warnings.append(f"Line {line_num}: Missing PID for {name} (common for newer models)")
+                
+                if not equation:
+                    stats['empty_equation'] += 1
+                
+                # Track PID usage
+                if mode_pid:
+                    if mode_pid not in stats['duplicate_pids']:
+                        stats['duplicate_pids'][mode_pid] = []
+                    stats['duplicate_pids'][mode_pid].append((line_num, name))
+    
+    except FileNotFoundError:
+        print(f"❌ Error: File '{filename}' not found")
+        return False, stats
+    except PermissionError:
+        print(f"❌ Error: Permission denied reading '{filename}'")
+        return False, stats
+    except Exception as e:
+        print(f"❌ Error reading file: {e}")
+        return False, stats
     
     # Report statistics
     print("📊 Statistics:")
@@ -117,64 +160,75 @@ def validate_optimized_csv(filename):
     equations = {}
     common_pids = {}
     
-    with open(filename, 'r', encoding='utf-8') as f:
-        reader = csv.DictReader(f, delimiter=';')
-        line_num = 1
-        current_section = None
-        
-        for row in reader:
-            line_num += 1
-            stats['total_rows'] += 1
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f, delimiter=';')
+            line_num = 1
+            current_section = None
             
-            section = row.get('Section', '').strip()
-            name = row.get('Name', '').strip()
-            mode_pid = row.get('Mode/PID', '').strip()
-            equation = row.get('Equation', '').strip()
-            
-            # Track current section
-            if section.startswith('==='):
-                current_section = section
-                stats['vehicles'].add(section)
-                continue
-            
-            # Parse equation reference table rows
-            if section == 'REF_EQUATION':
-                equations[name] = mode_pid  # Equation ID -> Formula
-                stats['equation_refs'] += 1
-                continue
-            
-            # Parse common PID reference table rows
-            if section == 'REF_COMMON_PID':
-                common_pids[name] = {
-                    'mode_pid': mode_pid,
-                    'equation': equation
-                }
-                stats['common_pid_refs'] += 1
-                continue
-            
-            stats['data_rows'] += 1
-            
-            # Check USE: references
-            if mode_pid.startswith('USE:'):
-                stats['use_references'] += 1
-                parts = mode_pid.split(':', 1)
-                if len(parts) < 2 or not parts[1]:
-                    issues.append(f"Line {line_num}: Malformed reference '{mode_pid}' - expected 'USE:REFERENCE_ID'")
+            for row in reader:
+                line_num += 1
+                stats['total_rows'] += 1
+                
+                section = row.get('Section', '').strip()
+                name = row.get('Name', '').strip()
+                mode_pid = row.get('Mode/PID', '').strip()
+                equation = row.get('Equation', '').strip()
+                
+                # Track current section
+                if section.startswith('==='):
+                    current_section = section
+                    stats['vehicles'].add(section)
                     continue
-                ref_id = parts[1]
-                if ref_id not in common_pids:
-                    issues.append(f"Line {line_num}: Invalid reference USE:{ref_id}")
-                else:
-                    stats['resolved_pids'].add(common_pids[ref_id]['mode_pid'])
-            
-            # Check MISSING markers
-            if mode_pid == 'MISSING':
-                stats['missing_markers'] += 1
-            
-            # Verify equation references
-            if equation.startswith('EQ_'):
-                if equation not in equations:
-                    issues.append(f"Line {line_num}: Invalid equation reference {equation}")
+                
+                # Parse equation reference table rows
+                if section == 'REF_EQUATION':
+                    equations[name] = mode_pid  # Equation ID -> Formula
+                    stats['equation_refs'] += 1
+                    continue
+                
+                # Parse common PID reference table rows
+                if section == 'REF_COMMON_PID':
+                    common_pids[name] = {
+                        'mode_pid': mode_pid,
+                        'equation': equation
+                    }
+                    stats['common_pid_refs'] += 1
+                    continue
+                
+                stats['data_rows'] += 1
+                
+                # Check USE: references
+                if mode_pid.startswith('USE:'):
+                    stats['use_references'] += 1
+                    parts = mode_pid.split(':', 1)
+                    if len(parts) < 2 or not parts[1]:
+                        issues.append(f"Line {line_num}: Malformed reference '{mode_pid}' - expected 'USE:REFERENCE_ID'")
+                        continue
+                    ref_id = parts[1]
+                    if ref_id not in common_pids:
+                        issues.append(f"Line {line_num}: Invalid reference USE:{ref_id}")
+                    else:
+                        stats['resolved_pids'].add(common_pids[ref_id]['mode_pid'])
+                
+                # Check MISSING markers
+                if mode_pid == 'MISSING':
+                    stats['missing_markers'] += 1
+                
+                # Verify equation references
+                if equation.startswith('EQ_'):
+                    if equation not in equations:
+                        issues.append(f"Line {line_num}: Invalid equation reference {equation}")
+    
+    except FileNotFoundError:
+        print(f"❌ Error: File '{filename}' not found")
+        return False, stats
+    except PermissionError:
+        print(f"❌ Error: Permission denied reading '{filename}'")
+        return False, stats
+    except Exception as e:
+        print(f"❌ Error reading file: {e}")
+        return False, stats
     
     # Report statistics
     print("📊 Statistics:")
@@ -233,18 +287,41 @@ def compare_formats(original_stats, optimized_stats):
 
 def main():
     """Main validation routine"""
+    parser = argparse.ArgumentParser(
+        description='Validate EV PID database files',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  %(prog)s
+  %(prog)s --original custom_original.csv --optimized custom_optimized.csv
+        """
+    )
+    parser.add_argument(
+        '--original',
+        default='ev_unified_professional.csv',
+        help='Path to original CSV file (default: ev_unified_professional.csv)'
+    )
+    parser.add_argument(
+        '--optimized',
+        default='ev_unified_optimized.csv',
+        help='Path to optimized CSV file (default: ev_unified_optimized.csv)'
+    )
+    
+    args = parser.parse_args()
+    
     print("\n" + "="*60)
     print("EV PID Database Validation Tool")
     print("="*60)
     
     # Validate original format
-    original_valid, original_stats = validate_original_csv('ev_unified_professional.csv')
+    original_valid, original_stats = validate_original_csv(args.original)
     
     # Validate optimized format
-    optimized_valid, optimized_stats = validate_optimized_csv('ev_unified_optimized.csv')
+    optimized_valid, optimized_stats = validate_optimized_csv(args.optimized)
     
     # Compare formats
-    compare_formats(original_stats, optimized_stats)
+    if original_valid and optimized_valid:
+        compare_formats(original_stats, optimized_stats)
     
     # Final summary
     print(f"\n{'='*60}")

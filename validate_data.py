@@ -13,6 +13,9 @@ def resolve_references(mode_pid, equation, equations, common_pids):
     """
     Helper function to resolve USE: and EQ_ references
     
+    This function is provided for use in external scripts that need to parse
+    the optimized CSV format. See MIGRATION_GUIDE.md for usage examples.
+    
     Args:
         mode_pid: Mode/PID value, possibly containing USE: reference
         equation: Equation value, possibly containing EQ_ reference
@@ -21,6 +24,10 @@ def resolve_references(mode_pid, equation, equations, common_pids):
         
     Returns:
         Tuple of (resolved_mode_pid, resolved_equation)
+    
+    Note: When USE: reference is found, both mode_pid and equation are
+    replaced with values from the common_pids reference, as that's the
+    intended behavior for complete parameter references.
     """
     # Resolve USE: references
     if mode_pid.startswith('USE:'):

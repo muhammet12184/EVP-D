@@ -1,19 +1,17 @@
 Section;Name;Mode/PID;Equation;Min;Max;Units;Header;Notes
 === EQUATION REFERENCE TABLE ===;;;;;;;;
-EQUATION_ID;EQUATION;DESCRIPTION;;;;;;
-EQ_DIRECT;A;Direct value from byte A;;;;;;
-EQ_WORD_DIV10;(A*256+B)/10;16-bit word divided by 10;;;;;;
-EQ_WORD_DIV100;(A*256+B)/100;16-bit word divided by 100;;;;;;
-EQ_TEMP_OFFSET;A-40;Temperature with -40 offset;;;;;;
-EQ_BYTE_DIV100;A/100;Byte value divided by 100;;;;;;
-EQ_BYTE_DIV50;A/50;Byte value divided by 50;;;;;;
+REF_EQUATION;EQ_DIRECT;A;;;;Direct value from byte A;
+REF_EQUATION;EQ_WORD_DIV10;(A*256+B)/10;;;;16-bit word divided by 10;
+REF_EQUATION;EQ_WORD_DIV100;(A*256+B)/100;;;;16-bit word divided by 100;
+REF_EQUATION;EQ_TEMP_OFFSET;A-40;;;;Temperature with -40 offset;
+REF_EQUATION;EQ_BYTE_DIV100;A/100;;;;Byte value divided by 100;
+REF_EQUATION;EQ_BYTE_DIV50;A/50;;;;Byte value divided by 50;
 === COMMON PID REFERENCE ===;;;;;;;;
-COMMON_PID;MODE/PID;EQUATION;MIN;MAX;UNITS;HEADER;NOTES
-SOC_STANDARD;22 015C;EQ_DIRECT;0;100;%;7E4;Standard Battery State of Charge
-VOLTAGE_STANDARD;22 015D;EQ_WORD_DIV100;0;500;V;7E4;Standard Battery Voltage
-CURRENT_STANDARD;22 015E;EQ_WORD_DIV10;-1000;1000;A;7E4;Standard Battery Current
-TEMP_STANDARD;22 015F;EQ_TEMP_OFFSET;-40;100;°C;7E4;Standard Battery Temperature
-CELL_DELTA_STANDARD;22 0160;EQ_BYTE_DIV100;0;1;V;7E4;Standard Cell Voltage Delta
+REF_COMMON_PID;SOC_STANDARD;22 015C;EQ_DIRECT;0;100;%;7E4;Standard Battery State of Charge
+REF_COMMON_PID;VOLTAGE_STANDARD;22 015D;EQ_WORD_DIV100;0;500;V;7E4;Standard Battery Voltage
+REF_COMMON_PID;CURRENT_STANDARD;22 015E;EQ_WORD_DIV10;-1000;1000;A;7E4;Standard Battery Current
+REF_COMMON_PID;TEMP_STANDARD;22 015F;EQ_TEMP_OFFSET;-40;100;°C;7E4;Standard Battery Temperature
+REF_COMMON_PID;CELL_DELTA_STANDARD;22 0160;EQ_BYTE_DIV100;0;1;V;7E4;Standard Cell Voltage Delta
 === Nissan Leaf / Renault Zoe ===;;;;;;;;
 Nissan_Zoe;Battery SOH;22 015B;EQ_DIRECT;0;100;%;7E4;
 Nissan_Zoe;Battery SOC;USE:SOC_STANDARD;;;%;7E4;

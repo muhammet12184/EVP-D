@@ -13,6 +13,15 @@ The optimized format includes two reference tables at the top:
 #### Equation Reference Table
 Instead of repeating equations like `(A*256+B)/10` throughout the file, we now use equation IDs:
 
+```csv
+Section;Name;Mode/PID;Equation;Min;Max;Units;Header;Notes
+=== EQUATION REFERENCE TABLE ===;;;;;;;;
+REF_EQUATION;EQ_DIRECT;A;;;;Direct value from byte A;
+REF_EQUATION;EQ_WORD_DIV10;(A*256+B)/10;;;;16-bit word divided by 10;
+```
+
+The `Section` column contains `REF_EQUATION`, the `Name` column contains the equation ID, and the `Mode/PID` column contains the actual formula.
+
 | Equation ID | Formula | Description |
 |-------------|---------|-------------|
 | EQ_DIRECT | A | Direct value from byte A |
@@ -24,6 +33,14 @@ Instead of repeating equations like `(A*256+B)/10` throughout the file, we now u
 
 #### Common PID Reference Table
 Standard PIDs used across multiple manufacturers are defined once:
+
+```csv
+Section;Name;Mode/PID;Equation;Min;Max;Units;Header;Notes
+=== COMMON PID REFERENCE ===;;;;;;;;
+REF_COMMON_PID;SOC_STANDARD;22 015C;EQ_DIRECT;0;100;%;7E4;Standard Battery State of Charge
+```
+
+The `Section` column contains `REF_COMMON_PID`, and the other columns follow the standard format.
 
 | Reference ID | Mode/PID | Description |
 |--------------|----------|-------------|
@@ -87,14 +104,22 @@ with open('ev_unified_optimized.csv', 'r') as f:
     for row in reader:
         section = row['Section']
         
+        # Track section headers
+        if section.startswith('==='):
+            current_section = section
+            continue
+        
         # Parse equation reference table
-        if section == 'EQUATION_ID':
-            equations[row['Name']] = row['Mode/PID']  # Formula stored in Mode/PID column
+        if section == 'REF_EQUATION':
+            equation_id = row['Name']
+            formula = row['Mode/PID']
+            equations[equation_id] = formula
             continue
         
         # Parse common PID reference table
-        if section == 'COMMON_PID':
-            common_pids[row['Name']] = {
+        if section == 'REF_COMMON_PID':
+            ref_id = row['Name']
+            common_pids[ref_id] = {
                 'mode_pid': row['Mode/PID'],
                 'equation': row['Equation'],
                 'min': row['Min'],
@@ -104,11 +129,6 @@ with open('ev_unified_optimized.csv', 'r') as f:
             }
             continue
         
-        # Skip section headers
-        if section.startswith('==='):
-            current_section = section
-            continue
-        
         # Process actual data rows
         name = row['Name']
         mode_pid = row['Mode/PID']
@@ -116,7 +136,7 @@ with open('ev_unified_optimized.csv', 'r') as f:
         
         # Resolve USE: references
         if mode_pid.startswith('USE:'):
-            ref_id = mode_pid.split(':')[1]
+            ref_id = mode_pid.split(':', 1)[1]
             if ref_id in common_pids:
                 mode_pid = common_pids[ref_id]['mode_pid']
                 equation = common_pids[ref_id]['equation']
@@ -152,10 +172,10 @@ def expand_optimized_csv(input_file, output_file):
             section = row['Section']
             
             # Build reference tables
-            if section == 'EQUATION_ID':
+            if section == 'REF_EQUATION':
                 equations[row['Name']] = row['Mode/PID']
                 continue
-            elif section == 'COMMON_PID':
+            elif section == 'REF_COMMON_PID':
                 common_pids[row['Name']] = row
                 continue
             elif section.startswith('==='):
@@ -171,12 +191,15 @@ def expand_optimized_csv(input_file, output_file):
             header = row['Header']
             
             if mode_pid.startswith('USE:'):
-                ref_id = mode_pid.split(':')[1]
-                ref = common_pids[ref_id]
-                mode_pid = ref['Mode/PID']
-                equation = ref['Equation']
-                if not min_val: min_val = ref['Min']
-                if not max_val: max_val = ref['Max']
+                parts = mode_pid.split(':', 1)
+                if len(parts) == 2:
+                    ref_id = parts[1]
+                    ref = common_pids.get(ref_id)
+                    if ref:
+                        mode_pid = ref['Mode/PID']
+                        equation = ref['Equation']
+                        if not min_val: min_val = ref['Min']
+                        if not max_val: max_val = ref['Max']
             
             if equation.startswith('EQ_'):
                 equation = equations.get(equation, equation)

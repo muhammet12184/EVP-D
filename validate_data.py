@@ -138,20 +138,18 @@ def validate_optimized_csv(filename):
                 continue
             
             # Parse equation reference table rows
-            if current_section == '=== EQUATION REFERENCE TABLE ===':
-                if section:  # Data row in equation table
-                    equations[section] = name  # Formula stored in Name column
-                    stats['equation_refs'] += 1
+            if section == 'REF_EQUATION':
+                equations[name] = mode_pid  # Equation ID -> Formula
+                stats['equation_refs'] += 1
                 continue
             
             # Parse common PID reference table rows
-            if current_section == '=== COMMON PID REFERENCE ===':
-                if section:  # Data row in common PID table
-                    common_pids[section] = {
-                        'mode_pid': name,
-                        'equation': mode_pid
-                    }
-                    stats['common_pid_refs'] += 1
+            if section == 'REF_COMMON_PID':
+                common_pids[name] = {
+                    'mode_pid': mode_pid,
+                    'equation': equation
+                }
+                stats['common_pid_refs'] += 1
                 continue
             
             stats['data_rows'] += 1
@@ -159,7 +157,11 @@ def validate_optimized_csv(filename):
             # Check USE: references
             if mode_pid.startswith('USE:'):
                 stats['use_references'] += 1
-                ref_id = mode_pid.split(':')[1]
+                parts = mode_pid.split(':', 1)
+                if len(parts) < 2 or not parts[1]:
+                    issues.append(f"Line {line_num}: Malformed reference '{mode_pid}' - expected 'USE:REFERENCE_ID'")
+                    continue
+                ref_id = parts[1]
                 if ref_id not in common_pids:
                     issues.append(f"Line {line_num}: Invalid reference USE:{ref_id}")
                 else:

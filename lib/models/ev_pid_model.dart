@@ -2,6 +2,40 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 
 // ─────────────────────────────────────────────────────────────────────────────
+// EvParameterCategory  –  parametre kategorisi
+// ─────────────────────────────────────────────────────────────────────────────
+enum EvParameterCategory {
+  battery,
+  charging,
+  motor,
+  thermal,
+  vehicle,
+  unknown;
+
+  static EvParameterCategory fromString(String? s) {
+    switch (s) {
+      case 'battery':  return battery;
+      case 'charging': return charging;
+      case 'motor':    return motor;
+      case 'thermal':  return thermal;
+      case 'vehicle':  return vehicle;
+      default:         return unknown;
+    }
+  }
+
+  String get label {
+    switch (this) {
+      case battery:  return 'Batarya';
+      case charging: return 'Şarj';
+      case motor:    return 'Motor';
+      case thermal:  return 'Termal';
+      case vehicle:  return 'Araç';
+      case unknown:  return 'Diğer';
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // EvParameter  –  tek bir OBD-II parametre tanımı
 // ─────────────────────────────────────────────────────────────────────────────
 class EvParameter {
@@ -13,6 +47,8 @@ class EvParameter {
   final String? units;
   final String? header;
   final bool available;
+  final EvParameterCategory category;
+  final String description;
 
   const EvParameter({
     required this.name,
@@ -23,47 +59,62 @@ class EvParameter {
     this.units,
     this.header,
     required this.available,
+    this.category = EvParameterCategory.unknown,
+    this.description = '',
   });
 
   factory EvParameter.fromJson(Map<String, dynamic> json) {
     return EvParameter(
-      name:      json['name']     as String,
-      modePid:   json['modePid']  as String?,
-      equation:  json['equation'] as String?,
-      min:       (json['min']  as num?)?.toDouble(),
-      max:       (json['max']  as num?)?.toDouble(),
-      units:     json['units']  as String?,
-      header:    json['header'] as String?,
-      available: json['available'] as bool? ?? false,
+      name:        json['name']        as String,
+      modePid:     json['modePid']     as String?,
+      equation:    json['equation']    as String?,
+      min:         (json['min']  as num?)?.toDouble(),
+      max:         (json['max']  as num?)?.toDouble(),
+      units:       json['units']       as String?,
+      header:      json['header']      as String?,
+      available:   json['available']   as bool? ?? false,
+      category:    EvParameterCategory.fromString(json['category'] as String?),
+      description: json['description'] as String? ?? '',
     );
   }
 
   Map<String, dynamic> toJson() => {
-    'name':      name,
-    'modePid':   modePid,
-    'equation':  equation,
-    'min':       min,
-    'max':       max,
-    'units':     units,
-    'header':    header,
-    'available': available,
+    'name':        name,
+    'modePid':     modePid,
+    'equation':    equation,
+    'min':         min,
+    'max':         max,
+    'units':       units,
+    'header':      header,
+    'available':   available,
+    'category':    category.name,
+    'description': description,
   };
 
   @override
-  String toString() => 'EvParameter($name, pid=$modePid, available=$available)';
+  String toString() =>
+      'EvParameter($name, pid=$modePid, cat=${category.name}, available=$available)';
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// EvVehicle  –  bir araç ve parametreleri
+// EvVehicle  –  bir araç ve tüm OBD-II parametreleri
 // ─────────────────────────────────────────────────────────────────────────────
 class EvVehicle {
   final String id;
   final String name;
+  final String manufacturer;
+  final String platform;
+  final double batteryCapacityKwh;
+  final List<String> models;
   final List<EvParameter> parameters;
 
   const EvVehicle({
     required this.id,
     required this.name,
+    required this.manufacturer,
+    required this.platform,
+    required this.batteryCapacityKwh,
+    required this.models,
     required this.parameters,
   });
 
@@ -72,21 +123,42 @@ class EvVehicle {
         .map((p) => EvParameter.fromJson(p as Map<String, dynamic>))
         .toList();
     return EvVehicle(
-      id:         json['id']   as String,
-      name:       json['name'] as String,
-      parameters: params,
+      id:                  json['id']                   as String,
+      name:                json['name']                 as String,
+      manufacturer:        json['manufacturer']         as String? ?? '',
+      platform:            json['platform']             as String? ?? '',
+      batteryCapacityKwh:  (json['batteryCapacityKwh'] as num?)?.toDouble() ?? 0,
+      models:              (json['models'] as List<dynamic>?)
+                               ?.map((e) => e as String).toList() ?? [],
+      parameters:          params,
     );
   }
 
   Map<String, dynamic> toJson() => {
-    'id':         id,
-    'name':       name,
-    'parameters': parameters.map((p) => p.toJson()).toList(),
+    'id':                 id,
+    'name':               name,
+    'manufacturer':       manufacturer,
+    'platform':           platform,
+    'batteryCapacityKwh': batteryCapacityKwh,
+    'models':             models,
+    'parameters':         parameters.map((p) => p.toJson()).toList(),
   };
 
-  /// Yalnızca PID'i bilinen parametreler
+  // ── Helpers ──────────────────────────────────────────────────────
+
+  /// Yalnızca PID'i bilinen (available: true) parametreler
   List<EvParameter> get availableParameters =>
       parameters.where((p) => p.available).toList();
+
+  /// Kategoriye göre parametreler
+  List<EvParameter> byCategory(EvParameterCategory cat) =>
+      parameters.where((p) => p.category == cat).toList();
+
+  List<EvParameter> get batteryParameters  => byCategory(EvParameterCategory.battery);
+  List<EvParameter> get chargingParameters => byCategory(EvParameterCategory.charging);
+  List<EvParameter> get motorParameters    => byCategory(EvParameterCategory.motor);
+  List<EvParameter> get thermalParameters  => byCategory(EvParameterCategory.thermal);
+  List<EvParameter> get vehicleParameters  => byCategory(EvParameterCategory.vehicle);
 
   /// Battery SOH parametresi (null → henüz bilinmiyor)
   EvParameter? get batterySOH =>
@@ -98,7 +170,8 @@ class EvVehicle {
   bool get hasSoh => batterySOH?.available == true;
 
   @override
-  String toString() => 'EvVehicle($name, params=${parameters.length})';
+  String toString() =>
+      'EvVehicle($manufacturer $name [$platform], params=${parameters.length})';
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -122,27 +195,69 @@ class EvPidDatabase {
     String assetPath = 'assets/ev_pids.json',
   }) async {
     final raw  = await rootBundle.loadString(assetPath);
-    final json = jsonDecode(raw) as Map<String, dynamic>;
-    return EvPidDatabase.fromJson(json);
+    final data = jsonDecode(raw) as Map<String, dynamic>;
+    return EvPidDatabase.fromJson(data);
   }
 
-  /// id ile araç bul (örn. 'nissan_leaf_renault_zoe')
+  // ── Lookup & Filter ──────────────────────────────────────────────
+
+  /// ID ile araç bul (örn. 'nissan_leaf_ze0')
   EvVehicle? findById(String id) =>
       vehicles.cast<EvVehicle?>().firstWhere(
             (v) => v?.id == id,
             orElse: () => null,
           );
 
-  /// İsme göre arama (küçük/büyük harf duyarsız)
+  /// İsim, marka veya platform ile arama (büyük/küçük harf duyarsız)
   List<EvVehicle> search(String query) {
     final q = query.toLowerCase();
-    return vehicles.where((v) => v.name.toLowerCase().contains(q)).toList();
+    return vehicles.where((v) =>
+      v.name.toLowerCase().contains(q) ||
+      v.manufacturer.toLowerCase().contains(q) ||
+      v.platform.toLowerCase().contains(q) ||
+      v.models.any((m) => m.toLowerCase().contains(q))
+    ).toList();
+  }
+
+  /// Markaya göre araçlar (örn. 'BMW', 'Tesla')
+  List<EvVehicle> byManufacturer(String manufacturer) {
+    final q = manufacturer.toLowerCase();
+    return vehicles
+        .where((v) => v.manufacturer.toLowerCase() == q)
+        .toList();
+  }
+
+  /// Platforma göre araçlar (örn. 'E-GMP', 'MEB')
+  List<EvVehicle> byPlatform(String platform) {
+    final q = platform.toLowerCase();
+    return vehicles
+        .where((v) => v.platform.toLowerCase().contains(q))
+        .toList();
   }
 
   /// Tam SOH desteği olan araçlar
   List<EvVehicle> get vehiclesWithSoh =>
       vehicles.where((v) => v.hasSoh).toList();
 
+  /// Tüm markalar (unique, sıralı)
+  List<String> get manufacturers =>
+      vehicles.map((v) => v.manufacturer).toSet().toList()..sort();
+
+  /// Tüm platformlar (unique, sıralı)
+  List<String> get platforms =>
+      vehicles.map((v) => v.platform).toSet().toList()..sort();
+
+  // ── Stats ────────────────────────────────────────────────────────
+
+  int get totalParameters =>
+      vehicles.fold(0, (sum, v) => sum + v.parameters.length);
+
+  int get availableParameters =>
+      vehicles.fold(0, (sum, v) => sum + v.availableParameters.length);
+
   @override
-  String toString() => 'EvPidDatabase(${vehicles.length} vehicles)';
+  String toString() =>
+      'EvPidDatabase(${vehicles.length} vehicles, '
+      '${manufacturers.length} brands, '
+      '$totalParameters params)';
 }

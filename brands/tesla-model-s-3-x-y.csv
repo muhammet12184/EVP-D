@@ -1,0 +1,7 @@
+Name;Mode/PID;Equation;Min;Max;Units;Header
+Battery SOH;;;;;%;
+Battery SOC;22 1187;A;0;100;%;7E4
+Battery Voltage;22 1188;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 1189;(A*256+B)/10;-1000;1000;A;7E4
+Battery Temp;22 118A;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 0160;A/100;0;1;V;7E4

@@ -1,5 +1,5 @@
 Name;Mode/PID;Equation;Min;Max;Units;Header
-=== Nissan Leaf / Renault Zoe ===;;;;;;
+=== Nissan Leaf / Renault Zoe (CAN 29-bit, SP7) ===;;;;;;
 Battery SOH;22 015B;A;0;100;%;7E4
 Battery SOC;22 015C;A;0;100;%;7E4
 Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
@@ -9,114 +9,260 @@ Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
 Battery Capacity (kWh);22 0161;(A*256+B)/100;0;100;kWh;7E4
 Cell Min Voltage;22 0162;A/50;2.5;4.2;V;7E4
 Cell Max Voltage;22 0163;A/50;2.5;4.2;V;7E4
-=== Hyundai / Kia (Kona, Ioniq, Niro, EV6) ===;;;;;;
-Battery SOH;22 0170;A;0;100;%;7E4
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-DC Charge Power;22 0171;(A*256+B)/10;0;300;kW;7E4
-AC Charge Power;22 0172;(A*256+B)/10;0;22;kW;7E4
-Battery Inlet Temp;22 0173;A-40;-40;100;°C;7E4
-=== PSA (Peugeot / Opel / Citroën) ===;;;;;;
-Battery SOH;22 F40D;A;0;100;%;7E4
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-Battery Energy (kWh);22 F40E;(A*256+B)/10;0;60;kWh;7E4
-=== BMW i3 ===;;;;;;
-Battery SOH;22 2A38;A;0;100;%;7E4
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-Usable Capacity (kWh);22 2A39;(A*256+B)/100;0;42;kWh;7E4
-DC Fast Charge Count;22 2A3A;A;0;5000;Count;7E4
-=== BMW i4 / iX ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Mercedes EQ (EQA, EQB, EQE, EQS) ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Audi e-tron (Q4, Q8, GT) ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Volvo Recharge (EX30, C40, XC40) ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+AHr Remaining;22 01C3;(A*256+B)/100;0;250;Ah;7E4
+QuickCharge Count;22 01C2;(A*256+B);0;5000;Count;79B
+L2 Charge Count;22 01C1;(A*256+B);0;5000;Count;79B
+Motor RPM;22 1305;(A*256+B)-32768;-10000;10000;rpm;744
+12V Battery Voltage;22 1156;A/10;0;16;V;762
+=== Hyundai / Kia E-GMP (Ioniq 5/6, EV6, GV60) ===;;;;;;
+Battery SOH;22 0105;F/10;0;100;%;7E4
+Battery SOC BMS;22 0101;C/2;0;100;%;7E4
+Battery SOC Display;22 0101;D/2;0;100;%;7E4
+Battery Voltage;22 0101;(AE*256+AF)/10;0;800;V;7E4
+Battery Current;22 0101;((AA*256+AB)-32768)/10;-1000;1000;A;7E4
+Max Cell Voltage;22 0101;I/50;2.5;4.3;V;7E4
+Min Cell Voltage;22 0101;J/50;2.5;4.3;V;7E4
+Max Cell Temp;22 0101;N-40;-40;100;°C;7E4
+Min Cell Temp;22 0101;O-40;-40;100;°C;7E4
+Inlet Temp;22 0101;P-40;-40;100;°C;7E4
+Outlet Temp;22 0101;Q-40;-40;100;°C;7E4
+Cumulative Energy Charged;22 0101;(AC*16M+AD*65K+AE*256+AF)/10;0;99999;kWh;7E4
+Cumulative Energy Discharged;22 0101;(AG*16M+AH*65K+AI*256+AJ)/10;0;99999;kWh;7E4
+Odometer;22 B002;(C*65536+D*256+E);0;999999;km;7C6
+=== Hyundai / Kia Legacy (Kona, Niro, Soul EV) ===;;;;;;
+Battery SOH;22 0105;X/10;0;100;%;7E4
+Battery SOC;22 0101;C/2;0;100;%;7E4
+Aux Battery SOC;22 0101;AH;0;100;%;7E4
+DC Battery Voltage;22 0101;(AE*256+AF)/10;0;500;V;7E4
+DC Battery Current;22 0101;((AA*256+AB)-32768)/10;-500;500;A;7E4
+=== Stellantis / PSA (Peugeot e-208, Opel Corsa-e, DS3, C4) ===;;;;;;
+Battery SOH;22 F40D;A;0;100;%;764
+Battery SOC;22 D804;A/2;0;100;%;764
+Battery Voltage;22 D800;(A*256+B)/10;0;500;V;764
+Battery Current;22 D801;((A*256+B)-32768)/10;-1000;1000;A;764
+Battery Temp Avg;22 D802;A-40;-40;100;°C;764
+Cell Voltage Delta;22 D803;A/100;0;1;V;764
+Battery Energy Total;22 F40E;(A*256+B)/10;0;60;kWh;764
+Usable Energy;22 F40F;(A*256+B)/10;0;60;kWh;764
+=== BMW i3 (I01) ===;;;;;;
+Battery SOH;22 2A38;A;0;100;%;6F4
+Battery SOC;22 2A31;A*0.4;0;100;%;6F4
+Battery Voltage;22 2A32;(A*256+B)/10;0;500;V;6F4
+Battery Current;22 2A33;((A*256+B)-32768)/10;-1000;1000;A;6F4
+Battery Temp Min;22 2A34;A-40;-40;100;°C;6F4
+Battery Temp Max;22 2A35;A-40;-40;100;°C;6F4
+Cell Voltage Min;22 2A36;(A*256+B)/1000;2.5;4.3;V;6F4
+Cell Voltage Max;22 2A37;(A*256+B)/1000;2.5;4.3;V;6F4
+Usable Capacity (kWh);22 2A39;(A*256+B)/100;0;42;kWh;6F4
+DC Fast Charge Count;22 2A3A;(A*256+B);0;5000;Count;6F4
+Total kWh Charged;22 2A44;(A*256+B)/10;0;99999;kWh;6F4
+12V Battery Voltage;22 402B;A/10;0;16;V;6F4
+=== BMW i4 / iX / i7 (G-series) ===;;;;;;
+Battery SOH;22 DDC0;A;0;100;%;6F1
+Battery SOC;22 DDBC;A*0.4;0;100;%;6F1
+Battery Voltage;22 DDB4;(A*256+B)/10;0;800;V;6F1
+Battery Current;22 DDB5;((A*256+B)-32768)/10;-1000;1000;A;6F1
+Battery Temp;22 DDB9;A-40;-40;100;°C;6F1
+Cell Voltage Delta;22 DDBA;(A*256+B)/10000;0;1;V;6F1
+High Voltage Battery Temp;22 DDB8;A-40;-40;100;°C;6F1
+=== Mercedes-Benz EQ (EQA, EQB, EQC, EQE, EQS, EQV) ===;;;;;;
+Battery SOH;22 F18C;A;0;100;%;7E4
+Battery SOC;22 D400;A/2;0;100;%;7E4
+Battery Voltage;22 D401;(A*256+B)/10;0;500;V;7E4
+Battery Current;22 D402;((A*256+B)-32768)/10;-1000;1000;A;7E4
+Battery Temp;22 D403;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 D404;(A*256+B)/10000;0;1;V;7E4
+Max Cell Voltage;22 D405;(A*256+B)/1000;2.5;4.3;V;7E4
+Min Cell Voltage;22 D406;(A*256+B)/1000;2.5;4.3;V;7E4
+=== Audi e-tron / Q4 e-tron / Q8 e-tron / GT ===;;;;;;
+Battery SOH;22 74CE;A;0;100;%;7E5
+Battery SOC;22 028C;A/2.55;0;100;%;7E5
+Battery Voltage;22 1E3B;(A*256+B)/4;0;800;V;7E5
+Battery Current;22 1E3D;((A*256+B)-32768)/4;-1000;1000;A;7E5
+Battery Temp Max;22 1E0F;A-40;-40;100;°C;7E5
+Battery Temp Min;22 1E10;A-40;-40;100;°C;7E5
+Cell Voltage Delta;22 1E3E;(A*256+B)/10000;0;1;V;7E5
+Battery Net Capacity;22 74CF;(A*256+B)/10;0;110;kWh;7E5
+=== VW ID.3 / ID.4 / ID.5 / ID.7 / ID.Buzz (MEB) ===;;;;;;
+Battery SOH;22 74CE;A;0;100;%;1C4080F1
+Battery SOC;22 028C;A/2.55;0;100;%;1C4080F1
+Battery Voltage;22 1E3B;(A*256+B)/4;0;500;V;1C4080F1
+Battery Current;22 1E3D;((A*256+B)-32768)/4;-1000;1000;A;1C4080F1
+Battery Temp;22 1E0F;A-40;-40;100;°C;1C4080F1
+Cell Voltage Delta;22 1E3E;(A*256+B)/10000;0;1;V;1C4080F1
+Gross Capacity;22 74CF;(A*256+B)/10;0;110;kWh;1C4080F1
+=== Škoda Enyaq / Cupra Born (MEB) ===;;;;;;
+Battery SOH;22 74CE;A;0;100;%;7E5
+Battery SOC;22 028C;A/2.55;0;100;%;7E5
+Battery Voltage;22 1E3B;(A*256+B)/4;0;500;V;7E5
+Battery Current;22 1E3D;((A*256+B)-32768)/4;-1000;1000;A;7E5
+Battery Temp;22 1E0F;A-40;-40;100;°C;7E5
+Cell Voltage Delta;22 1E3E;(A*256+B)/10000;0;1;V;7E5
+=== Volvo Recharge / Polestar 2 (EX30, C40, XC40) ===;;;;;;
+Battery SOH;22 4B00;A;0;100;%;7E4
+Battery SOC;22 4B01;A/2;0;100;%;7E4
+Battery Voltage;22 4B02;(A*256+B)/10;0;500;V;7E4
+Battery Current;22 4B03;((A*256+B)-32768)/10;-1000;1000;A;7E4
+Battery Temp;22 4B04;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 4B05;(A*256+B)/10000;0;1;V;7E4
+Usable Capacity;22 4B06;(A*256+B)/10;0;80;kWh;7E4
 === Porsche Taycan ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== BYD (Atto 3, Dolphin, Seal) ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== MG (ZS EV, MG4) ===;;;;;;
-Battery SOH;;;;;%;
+Battery SOH;22 D000;A;0;100;%;7E5
+Battery SOC;22 D001;A/2;0;100;%;7E5
+Battery Voltage;22 D002;(A*256+B)/10;0;800;V;7E5
+Battery Current;22 D003;((A*256+B)-32768)/10;-1000;1000;A;7E5
+Battery Temp;22 D004;A-40;-40;100;°C;7E5
+Cell Voltage Delta;22 D005;(A*256+B)/10000;0;1;V;7E5
+Net Capacity;22 D006;(A*256+B)/10;0;93;kWh;7E5
+=== BYD Atto 3 / Dolphin / Seal / Han / Tang ===;;;;;;
+Battery SOH;22 0101;D;0;100;%;7E7
+Battery SOC;22 0102;A/2;0;100;%;7E7
+Battery Voltage;22 0103;(A*256+B)/10;0;500;V;7E7
+Battery Current;22 0104;((A*256+B)-32768)/10;-1000;1000;A;7E7
+Battery Temp Max;22 0105;A-40;-40;100;°C;7E7
+Battery Temp Min;22 0106;A-40;-40;100;°C;7E7
+Cell Voltage Max;22 0107;(A*256+B)/1000;2.5;3.8;V;7E7
+Cell Voltage Min;22 0108;(A*256+B)/1000;2.5;3.8;V;7E7
+Cell Voltage Delta;22 0109;(A*256+B)/10000;0;1;V;7E7
+=== MG (ZS EV, MG4, MG5, Marvel R) ===;;;;;;
+Battery SOH;22 B002;A;0;100;%;7E4
 Battery SOC;22 3101;A;0;100;%;7E4
 Battery Voltage;22 3102;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 3103;(A*256+B)/10;-1000;1000;A;7E4
+Battery Current;22 3103;((A*256+B)-32768)/100;-500;500;A;7E4
 Battery Temp;22 3104;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Tesla Model S / 3 / X / Y ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 1187;A;0;100;%;7E4
+Cell Voltage Delta;22 3105;(A*256+B)/10000;0;1;V;7E4
+Max Cell Voltage;22 3106;(A*256+B)/1000;2.5;4.3;V;7E4
+Min Cell Voltage;22 3107;(A*256+B)/1000;2.5;4.3;V;7E4
+=== Tesla Model S / 3 / X / Y (özel CAN) ===;;;;;;
+Battery SOH;22 1186;A;0;100;%;7E4
+Battery SOC;22 1187;A/2;0;100;%;7E4
 Battery Voltage;22 1188;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 1189;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 118A;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== TOGG T10X ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 2101;A;0;100;%;7E4
-Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E4
+Battery Current;22 1189;((A*256+B)-32768)/10;-1500;1500;A;7E4
+Battery Temp Max;22 118A;A-40;-40;100;°C;7E4
+Battery Temp Min;22 118B;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 118C;(A*256+B)/10000;0;1;V;7E4
+Nominal Full Pack Energy;22 118D;(A*256+B)/10;0;110;kWh;7E4
+Nominal Remaining Energy;22 118E;(A*256+B)/10;0;110;kWh;7E4
+Ideal Range;22 118F;(A*256+B)/10;0;800;km;7E4
+=== TOGG T10X / T10F ===;;;;;;
+Battery SOH;22 2105;A;0;100;%;7E4
+Battery SOC;22 2101;A/2;0;100;%;7E4
+Battery Voltage;22 2102;(A*256+B)/10;0;450;V;7E4
+Battery Current;22 2103;((A*256+B)-32768)/10;-500;500;A;7E4
 Battery Temp;22 2104;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Honda e ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 2101;A;0;100;%;7E2
-Battery Voltage;22 2102;(A*256+B)/100;0;500;V;7E2
-Battery Current;22 2103;(A*256+B)/10;-1000;1000;A;7E2
+Cell Voltage Delta;22 2106;(A*256+B)/10000;0;1;V;7E4
+Usable Capacity;22 2107;(A*256+B)/10;0;90;kWh;7E4
+Motor Temp;22 2108;A-40;-40;200;°C;7E2
+=== Honda e / Honda Prologue ===;;;;;;
+Battery SOH;22 E000;A;0;100;%;7E2
+Battery SOC;22 2101;A/2;0;100;%;7E2
+Battery Voltage;22 2102;(A*256+B)/10;0;400;V;7E2
+Battery Current;22 2103;((A*256+B)-32768)/10;-500;500;A;7E2
 Battery Temp;22 2104;A-40;-40;100;°C;7E2
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E2
-=== Toyota bZ4X ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 2201;A;0;100;%;7E4
-Battery Voltage;22 2202;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 2203;(A*256+B)/10;-1000;1000;A;7E4
+Cell Voltage Delta;22 2105;(A*256+B)/10000;0;1;V;7E2
+=== Toyota bZ4X / Lexus RZ / Subaru Solterra ===;;;;;;
+Battery SOH;22 2205;A;0;100;%;7E4
+Battery SOC;22 2201;A/2;0;100;%;7E4
+Battery Voltage;22 2202;(A*256+B)/10;0;400;V;7E4
+Battery Current;22 2203;((A*256+B)-32768)/10;-500;500;A;7E4
 Battery Temp;22 2204;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
-=== Mini Cooper SE ===;;;;;;
-Battery SOH;;;;;%;
-Battery SOC;22 015C;A;0;100;%;7E4
-Battery Voltage;22 015D;(A*256+B)/100;0;500;V;7E4
-Battery Current;22 015E;(A*256+B)/10;-1000;1000;A;7E4
-Battery Temp;22 015F;A-40;-40;100;°C;7E4
-Cell Voltage Delta;22 0160;A/100;0;1;V;7E4
+Cell Voltage Delta;22 2206;(A*256+B)/10000;0;1;V;7E4
+Usable Capacity;22 2207;(A*256+B)/10;0;72;kWh;7E4
+=== Mini Cooper SE (F56e) ===;;;;;;
+Battery SOH;22 2A38;A;0;100;%;6F4
+Battery SOC;22 2A31;A*0.4;0;100;%;6F4
+Battery Voltage;22 2A32;(A*256+B)/10;0;400;V;6F4
+Battery Current;22 2A33;((A*256+B)-32768)/10;-500;500;A;6F4
+Battery Temp;22 2A34;A-40;-40;100;°C;6F4
+Cell Voltage Delta;22 2A37;(A*256+B)/10000;0;1;V;6F4
+Usable Capacity;22 2A39;(A*256+B)/100;0;32;kWh;6F4
+=== Ford Mustang Mach-E / F-150 Lightning ===;;;;;;
+Battery SOH;22 4910;A;0;100;%;7E4
+Battery SOC;22 4911;A/2;0;100;%;7E4
+Battery Voltage;22 4912;(A*256+B)/10;0;500;V;7E4
+Battery Current;22 4913;((A*256+B)-32768)/10;-1500;1500;A;7E4
+Battery Temp;22 4914;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 4915;(A*256+B)/10000;0;1;V;7E4
+=== Chevrolet Bolt / Volt / Cadillac Lyriq ===;;;;;;
+Battery SOH;22 43A2;A;0;100;%;7E4
+Battery SOC;22 005B;A/2.55;0;100;%;7E4
+Battery Voltage;22 432E;(A*256+B)/100;0;500;V;7E4
+Battery Current;22 432B;((A*256+B)-32768)/10;-500;500;A;7E4
+Battery Temp;22 434F;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 43A5;(A*256+B)/10000;0;1;V;7E4
+=== Jaguar I-Pace ===;;;;;;
+Battery SOH;22 4B01;A;0;100;%;7E4
+Battery SOC;22 4B02;A/2;0;100;%;7E4
+Battery Voltage;22 4B03;(A*256+B)/10;0;500;V;7E4
+Battery Current;22 4B04;((A*256+B)-32768)/10;-1000;1000;A;7E4
+Battery Temp;22 4B05;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 4B06;(A*256+B)/10000;0;1;V;7E4
+=== NIO ET5 / ET7 / ES6 / ES8 ===;;;;;;
+Battery SOH;22 F190;A;0;100;%;7E4
+Battery SOC;22 F191;A/2;0;100;%;7E4
+Battery Voltage;22 F192;(A*256+B)/10;0;500;V;7E4
+Battery Current;22 F193;((A*256+B)-32768)/10;-1000;1000;A;7E4
+Battery Temp;22 F194;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 F195;(A*256+B)/10000;0;1;V;7E4
+=== XPeng P7 / G9 / G6 ===;;;;;;
+Battery SOH;22 2801;A;0;100;%;7E4
+Battery SOC;22 2802;A/2;0;100;%;7E4
+Battery Voltage;22 2803;(A*256+B)/10;0;800;V;7E4
+Battery Current;22 2804;((A*256+B)-32768)/10;-1000;1000;A;7E4
+Battery Temp;22 2805;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 2806;(A*256+B)/10000;0;1;V;7E4
+=== Zeekr 001 / X / 007 ===;;;;;;
+Battery SOH;22 7A01;A;0;100;%;7E4
+Battery SOC;22 7A02;A/2;0;100;%;7E4
+Battery Voltage;22 7A03;(A*256+B)/10;0;800;V;7E4
+Battery Current;22 7A04;((A*256+B)-32768)/10;-1000;1000;A;7E4
+Battery Temp;22 7A05;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 7A06;(A*256+B)/10000;0;1;V;7E4
+=== Rivian R1T / R1S ===;;;;;;
+Battery SOH;22 5A01;A;0;100;%;7E4
+Battery SOC;22 5A02;A/2;0;100;%;7E4
+Battery Voltage;22 5A03;(A*256+B)/10;0;500;V;7E4
+Battery Current;22 5A04;((A*256+B)-32768)/10;-1500;1500;A;7E4
+Battery Temp;22 5A05;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 5A06;(A*256+B)/10000;0;1;V;7E4
+=== Lucid Air ===;;;;;;
+Battery SOH;22 6B01;A;0;100;%;7E4
+Battery SOC;22 6B02;A/2;0;100;%;7E4
+Battery Voltage;22 6B03;(A*256+B)/10;0;900;V;7E4
+Battery Current;22 6B04;((A*256+B)-32768)/10;-1500;1500;A;7E4
+Battery Temp;22 6B05;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 6B06;(A*256+B)/10000;0;1;V;7E4
+=== Fiat 500e / Abarth 500e ===;;;;;;
+Battery SOH;22 F40D;A;0;100;%;764
+Battery SOC;22 D804;A/2;0;100;%;764
+Battery Voltage;22 D800;(A*256+B)/10;0;400;V;764
+Battery Current;22 D801;((A*256+B)-32768)/10;-500;500;A;764
+Battery Temp;22 D802;A-40;-40;100;°C;764
+Cell Voltage Delta;22 D803;(A*256+B)/10000;0;1;V;764
+=== Smart #1 / #3 (Geely SEA) ===;;;;;;
+Battery SOH;22 B001;A;0;100;%;7E4
+Battery SOC;22 B002;A/2;0;100;%;7E4
+Battery Voltage;22 B003;(A*256+B)/10;0;500;V;7E4
+Battery Current;22 B004;((A*256+B)-32768)/10;-1000;1000;A;7E4
+Battery Temp;22 B005;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 B006;(A*256+B)/10000;0;1;V;7E4
+=== VinFast VF 8 / VF 9 ===;;;;;;
+Battery SOH;22 F001;A;0;100;%;7E4
+Battery SOC;22 F002;A/2;0;100;%;7E4
+Battery Voltage;22 F003;(A*256+B)/10;0;500;V;7E4
+Battery Current;22 F004;((A*256+B)-32768)/10;-1000;1000;A;7E4
+Battery Temp;22 F005;A-40;-40;100;°C;7E4
+Cell Voltage Delta;22 F006;(A*256+B)/10000;0;1;V;7E4
+=== Generic OBD-II Mode 01 (tüm araçlar) ===;;;;;;
+Engine Coolant Temp;01 05;A-40;-40;215;°C;7E0
+Engine RPM;01 0C;((A*256)+B)/4;0;16383;rpm;7E0
+Vehicle Speed;01 0D;A;0;255;km/h;7E0
+Intake Air Temp;01 0F;A-40;-40;215;°C;7E0
+Throttle Position;01 11;A*100/255;0;100;%;7E0
+Fuel Tank Level;01 2F;A*100/255;0;100;%;7E0
+Ambient Air Temp;01 46;A-40;-40;215;°C;7E0
+Control Module Voltage;01 42;(A*256+B)/1000;0;65.535;V;7E0
+Hybrid Battery SOC;01 5B;A*100/255;0;100;%;7E0
+Engine Oil Temp;01 5C;A-40;-40;215;°C;7E0
+Odometer (Mode 01);01 A6;((A*16M)+(B*65K)+(C*256)+D)/10;0;429496729;km;7E0
+VIN (Mode 09);09 02;ASCII;;;;7E0

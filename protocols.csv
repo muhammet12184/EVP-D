@@ -1,0 +1,110 @@
+ID;Name;ATCommand;Speed;Framing;Category;Notes
+=== ELM327 Standart ===;;;;;;
+0;Automatic;ATSP0;auto;auto;auto;Tüm protokolleri tarar
+1;SAE J1850 PWM;ATSP1;41.6 kbps;PWM;US Legacy;Eski Ford
+2;SAE J1850 VPW;ATSP2;10.4 kbps;VPW;US Legacy;Eski GM / Chrysler
+3;ISO 9141-2;ATSP3;10.4 kbps;K-Line;EU/Asia Legacy;5-baud init
+4;ISO 14230-4 KWP slow;ATSP4;10.4 kbps;K-Line;KWP2000;5-baud init
+5;ISO 14230-4 KWP fast;ATSP5;10.4 kbps;K-Line;KWP2000;Fast init
+6;ISO 15765-4 CAN 11/500;ATSP6;500 kbps;CAN;Modern OBD-II;EV standart
+7;ISO 15765-4 CAN 29/500;ATSP7;500 kbps;CAN;Modern OBD-II;Nissan Leaf / Renault Zoe
+8;ISO 15765-4 CAN 11/250;ATSP8;250 kbps;CAN;Commercial;Ticari araç
+9;ISO 15765-4 CAN 29/250;ATSP9;250 kbps;CAN;Commercial;Ticari araç
+A;SAE J1939 CAN 29/250;ATSPA;250 kbps;CAN;Heavy Duty;Kamyon
+B;USER1 CAN 11/125;ATSPB;125 kbps;CAN;User;Kullanıcı tanımlı
+C;USER2 CAN 11/50;ATSPC;50 kbps;CAN;User;Kullanıcı tanımlı
+=== STN Genişletilmiş (OBDLink MX+) ===;;;;;;
+21;ISO15765 11/250;STP21;250 kbps;CAN;STN;STN özel
+22;ISO15765 29/250;STP22;250 kbps;CAN;STN;STN özel
+23;ISO15765 11/500;STP23;500 kbps;CAN;STN;STN özel
+24;ISO15765 29/500;STP24;500 kbps;CAN;STN;STN özel
+25;ISO15765 11/125;STP25;125 kbps;CAN;STN;STN özel
+31;J1939 11-bit 250;STP31;250 kbps;CAN;STN HD;Heavy Duty
+32;J1939 29-bit 250;STP32;250 kbps;CAN;STN HD;Heavy Duty
+33;J1939 11-bit 500;STP33;500 kbps;CAN;STN HD;Heavy Duty
+34;J1939 29-bit 500;STP34;500 kbps;CAN;STN HD;Heavy Duty
+41;GMLAN SW-CAN;STP41;33.3 kbps;SW-CAN;GM;Single Wire
+42;GMLAN SW-CAN HS;STP42;83.3 kbps;SW-CAN;GM;High speed mode
+51;Ford MS-CAN;STP51;125 kbps;CAN;Ford;Mid-Speed gövde
+52;MS-CAN 11/95;STP52;95.2 kbps;CAN;Ford;Eski gövde
+53;Fault-Tolerant CAN;STP53;125 kbps;FT-CAN;VAG/Mercedes;Çift yönlü
+=== Diagnostik Servis Katmanı ===;;;;;;
+UDS;ISO 14229 UDS;-;-;-;Diagnostic;EV'lerin %95i
+KWP2000;ISO 14230;-;-;-;Diagnostic;Eski Asya/Avrupa
+OBDII;ISO 15031 / SAE J1979;-;-;-;Diagnostic;Standart OBD
+EOBD;ISO 15031 (EU);-;-;-;Diagnostic;AB varyantı
+WWH-OBD;ISO 27145;-;-;-;Diagnostic;Dünya HD standardı
+DoIP;ISO 13400;100 Mbps;Ethernet;Diagnostic;VW MEB / BMW G
+DoCAN;ISO 15765-3;500 kbps;CAN;Diagnostic;UDS over CAN
+ISO-TP;ISO 15765-2;-;-;Transport;Multi-frame 4095 byte
+J1939-73;SAE J1939-73;250 kbps;CAN;HD Diag;Truck diagnostic
+J1979-2;SAE J1979-2;-;-;Diagnostic;OBD over UDS
+J2534;SAE J2534 PassThru;-;-;Programming;ECU reflash
+J2190;SAE J2190;-;-;Diagnostic;Enhanced test modes
+J2178;SAE J2178;-;-;Class B;Mesaj tanımları
+J2284;SAE J2284;500 kbps;CAN;Physical;HS-CAN standart
+J2411;SAE J2411;33.3 kbps;SW-CAN;Physical;GM Single Wire
+J2740;GMLAN;500 kbps;CAN;GM;GM genel
+J2602;SAE J2602 LIN;20 kbps;LIN;Body;LIN varyantı
+=== Üretici-Özel CAN ===;;;;;;
+VAG-TP20;VAG Transport Protocol 2.0;500 kbps;CAN;VAG;VW/Audi/Skoda/Seat
+VAG-TP16;VAG TP 1.6;500 kbps;CAN;VAG;Eski VAG
+GMLAN-SW;GMLAN Single Wire;33.3 kbps;SW-CAN;GM;
+GMLAN-HS;GMLAN High Speed;500 kbps;CAN;GM;
+FORD-MS;Ford MS-CAN;125 kbps;CAN;Ford;Gövde
+FORD-HS;Ford HS-CAN;500 kbps;CAN;Ford;Powertrain
+FORD-SCP;Ford SCP;41.6 kbps;J1850 PWM;Ford;Eski standart
+CHRYSLER-CCD;Chrysler CCD Bus;7.8 kbps;Differential;Chrysler;Eski
+CHRYSLER-PCI;Chrysler PCI J1850 VPW;10.4 kbps;VPW;Chrysler;
+CHRYSLER-SCI;Chrysler SCI;62.5 kbps;Serial;Chrysler;Programming
+MB-DC-CAN;Mercedes Drivetrain CAN;500 kbps;CAN;Mercedes;
+MB-DIAG-CAN;Mercedes Diag-CAN;83.3 kbps;CAN;Mercedes;
+BMW-BSD;BMW Bit Serial Data;9.6 kbps;Serial;BMW;Eski
+BMW-DS2;BMW DS2;9.6 kbps;K-Line;BMW;E36/E38/E39
+BMW-DS1;BMW DS1;1.2 kbps;Serial;BMW;Çok eski
+BMW-PT-CAN;BMW PT-CAN;500 kbps;CAN;BMW;Powertrain
+BMW-F-CAN;BMW F-CAN;500 kbps;CAN;BMW;Şase
+BMW-K-CAN;BMW K-CAN;100 kbps;CAN;BMW;Comfort
+BMW-MOST;BMW MOST;25 Mbps;Optical;BMW;Multimedya
+TOYOTA-KLINE;Toyota K-Line;10.4 kbps;K-Line;Toyota;Eski
+HONDA-DLC;Honda DLC;10.4 kbps;K-Line;Honda;
+SUBARU-SSM1;Subaru Select Monitor 1;1953 bps;Serial;Subaru;Çok eski
+SUBARU-SSM2;Subaru SSM2;4800/10400 bps;K-Line;Subaru;
+SUBARU-SSM3;Subaru SSM3;500 kbps;CAN;Subaru;CAN SSM
+MAZDA-PCM;Mazda PCM K-Line;10.4 kbps;K-Line;Mazda;
+RENAULT-DDT;Renault DDT2000;10.4 kbps;K-Line;Renault;
+RENAULT-CLIP;Renault CAN-CLIP;500 kbps;CAN;Renault;
+PSA-DIAGBOX;PSA Diagbox CAN;500 kbps;CAN;Stellantis;Peugeot/Citroën
+VOLVO-VIDA;Volvo VIDA;500 kbps;CAN;Volvo;
+TESLA-CAN;Tesla Private CAN;500 kbps;CAN;Tesla;Ters mühendislik
+=== EV Şarj İletişimi ===;;;;;;
+CHADEMO;CHAdeMO DC Charge;500 kbps;CAN;EV Charging;Nissan/Mitsubishi
+CCS-PLC;CCS PLC (HomePlug GP);-;PLC;EV Charging;ISO 15118
+ISO15118;ISO 15118 V2G;-;PLC/Eth;EV Charging;Plug & Charge
+GBT27930;GB/T 27930 Çin DC;250 kbps;CAN;EV Charging;Çin standardı
+J1772;SAE J1772 Pilot;1 kHz;PWM;EV Charging;AC control pilot
+=== Gövde / Ağ Bus ===;;;;;;
+LIN;ISO 17987 LIN;19.2 kbps;LIN;Body;Local Interconnect
+FLEXRAY;ISO 17458 FlexRay;10 Mbps;FlexRay;Chassis;X-by-wire
+MOST25;MOST 25;25 Mbps;Optical;Multimedia;
+MOST50;MOST 50;50 Mbps;Optical;Multimedia;
+MOST150;MOST 150;150 Mbps;Optical;Multimedia;
+ETH-AVB;Automotive Ethernet AVB;1 Gbps;Ethernet;Backbone;TSN
+BROADR;BroadR-Reach 100BASE-T1;100 Mbps;Ethernet;Backbone;Tek çift
+CAN-FD;ISO 11898-1:2015 CAN FD;5 Mbps;CAN;Modern;Yeni araçlar
+CAN-XL;CAN XL;10 Mbps;CAN;Modern;Gelecek
+A2B;Analog Devices A2B;50 Mbps;Audio bus;Audio;
+=== Eski / Niche ===;;;;;;
+ALDL-160;GM ALDL 160 baud;160 bps;Serial;GM Legacy;1980-93
+ALDL-8192;GM ALDL 8192 baud;8192 bps;Serial;GM Legacy;1994-95
+MUT-II;Mitsubishi MUT-II;K-Line;-;Mitsubishi Legacy;
+MUT-III;Mitsubishi MUT-III;CAN;500 kbps;Mitsubishi;
+HONDA-PGM;Honda PGM-FI;Serial;-;Honda Legacy;
+TOYOTA-TDCL;Toyota TDCL;Serial;-;Toyota Legacy;
+BOSCH-MONO;Bosch Mono-Jetronic K-Line;K-Line;10.4 kbps;Bosch;
+GM-CLASS2;GM Class 2 VPW;10.4 kbps;VPW;GM;
+J1708;SAE J1708 UART;9600 bps;RS-485;HD Legacy;
+J1587;SAE J1587 msg;-;over J1708;HD;Mesaj katmanı
+CANOPEN;CAN Open;1 Mbps;CAN;Industrial;Bazı Çin EV
+XCP;XCP Calibration;CAN/Eth;-;Calibration;
+CCP;CAN Calibration Protocol;500 kbps;CAN;Calibration;

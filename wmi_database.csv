@@ -1,0 +1,218 @@
+Brand;Country;WMI1;WMI2;WMI3;WMI4;WMI5;Category;DefaultProtocol
+=== EV / Hibrit Öncelikli ===;;;;;;;;
+Tesla;USA/China;5YJ;7SA;LRW;XP7;SFZ;EV;SP6
+BYD;China;LGX;LC0;LA9;LGB;LPE;EV;SP6
+Nio;China;LJ9;L6T;;;;EV;SP6
+Xpeng;China;LMW;LVH;;;;EV;SP6
+Li Auto;China;LRL;LJ6;;;;EV;SP6
+Polestar;Sweden;LPS;YS3;LPV;;;EV;SP6
+Rivian;USA;7FC;7PD;;;;EV;SP6
+Lucid;USA;50E;50G;;;;EV;SP6
+Fisker;USA;7G2;YH4;;;;EV;SP6
+Zeekr;China;LB3;LVA;;;;EV;SP6
+Neta;China;LGH;LVS;;;;EV;SP6
+Leapmotor;China;LL6;LDC;;;;EV;SP6
+Aion (GAC);China;LMG;LJD;;;;EV;SP6
+Voyah;China;LGA;;;;;EV;SP6
+Avatr;China;LS5;;;;;EV;SP6
+IM Motors;China;LSJ;;;;;EV;SP6
+HiPhi;China;LVG;;;;;EV;SP6
+Lotus EV;UK/China;SCC;LEV;;;;EV;SP6
+VinFast;Vietnam;RLU;RL4;;;;EV;SP6
+Togg;Turkey;NM0;TRA;NMT;;;EV;SP6
+=== Japon ===;;;;;;;;
+Toyota;Japan;JTD;JTM;JTE;4T1;5TD;Passenger;SP6
+Lexus;Japan;JTH;2T2;JTJ;JTN;;Passenger;SP6
+Daihatsu;Japan;JDA;MH4;;;;Passenger;SP6
+Honda;Japan;JHM;1HG;2HG;5FN;5J6;Passenger;SP6
+Acura;Japan;19U;JH4;2HN;5J8;;Passenger;SP6
+Nissan;Japan;JN1;JN6;JN8;1N4;3N1;Passenger;SP6
+Infiniti;Japan;JNK;JNR;5N3;;;Passenger;SP6
+Datsun;India;MDH;;;;;Passenger;SP6
+Mazda;Japan;JM1;JM3;4F2;JMZ;;Passenger;SP6
+Subaru;Japan;JF1;JF2;4S3;4S4;JF3;Passenger;SP6
+Mitsubishi;Japan;JA3;JA4;4A3;4A4;JMB;Passenger;SP6
+Suzuki;Japan;JS1;JS2;JSA;MMS;;Passenger;SP6
+Isuzu;Japan;JAC;4S1;JAA;MPA;;Passenger;SP6
+Hino;Japan;JHH;JHD;;;;Truck;SPA
+Mitsuoka;Japan;JYA;;;;;Passenger;SP6
+=== Kore ===;;;;;;;;
+Hyundai;Korea;KMH;KM8;5NP;5NM;KMF;Passenger;SP6
+Kia;Korea;KNA;KND;KNE;5XX;5XY;Passenger;SP6
+Genesis;Korea;KMT;KMH;;;;Passenger;SP6
+SsangYong;Korea;KPA;KPT;KPB;;;Passenger;SP6
+Daewoo;Korea;KLA;KL1;KLT;;;Passenger;SP6
+=== Çin ===;;;;;;;;
+Chery;China;LVV;LVT;LVS;;;Passenger;SP6
+Geely;China;LB2;L6T;LFM;LJU;;Passenger;SP6
+Great Wall;China;LGW;LGH;;;;Passenger;SP6
+Haval;China;LGW;;;;;SUV;SP6
+Tank;China;LGW;;;;;SUV;SP6
+Ora;China;LGW;;;;;EV;SP6
+MG (SAIC);China;SDP;LSJ;LSV;;;Passenger;SP6
+Maxus;China;LSH;LSJ;;;;Commercial;SP6
+Roewe;China;LSJ;LSV;;;;Passenger;SP6
+Baojun;China;LSG;LZW;;;;Passenger;SP6
+Wuling;China;LZW;;;;;Passenger;SP6
+Hongqi;China;LFV;LFP;;;;Luxury;SP6
+Dongfeng;China;LGA;LG6;LDN;;;Passenger;SP6
+Changan;China;LS5;LS4;;;;Passenger;SP6
+FAW;China;LFV;LFP;LJ4;;;Passenger;SP6
+JAC;China;LJ1;LJ8;;;;Passenger;SP6
+GAC Trumpchi;China;LMG;LJD;;;;Passenger;SP6
+BAIC;China;LJC;LNV;;;;Passenger;SP6
+Lynk & Co;China;LNB;LVJ;;;;Passenger;SP6
+Beijing;China;LFM;;;;;Passenger;SP6
+Brilliance;China;LVR;LAN;;;;Passenger;SP6
+Jetour;China;LJ8;;;;;SUV;SP6
+Exeed;China;LVT;;;;;SUV;SP6
+Haima;China;LVX;;;;;Passenger;SP6
+Foton;China;LVB;;;;;Truck;SPA
+JMC;China;LDC;;;;;Truck;SPA
+=== Alman ===;;;;;;;;
+Volkswagen;Germany;WVW;WV1;WV2;1VW;3VW;Passenger;SP6
+Audi;Germany;WAU;WA1;TRU;93U;;Passenger;SP6
+Porsche;Germany;WP0;WP1;;;;Luxury;SP6
+BMW;Germany;WBA;WBS;WBY;5UX;4US;Passenger;SP6
+Mini;UK/Germany;WMW;SAX;;;;Passenger;SP6
+Mercedes-Benz;Germany;WDB;WDD;WDC;W1K;4JG;Passenger;SP6
+Maybach;Germany;WDD;W1K;;;;Luxury;SP6
+Smart;Germany/China;WME;LZW;MB1;;;Passenger;SP6
+Opel;Germany;W0L;W0V;SED;;;Passenger;SP6
+Alpina;Germany;WAP;;;;;Luxury;SP6
+Borgward;Germany;LFM;;;;;Passenger;SP6
+Ruf;Germany;W09;;;;;Luxury;SP6
+Brabus;Germany;WDB;;;;;Tuning;SP6
+=== İngiliz ===;;;;;;;;
+Jaguar;UK;SAJ;SAD;;;;Luxury;SP6
+Land Rover;UK;SAL;SAT;;;;SUV;SP6
+Rolls-Royce;UK;SCA;;;;;Luxury;SP6
+Bentley;UK;SCB;;;;;Luxury;SP6
+Aston Martin;UK;SCF;SCE;;;;Luxury;SP6
+Lotus;UK;SCC;SCP;;;;Sports;SP6
+McLaren;UK;SBM;;;;;Sports;SP6
+Morgan;UK;SA9;;;;;Sports;SP6
+TVR;UK;SDL;;;;;Sports;SP6
+Caterham;UK;SDK;;;;;Sports;SP6
+Ariel;UK;SFA;;;;;Sports;SP6
+Noble;UK;SA9;;;;;Sports;SP6
+Vauxhall;UK;VXK;W0L;SED;;;Passenger;SP6
+Ginetta;UK;SA9;;;;;Sports;SP6
+=== Fransız ===;;;;;;;;
+Renault;France;VF1;VF2;VF6;;;Passenger;SP7
+Dacia;Romania;UU1;UU6;;;;Passenger;SP6
+Alpine;France;VFA;VF1;;;;Sports;SP6
+Peugeot;France;VF3;VR3;;;;Passenger;SP6
+Citroën;France;VF7;VR7;;;;Passenger;SP6
+DS Automobiles;France;VR1;;;;;Luxury;SP6
+Bugatti;France;VF9;;;;;Luxury;SP6
+Venturi;Monaco;VS9;;;;;EV;SP6
+Ligier;France;VLU;;;;;Microcar;SP3
+Aixam;France;VLA;;;;;Microcar;SP3
+=== İtalyan ===;;;;;;;;
+Fiat;Italy;ZFA;;;;;Passenger;SP6
+Ferrari;Italy;ZFF;;;;;Luxury;SP6
+Lamborghini;Italy;ZHW;;;;;Luxury;SP6
+Maserati;Italy;ZAM;;;;;Luxury;SP6
+Alfa Romeo;Italy;ZAR;;;;;Passenger;SP6
+Lancia;Italy;ZLA;;;;;Passenger;SP6
+Abarth;Italy;ZFA;;;;;Sports;SP6
+Pagani;Italy;ZA9;;;;;Luxury;SP6
+De Tomaso;Italy;ZDT;;;;;Sports;SP6
+Iveco;Italy;ZCF;;;;;Truck;SPA
+Piaggio;Italy;ZAP;;;;;Microcar;SP3
+=== İspanyol / Portekiz ===;;;;;;;;
+Seat;Spain;VSS;;;;;Passenger;SP6
+Cupra;Spain;VSS;;;;;Passenger;SP6
+Hispano Suiza;Spain;VSH;;;;;Luxury;SP6
+GTA Motor;Spain;VS6;;;;;Sports;SP6
+=== İsveç / İskandinav ===;;;;;;;;
+Volvo;Sweden;YV1;YV4;YV3;YV2;;Passenger;SP6
+Saab;Sweden;YS3;YS4;;;;Passenger;SP6
+Koenigsegg;Sweden;YT9;;;;;Luxury;SP6
+Scania;Sweden;YS2;9BS;;;;Truck;SPA
+=== Orta / Doğu Avrupa ===;;;;;;;;
+Škoda;Czech;TMB;TMP;;;;Passenger;SP6
+Tatra;Czech;TNU;;;;;Truck;SPA
+Lada;Russia;XTA;XTT;;;;Passenger;SP5
+GAZ;Russia;XTH;;;;;Commercial;SP5
+UAZ;Russia;XTT;;;;;SUV;SP5
+Kamaz;Russia;XTC;;;;;Truck;SPA
+Aurus;Russia;XWW;;;;;Luxury;SP6
+Moskvich;Russia;X9L;;;;;Passenger;SP6
+Zastava;Serbia;VX1;;;;;Passenger;SP3
+=== ABD ===;;;;;;;;
+Ford;USA;1FA;1FM;1FT;3FA;WF0;Passenger;SP6
+Lincoln;USA;1LN;5LM;2LM;;;Luxury;SP6
+Mercury;USA;1MR;2MR;;;;Passenger;SP6
+Chevrolet;USA;1G1;1GC;2G1;3G1;KL1;Passenger;SP6
+GMC;USA;1GT;1GK;3GT;;;Truck;SP6
+Cadillac;USA;1G6;2G6;1GY;;;Luxury;SP6
+Buick;USA;1G4;2G4;LSG;;;Passenger;SP6
+Pontiac;USA;1G2;2G2;;;;Passenger;SP6
+Saturn;USA;1G8;;;;;Passenger;SP6
+Hummer;USA;5GR;137;;;;SUV;SP6
+Chrysler;USA;1C3;2C3;3C3;;;Passenger;SP6
+Dodge;USA;1B3;2B3;1D7;3D7;;Passenger;SP6
+Jeep;USA;1J4;1J8;1C4;3C4;;SUV;SP6
+Ram;USA;1C6;3C6;3D7;;;Truck;SP6
+Plymouth;USA;1P3;2P4;;;;Passenger;SP2
+Eagle;USA;1J4;;;;;Passenger;SP2
+Saleen;USA;1S9;;;;;Sports;SP6
+Shelby;USA;1ZV;;;;;Sports;SP6
+Panoz;USA;1P8;;;;;Sports;SP6
+Hennessey;USA;1HE;;;;;Sports;SP6
+=== Hindistan ===;;;;;;;;
+Tata;India;MAT;MA6;;;;Passenger;SP6
+Mahindra;India;MA1;MA3;MAI;;;SUV;SP6
+Maruti Suzuki;India;MA3;MBH;;;;Passenger;SP6
+Ashok Leyland;India;MB1;;;;;Truck;SPA
+Force Motors;India;MCA;;;;;Commercial;SP6
+Bajaj;India;MD2;;;;;Microcar;SP3
+Ola Electric;India;MEO;;;;;EV;SP6
+=== Güneydoğu Asya ===;;;;;;;;
+Proton;Malaysia;PL1;MY1;;;;Passenger;SP6
+Perodua;Malaysia;PM2;;;;;Passenger;SP6
+Thaco;Vietnam;RLT;;;;;Commercial;SP6
+=== Avustralya ===;;;;;;;;
+Holden;Australia;6G1;6H8;;;;Passenger;SP6
+HSV;Australia;6H8;;;;;Sports;SP6
+FPV;Australia;6FP;;;;;Sports;SP6
+=== Güney Amerika ===;;;;;;;;
+Troller;Brazil;9BW;;;;;SUV;SP6
+Agrale;Brazil;9BY;;;;;Truck;SPA
+Marcopolo;Brazil;9BM;;;;;Bus;SPA
+=== Orta Doğu / Afrika ===;;;;;;;;
+W Motors;UAE;NM8;;;;;Luxury;SP6
+Kiira;Uganda;AAJ;;;;;EV;SP6
+Mobius;Kenya;ACK;;;;;SUV;SP6
+=== Ticari / Heavy Duty ===;;;;;;;;
+MAN;Germany;WMA;;;;;Truck;SPA
+DAF;Netherlands;XLR;;;;;Truck;SPA
+Volvo Trucks;Sweden;YV2;;;;;Truck;SPA
+Mercedes Trucks;Germany;WDB;;;;;Truck;SPA
+Kenworth;USA;1NK;1XK;;;;Truck;SPA
+Peterbilt;USA;1NP;1XP;;;;Truck;SPA
+Freightliner;USA;1FU;1FV;3AK;;;Truck;SPA
+International;USA;1HT;3HA;;;;Truck;SPA
+Mack;USA;1M1;1M2;;;;Truck;SPA
+Western Star;USA;5KJ;;;;;Truck;SPA
+Fuso;Japan;JL6;JLS;;;;Truck;SPA
+UD Trucks;Japan;JNA;;;;;Truck;SPA
+Sinotruk;China;LZZ;;;;;Truck;SPA
+=== Niche / Süper Sport ===;;;;;;;;
+Rimac;Croatia;VN5;;;;;EV Hypercar;SP6
+Karma;USA;7G2;;;;;EV;SP6
+Faraday Future;USA;5YF;;;;;EV;SP6
+Canoo;USA;5CA;;;;;EV;SP6
+Lordstown;USA;1LR;;;;;EV;SP6
+Bollinger;USA;7BM;;;;;EV;SP6
+Nikola;USA;7NK;;;;;EV Truck;SPA
+Mullen;USA;7MU;;;;;EV;SP6
+Pininfarina;Italy;ZFP;;;;;EV Hypercar;SP6
+Italdesign;Italy;ZID;;;;;Concept;SP6
+Spyker;Netherlands;XL9;;;;;Luxury;SP6
+Donkervoort;Netherlands;XL8;;;;;Sports;SP6
+Wey;China;LGW;;;;;SUV;SP6
+Arcfox;China;LAC;;;;;EV;SP6
+Denza;China;LGX;;;;;EV;SP6

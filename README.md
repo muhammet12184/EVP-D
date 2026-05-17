@@ -1,37 +1,77 @@
-# EVP-D: Electric Vehicle Parameter Database
+# ⚡ EVP-D: Araç PID Veritabanı (EV + ICE + Hybrid)
 
-## Overview
+Tüm araç türleri için OBD2 PID tanımları — Flutter uyumlu JSON formatında.
 
-This repository contains OBD-II PID (Parameter ID) definitions for various electric vehicles. These definitions are used for diagnostic purposes and monitoring battery health, state of charge, temperature, and other critical parameters.
+## 📁 Klasör Yapısı
 
-## Files
+```
+EVP-D/
+│
+├── 📂 data/
+│   ├── 📂 elektrikli/                ← Elektrikli araç PID'leri
+│   │   ├── ev_pids.json              (49 marka, 137 model, 2138 parametre)
+│   │   └── README.md
+│   │
+│   ├── 📂 benzinli_dizel_hibrit/     ← ICE + Hibrit araç PID'leri
+│   │   ├── obd2_pids.json            (14 marka, 123 gerçek OBD2 PID)
+│   │   └── README.md
+│   │
+│   └── 📂 csv/                       ← Ham CSV verileri
+│       ├── ev_all_in_one.csv
+│       ├── ev_unified_optimized.csv
+│       └── ev_unified_professional.csv
+│
+├── 📂 flutter/                       ← Flutter uygulaması için hazır dosyalar
+│   ├── 📂 assets/
+│   │   ├── ev_pids.json
+│   │   └── obd2_pids.json
+│   └── 📂 lib/models/
+│       ├── ev_pid_model.dart          (Dart model + EvPidDatabase sınıfı)
+│       └── obd2_pid_model.dart        (Dart model + Obd2PidDatabase sınıfı)
+│
+├── 📂 docs/                          ← Teknik dokümantasyon
+│   ├── FLUTTER_GUIDE.md
+│   ├── MIGRATION_GUIDE.md
+│   ├── OPTIMIZATION_REPORT.md
+│   └── SUMMARY.md
+│
+└── validate_data.py                  ← Veri doğrulama aracı
+```
 
-### Data Files
+## 📊 Veri Özeti
 
-- **`ev_unified_professional.csv`** - Original CSV format with all EV PID definitions
-  - 122 lines covering 16 different EV manufacturers/models
-  - Standard format: Name, Mode/PID, Equation, Min, Max, Units, Header
-  - Contains some missing data for newer vehicle models
+| Dosya | Marka | Model | Parametre |
+|-------|-------|-------|-----------|
+| `data/elektrikli/ev_pids.json` | 49 | 137 | 2138 |
+| `data/benzinli_dizel_hibrit/obd2_pids.json` | 14 | — | 123 |
 
-- **`ev_unified_optimized.csv`** - Optimized CSV format (NEW)
-  - Includes equation and common PID reference tables
-  - Reduces redundancy by ~40%
-  - Explicitly marks missing PIDs with TODO notes
-  - Easier to maintain and update
+## 🚗 Desteklenen Araç Türleri
 
-### Documentation
+- **Elektrikli (BEV):** Tesla, BMW, Mercedes, Audi, VW, Hyundai, Kia, Nissan, Renault, BYD, NIO, TOGG vd.
+- **Benzinli/Dizel:** Toyota, Honda, VW, BMW, Mercedes, Ford, Hyundai, Kia, Renault, Peugeot, Mazda, Nissan, Fiat, GM
+- **Hibrit (HEV/PHEV):** Toyota THS, Honda i-MMD/IMA, BMW PHEV, Mercedes PHEV, Ford PowerSplit, Renault E-Tech
 
-- **`OPTIMIZATION_REPORT.md`** - Detailed analysis of inefficiencies and improvements
-  - Identifies 18.4% empty fields in original data
-  - Documents missing Battery SOH PIDs for 12 vehicle models
-  - Shows repeated PIDs and equations (11-21 occurrences)
-  - Provides performance impact analysis
+## 📱 Flutter Entegrasyonu
 
-- **`MIGRATION_GUIDE.md`** - Guide for transitioning between formats
-  - Explains new reference table structure
-  - Provides parser implementation examples
-  - Shows backward compatibility conversion
-  - Includes verification steps
+`pubspec.yaml` dosyasına ekle:
+```yaml
+flutter:
+  assets:
+    - flutter/assets/ev_pids.json
+    - flutter/assets/obd2_pids.json
+```
+
+Kullanım:
+```dart
+import 'lib/models/ev_pid_model.dart';
+
+final db = await EvPidDatabase.loadFromAssets();
+final bmwVehicles = db.getVehiclesByBrand('BMW');
+```
+
+Detaylar için: [`docs/FLUTTER_GUIDE.md`](docs/FLUTTER_GUIDE.md)
+
+## Dosyalar
 
 ## Supported Vehicles
 
